@@ -1,0 +1,129 @@
+{
+    
+    "Welcome": {
+      "1": "Ambedkar Federation",
+      "2": "The formation of the ILP was not welcomed or supported by the communist leaders, who argued that it would lead to a split in the working-class votes. Ambedkar replied that communist leaders were working for the rights for the worker but not for the human rights of Dalit workers.[9] In his work Annihilation of Caste, Ambedkar put forth the idea that caste is not merely the 'division of labour' but 'division of labourers' based upon graded inequality.[10]",
+      "3": "I am footer"
+    },
+    "Page5": {
+      "1": "Join as Member",
+      "2": "Sign up to become a member and make a positive impact in your community and beyond. Let's collaborate to build a stronger Tamil Nadu, driven by the inclusive ideals of the Dravidian model.",
+      "3": "Join Now"
+    },
+    "Page6": {
+      "1": "People of IHAF",
+      "2": "About leaders in IHAF and how to apply for leadership selction based on certain qualification",
+      "3": "Apply to Serve"
+    },
+   "hello": {
+    "1" : "This party is purely about maintaining equal rights for people from poor society and family",
+    "2" : " People say about IHAF",
+    "3" : "Your petition for our help ",
+    "4" : "Thank you for taking the initiative to share your concerns about societal issues. Your input is essential in our mission to create positive change in our community",
+    "5" : "Your name ",
+    "6" : "Submit",
+    "7" : "Contact number",
+    "8" : "Your problem in detail",
+    "9" : "Address",
+    "10" : "Submit feedback",
+    "11" : "Empower yourself with the Ambedkar Party membership and together, we'll shape a brighter, more inclusive future.",
+    "12" : "Name",
+    "13" : "Feedback content",
+    "14" : "Submit feedback",
+    "15" : "Emergency for blood donor ?",
+    "16" : " Contact our 24/7  people support team from IHAF",
+    "17" : "Integral Humanism Ambedkar Federation",
+    "18" : "@copy rights reserved",
+    "19" : "Join us",
+    "20" : "Home",
+    "21" : "Social",
+    "22" : "Petition",
+    "23" : "Leaders",
+    "24" : "Feedback",
+    "25" : "Address",
+    "26" : "Anna Arivalayam, No 367/369, Anna Salai, Teynampet, Chennai - 600018. + (91) - 044- 24348258",
+    "27" : "Add attachments",
+    "28" : "Upload",
+    "29" : "Events",
+    "30" : "Event photo from admin",
+    "31" : "Apply to serve",
+    "32" : "Empower yourself with the Ambedkar Party membership and together, we'll shape a brighter, more inclusive future.",
+    "33" : "Name",
+    "34" : "Posting Location",
+    "35" : "Name of posting",
+    "36" : "Qualification",
+    "37" : "About",
+    "38" : "Why ?",
+    "39" : " The Unified Manithaneya Ambedkar Federation has been engaged in service and political awareness for the underprivileged sections of the society in all the districts of Tamil Nadu district president district secretary district treasurer executive committee members. The selected candidates will be appointed to promote social service in each district and those committees will be appointed in the categories such as social service education, economics, cultural etc. So the group members will be given a separate identity card to the group leaders they will be given identity cards and the district in-charges will be given identity cards and all members will be given a member identity card.",
+    "40" : "Integral Humanism Ambedkar Federation",
+    "41" : "Founding Principles",
+    "42" : "Achievingthe desired growth",
+    "43" : "Providing quality education to the underprivileged students in the poor and downtrodden communities, providing special training for night schools in every village and examinations like UPSC SCTC NPSC NEET, setting up of hostels for women working in cities, setting up of counselling centres in every district, setting up of houses for the elderly in every district, quality INDUSTRIAL TRAINING INSTITUTEs with government assistance in each panchayat union, conservation of ground water and implementation of the environment with government assistance, conservation of ground water and environment.",
+    "44" : "While our institution continues to strive to provide political empowerment and political awareness to the marginalised and the abandoned in a society, our institution will take care of the welfare of women, youth and the elderly and set up old age homes, vocational training institutes, night school coaching centres, etc., throughout the district."
+
+   },
+   "Navbar" :{
+    "1" : "Home",
+    "2":"Party",
+    "3":"people",
+    "4":"Login",
+    "5":"Jion us",
+    "6":"Donate"
+},
+"pageOne":{
+    "1":"INTEGRAL HUMANISM AMBEDKAR FEDERATION",
+    "2":"One should think in terms of the poor, because development can happen only when everyone gets equal",
+    "3":"If a vote for everyone is the touchstone of political democracy, work for everyone is a measure of economic democracy."
+},
+"pageThree":{
+    "1":"Social Media",
+    "2":"Discover the latest events, rallies, and initiatives under IHAF’S transformative leadership",
+    "3":"Facebook",
+    "4":"Youtube",
+    "5":"Twitter"
+},
+"JionMemberShip":{
+  "1":"JOIN MEMBERSHIP",
+  "2":"Empower yourself with the Ambedkar Party membership and together, we'll shape a brighter, more inclusive future.",
+  "3":"Name",
+  "4":"Gender",
+  "5":"Refferal code",
+  "6":"Adhare Number",
+  "7" :"Education",
+  "8":"Date of Birth",
+  "9":"Blood Group",
+  "10":"Religion",
+  "11":"Address",
+  "12":"Upload Adhara card",
+  "13":"Front side of Adhar only required",
+  "14":"Upload your photo",
+  "15":"Upload adhar",
+  "16":"Profile photo",
+  "17":"Join Now"
+},
+"Gender":{
+  "1":"Male",
+  "2":"FeMale",
+  "3":"Others"
+},
+"Aadhaar":{
+  "1":"Aadhaar Number",
+  "2":"Upload Adhara card",
+  "3":"FRONT SIDE OF ADHAR ONLY REQUIRED",
+  "4":"Upload adhar"
+},
+"Religion":{
+  "1":"Christianity",
+  "2":"Hinduism",
+  "3":"Islam",
+  "4":"Relgion"
+},
+"Address":{
+  "1":"Address",
+  "2":"state",
+  "3":"District",
+  "4":"Not Uploaded",
+  "5":"Uploaded"
+
+}
+}

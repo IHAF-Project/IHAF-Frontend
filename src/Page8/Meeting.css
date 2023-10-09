@@ -1,0 +1,236 @@
+.Meeting-container {
+    background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+    height: 100vh;
+}
+.Meeting-con-M {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    /* height: 12vh; */
+    flex-direction: row;
+    padding: 38px 0px 0px 0px;
+}
+.meeting-eve{
+    background-color: #FFF;
+    color: #000;
+    justify-content: center;
+    height: 6vh;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Poppins;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    width: 14rem;
+}
+.meeting-eve:hover{
+    background-color: #a9aefa;
+    color: white;
+}
+.meeting-events {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
+    font-size: 1rem;
+    border: none;
+    display: flex;
+    height: 6vh;
+    width: 14rem;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+  
+}
+.zoom-meet-design {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 36.846px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.code-text{
+    padding-left: 2vw;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.code-text:hover{
+    transform: scale(1.1);
+    
+}
+
+.zoom-meet-design-cont {
+    display: flex;
+    width: 68vw;
+    height: 51vh;
+    border-radius: 4px;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+}
+.Meeting-con-main {
+    display: flex;
+    padding: 4rem;
+    align-items: center;
+    flex-direction: column;
+}
+.meeting-cont-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.meeting-cont-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 42vw;
+    padding: 2rem;
+    flex-direction: row;
+}
+.zoom-meet-code {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22.108px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.zoom-link {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14.738px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.zoom-meeting-cont {
+    display: flex;
+    width: 66vw;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 1px solid white;
+    margin-top: 2rem;
+    justify-content: space-around;
+}
+.selected-tab {
+    background-color: white;
+    color: black; 
+  }
+  
+
+
+  .tab2-cont {
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    justify-content: center;
+    height: 33vh;
+    text-align: center;
+    display: flex;
+    font-style: normal;
+    width: 33vw;
+    align-items: center;
+    font-weight: 400;
+    border-radius: 8px;
+    background: #FFF;
+    line-height: normal;
+}
+.metting-tab2-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+
+@media screen and (max-width: 898px) {
+    .meeting-cont-btn{
+        width: auto;
+    }
+ .meeting-events{
+    width: 10rem;
+ }
+    .zoom-meet-design-cont {
+        display: flex;
+        width: 73vw;
+        height: 41vh;
+        border-radius: 4px;
+        background: #FFF;
+        justify-content: center;
+        align-items: center;
+    }
+    .zoom-meeting-cont {
+        width: 64vw; 
+        flex-direction: column;
+ 
+    }
+    .zoom-meet-design{
+        font-size: 1.5rem;
+    }
+ .meeting-eve{
+   width: 10rem;
+ }
+ .Meeting-container
+ {
+    height:80vh ;
+ }
+ .tab2-cont{
+    height: 28vh;
+    width: 36vw;
+ }
+
+}
+
+
+
+@media screen and (max-width: 496px) {
+    .meeting-cont-btn{
+        width: auto;
+    }
+    .meeting-eve{
+        width: 10rem;
+      }
+    .meeting-events{
+        width: 10rem;
+     }
+    .zoom-meet-design-cont {
+        display: flex;
+        width: 73vw;
+        height: 41vh;
+        border-radius: 4px;
+        padding: 0.5rem;
+        background: #FFF;
+        justify-content: center;
+        align-items: center;
+    }
+    .zoom-meeting-cont {
+        width: 64vw; 
+        flex-direction: column;
+ 
+    }
+    .zoom-meet-design{
+        font-size: 1.5rem;
+    }
+    .metting-tab2-cont {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .tab2-cont {
+        width: 100%;
+    }
+.Meeting-container {
+    height: auto;
+}
+}
+
+
+  

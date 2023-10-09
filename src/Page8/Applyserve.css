@@ -1,0 +1,253 @@
+.Applyserve-container {
+    background: #FFF;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+.Apply-serve-main {
+    border-radius: 21.741px;
+    border: 0.506px solid #000;
+    background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+}
+.apply-toserve-head {
+    color: #000;
+    font-family: Poppins;
+    font-size: 43.752px;
+    height: 3vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.apply-toserve-head-tamil{
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    height: 3vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.apply-content {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+}
+.apply-content-tamil{
+    color: #000;
+    font-family: Poppins;
+    width: 60vw;
+    font-size: 0.8rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+}
+.Apply-serve-main {
+    border-radius: 21.741px;
+    border: 0.506px solid #000;
+    background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+    width: 55vw;
+    padding: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+    height: 65vh;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+.apply-serve-name {
+    display: flex;
+    align-items: center;
+    width: 14vw;
+    margin-right: 2rem;
+    justify-content: space-between;
+
+}
+.apply-serve-cont {
+    display: flex;
+    width: 53vw;
+    align-items: center;
+}
+.serve-name {
+    width: 27vw;
+    height: 5vh;
+    border-radius: 2.263px;
+    color: #000;
+    font-size: 1.2rem;
+    background: #FFF;
+border: 0.754px solid #FFF;
+}
+.serve-name-P {
+    width: 20vw;
+    height: 5vh;
+    border-radius: 2.263px;
+    color: #000;
+    font-size: 1rem;
+    background: #FFF;
+border: 0.754px solid #FFF;
+}
+.serve-name-N {
+    width: 34vw;
+    height: 5vh;
+    border-radius: 2.263px;
+    color: #000;
+    font-size: 1rem;
+    background: #fff;
+border: 0.754px solid #FFF;
+}
+.serve-name-Q {
+    width: 22vw;
+    height: 5vh;
+    border-radius: 2.263px;
+    color: #000;
+    font-size: 1rem;
+    background: #fff;
+border: 0.754px solid #FFF;
+}
+
+.text-serve {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.text-serve-tamil{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.equalen{
+    color: #FFF;
+}
+.serve-joinNow{
+    color: #FFF;
+font-family: Poppins;
+font-size: 1rem;
+font-style: normal;
+width: 12rem;
+height: 2.5rem;
+letter-spacing: 1px;
+text-align: center;
+font-weight: 600;
+cursor: pointer;
+border: none;
+text-transform: uppercase;
+border-radius: 6.035px;
+background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
+}
+.serve-name-P-text{
+    color: #FFF;
+}
+.data5 select{
+    color: #000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 1rem;
+  appearance: none;
+  background-image: url('../images/Polygon\ 8\ \(1\).png'); /* Replace with your custom arrow icon */
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px) center;
+  padding-right: 30px; /* Adjust as needed to make space for the arrow */
+   background-size: 18px; 
+  
+  }
+
+  @media screen and (max-width: 1090px) {
+    .Apply-serve-main{
+        width: 84vw;
+    }
+    .apply-serve-cont{
+        width: 68vw;
+    }
+    .apply-serve-name{
+        width: 28vw;
+    }
+  }
+  @media screen and (max-width :904px) {
+    .apply-serve-cont{
+        flex-direction: column;
+       align-items: flex-start;
+    }
+    .serve-name{
+        width: 63vw;
+        margin-top: 1rem;
+
+    }
+    .serve-name-P{
+        width: 63vw;
+        margin-top: 1rem;
+      
+    }
+    .serve-name-N{
+        width: 63vw;
+        margin-top: 1rem;
+   
+    }
+    .serve-name-Q{
+        width: 63vw;
+        margin-top: 1rem;
+   
+    }
+    .Applyserve-container {
+        height: auto;
+    }
+    .Apply-serve-main{
+        width: 84vw;
+        height: 85vh;
+    }
+    .apply-serve-name{
+        width: 24vw;
+    }
+    .serve-joinNow{
+        margin-top: 2rem;
+    }
+    .equalen{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width:665px) {
+    .apply-serve-name {
+        width: 38vw;
+    }
+    .serve-joinNow{
+        margin-top: 2rem;
+    }
+    .equalen{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width:413px) {
+    .apply-serve-name {
+        width: 50vw;
+    }
+    .serve-joinNow{
+        margin-top: 2rem;
+    }
+    .apply-toserve-head-tamil{
+        height: auto;
+        padding-left: 1rem;
+        font-size: 1.2rem;
+    }
+    .apply-content-tamil{
+        width: auto;
+        padding-inline: 0.5rem;
+    }
+    .equalen{
+        display: none;
+    }
+  }
