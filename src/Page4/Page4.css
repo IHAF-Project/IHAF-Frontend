@@ -51,7 +51,7 @@ line-height: normal;
 .page4-main{
     border-radius: 117.738px 5.887px 0px 117.738px;
     width: 27rem;
-    height: auto;
+    height: 27vh;
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
 }
 .tamil-page4-p{
@@ -76,7 +76,7 @@ line-height: normal;
     line-height: normal;
 }
 .page4-image2 {
-  width: 11rem;
+  width: 13rem;
     height: auto;
 }
 .page4-main-C{
@@ -112,7 +112,7 @@ background: rgba(255, 255, 255, 0.61);
 .page4-p-by{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
    
 }
 .page4-by {
