@@ -289,7 +289,7 @@ justify-content: center;
     height: 92vh;
   }
   .page4-container {
-    height: 68vh;
+    height: auto;
   }
   .container-5 {
     height: 70vh;
