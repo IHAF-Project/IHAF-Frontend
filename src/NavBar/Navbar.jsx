@@ -13,7 +13,7 @@ import profile4 from '../Assets/User (1).svg'
 // import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import logo from "../images/logo.png"
+import logo from "../images/IHAF ORGINAL LOGO 1.png"
 
 const Navbar = () => {
   

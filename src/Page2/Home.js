@@ -1,6 +1,6 @@
 import React, { useRef,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import logo from "../images/logo.png"
+import logo from "../images/IHAF ORGINAL LOGO 1.png"
 import './Home.css'; 
 
 const Home = () => {
