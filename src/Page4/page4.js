@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { gsap } from 'gsap';
 
-import image2 from '../images/modiji.jpg';
+import image2 from '../images/women.jpg';
 
 import image3 from '../images/amitcha.jpg';
 
