@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import { gsap } from 'gsap';
 
-import image2 from '../images/Ellipse 5 (1).png';
+import image2 from '../images/modiji.jpg';
 
-import image3 from '../images/Ellipse 5 (2).png';
+import image3 from '../images/amitcha.jpg';
 
-import image4 from '../images/Ellipse 5.png';
+import image4 from '../images/annamalai-bjp-1.jpeg';
 
 import image1 from '../images/Arrow 1 (1).png';
 
@@ -92,7 +92,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+            <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -124,7 +124,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -156,7 +156,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
@@ -192,7 +192,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -224,7 +224,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -256,7 +256,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
@@ -298,7 +298,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -330,7 +330,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -362,7 +362,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
@@ -398,7 +398,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -430,7 +430,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -462,7 +462,7 @@ const Page4 = () => {
 
           <div className='page4-main-C1'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
