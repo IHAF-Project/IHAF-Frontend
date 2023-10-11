@@ -2,7 +2,7 @@
 
   width: 100%;
 
-  height: 100vh;
+  height: 71vh;
 
   overflow: hidden;
 
@@ -390,19 +390,7 @@ background: rgba(255, 255, 255, 0.61);
   height: auto;
 
 }
-.img-cover4 {
-  width: 372px;
-  height: 170px;
-  border-radius: 50%;
-  overflow: hidden;
-}
 
-.page4-image2 {
-  width: 100%; /* Make the image fill the parent container */
-  height: 100%; /* Make the image fill the parent container */
-  object-fit: cover; /* Crop the image to cover the container */
-  border-radius: 50%; /* Match the parent's circular shape */
-}
 
 }
 
@@ -488,19 +476,6 @@ background: rgba(255, 255, 255, 0.61);
 
     height: 11rem;
 
-  }
-  .img-cover4 {
-    width: 372px;
-    height: 170px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .page4-image2 {
-    width: 100%; /* Make the image fill the parent container */
-    height: 100%; /* Make the image fill the parent container */
-    object-fit: cover; /* Crop the image to cover the container */
-    border-radius: 50%; /* Match the parent's circular shape */
   }
 
 }
