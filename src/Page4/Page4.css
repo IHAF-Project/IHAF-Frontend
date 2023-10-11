@@ -17,8 +17,21 @@
   background-size: cover;
 
 }
+.img-cover4 {
+  width: 372px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
- 
+.page4-image2 {
+  width: 100%; /* Make the image fill the parent container */
+  height: 100%; /* Make the image fill the parent container */
+  object-fit: cover; /* Crop the image to cover the container */
+  border-radius: 50%; /* Match the parent's circular shape */
+}
+
+
 
  
 
@@ -152,13 +165,7 @@ line-height: normal;
 
 }
 
-.page4-image2 {
 
-  width: 11rem;
-
-    height: auto;
-
-}
 
 .page4-main-C{
 
@@ -299,7 +306,19 @@ background: rgba(255, 255, 255, 0.61);
   width: 35vw;
 
 }
+.img-cover4 {
+  width: 372px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
+.page4-image2 {
+  width: 100%; /* Make the image fill the parent container */
+  height: 100%; /* Make the image fill the parent container */
+  object-fit: cover; /* Crop the image to cover the container */
+  border-radius: 50%; /* Match the parent's circular shape */
+}
  
 
 }
@@ -370,6 +389,19 @@ background: rgba(255, 255, 255, 0.61);
 
   height: auto;
 
+}
+.img-cover4 {
+  width: 372px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.page4-image2 {
+  width: 100%; /* Make the image fill the parent container */
+  height: 100%; /* Make the image fill the parent container */
+  object-fit: cover; /* Crop the image to cover the container */
+  border-radius: 50%; /* Match the parent's circular shape */
 }
 
 }
@@ -456,6 +488,19 @@ background: rgba(255, 255, 255, 0.61);
 
     height: 11rem;
 
+  }
+  .img-cover4 {
+    width: 372px;
+    height: 170px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .page4-image2 {
+    width: 100%; /* Make the image fill the parent container */
+    height: 100%; /* Make the image fill the parent container */
+    object-fit: cover; /* Crop the image to cover the container */
+    border-radius: 50%; /* Match the parent's circular shape */
   }
 
 }
