@@ -110,7 +110,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Sonamvard</p>
 
               </div>
 
@@ -142,7 +142,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Bahathvar</p>
 
               </div>
 
@@ -174,7 +174,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Sumath</p>
 
               </div>
 
@@ -210,7 +210,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Hardson</p>
 
               </div>
 
