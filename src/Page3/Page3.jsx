@@ -19,6 +19,14 @@ const Page3 = () => {
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
+
+  useEffect (() => {
+    const intervel = setTimeout(()=>{
+      const active = (activeTab + 1) % 3
+      setActiveTab(active)
+    },6000)
+    return () =>clearInterval(intervel)
+  })
 //animaton for scrolling to reach the current page
 useEffect(() => {
   const observer = new IntersectionObserver((entries) => {
@@ -68,7 +76,7 @@ useEffect(() => {
      <div className='social-page-btm'>
       <div className="tabs">
           <div   className={`hidden-3  tab  ${activeTab === 0 ? 'Tabactive ' : ''}`}  onClick={() => handleTabClick(0)}> 
-          <div className='youtube-box hidden-3'>
+          <div className='youtube-box '>
          <p>{currentLanguage === 'ta' ? t('pageThree.4') : t('Youtube')}</p>
          <img src={youtube} alt='youtube' />
          </div>
@@ -77,7 +85,7 @@ useEffect(() => {
           className={`hidden-4 tab ${activeTab === 1 ? 'Tabactive' : ''}`}
           onClick={() => handleTabClick(1)}
         >
-       <div className='facebook-box hidden-4'>
+       <div className='facebook-box'>
       <p> {currentLanguage === 'ta' ? t('pageThree.3') : t('Instagram')}</p>
        <img src={facebook} alt='facebook' />
       </div>
@@ -86,7 +94,7 @@ useEffect(() => {
           className={`hidden-5 tab ${activeTab === 2 ? 'Tabactive' : ''} `  }
           onClick={() => handleTabClick(2)}
         >
-          <div className='twitter-box hidden-5'>
+          <div className='twitter-box '>
     <p>{currentLanguage === 'ta' ? t('pageThree.5') : t('Twitter')}</p>
      <img src={twitter} alt='twitter' />
           </div>
