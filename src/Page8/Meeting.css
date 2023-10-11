@@ -24,10 +24,6 @@
     font-size: 1rem;
     width: 14rem;
 }
-.meeting-eve:hover{
-    background-color: #a9aefa;
-    color: white;
-}
 .meeting-events {
     color: #FFF;
     text-align: center;
@@ -57,14 +53,7 @@
 }
 .code-text{
     padding-left: 2vw;
-    cursor: pointer;
-    transition: transform 0.3s ease;
 }
-.code-text:hover{
-    transform: scale(1.1);
-    
-}
-
 .zoom-meet-design-cont {
     display: flex;
     width: 68vw;
@@ -179,14 +168,6 @@
  .meeting-eve{
    width: 10rem;
  }
- .Meeting-container
- {
-    height:80vh ;
- }
- .tab2-cont{
-    height: 28vh;
-    width: 36vw;
- }
 
 }
 
@@ -227,9 +208,8 @@
     .tab2-cont {
         width: 100%;
     }
-.Meeting-container {
-    height: auto;
-}
+
+
 }
 
 

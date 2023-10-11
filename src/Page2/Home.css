@@ -119,7 +119,7 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
     }
     .part2-2 {
         width: 100vw;
-        height: 55vh;
+        height: 70vh;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
@@ -150,7 +150,7 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
         display: none;
     }
     .container-2{
-        height: 72vh;
+        height: 82vh;
     }
 
 }
@@ -172,7 +172,7 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
        
     }
     .part2-2 p{
-        font-size: 2.5vw;
+        font-size: 2.6vw;
     }
     .part3-2 img {
         width: 41vw;

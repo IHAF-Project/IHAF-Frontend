@@ -1,6 +1,6 @@
 import React, { useRef,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import logo from "../images/IHAF ORGINAL LOGO 1.png"
+
 import './Home.css'; 
 
 const Home = () => {
@@ -48,7 +48,7 @@ const Home = () => {
             <p className={`det-2 ${isTamilLanguage ? 'tamil18-font2' : ''}`}>{t('Welcome.2')}</p>
           </div>
           <div className='hidden-1 right-logo-2'>
-            <img src={logo} alt="MyImage" />
+            <img src="\images\MicrosoftTeams-image (22).png" alt="MyImage" />
           </div>
         </div>
         <div className='part3-2'>

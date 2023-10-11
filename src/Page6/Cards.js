@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
-import ar from '../imgg/Frame 247.png'
 const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
@@ -13,7 +12,7 @@ const Cards = () => {
             <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>
            
             <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>
-            <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.2vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon'></img></button>
+            <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.2vw' : '' }}>{t('Page6.3')} <img src='\images\Up arrow.png' alt='icon'></img></button>
         </div>
         
 <div className='main-right6'>

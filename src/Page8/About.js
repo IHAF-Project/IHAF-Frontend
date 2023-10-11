@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import image1 from "../images/IHAF ORGINAL LOGO 1.png";
+import image1 from "../images/MicrosoftTeams-image 1.png";
 import "./About.css";
 import SplitType from 'split-type';
 import { gsap } from 'gsap';

@@ -13,14 +13,13 @@ import profile4 from '../Assets/User (1).svg'
 // import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import logo from "../images/IHAF ORGINAL LOGO 1.png"
+
+
 
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
-
-
   const handleClickPop = () => {
     setIsPop(!isPop);
   };
@@ -35,6 +34,7 @@ const Navbar = () => {
     const currentLanguage = i18n.language; 
     const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
     i18n.changeLanguage(newLanguage);
+   
  }
 
  const currentLanguage = i18n.language;
@@ -60,10 +60,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src= {logo} alt="Logo" />
+        <img src= "\images\MicrosoftTeams-image (22).png" alt="Logo" />
         <div className='nav-don'>
-        <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
-        <Link className='hovjoin' to='/login' ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+        <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
+        <Link to='/login' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
      
         </div>
          </div>
@@ -89,15 +89,15 @@ const Navbar = () => {
         <a href="https://www.facebook.com" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
       </div>
       <div className='translate-btn-1'>
-        <button>
-        <div className="toggle-container"  onClick={toggleLanguage}>
+        <button onClick={toggleLanguage}>
+        <div className="toggle-container">
         <input type="checkbox" className='toggle'/>
         <div className="slider round"></div>
      </div>
         </button>
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
-        <button  className='hov' onClick={handleClickPop}>
+        <button onClick={handleClickPop}>
           <p className={`${tamilLanguage ? 'Navbar-login-tamil' : 'Navbar-login-english'}`}>
           <Link to='/login' style={{textDecoration:'none' ,color:'white'}}>{currentLanguage === 'ta' ?  t('Navbar.4'): t('Log In')}</Link>
           </p>

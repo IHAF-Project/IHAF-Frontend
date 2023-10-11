@@ -29,7 +29,7 @@
 .part1-5{
 
     width: 100%;
-    height: 12vh;
+    height: 6vh;
     display: flex;
     overflow-x: hidden;
     flex-direction: row;
@@ -120,9 +120,6 @@
     font-size: 1vw;
     margin-top: 5vh;
 }
-.right-5 button:hover{
-    background: linear-gradient(270deg, #fd2626 1.91%, #ff1111 99.81%), #E6E6E6;
-}
 .right-5 img{
     width: 2.5vw;
     height: auto;
@@ -187,7 +184,7 @@
         justify-content: center;
     }
     .right-5 p{
-        font-size: 2.5vw;
+        font-size: 3vw;
     }
     .right-5 button{
         width: 46vw;

@@ -1,5 +1,5 @@
 import {useRef } from 'react';
-import logo from '../Assets/MicrosoftTeams-image 1 (3).svg'
+import logo from '../../assets/MicrosoftTeams-image 1 (3).svg'
 import { PropTypes } from 'prop-types';
 
 function MembershipCard({ name,MemberID,DateOfJoining }) {

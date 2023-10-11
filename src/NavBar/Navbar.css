@@ -124,35 +124,6 @@ align-items: center;
 border: none;
 border-radius: 5.282px;
 background: #356DFF;
-transition: background-color 0.3s ease;
-
-}
-.hovdon{
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.hovdon:hover{
-  color: #ffffff;
-  background-color: #e5a603;
-}
-.hovjoin{
-  transition: background-color 0.3s ease;
-  text-decoration:none ;
-  
-  padding:0.5em;
-  background:10rem;
-  background-color:white;
-  text-align:center;
-  margin:'0';
-  border-radius: 2rem;
-}
-.hovjoin:hover{
-  color: #ffffff;
-  background-color: #df0505;
-}
-.hov:hover{
-  
-  background-color: #4e970a;
 }
 :is(.Navbar-login-tamil ,.Navbar-login-english){
   color: #FFF;
@@ -286,7 +257,7 @@ height: 30px;
   text-align: center;
   padding-block: 0.5rem;
   pointer-events: none;
- 
+  user-select: none;
 }
 
 .toggle-container input {
@@ -372,9 +343,9 @@ input:checked + .slider:after {
 .navbar-links{
   gap:0.8em;
 }
-/* :is(.navbar-logo p ,.navbar-logo span){
+:is(.navbar-logo p ,.navbar-logo span){
   margin-inline: 1em;
-} */
+}
 :is(.navbar-login ,.translate-btn-1 ,.navbar-content){
   padding-inline-end: 1em;
 }
@@ -384,10 +355,10 @@ input:checked + .slider:after {
   :is(.navbar-login ,.translate-btn-1 ,.navbar-content){
       padding-inline-end: 0;
   }
-  .navbar-logo img {
-    width: 63px;
-    height: auto;
-}
+  .navbar-logo img{
+      width: 80px;
+      height: 80px;
+  }
   .navbar-logo{
     gap: 0;
     width: auto;
@@ -452,9 +423,6 @@ input:checked + .slider:after {
   }
   :is(.navbar-login ,.navbar-social){
       padding-inline-start: 20px;
-  }
-  .navbar{
-    justify-content: space-between;
   }
 }
 @media screen and (max-width:600px) {

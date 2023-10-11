@@ -213,6 +213,7 @@ text-transform: uppercase;
 }
 .intro-slide-content-quates p{
 color: #0c0000;
+
 }
 .intro-slide-content-quates-1 p{
     color: #ffe5e5;
@@ -311,10 +312,7 @@ color: #0c0000;
     }
     .navbar-logo img {
         width: auto;
-        height: 72px;
-}
-.container-2{
-  height: 80vh;
+        height: 102px;
 }
     .intro-slide-content-right-btm img{
         display: none;
