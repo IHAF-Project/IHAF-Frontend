@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import { gsap } from 'gsap';
 
-import image2 from '../images/Ellipse 5 (1).png';
+import image2 from '../images/women.jpg';
 
-import image3 from '../images/Ellipse 5 (2).png';
+import image3 from '../images/amitcha.jpg';
 
-import image4 from '../images/Ellipse 5.png';
+import image4 from '../images/annamalai-bjp-1.jpeg';
 
 import image1 from '../images/Arrow 1 (1).png';
 
@@ -92,7 +92,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+            <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -110,7 +110,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Sonamvard</p>
 
               </div>
 
@@ -124,7 +124,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -142,7 +142,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Bahathvar</p>
 
               </div>
 
@@ -156,7 +156,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
@@ -174,7 +174,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Sumath</p>
 
               </div>
 
@@ -192,7 +192,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image2} alt='' className='page4-image2' />
 
@@ -210,7 +210,7 @@ const Page4 = () => {
 
                 <p className='by'>by</p>
 
-                <p>Rajinikanth</p>
+                <p>Hardson</p>
 
               </div>
 
@@ -224,7 +224,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image3} alt='' className='page4-image2' />
 
@@ -256,7 +256,7 @@ const Page4 = () => {
 
           <div className='page4-main-C'>
 
-            <div>
+          <div className='img-cover4'>
 
               <img src={image4} alt='' className='page4-image2' />
 
@@ -290,210 +290,7 @@ const Page4 = () => {
 
  
 
-      <div className='page4-main-cont1'>
-
-        <div className='logos-slide1'>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image2} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image3} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image4} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className='logos-slide1'>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image2} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image3} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className='page4-main'>
-
-          <div className='page4-main-C1'>
-
-            <div>
-
-              <img src={image4} alt='' className='page4-image2' />
-
-            </div>
-
-            <div className='page4-p-by'>
-
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-
-                {t('hello.1')}
-
-              </p>
-
-              <div className='page4-by'>
-
-                <p className='by'>by</p>
-
-                <p>Rajinikanth</p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      </div>
-
+     
     </div>
 
   );
