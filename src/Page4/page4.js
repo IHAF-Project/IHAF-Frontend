@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
 import image2 from '../images/women.jpg';
 

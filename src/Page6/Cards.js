@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
 import ar from '../imgg/Frame 247.png'
