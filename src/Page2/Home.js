@@ -11,9 +11,6 @@ const Home = () => {
   const isTamilLanguage = i18n.language === 'ta';
 
 
-
-
-
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
