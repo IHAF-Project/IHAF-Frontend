@@ -54,7 +54,7 @@ const Join = () => {
                             {t('Page5.2')}
                         </p>
                         <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
-                            <img src='\images\page5-icon.png' alt='icon'></img>
+                           
                             {t('Page5.3')}
                         </button>
                     </div>

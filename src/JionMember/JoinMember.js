@@ -1,7 +1,7 @@
 import React, { Fragment ,useState,useRef} from 'react'
 import Ambeth from "../Assets/Ambeth.svg"
 import Navbar from '../NavBar/Navbar'
-import "./JionMember.css"
+import "./JoinMember.css"
 import polygon from "../Assets/Polygon 6.svg"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
