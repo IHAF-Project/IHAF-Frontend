@@ -10,7 +10,7 @@ function TabContent3() {
       <p> {currentLanguage === 'ta' ? t('pageThree.2') : t('Discover the latest events, rallies, and initiatives under IHAF’S transformative leadership')}</p>
       </div>
       <div className="Tab-content1-bt">
-     
+      <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
       <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
       <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
       </div>
