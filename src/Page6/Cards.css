@@ -156,11 +156,12 @@ justify-content: center;
 }
 .card6 .content6 {
   display: flex;
+  align-items: center;
   color: #fff;
 }
 .wrapper .card6 .img6 {
   height: 28vh;
-  width: 17vw;
+  width: 16vw;
   border: #fff;
   /* background-color: #fff; */
   border-radius: 50%;
@@ -194,7 +195,7 @@ justify-content: center;
 .card6 .left6 .details6{
     font-size: 1.2vw;
     width: 27vw;
-    margin-top: 4vh;
+    /* margin-top: 4vh; */
    
 }
 .card6 .left6 .name6 {
@@ -259,7 +260,7 @@ justify-content: center;
 .card6 .left6 .details6 {
   font-size: 2.2vw;
   width: 48vw;
-  margin-top: 2vh;
+
 }
 .wrapper .card6 .img6{
   height: 18vh;
