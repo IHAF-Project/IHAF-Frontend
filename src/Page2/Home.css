@@ -27,6 +27,9 @@
     align-items: center;
     justify-content: space-between;
   }
+  .text-box{
+    height: 2vh;
+  }
 
 .part2-2{
     width: 100%;
