@@ -75,7 +75,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
 }
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 129px;
+    width: 107px;
     height: auto;
     align-items: center;
     justify-content: space-around;
@@ -171,8 +171,10 @@ text-transform: capitalize;
     .social-page-tp img{
         width: 65%;
     }
-    .tabs{
-        flex-direction: column;
+    .tabs {
+        flex-direction: row;
+        width: 100vw;
+        justify-content: center;
     }
    :is(.social-page-btm-con,.social-page-btm,.tab-content,.tab-bg,.Tab-content1){
     height: auto;
@@ -206,7 +208,7 @@ text-transform: capitalize;
     }
     .Tab-content1-tp p {
         
-        padding-inline: 2rem;
+        padding-inline: 1rem;
         padding-block: 0.5rem;
         width: 300px;
         font-size: 12.998px;

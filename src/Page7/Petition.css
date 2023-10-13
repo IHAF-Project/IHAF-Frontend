@@ -97,6 +97,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal; 
+    width: 91vw;
 }
 .petition-input-cont {
     display: flex;
@@ -301,7 +302,7 @@ line-height: normal;
         line-height: normal;
     }
     .petition-7-btn-tamil{
-        width: 48vw;
+        width: 39vw;
         font-size: 2.8vw;
     }
     .page-4-image-text {
@@ -357,10 +358,15 @@ line-height: normal;
     .input-address-petition {
         width: 69vw;
     }
-    .input-audio-petition{
+    .input-audio-petition {
         width: 0vh;
+        padding-top: 3vh;
     }
     .file-upload-petition{
         padding-block: 0vh
     }
+    .page7-input-container{
+        padding-top: 2vh;
+    }
+    
 }

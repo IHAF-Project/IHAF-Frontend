@@ -121,12 +121,10 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
         justify-content: end;
     }
     .part2-2 {
-        width: 100vw;
-        height: 55vh;
-        display: flex;
         flex-direction: column-reverse;
-        align-items: center;
+        height: auto;
         justify-content: space-evenly;
+        padding-bottom: 4vh;
     }
     .right-logo-2 {
         width: 44vw;
@@ -152,8 +150,9 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
     .part3-2{
         display: none;
     }
-    .container-2{
-        height: 72vh;
+    .container-2 {
+        height: auto;
+        padding-bottom: 3vh;
     }
 
 }

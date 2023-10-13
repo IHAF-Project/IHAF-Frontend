@@ -278,10 +278,11 @@ justify-content: center;
   width: 5vw;
 }
 .title-6 {
-  font-size: 3vw;
-  width: 28vw;
+  font-size: 7vw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
-
 }
 @media screen and (max-width: 912px) {
   .main6{
@@ -297,10 +298,10 @@ justify-content: center;
   }
   .main-left6 {
     width: 100vw;
-    height: 18vh;
+    height: 19vh;
     margin-inline-start:0vh;
     flex: none;
-    gap:16px;
+    gap:11px;
     align-items: center;
 
   }
@@ -340,7 +341,7 @@ justify-content: center;
 }
 .card6 .left6 .name6
 {
-  font-size: 5vw;
+  font-size: 3vw;
 }
 .left6{
   width: 51vw;
