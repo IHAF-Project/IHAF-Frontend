@@ -1,551 +1,247 @@
 .page4-container {
-
   width: 100%;
-
-  height: 62vh;
-
+  height: 100vh;
   overflow: hidden;
-
   background-image: url("../imgg/image\ 37\ \(1\).png");
-
   background-size: 100% ;
-
   background-repeat: no-repeat;
-
   background-position: center;
-
   background-size: cover;
-
-}
-.img-cover4 {
-  width: 372px;
-  height: 170px;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
-.page4-image2 {
-  width: 100%; /* Make the image fill the parent container */
-  height: 100%; /* Make the image fill the parent container */
-  object-fit: cover; /* Crop the image to cover the container */
-  border-radius: 50%; /* Match the parent's circular shape */
-}
-
-
-
- 
 
 .page4-image1{
-
     width: 70vw;
-
     height: 1rem;
-
 }
-
 .tamil-page-4-btn{
-
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
-
     color: #FFF;
-
     font-family: Poppins;
-
     width: 30vw;
-
     height: 4rem;
-
     font-size: 1rem;
-
     border: none;
-
     font-style: normal;
 
- 
-
     line-height: normal;
-
 }
-
 .page-4-btn{
-
    
-
   background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
-
 color: #FFF;
-
 font-family: Poppins;
-
 width: 25vw;
-
 height: 3.2rem;
-
 font-size: 1.2rem;
-
 border: none;
-
 font-style: normal;
-
 border-radius: 2px;
-
 line-height: normal;
-
 }
-
 .page-4-image-text {
-
   display: flex;
-
   justify-content: space-between;
-
   padding-top: 2rem;
-
   margin-bottom: 2rem;
-
   align-items: center;
-
   gap: 2rem;
-
   padding-right: 2rem;
-
 }
-
 .page4-main{
-
     border-radius: 117.738px 5.887px 0px 117.738px;
-
     width: 27rem;
-
     height: auto;
-
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
-
 }
-
 .tamil-page4-p{
-
     color: #FFF;
-
     text-align: start;
-
     font-family: Poppins;
-
    font-size: 12px;
-
     font-style: normal;
-
     white-space: normal;
-
     font-weight: 600;
-
     line-height: normal;
-
 }
-
- 
 
 .page4-p {
-
     color: #FFF;
-
     text-align: start;
-
     font-family: Poppins;
-
     white-space: normal;
-
     font-size: 12px;
-
     font-style: normal;
-
     font-weight: 500;
-
     line-height: normal;
-
 }
-
-
-
+.page4-image2 {
+  width: 11rem;
+    height: auto;
+}
 .page4-main-C{
-
     display: flex;
-
     gap: 0.8rem;
-
     flex-direction: row;
-
     justify-content: space-between;
-
 }
-
 .page4-main-C1{
-
   display: flex;
-
   gap: 0.8rem;
-
   flex-direction: row;
-
   justify-content: space-between;
-
 }
-
 .page4-main-cont{
-
     display: flex;
-
     padding: 2rem;
-
     gap: 1.3rem;
-
  overflow-x: hidden;
-
  background: rgba(255, 255, 255, 0.61);
-
     flex-wrap: nowrap;
-
     flex-direction: row;
-
 }
-
 .page4-main-cont1{
-
   display: flex;
-
   padding: 2rem;
-
   gap: 1.3rem;
-
 overflow-x: hidden;
-
 background: rgba(255, 255, 255, 0.61);
-
   flex-wrap: nowrap;
-
   flex-direction: row;
-
 }
-
 .page4-p-by{
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
    
-
 }
-
 .page4-by {
-
     text-align: end;
-
     padding-right: 2rem;
-
 }
-
 .by{
-
     color: #FFF;
-
     font-family: Racing Sans One;
-
     font-size: 1rem;
-
     font-style: normal;
-
     font-weight: 400;
-
-    line-height: normal;
-
+    line-height: normal; 
 }
-
 .page4-by p{
-
     color: #FFF;
-
     font-family: Racing Sans One;
-
     font-size: 1rem;
-
     font-style: normal;
-
     font-weight: 400;
-
-    line-height: normal;
-
+    line-height: normal; 
 }
-
- 
 
 @media screen and (max-width: 968px) {
-
+  .page4-main-cont1{
+    padding: 0;
+  }
   .page4-image1 {
-
-    width: 66vw;
-
+    width: 46vw;
     height: 1rem;
-
 }
-
 .page-4-btn{
-
   font-size: 1rem;
-
   width: 35vw;
-
 }
-
 .tamil-page-4-btn{
-
   font-size: 0.8rem;
-
   width: 35vw;
-
 }
-.img-cover4 {
-  width: 372px;
-  height: 170px;
-  border-radius: 50%;
-  overflow: hidden;
+.page4-container{
+  height: auto;
+  background: none;
 }
-
-.page4-image2 {
-  width: 100%; /* Make the image fill the parent container */
-  height: 100%; /* Make the image fill the parent container */
-  object-fit: cover; /* Crop the image to cover the container */
-  border-radius: 50%; /* Match the parent's circular shape */
 }
- 
-
-}
-
- 
 
 @media screen and (max-width: 550px) {
-
   .page4-p{
-
     font-size: 0.8rem;
-
   }
-
   .tamil-page4-p{
-
     font-size: 0.6rem;
-
   }
-
   .page4-by p{
-
     font-size: 0.8rem;
-
   }
-
   .page4-main-cont{
-
     padding: 1rem;
-
   }
-
   .page-4-btn {
-
     width: 53vw;
-
   }
-
   .tamil-page-4-btn{
-
     width: 53vw;
-
     font-size: 0.8rem;
-
   }
-
   .page4-main {
-
     border-radius: 117.738px 5.887px 0px 117.738px;
-
     width: auto;
-
     height: auto;
-
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
-
 }
-
 .page4-image2 {
-
   width: 11rem;
-
   height: auto;
-
 }
-
 .page4-container{
-
   height: auto;
-
+}
+.page4-p-by{
+  width: 12rem;
+}
+.page4-main-cont1{
+  padding: 0;
+}
 }
 
-
-}
-
-/* @media screen and (max-width : 1025px) {
-
-  .page4-image2 {
-
-    width: 9rem;
-
-    height: auto;
-
+@media screen and (max-width:1024px) {
+  
+  .page4-main-cont1{
+    padding: 0;
   }
-
- 
-
-} */
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-@keyframes slide {
-
-  from {
-
-    transform: translateX(0);
-
-  }
-
-  to {
-
-    transform: translateX(-100%);
-
-  }
-
 }
 
- 
 
-.page4-main-cont {
 
-  overflow: hidden;
 
-  flex-direction: row;
-
-  white-space: nowrap;
-
-  position: relative;
-
+.scroller {
+  width: 100%;
 }
 
- 
-
-.logos-slide {
-
-  flex-direction: row;
-
+.scroller__inner {
+  padding-block: 1rem;
   display: flex;
-
+  flex-wrap: wrap;
   gap: 1rem;
-
-  animation: 15s slide infinite linear;
-
 }
 
- 
-
-@media screen and (max-width:570px) {
-
-  .page4-main-C{
-
-    width: 24rem;
-
-    height: 11rem;
-
-  }
-
-}
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-@keyframes slide1 {
-
-  from {
-
-    transform: translateX(-100%);
-
-  }
-
-  to {
-
-    transform: translateX(0);
-
-  }
-
-}
-
- 
-
-.page4-main-cont1 {
-
+.scroller[data-animated="true"] {
   overflow: hidden;
-
-  flex-direction: row;
-
-  white-space: nowrap;
-
-  position: relative;
-
 }
 
- 
-
-.logos-slide1 {
-
-  flex-direction: row;
-
-  display: flex;
-
-  gap: 1rem;
-
-  animation: 15s slide1 infinite linear;
-
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 50s)
+    var(--_animation-direction, forwards) linear infinite;
 }
 
- 
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
 
-@media screen and (max-width:570px) {
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
 
-  .page4-main-C1{
-
-    width: 24rem;
-
-    height: 11rem;
-
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
   }
-
 }
+

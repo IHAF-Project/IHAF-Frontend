@@ -1,5 +1,7 @@
 /* Style for the Scroll to Top button */
-
+.container{
+  overflow: hidden;
+}
   .scroll-to-top-btn img {
     display: none;
     height: auto;
