@@ -37,7 +37,7 @@ const Join = () => {
     }, []); 
     return (
         <div>
-            <div className={`container-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
+            <div className={`-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
                 <div className='part1-5'>
                     <p className={`hidden-9 title-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
                         {t('Page5.1')}

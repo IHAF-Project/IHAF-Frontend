@@ -1,57 +1,57 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
-import image2 from '../images/Ellipse 5 (1).png';
-import image3 from '../images/Ellipse 5 (2).png';
-import image4 from '../images/Ellipse 5.png';
+import image2 from '../images/MicrosoftTeams-image (19).png';
+import image3 from '../images/MicrosoftTeams-image (19).png';
+import image4 from '../images/MicrosoftTeams-image (21).png';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 
 const Page4 = () => {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  useEffect(() => {
+    setCurrentLanguage(i18n.language);
+  }, [i18n.language]);
 
-  
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting ) {
+        if (entry.isIntersecting) {
           entry.target.classList.toggle('show');
           observer.unobserve(entry.target);
         }
       });
     });
-      const hiddenElements = document.querySelectorAll('.hidden-7');
-      hiddenElements.forEach((el) => observer.observe(el));
 
-      const hiddenElements1 = document.querySelectorAll('.hidden-8');
-      hiddenElements1.forEach((el) => observer.observe(el));
-      
-      return () => {
-        hiddenElements.forEach((el) => observer.unobserve(el));
-       hiddenElements1.forEach((el) => observer.unobserve(el));
-      };
-    }, []); 
+    const hiddenElements = document.querySelectorAll('.hidden-7');
+    hiddenElements.forEach((el) => observer.observe(el));
 
-    useEffect(() => {
-      const scrollers = document.querySelectorAll('.scroller');
-  
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        addAnimation();
-      }
-      function addAnimation() {
-        scrollers.forEach((scroller) => {
-          scroller.setAttribute('data-animated', true);
-          const scrollerInner = scroller.querySelector('.scroller__inner');
-          const scrollerContent = Array.from(scrollerInner.children);
-          scrollerContent.forEach((item) => {
-            const duplicatedItem = item.cloneNode(true);
-            duplicatedItem.setAttribute('aria-hidden', true);
-            scrollerInner.appendChild(duplicatedItem);
-          });
+    const hiddenElements1 = document.querySelectorAll('.hidden-8');
+    hiddenElements1.forEach((el) => observer.observe(el));
+
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+      hiddenElements1.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+  useEffect(() => {
+    const scrollers = document.querySelectorAll('.scroller');
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute('data-animated', true);
+        const scrollerInner = scroller.querySelector('.scroller__inner');
+        const scrollerContent = Array.from(scrollerInner.children);
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          duplicatedItem.setAttribute('aria-hidden', true);
+          scrollerInner.appendChild(duplicatedItem)
+         
         });
-      }
-    }, []);
+      });
+
+  }, [currentLanguage]);
 
   return (
     <div className='page4-container'>
@@ -62,117 +62,94 @@ const Page4 = () => {
         </button>
       </div>
       <div className='page4-main-cont1'>
-      <div className="scroller">
-        <div className=" scroller__inner" >
-        <div className='page4-main'>
-          <div className='page4-main-C'>
-            <div>
-              <img src={image2} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
+        <div className='scroller'>
+          <div className='scroller__inner'>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className='page4-main'>
-          <div className='page4-main-C'>
-            <div>
-              <img src={image3} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image3} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className='page4-main'>
-          <div className='page4-main-C'>
-            <div>
-              <img src={image4} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image4} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
               </div>
             </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
-      </div>
-     </div>
-      <div className='page4-main-cont1'>
-        <div className="scroller" data-direction="right" >
-        <div className=" scroller__inner" >
-        <div className='page4-main'>
-          <div className='page4-main-C1'>
-            <div>
-              <img src={image2} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='page4-main'>
-          <div className='page4-main-C1'>
-            <div>
-              <img src={image3} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='page4-main'>
-          <div className='page4-main-C1'>
-            <div>
-              <img src={image4} alt='' className='page4-image2' />
-            </div>
-            <div className='page4-p-by'>
-              <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                {t('hello.1')}
-              </p>
-              <div className='page4-by'>
-                <p className='by'>by</p>
-                <p>Rajinikanth</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      </div>
+
     </div>
   );
 };
 
 export default Page4;
-
-

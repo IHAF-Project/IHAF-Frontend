@@ -1,4 +1,4 @@
-import  { useState,useRef} from 'react';
+import  { useState,useRef, useEffect} from 'react';
 import './Navbar.css'; 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -14,12 +14,11 @@ import profile4 from '../Assets/User (1).svg'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-
-
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
+
   const handleClickPop = () => {
     setIsPop(!isPop);
   };
@@ -32,11 +31,12 @@ const Navbar = () => {
 
  function toggleLanguage() {
     const currentLanguage = i18n.language; 
+
     const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
     i18n.changeLanguage(newLanguage);
    
  }
-
+ 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
 
