@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
-// import Tree from './Tree.js'
-import Feedback from './Page7/Feedback'
-import About from './Page8/About'
+
+import Feedback from './Page7/Feedback';
+import Login from "./LogIn/Login.jsx"
+import Profile from "./Profile/Profile.jsx"
+import About from './Page8/About';
 import { useTranslation } from 'react-i18next';
+import JoinMember from "./JoinMember/JoinMember"
 import { Route, Routes } from 'react-router-dom';
 import { useEffect,useState } from 'react';
-import arrow from '../src/imgg/🦆 icon _arrow thick left_ (4).png'
-import Router from './Router';
-
+import arrow from '../src/images/top.png'
+import Tree from './Tree';
 const App = () => {
   const { t, i18n } = useTranslation();
 
@@ -40,13 +42,14 @@ const App = () => {
   return (
     <div className="container" >
       <Routes>
+      <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />
         <Route path="/FeedBack" element={<Feedback />} />
-        <Route path="/" element={<Router />} />
-        
-        {/* <Route path="/" element={<Tree/>} /> */}
+        <Route path="/Login" element={<Login/>} />
+        <Route path="/Login" element={<Profile/>} />
+        <Route path='/member' element={<JoinMember/>}></Route>
       </Routes>
-     
+ 
       {showScrollButton && (
         <button className="scroll-to-top-btn" onClick={scrollToTop} title="Go to top">
          <img src={arrow} alt='up arrow'></img>
@@ -56,20 +59,4 @@ const App = () => {
   );
 };
 
-
-// const App = () => {
-//   const {  i18n } = useTranslation();
-//   function handleclick(lng){
-//     i18n.changeLanguage(lng);
-//   }
-//   return (
-//     <div>
-//       <div className='header'>
-//       <button onClick={()=>handleclick('en')}>English</button>
-//       <button  onClick={()=>handleclick('ta')}>Tamil</button>
-//       </div>
-      
-//     </div>
-//   )
-// }
 export default App

@@ -190,10 +190,48 @@
         font-size: 2.5vw;
     }
     .right-5 button{
-        width: 46vw;
+        width: auto;
         font-size: 3vw;
     }
     .right-5 img{
         width: 5.5vw;
     }
+}
+@media screen and (max-width: 915px) {
+    .left-5 {
+        height: auto;
+        /* margin: 0; */
+    }
+    .part2-5 {
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .right-5 {
+        height: 20vh;
+        margin: 0;
+    }
+    .container-5 {
+        height: auto;
+    }
+    .right-5 button {
+        margin: 0;
+        height: 0;
+       
+    }
+    .part1-5 p {
+        height: 5vh;
+       
+    }
+    .right-5 p {
+        margin: 0;
+        width: 65vw;
+    }
+    .right-5 {
+        align-items: center;
+        padding: 3rem;
+        justify-content: center;
+        gap: 38px;
+        width: 50vw;
+    }
+    
 }
