@@ -14,9 +14,11 @@ import Home from './Page2/Home.js';
 import Join from './Page5/Join.js';
 import Cards from './Page6/Cards.js';
 
+
 function Router() {
   return (
     <div>
+      
     <Page1 />
     <Home />
     <Page3 />
