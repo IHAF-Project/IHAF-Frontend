@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
 import ar from '../imgg/Frame 247.png'
@@ -29,7 +29,7 @@ const Cards = () => {
             <p className={`details6${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1.2vw' : '' }}>{t('Page6.14')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src={''} alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -42,7 +42,7 @@ const Cards = () => {
             <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1.5vw' : '' }}>{t('Page6.15')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src={''} alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -55,7 +55,7 @@ const Cards = () => {
             <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.16')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src={''} alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -68,7 +68,7 @@ const Cards = () => {
             <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.17')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src={''} alt="elon"/></div>
+          <div className="img6"><img src="" alt="elon"/></div>
           </div>
         </div>
        
@@ -81,7 +81,7 @@ const Cards = () => {
             <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.18')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src={''} alt="bill"/></div>
+          <div className="img6"><img src='' alt="bill"/></div>
           </div>
         </div>
       </div>

@@ -12,33 +12,33 @@ import TabContent3 from '../TabContent/TabContent3';
 
 const Page3 = () => {
 
-  const [activeTab, setActiveTab] = useState(0);
-  const [isFrozen, setIsFrozen] = useState(false);
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language;
+   const [activeTab, setActiveTab] = useState(0);
+   const [isFrozen, setIsFrozen] = useState(false);
+   const { t, i18n } = useTranslation();
+   const currentLanguage = i18n.language;
 
-  const handleTabClick = (index) => {
-    setActiveTab(index);
+   const handleTabClick = (index) => {
+     setActiveTab(index);
   };
   const handleMouseEnter = () => {
-    setIsFrozen(true);
-  };
+   setIsFrozen(true);
+   };
 
   const handleMouseLeave = () => {
-    setIsFrozen(false);
-  };
+     setIsFrozen(false);
+   };
   
-  useEffect(() => {
-    let interval;
-    if (!isFrozen) {
-      interval = setInterval(() => {
-        const active = (activeTab + 1) % 3;
-        setActiveTab(active);
-      }, 3000); 
-    }
+  // useEffect(() => {
+  //   let interval;
+  //   if (!isFrozen) {
+  //     interval = setInterval(() => {
+  //       const active = (activeTab + 1) % 3;
+  //       setActiveTab(active);
+  //     }, 3000); 
+  //   }
 
-    return () => clearInterval(interval);
-  }, [activeTab, isFrozen]); 
+  //   return () => clearInterval(interval);
+  // }, [activeTab, isFrozen]); 
 
 
 //animaton for scrolling to reach the current page

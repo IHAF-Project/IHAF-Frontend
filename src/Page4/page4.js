@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
-import image2 from '../images/OIP.jpg';
-import image3 from '../images/amitcha.jpg';
+import image2 from '../images/amitcha.jpg';
+import image3 from '../images/annamalai-bjp-1.jpeg';
 import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
@@ -64,54 +64,86 @@ const Page4 = () => {
       <div className='page4-main-cont1'>
         <div className='scroller'>
           <div className='scroller__inner'>
-            <div className='page4-main'>
-              <div className='page4-main-C'>
-                <div>
-                  <img src={image2} alt='' className='page4-image2' />
-                </div>
-                <div className='page4-p-by'>
-                  <p className="page4-p">
-                  This party is purely about maintaining equal rights for people from poor society and family
-                  </p>
-                  <div className='page4-by'>
-                    <p className='by'>by</p>
-                    <p>Rajinikanth</p>
-                  </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
                 </div>
               </div>
             </div>
-            <div className='page4-main'>
-              <div className='page4-main-C'>
-                <div>
-                  <img src={image3} alt='' className='page4-image2' />
-                </div>
-                <div className='page4-p-by'>
-                  <p className="page4-p">
-                  This party is purely about maintaining equal rights for people from poor society and family
-                  </p>
-                  <div className='page4-by'>
-                    <p className='by'>by</p>
-                    <p>Rajinikanth</p>
-                  </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image3} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
                 </div>
               </div>
             </div>
-            <div className='page4-main'>
-              <div className='page4-main-C'>
-                <div>
-                  <img src={image4} alt='' className='page4-image2' />
-                </div>
-                <div className='page4-p-by'>
-                  <p className="page4-p">
-                  This party is purely about maintaining equal rights for people from poor society and family
-                  </p>
-                  <div className='page4-by'>
-                    <p className='by'>by</p>
-                    <p>Rajinikanth</p>
-                  </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image4} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
                 </div>
               </div>
             </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='page4-main'>
+            <div className='page4-main-C'>
+              <div className='img-cover4'>
+                <img src={image2} alt='' className='page4-image2' />
+              </div>
+              <div className='page4-p-by'>
+                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
+                  {t('hello.1')}
+                </p>
+                <div className='page4-by'>
+                  <p className='by'>by</p>
+                  <p>Sonamvard</p>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

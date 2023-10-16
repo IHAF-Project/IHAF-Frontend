@@ -284,7 +284,7 @@ justify-content: center;
   justify-content: center;
 }
 }
-@media screen and (max-width: 912px) {
+@media screen and (max-width: 915px) {
   .main6{
     flex-direction: column;
     justify-content: start;
@@ -293,9 +293,9 @@ justify-content: center;
   .page4-container {
     height: auto;
   }
-  .container-5 {
+  /* .container-5 {
     height: 70vh;
-  }
+  } */
   .main-left6 {
     width: 100vw;
     height: 19vh;
