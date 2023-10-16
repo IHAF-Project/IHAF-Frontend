@@ -62,6 +62,12 @@ function JionMember() {
          <input type='text' id='name' name='Name' required/> <br/>
          </div>
          <div className='JionFrom-content-inputs'>
+         <label>{currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}</label>
+         <Fragment>:</Fragment>
+         <input type='text' id='name' name='Name' required/> <br/>
+         </div>
+        
+         <div className='JionFrom-content-inputs'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.5') : t('Refferal code')}</label>
          <Fragment>:</Fragment>
          <input type='text' id='name' name='Name' required/> <br/>
@@ -128,12 +134,7 @@ function JionMember() {
         </ul>
       </div>
          </div>
-         <div className='JionFrom-content-inputs'>
-         <label>{currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}</label>
-         <Fragment>:</Fragment>
-         <input type='text' id='name' name='Name' required/> <br/>
-         </div>
-        
+      
          <div className='JionFrom-content-inputs-1'>
   <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')}</label>
   <Fragment>:</Fragment>

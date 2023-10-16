@@ -1,8 +1,12 @@
 import { useState } from "react"
 import "./Login.css"
 import Navbar from "../NavBar/Navbar";
+import { useTranslation } from 'react-i18next';
 
 function Login() {
+  const { t, i18n } = useTranslation();
+
+  const isTamilLanguage = i18n.language === 'ta';
 
   const [formData, setFormData] = useState({
     phoneNumber: '',
@@ -27,11 +31,13 @@ function Login() {
     <Navbar/>
     <div className="login-container">
      <div className="login-content">
-     <h1>Login</h1>
-     <p>Mobile number used for membership registration enter</p>
+     <h1  className={` ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
+                            {t('Login.1')}
+                        </h1>
+     <p className={`${isTamilLanguage ? 'tamil18-font5': ''}`}>{t('Login.2')}</p>
      <form onSubmit={handleSubmit}>
         <div className="form-login">
-          <label>Mobile number :</label>
+          <label className={`${isTamilLanguage ? 'tamil18-font5': ''}`}  >{t('Login.3')}</label>
           <span>+91</span>
           <input
             type="tel"
@@ -42,7 +48,7 @@ function Login() {
           />
         </div>
         <div className="login-btn">
-          <button type="submit">Submit</button>
+          <button type="submit"className={` login-button ${isTamilLanguage ? 'tamil18-font5': ''}`} style={{ width: isTamilLanguage ? '212px' : '' , fontSize: isTamilLanguage ? '21.827px' : '' }}>{t('Login.4')}</button>
         </div>
       </form>
      </div>

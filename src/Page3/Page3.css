@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: flex-end;
 }
-.social-page-tp{
+.social-page-tp {
     display: flex;
     width: min(95vw ,100%);
     height: 15vh;
@@ -20,10 +20,10 @@
     overflow-x: hidden;
     gap: 6px;
 }
-.social-page-tp img{
+.social-page-tp img {
     width: 75%;
 }
-.social-page-tp p{
+.social-page-tp p {
 color: #FFF;
 font-family: 'Poppins';
 font-size: 1rem;
@@ -34,21 +34,21 @@ padding:1rem;
 border-radius: 2px;
 background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
 }
-.social-page-btm-con{
+.social-page-btm-con {
     width: 100%;
     height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.social-page-btm{
+.social-page-btm {
     
     width: min(80vw ,100%);
     height: 85vh;
 
    
 }
-.tabs{
+.tabs {
     display: flex;
     width: 100%;
     gap:1rem;

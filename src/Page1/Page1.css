@@ -286,6 +286,9 @@ color: #0c0000;
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){
         font-size: 31.405px;
     }
+    .intro-slide-content-quates span  {
+      font-size: 20px;
+    }
 }
 @media screen and (max-width:540px){
     .intro-slide-content-right-btm img{
@@ -297,6 +300,9 @@ color: #0c0000;
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {
         font-size: 27.405px;
+    }
+    .intro-slide-content-quates span  {
+      font-size: 17.657px;
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){  
     width: 480px;

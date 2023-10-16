@@ -6,7 +6,7 @@ import Login from "./LogIn/Login.jsx"
 import Profile from "./Profile/Profile.jsx"
 import About from './Page8/About';
 import { useTranslation } from 'react-i18next';
-
+import JoinMember from "./JoinMember/JoinMember"
 import { Route, Routes } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import arrow from '../src/imgg/🦆 icon _arrow thick left_ (4).png'
@@ -52,6 +52,7 @@ const App = () => {
         <Route path="/FeedBack" element={<Feedback />} />
         <Route path="/Login" element={<Login/>} />
         <Route path="/Login" element={<Profile/>} />
+        <Route path='/member' element={<JoinMember/>}></Route>
       </Routes>
  
       {showScrollButton && (

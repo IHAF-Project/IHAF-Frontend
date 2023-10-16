@@ -136,6 +136,11 @@
   "3":"District",
   "4":"Not Uploaded",
   "5":"Uploaded"
-
+},
+"Login": {
+  "1": "LogIn",
+  "2": "Mobile number used for membership registration enter",
+  "3": "Mobile Number",
+  "4":"Submit"
 }
 }

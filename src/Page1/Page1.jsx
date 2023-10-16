@@ -20,13 +20,6 @@ const Page1 = () => {
     return () => clearInterval(interval); 
   }, [isHovered]);
 
-  // const handleCardHover = () => {
-  //   setIsHovered(true);
-  // };
-
-  // const handleCardLeave = () => {
-  //   setIsHovered(false);
-  // };
 
   
 
