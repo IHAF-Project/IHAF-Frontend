@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import './Join.css'; // Import your CSS file
-
+import modi from '../images/bg-modi 1 (1).png'
 const Join = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
@@ -47,14 +47,14 @@ const Join = () => {
                 </div>
                 <div className='part2-5'>
                     <div className='left-5 hidden-11'>
-                        <img src='\images\page5.png' alt='ambedkar'></img>
+                        <img src={modi} alt='ambedkar'></img>
                     </div>
                     <div className='right-5 hidden-12'>
                         <p className={`details-5 ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
                             {t('Page5.2')}
                         </p>
                         <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
-                            <img src='\images\page5-icon.png' alt='icon'></img>
+                           
                             {t('Page5.3')}
                         </button>
                     </div>

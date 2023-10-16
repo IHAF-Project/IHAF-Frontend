@@ -1,6 +1,6 @@
 import { East } from "@mui/icons-material"
 import "./Profile.css"
-import close from "../../assets/+.svg"
+import close from "../Assets/+.png"
 import { useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom';
 import { CloudinaryContext } from 'cloudinary-react';
