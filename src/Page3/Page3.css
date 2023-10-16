@@ -144,7 +144,7 @@ text-transform: capitalize;
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
-    gap: 5vh;
+    gap: 1vh;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
