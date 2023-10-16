@@ -55,7 +55,7 @@
    }
 .title-6{
     font-size: 3vw;
-    width: 28vw;
+   
 }
 .main-details6{
     font-size: 1.4vw;
@@ -288,7 +288,7 @@ justify-content: center;
   .main6{
     flex-direction: column;
     justify-content: start;
-    height: 92vh;
+    height: 100vh;
   }
   .page4-container {
     height: auto;
@@ -317,12 +317,12 @@ justify-content: center;
   }
   .main-right6{
     width: 100vw;
-    height: 66vh;
+    height: 75vh;
    
   }
   .wrapper .card6{
     width: 80vw;
-    height:20vh;
+    height:26vh;
     border-radius: 1vh 10vh 10vh 1vh;
   }
   .left6 p {

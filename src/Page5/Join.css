@@ -35,6 +35,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 1vw;
 }
 .part1-5::-webkit-scrollbar{
  width: 0;
@@ -211,7 +212,7 @@
         margin: 0;
     }
     .container-5 {
-        height: auto;
+        height: 58vh;
     }
     .right-5 button {
         margin: 0;
@@ -224,7 +225,7 @@
     }
     .right-5 p {
         margin: 0;
-        width: 65vw;
+        width: 53vw;
     }
     .right-5 {
         align-items: center;
@@ -232,6 +233,7 @@
         justify-content: center;
         gap: 38px;
         width: 50vw;
+        height: 28vh;
     }
     
 }
