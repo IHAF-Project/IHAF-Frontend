@@ -33,14 +33,16 @@ const App = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+    
   }, []);
-
+  
+  const [pageLoaded, setPageLoaded] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className="container" >
+    <div className="container " >
       <Routes>
       <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />

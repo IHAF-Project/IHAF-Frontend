@@ -71,7 +71,7 @@
     color: #FFF;
     cursor: pointer;
     padding: 10px 45px 10px 45px;
-    width: 46vw;
+    width: 24vw;
     border: none;
     font-family: Poppins;
     font-size: 17.145px;
@@ -180,14 +180,14 @@
 }
 .petition-7-btn-tamil {
     display: flex;
-    width: 18vw;
+    width: 24vw;
     padding: 10px;
     height: auto;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 2px;
-    font-size: 1rem;
+    font-size: 1.5vw;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
     margin-inline-start: 2vw;
 }
@@ -368,6 +368,9 @@ line-height: normal;
     }
     .page7-input-container{
         padding-top: 2vh;
+    }
+    .petition-submit-btn {
+        width: 46vw;
     }
     
 }
