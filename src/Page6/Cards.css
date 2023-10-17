@@ -61,6 +61,7 @@
     font-size: 1.4vw;
     margin-bottom: 4vh;
     margin-top: 2vh;
+    font-family: Poppins ;
 }
 .main-right6{
     width: 60vw;
@@ -193,8 +194,9 @@ justify-content: center;
     align-items: first baseline;
 }
 .card6 .left6 .details6{
-    font-size: 1.2vw;
+    font-size: 1vw;
     width: 27vw;
+    font-family: Poppins ;
     /* margin-top: 4vh; */
    
 }

@@ -71,13 +71,14 @@
     color: #FFF;
     cursor: pointer;
     padding: 10px 45px 10px 45px;
-    /* width: 13rem; */
+    width: 46vw;
     border: none;
     font-family: Poppins;
     font-size: 17.145px;
     font-style: normal;
     line-height: normal;
     background: linear-gradient(270deg, #820000 1.91%, #FF0505 99.81%), #E6E6E6;
+    
 }
 .petition-submit-btn:hover{
     background: linear-gradient(270deg, #c41111 1.91%, #a70202 99.81%), #E6E6E6;
@@ -163,7 +164,7 @@
 }
 .petition-7-btn {
     color: #FFF;
-    font-family: Poppins;
+    font-family:Noto Serif;
     /* padding: 5px 29px 0px 56px; */
     font-size: 16px;
     height: 7vh;
@@ -271,7 +272,7 @@ line-height: normal;
     .page7-submit {
         display: flex;
         height: 10vh;
-        width: 100%;
+        width: 71vw;
         align-items: center;
         justify-content: center;
     }
