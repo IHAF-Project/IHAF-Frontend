@@ -92,6 +92,7 @@
     margin-top: 8vh;
 }
 .right-5 p{
+    width: 34vw;
     font-size: 1.4vw;
     padding-inline-start: 5vw;
     padding-inline-end: 5vw;
@@ -204,7 +205,7 @@
         /* margin: 0; */
     }
     .part2-5 {
-        height: auto;
+        align-items: center;
         padding-bottom: 2rem;
     }
     .right-5 {
@@ -216,7 +217,7 @@
     }
     .right-5 button {
         margin: 0;
-        height: 0;
+        height: 6vh;
        
     }
     .part1-5 p {
@@ -229,11 +230,11 @@
     }
     .right-5 {
         align-items: center;
-        padding: 3rem;
+        padding: 0vw 6vw 2vw 6vw;
         justify-content: center;
         gap: 38px;
-        width: 50vw;
-        height: 28vh;
+        width: 55vw;
+        height: 36vh;
     }
     
 }
