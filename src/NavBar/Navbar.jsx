@@ -13,7 +13,7 @@ import profile4 from '../Assets/User (1).svg'
 // import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
+import logo from '../images/logo.png'
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src= "\images\MicrosoftTeams-image (22).png" alt="Logo" />
+        <img src= {logo} alt="Logo" />
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
         <Link className='hovjoin' to='/member' ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>

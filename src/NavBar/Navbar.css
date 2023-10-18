@@ -125,6 +125,59 @@ border: none;
 border-radius: 5.282px;
 background: #356DFF;
 }
+.hovdon{
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+
+}
+
+.hovdon:hover{
+
+  color: #ffffff;
+
+  background-color: #e5a603;
+
+}
+
+.hovjoin{
+
+  transition: background-color 0.3s ease;
+
+  text-decoration:none ;
+
+ 
+
+  padding:0.5em;
+
+  background:10rem;
+
+  background-color:white;
+
+  text-align:center;
+
+  margin:'0';
+
+  border-radius: 2rem;
+
+}
+
+.hovjoin:hover{
+
+  color: #ffffff;
+
+  background-color: #df0505;
+
+}
+
+.hov:hover{
+
+ 
+
+  background-color: #4e970a;
+
+}
 :is(.Navbar-login-tamil ,.Navbar-login-english){
   color: #FFF;
   font-family: Poppins;

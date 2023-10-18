@@ -16,7 +16,7 @@ import Tree from './Tree';
 
 const App = () => {
 
-  const [isLoading, setIsLoading] = useState(true);
+
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
@@ -39,8 +39,24 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-    <div className="container" >
+
+
+<div>
+{isLoading ? (
+  <div className='kitna-container'>
+    <div class="kinetic"></div>
+    </div>
+) : (
+  <div className="container" >
       <Routes>
       <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />
@@ -56,6 +72,8 @@ const App = () => {
         </button>
       )}
     </div>
+)}
+</div>
   );
 };
 

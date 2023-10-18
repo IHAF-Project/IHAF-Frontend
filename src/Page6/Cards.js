@@ -1,7 +1,7 @@
 import React from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
-import ar from '../images/Arrow 1 (1).png'
+import ar from '../images/tri.png'
 import logo from '../images/logo.png'
 const Cards = () => {
     const { t, i18n } = useTranslation();
