@@ -152,10 +152,12 @@ background: rgba(255, 255, 255, 0.61);
 }
 }
 
-
 @media screen and (max-width: 550px) {
   .img-cover4 {
     width: 45%;
+  }
+  .page4-image2{
+    width: 84%;
   }
   .page4-main-C{
     gap: 0;
@@ -169,10 +171,6 @@ background: rgba(255, 255, 255, 0.61);
     padding: 0;
   }
 }
-
-
-
-
 .scroller {
   width: 100%;
 }
@@ -209,3 +207,8 @@ background: rgba(255, 255, 255, 0.61);
   }
 }
 
+@media screen and (max-width:210px) {
+  .page4-image2{
+    width: 84%;
+  }
+}

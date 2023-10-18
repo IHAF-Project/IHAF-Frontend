@@ -1,7 +1,7 @@
 
 
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Page1 from './Page1/Page1.jsx';
 import Page3 from './Page3/Page3.jsx';
@@ -16,12 +16,27 @@ import { useTranslation } from 'react-i18next';
 import Home from './Page2/Home';
 import Join from './Page5/Join';
 import Cards from './Page6/Cards';
-import { Route, Routes } from 'react-router-dom';
-import JionMember from './JionMember/JionMember';
+
 
 const App = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-    <div className="sections-container">
+   
+    <div className="App">
+    {isLoading ? (
+      <div className='kitna-container'>
+        <div class="kinetic"></div>
+        </div>
+    ) : (
+      <div className="sections-container">
      
         <Page1 />
         <Home />
@@ -33,7 +48,9 @@ const App = () => {
         <Meeting />
         <Footer />
       </div>
- 
+    )}
+  </div>
+
   );
 };
 

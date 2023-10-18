@@ -37,6 +37,7 @@ section {
   transform: translateY(10px);
   transition: all 1s ease 2s  ;
 }
+
 .hidden-6{
   opacity: 0;
   filter: blur(5px);
@@ -44,12 +45,13 @@ section {
   overflow: hidden;
   transition: all 1s ease 0.5s  ;
 }
+
 :is(.hidden-7,.hidden-13){
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
   overflow: hidden;
-  transition: all 1s ease 0.5s  ;
+  transition: all 1s ease 10s  ;
 }
 :is(.hidden-8,.hidden-9,.hidden-14){
   opacity: 0;
@@ -71,3 +73,85 @@ section {
    transition: none;
   }
  }
+
+
+
+
+
+
+
+
+
+ :root {
+  --primary-color: #181625;
+  --accent-pink: #a876aa;
+  --accent-white: #e2e7ee;
+}
+
+
+
+.kinetic {
+  position: relative;
+  height: 80px;
+  width: 80px;
+}
+.kitna-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  height: 100vh;
+}
+
+.kinetic::before,
+.kinetic::after {
+  content: "";
+  position: absolute;
+  border: 50px solid transparent;
+  border-bottom-color: var(--accent-pink);
+  animation: rotateA 2s ease-in-out infinite 0.5s,
+    color-change 2s ease-in-out infinite 1s;
+}
+
+.kinetic::before {
+  animation: rotateB 2s ease-in-out infinite,
+    color-change 2s ease-in-out infinite;
+}
+
+@keyframes rotateA {
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes color-change {
+  75% {
+    border-bottom-color: var(--accent-white);
+  }
+}
