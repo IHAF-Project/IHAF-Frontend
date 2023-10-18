@@ -2,7 +2,7 @@
     
     "Welcome": {
       "1": "Ambedkar Federation",
-      "2": "The formation of the ILP was not welcomed or supported by the communist leaders, who argued that it would lead to a split in the working-class votes. Ambedkar replied that communist leaders were working for the rights for the worker but not for the human rights of Dalit workers.[9] In his work Annihilation of Caste, Ambedkar put forth the idea that caste is not merely the 'division of labour' but 'division of labourers' based upon graded inequality.[10]",
+      "2": "IHAF strives to be a catalyst for social justice. We aim to address systemic inequalities and advocate for the rights of marginalized and disadvantaged communities. Our mission is to create a more equitable society, where every individual enjoys the same fundamental rights and opportunities, irrespective of their background.",
       "3": "I am footer"
     },
     "Page5": {
@@ -13,7 +13,22 @@
     "Page6": {
       "1": "People of IHAF",
       "2": "About leaders in IHAF and how to apply for leadership selction based on certain qualification",
-      "3": "Apply to Serve"
+      "3": "Apply to Serve",
+      "4":"SURYA",
+      "5":"(President Of IHAF)",
+      "6":"SHANKAR",
+      "7":"(Vice President)",
+      "8":"ALEXIS SUDHAKAR",
+      "9":"(Secretary)",
+      "10":"PANNEERSELVAM",
+      "11":"(Asst.Secretary)",
+      "12":"RAJATHIKKANNAN",
+      "13":"(Treasurer)",
+      "14":"He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client",
+      "15":"The strongest people are not those who show strength in front of us but those who win battles we know nothing about.",
+      "16":"IHAF understands the power of collaboration. We actively seek partnerships with like-minded organizations, institutions, and individuals to amplify our impact. Together, we can create a more just and compassionate world.",
+      "17":"IHAF embraces innovative solutions to address complex societal challenges. We aim to adapt and develop new strategies to tackle persistent issues, always in alignment with our core values of justice and equality.",
+      "18":"An informed society is a powerful society. IHAF is committed to raising awareness and educating people about the importance of social justice and equality, and how we can collectively make a difference."
     },
    "hello": {
     "1" : "This party is purely about maintaining equal rights for people from poor society and family",
@@ -41,7 +56,7 @@
     "23" : "Leaders",
     "24" : "Feedback",
     "25" : "Address",
-    "26" : "Anna Arivalayam, No 367/369, Anna Salai, Teynampet, Chennai - 600018. + (91) - 044- 24348258",
+    "26" : "INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Nagar,Nedugunram,Chenglepet-600048",
     "27" : "Add attachments",
     "28" : "Upload",
     "29" : "Events",
@@ -59,7 +74,8 @@
     "41" : "Founding Principles",
     "42" : "Achievingthe desired growth",
     "43" : "Providing quality education to the underprivileged students in the poor and downtrodden communities, providing special training for night schools in every village and examinations like UPSC SCTC NPSC NEET, setting up of hostels for women working in cities, setting up of counselling centres in every district, setting up of houses for the elderly in every district, quality INDUSTRIAL TRAINING INSTITUTEs with government assistance in each panchayat union, conservation of ground water and implementation of the environment with government assistance, conservation of ground water and environment.",
-    "44" : "While our institution continues to strive to provide political empowerment and political awareness to the marginalised and the abandoned in a society, our institution will take care of the welfare of women, youth and the elderly and set up old age homes, vocational training institutes, night school coaching centres, etc., throughout the district."
+    "44" : "While our institution continues to strive to provide political empowerment and political awareness to the marginalised and the abandoned in a society, our institution will take care of the welfare of women, youth and the elderly and set up old age homes, vocational training institutes, night school coaching centres, etc., throughout the district.",
+    "45":"I see it as a platform for collaboration with like-minded individuals who share a common vision for their nation's future. This collaboration extends to electoral campaigns, grassroots activities, and policy advocacy."
 
    },
    "Navbar" :{
@@ -124,6 +140,11 @@
   "3":"District",
   "4":"Not Uploaded",
   "5":"Uploaded"
-
+},
+"Login": {
+  "1": "LogIn",
+  "2": "Mobile number used for membership registration enter",
+  "3": "Mobile Number",
+  "4":"Submit"
 }
 }

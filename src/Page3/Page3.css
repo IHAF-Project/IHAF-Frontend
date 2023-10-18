@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: flex-end;
 }
-.social-page-tp{
+.social-page-tp {
     display: flex;
     width: min(95vw ,100%);
     height: 15vh;
@@ -19,12 +19,12 @@
     align-items: center;
     overflow-x: hidden;
 }
-.social-page-tp img{
+.social-page-tp img {
     width: 75%;
 }
-.social-page-tp p{
+.social-page-tp p {
 color: #FFF;
-font-family: 'Poppins';
+font-family: 'Noto Serif';
 font-size: 1rem;
 text-align: center;
 font-weight:500;
@@ -33,21 +33,21 @@ padding:1rem;
 border-radius: 2px;
 background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
 }
-.social-page-btm-con{
+.social-page-btm-con {
     width: 100%;
     height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.social-page-btm{
+.social-page-btm {
     
     width: min(80vw ,100%);
     height: 85vh;
 
    
 }
-.tabs{
+.tabs {
     display: flex;
     width: 100%;
     gap:1rem;
@@ -68,7 +68,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
 }
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 129px;
+    width: 107px;
     height: auto;
     align-items: center;
     justify-content: space-around;
@@ -137,20 +137,17 @@ text-transform: capitalize;
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
-    gap: 5vh;
+    gap: 1vh;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
 }
 
-.instagram{
-    width: 350px;
+.youtube {
+    width: 64vw;
+    height: 56vh;
 }
-.youtube{
-    width:553px;
-    height:50vh;
-}
-@media screen and (max-width:820px){
+@media screen and (max-width:912px){
     .social-page-tp p {
         font-size: 2.8vw;
         padding: 0.5rem;
@@ -167,8 +164,10 @@ text-transform: capitalize;
     .social-page-tp img{
         width: 65%;
     }
-    .tabs{
-        flex-direction: column;
+    .tabs {
+        flex-direction: row;
+        width: 100vw;
+        justify-content: center;
     }
    :is(.social-page-btm-con,.social-page-btm,.tab-content,.tab-bg,.Tab-content1){
     height: auto;
@@ -202,7 +201,7 @@ text-transform: capitalize;
     }
     .Tab-content1-tp p {
         
-        padding-inline: 2rem;
+        padding-inline: 1rem;
         padding-block: 0.5rem;
         width: 300px;
         font-size: 12.998px;

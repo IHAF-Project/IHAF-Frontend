@@ -1,4 +1,38 @@
 
+/* Style for the Scroll to Top button */
+.container{
+  overflow: hidden;
+  font-family: 'Crimson Text', serif;
+font-family: 'Noto Serif', serif;
+}
+  .scroll-to-top-btn img {
+    display: none;
+    height: auto;
+    width: 2.6vw;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+   
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+   
+    background-size: cover;
+  }
+  .scroll-to-top-btn:hover{
+    border: 2px solid rgb(130, 130, 238);
+    background-color: aqua;
+  }
+  .scroll-to-top-btn{
+    position: fixed;
+    z-index: 8;
+    height: auto;
+    width: 4vw;
+  }
+  
 section {
   display: flex;
   flex-direction: column;

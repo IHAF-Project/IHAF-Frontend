@@ -54,12 +54,13 @@
    }
 .title-6{
     font-size: 3vw;
-    width: 28vw;
+   
 }
 .main-details6{
     font-size: 1.4vw;
     margin-bottom: 4vh;
     margin-top: 2vh;
+    font-family: Poppins ;
 }
 .main-right6{
     width: 60vw;
@@ -156,11 +157,12 @@ justify-content: center;
 }
 .card6 .content6 {
   display: flex;
+  align-items: center;
   color: #fff;
 }
 .wrapper .card6 .img6 {
   height: 28vh;
-  width: 17vw;
+  width: 16vw;
   border: #fff;
   /* background-color: #fff; */
   border-radius: 50%;
@@ -192,9 +194,10 @@ justify-content: center;
     align-items: first baseline;
 }
 .card6 .left6 .details6{
-    font-size: 1.2vw;
+    font-size: 1vw;
     width: 27vw;
-    margin-top: 4vh;
+    font-family: Poppins ;
+    /* margin-top: 4vh; */
    
 }
 .card6 .left6 .name6 {
@@ -259,7 +262,7 @@ justify-content: center;
 .card6 .left6 .details6 {
   font-size: 2.2vw;
   width: 48vw;
-  margin-top: 2vh;
+
 }
 .wrapper .card6 .img6{
   height: 18vh;
@@ -277,23 +280,30 @@ justify-content: center;
   width: 5vw;
 }
 .title-6 {
-  font-size: 3vw;
-  width: 28vw;
+  font-size: 7vw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
-
 }
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 915px) {
   .main6{
     flex-direction: column;
     justify-content: start;
-    height: 92vh;
+    height: 100vh;
   }
+  .page4-container {
+    height: auto;
+  }
+  /* .container-5 {
+    height: 70vh;
+  } */
   .main-left6 {
     width: 100vw;
-    height: 16vh;
+    height: 19vh;
     margin-inline-start:0vh;
     flex: none;
-    gap:16px;
+    gap:11px;
     align-items: center;
 
   }
@@ -309,12 +319,12 @@ justify-content: center;
   }
   .main-right6{
     width: 100vw;
-    height: 66vh;
+    height: 75vh;
    
   }
   .wrapper .card6{
     width: 80vw;
-    height:20vh;
+    height:26vh;
     border-radius: 1vh 10vh 10vh 1vh;
   }
   .left6 p {
@@ -333,7 +343,7 @@ justify-content: center;
 }
 .card6 .left6 .name6
 {
-  font-size: 5vw;
+  font-size: 3vw;
 }
 .left6{
   width: 51vw;
@@ -342,3 +352,4 @@ justify-content: center;
   width: 8vw;
 }
 }
+@media screen and (max-width: 912px) {}

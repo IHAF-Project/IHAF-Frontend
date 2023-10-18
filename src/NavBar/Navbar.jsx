@@ -3,7 +3,7 @@ import './Navbar.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import profile1 from '../Assets/Logout.svg'
@@ -62,8 +62,8 @@ const Navbar = () => {
       <div className="navbar-logo">
         <img src= "\images\MicrosoftTeams-image (22).png" alt="Logo" />
         <div className='nav-don'>
-        <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
-        <Link to='/login' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+        <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
+        <Link className='hovjoin' to='/member' ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
      
         </div>
          </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
       <div className='navbarsocial-M'>
       <div className="navbar-social">
       <a href="https://www.youtube.com" ><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.instagram.com" ><LinkedInIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://www.instagram.com" ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></a>
         <a href="https://www.linkedin.com" ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></a>
         <a href="https://www.facebook.com" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
       </div>

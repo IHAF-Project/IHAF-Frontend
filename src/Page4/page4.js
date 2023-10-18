@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
-import image2 from '../images/MicrosoftTeams-image (19).png';
-import image3 from '../images/MicrosoftTeams-image (19).png';
-import image4 from '../images/MicrosoftTeams-image (21).png';
+import image2 from '../images/amitcha.jpg';
+import image3 from '../images/annamalai-bjp-1.jpeg';
+import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 

@@ -3,56 +3,60 @@
 
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Page1 from './Page1/Page1.jsx';
-import Page3 from './Page3/Page3.jsx';
-import Page4 from './Page4/page4';
-import Petition from './Page7/Petition';
+
 import Feedback from './Page7/Feedback';
-import Page8 from './Page8/Page8';
-import Footer from './Footer/Footer';
-import Meeting from './Page8/Meeting';
+import Login from "./LogIn/Login.jsx"
+import Profile from "./Profile/Profile.jsx"
 import About from './Page8/About';
 import { useTranslation } from 'react-i18next';
-import Home from './Page2/Home';
-import Join from './Page5/Join';
-import Cards from './Page6/Cards';
-
+import JoinMember from "./JoinMember/JoinMember"
+import { Route, Routes } from 'react-router-dom';
+import arrow from '../src/images/top.png'
+import Tree from './Tree';
 
 const App = () => {
 
   const [isLoading, setIsLoading] = useState(true);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+    // Add scroll event listener
+    const handleScroll = () => {
+      if (window.scrollY > 1000) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  return (
-   
-    <div className="App">
-    {isLoading ? (
-      <div className='kitna-container'>
-        <div class="kinetic"></div>
-        </div>
-    ) : (
-      <div className="sections-container">
-     
-        <Page1 />
-        <Home />
-    <Page3 />
-        <Page4 />
-      <Join />
-        <Cards />
-        <Petition />
-        <Meeting />
-        <Footer />
-      </div>
-    )}
-  </div>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
+  return (
+    <div className="container" >
+      <Routes>
+      <Route path="/" element={<Tree />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/FeedBack" element={<Feedback />} />
+        <Route path="/Login" element={<Login/>} />
+        <Route path="/Login" element={<Profile/>} />
+        <Route path='/member' element={<JoinMember/>}></Route>
+      </Routes>
+ 
+      {showScrollButton && (
+        <button className="scroll-to-top-btn" onClick={scrollToTop} title="Go to top">
+         <img src={arrow} alt='up arrow'></img>
+        </button>
+      )}
+    </div>
   );
 };
 
-export default App;
-
+export default App

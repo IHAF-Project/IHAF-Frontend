@@ -71,13 +71,14 @@
     color: #FFF;
     cursor: pointer;
     padding: 10px 45px 10px 45px;
-    /* width: 13rem; */
+    width: 24vw;
     border: none;
     font-family: Poppins;
     font-size: 17.145px;
     font-style: normal;
     line-height: normal;
     background: linear-gradient(270deg, #820000 1.91%, #FF0505 99.81%), #E6E6E6;
+    
 }
 .petition-in {
     color: #FFF;
@@ -94,6 +95,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal; 
+    width: 91vw;
 }
 .petition-input-cont {
     display: flex;
@@ -159,7 +161,7 @@
 }
 .petition-7-btn {
     color: #FFF;
-    font-family: Poppins;
+    font-family:Noto Serif;
     /* padding: 5px 29px 0px 56px; */
     font-size: 16px;
     height: 7vh;
@@ -175,14 +177,14 @@
 }
 .petition-7-btn-tamil {
     display: flex;
-    width: 18vw;
+    width: 24vw;
     padding: 10px;
     height: auto;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 2px;
-    font-size: 1rem;
+    font-size: 1.5vw;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
     margin-inline-start: 2vw;
 }
@@ -267,7 +269,7 @@ line-height: normal;
     .page7-submit {
         display: flex;
         height: 10vh;
-        width: 100%;
+        width: 71vw;
         align-items: center;
         justify-content: center;
     }
@@ -298,7 +300,7 @@ line-height: normal;
         line-height: normal;
     }
     .petition-7-btn-tamil{
-        width: 48vw;
+        width: 39vw;
         font-size: 2.8vw;
     }
     .page-4-image-text {
@@ -320,4 +322,52 @@ line-height: normal;
         display: none;
     }
   
+}
+@media screen and (max-width: 898px) {
+    .page7-petition-container{
+        height: auto;
+    }
+    .petition-7-btn{
+        width: 30vw;
+    }
+}
+@media screen and (max-width:420px){
+    .petition-7-btn {
+        width: 53vw;
+    }
+    .page-7-image-text {
+        height: 7vh;
+    }
+    .petition-input-cont {
+        padding-top: 0vh;
+        align-items: flex-start;
+    }
+    .input-name-petition{
+        height: 1.5rem;
+        width: 67vw;
+    }
+    .petition-inputs{
+        width: 77vw;
+    height: auto;
+    }
+    .petition-in-c{
+        height: 5vh;
+    }
+    .input-address-petition {
+        width: 69vw;
+    }
+    .input-audio-petition {
+        width: 0vh;
+        padding-top: 3vh;
+    }
+    .file-upload-petition{
+        padding-block: 0vh
+    }
+    .page7-input-container{
+        padding-top: 2vh;
+    }
+    .petition-submit-btn {
+        width: 46vw;
+    }
+    
 }

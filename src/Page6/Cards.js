@@ -1,6 +1,8 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
+import ar from '../images/Arrow 1 (1).png'
+import logo from '../images/logo.png'
 const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
@@ -12,7 +14,7 @@ const Cards = () => {
             <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>
            
             <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>
-            <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.2vw' : '' }}>{t('Page6.3')} <img src='\images\Up arrow.png' alt='icon'></img></button>
+            <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon'></img></button>
         </div>
         
 <div className='main-right6'>
@@ -22,12 +24,12 @@ const Cards = () => {
         <div className="content6">
           
           <div className="left6">
-            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>Ramesh kumar</span>
-            <p>(President of IHAF)</p>
-            <p className={`details6${isTamilLanguage ? 'tamil20-font6' : ''}`}>He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client</p>
+            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.4')}</span>
+            <p>{t('Page6.5')}</p>
+            <p className={`details6${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1.2vw' : '' }}>{t('Page6.14')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src="\images\ty.jpg" alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -35,12 +37,12 @@ const Cards = () => {
       <div className="card6" style={{ '--delay': '0' }}>
         <div className="content6">
         <div className="left6">
-            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>Ramesh kumar</span>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>(President of IHAF)</p>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client</p>
+            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.6')}</span>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.7')}</p>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1.5vw' : '' }}>{t('Page6.15')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src="\images\tt.jpg" alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -48,12 +50,12 @@ const Cards = () => {
       <div className="card6" style={{ '--delay': '1' }}>
         <div className="content6">
         <div className="left6">
-            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>Ramesh kumar</span>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>(President of IHAF)</p>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client</p>
+            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.8')}</span>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.9')}</p>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.16')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src="\images\waran.jpg" alt=""/></div>
+          <div className="img6"><img src="" alt=""/></div>
           </div>
         </div>
         
@@ -61,12 +63,12 @@ const Cards = () => {
       <div className="card6" style={{ '--delay': '2' }}>
         <div className="content6">
         <div className="left6">
-            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>Ramesh kumar</span>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>(President of IHAF)</p>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client</p>
+            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.10')}</span>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.11')}</p>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.17')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src="\images\elon.jpg" alt="elon"/></div>
+          <div className="img6"><img src="" alt="elon"/></div>
           </div>
         </div>
        
@@ -74,15 +76,14 @@ const Cards = () => {
       <div className="card6" style={{ '--delay': '2' }}>
         <div className="content6">
         <div className="left6">
-            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>Ramesh kumar</span>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>(President of IHAF)</p>
-            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client</p>
+            <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.12')}</span>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.13')}</p>
+            <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.18')}</p>
           </div>
           <div className='right6'>
-          <div className="img6"><img src='\images\bill.jpg' alt="bill"/></div>
+          <div className="img6"><img src='' alt="bill"/></div>
           </div>
         </div>
-       
       </div>
     </div>
   </div>
