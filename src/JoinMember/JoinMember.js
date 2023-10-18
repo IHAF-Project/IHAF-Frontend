@@ -57,24 +57,33 @@ function JionMember() {
      <div className='JionFrom-content-right'>
      <form>
          <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.3') : t('Name')}</label>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+         </div>
          <input type='text' id='name' name='Name' required/> <br/>
          </div>
          <div className='JionFrom-content-inputs'>
-         <label>{currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}</label>
-         <Fragment>:</Fragment>
+        <div className='jion-cont'>
+        <label>{currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}</label>
+         <p> <Fragment>:</Fragment></p>
+        </div>
          <input type='text' id='name' name='Name' required/> <br/>
          </div>
         
          <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.5') : t('Refferal code')}</label>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+         </div>
          <input type='text' id='name' name='Name' required/> <br/>
          </div>
-         <div className='JionFrom-content-inputs-1'>
-         <label>{currentLanguage === 'ta' ? t('JionMemberShip.4') : t('JionMemberShip.4')}</label>
-         <Fragment>:</Fragment>
+         <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
+           <label>{currentLanguage === 'ta' ? t('JionMemberShip.4') : t('JionMemberShip.4')}</label>
+          <p> <Fragment>:</Fragment></p>
+          </div>   
+         <div>
          <div className="select-box">
         <div className="select-box__current" tabIndex="1">
           <div className="select-box__value">
@@ -133,11 +142,14 @@ function JionMember() {
           </li>
         </ul>
       </div>
+      </div>
          </div>
       
-         <div className='JionFrom-content-inputs-1'>
-  <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')}</label>
-  <Fragment>:</Fragment>
+         <div className='JionFrom-content-inputs'>
+     <div className='jion-cont'>
+     <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')}</label>
+  <p> <Fragment>:</Fragment></p>
+     </div>
   <div className="select-box">
     <div className="select-box__current" tabIndex="1">
       <div className="select-box__value">
@@ -231,9 +243,11 @@ function JionMember() {
     </ul>
   </div>
          </div>
-         <div className='JionFrom-content-inputs-1'>
+         <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.8') : t('Date of Birth')}</label>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+         </div>
         <div>
         <DatePicker
         selected={selectedDate}
@@ -245,9 +259,11 @@ function JionMember() {
       />
         </div>
          </div>
-         <div className='JionFrom-content-inputs-1'>
+         <div className='JionFrom-content-inputs'>
+          <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.9') : t('Blood Group')}</label>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+         </div>
          <div className="select-box">
         <div className="select-box__current" tabIndex="1">
           <div className="select-box__value">
@@ -384,9 +400,11 @@ function JionMember() {
         </ul>
       </div>
          </div>
-         <div className='JionFrom-content-inputs-1'>
+         <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('Religion.4') : t('JionMemberShip.10')}</label>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+         </div>
          <div className="select-box">
         <div className="select-box__current" tabIndex="1">
           <div className="select-box__value">
@@ -447,22 +465,26 @@ function JionMember() {
       </div>
          </div>
          <div className='JionFrom-content-inputs'>
-          <label>{currentLanguage === 'ta' ? t('Address.1') : t('JionMemberShip.11')}</label>
-          <Fragment>:</Fragment>
+         <div className='jion-cont'>
+         <label>{currentLanguage === 'ta' ? t('Address.1') : t('JionMemberShip.11')}</label>
+          <p> <Fragment>:</Fragment></p>
+         </div>
           <div className='Address'>
           <textarea></textarea>
           <label>{currentLanguage === 'ta' ? t('Address.2') : t('state')}</label>
-          <input type="text" className="" ></input>
+          <input type="text" className="text-area-address" ></input>
           <label>{currentLanguage === 'ta' ? t('Address.3') : t('District')}</label>
-           <input type="text" className="" ></input>
+           <input type="text" className="text-area-address" ></input>
           </div>
          </div>
          <div className='Upload-content-inputs'>
-         <div className='UploadAdharaCard'>
+        <div className='jion-cont'>
+        <div className='UploadAdharaCard'>
          <p>{currentLanguage === 'ta' ? t('Aadhaar.2') : t('Upload Adhara card')}</p>
          <span>{currentLanguage === 'ta' ? t('Aadhaar.3') : t('(FRONT SIDE OF ADHAR ONLY REQUIRED)')}</span>
          </div>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+        </div>
      
                    <div className='Upload-adhar-btn'>
                    <label className="upload-btn">
@@ -480,10 +502,12 @@ function JionMember() {
       </div>
          </div>
          <div className='Upload-content-inputs'>
-         <div className='UploadAdharaCard'>
+   
+     <div className='UploadAdharaCard'>
          <p>{currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload your photo')}</p>
          </div>
-         <Fragment>:</Fragment>
+         <p> <Fragment>:</Fragment></p>
+ 
          <div className='Upload-adhar-btn'>
          <label className="upload-btn">
         {currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload Profile')}
