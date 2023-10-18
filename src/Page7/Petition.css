@@ -3,6 +3,10 @@
     width: 100%;
     height: auto;
   }
+  .page7-image1 {
+    width: 77vw;
+    height: 1rem;
+}
   
   .page7-petition-text {
     display: flex;
@@ -177,14 +181,14 @@
 }
 .petition-7-btn-tamil {
     display: flex;
-    width: 24vw;
+    width: 22vw;
     padding: 10px;
     height: auto;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 2px;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
     margin-inline-start: 2vw;
 }
