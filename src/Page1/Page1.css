@@ -128,8 +128,9 @@
     background-image:url('../Assets/image2.jpg'); 
 }
 .intro-slide-3{
-    background-image:url('../Assets/image4.jpg'); 
+    background-image:url('../images/card3.png'); 
 }
+
 .intro-slide-content{
     display: flex;
 }
