@@ -1,8 +1,8 @@
 import React from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
-import ar from '../imgg/Frame 247.png'
-import logo from '../images/IHAF ORGINAL LOGO 1.png'
+import ar from '../images/tri.png'
+import logo from '../images/logo.png'
 const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';

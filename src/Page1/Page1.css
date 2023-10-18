@@ -1,7 +1,7 @@
 .intro-slide-content-quates span {
     display: inline-block;
     opacity: 0;
-    font-size: 3vw;
+    font-size: 33px;
     font-family: Crimson Text;
     filter: blur(4px);
     margin-left: 0.2em;
@@ -128,8 +128,9 @@
     background-image:url('../Assets/image2.jpg'); 
 }
 .intro-slide-3{
-    background-image:url('../Assets/image4.jpg'); 
+    background-image:url('../images/card3.png'); 
 }
+
 .intro-slide-content{
     display: flex;
 }
@@ -188,7 +189,7 @@ line-height: normal;
 text-transform: uppercase;
 }
 .intro-slide-content-right-top-tamil span{
-    font-size: 10.405px;
+    font-size: 16.405px;
 }
 .intro-slide-content-right-top span{
     font-size: 16.405px;
@@ -213,6 +214,7 @@ text-transform: uppercase;
 }
 .intro-slide-content-quates p{
 color: #0c0000;
+
 }
 .intro-slide-content-quates-1 p{
     color: #ffe5e5;
@@ -317,10 +319,7 @@ color: #0c0000;
     }
     .navbar-logo img {
         width: auto;
-        height: 72px;
-}
-.container-2{
-  height: 80vh;
+        height: 102px;
 }
     .intro-slide-content-right-btm img{
         display: none;

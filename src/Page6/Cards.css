@@ -26,8 +26,8 @@
     border: none;
    }
    .main6-btn {
-    width: 16vw;
-    height: 8vh;
+    width: 19vw;
+    height: 9vh;
     display: flex;
     border-radius: 0.3vw;
     justify-content: center;
@@ -40,18 +40,12 @@
     text-transform: uppercase;
     font-weight: 500;
     justify-content: space-around;
-    transition:  0.3s ease;
+    transition: background-color 0.3s ease;
 }
-    
-   .main6-btn img {
-    width: 1.8vw;
-    height: auto;
-   }
    .main6-btn:hover {
     /* Define your hover styles here */
-
+    background: rgb(36, 6, 206);
     color: rgb(255, 255, 255);
-    background: linear-gradient(4deg, #ff3838 2.88%, #d50101 70.04%, #AE0707 96.06%), #E6E6E6;
    }
 .title-6{
     font-size: 3vw;
@@ -80,6 +74,7 @@ justify-content: center;
   background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
 
 }
+
 
 .wrapper .outer {
   display: flex;
@@ -186,7 +181,10 @@ justify-content: center;
   font-size: 18px;
   color: #fff;
 }
-
+.main6-btn img {
+  width: 1.8vw;
+  height: auto;
+}
 
 .card6 .left6 .name6{
     font-size: 2vw;
@@ -349,7 +347,7 @@ justify-content: center;
   width: 51vw;
 }
 .main6-btn img {
-  width: 3vw;
+  width: 8vw;
 }
 }
 @media screen and (max-width: 912px) {}

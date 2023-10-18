@@ -1,5 +1,5 @@
 import React from 'react'
-import image1 from "../images/IHAF ORGINAL LOGO 1.png"
+import image1 from "../images/MicrosoftTeams-image 1.png"
 import "./Footer.css"
 import { useTranslation } from 'react-i18next'
 function Footer() {
@@ -10,7 +10,7 @@ function Footer() {
     <div className='Footer-container'>
     <div className='Footer-container-main'>
       <div className='footer-logo'>
-         <img src={image1} alt='logo' className='footer-image1'></img>
+         <img src={image1} alt='' className='footer-image1'></img>
         </div> 
       <div className='footer-copy-rights'>
          <p className={`${isTamilLanguage ? 'Footer-integral-tamil' : 'Footer-integral'} `} >{t('hello.17')}</p>

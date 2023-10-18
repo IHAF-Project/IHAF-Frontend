@@ -1,4 +1,7 @@
-import React from 'react';
+
+
+
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import Feedback from './Page7/Feedback';
@@ -8,15 +11,12 @@ import About from './Page8/About';
 import { useTranslation } from 'react-i18next';
 import JoinMember from "./JoinMember/JoinMember"
 import { Route, Routes } from 'react-router-dom';
-import { useEffect,useState } from 'react';
 import arrow from '../src/images/top.png'
 import Tree from './Tree';
-const App = () => {
-  const { t, i18n } = useTranslation();
 
-  function handleclick(lng) {
-    i18n.changeLanguage(lng);
-  }
+const App = () => {
+
+
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
@@ -39,8 +39,24 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-    <div className="container" >
+
+
+<div>
+{isLoading ? (
+  <div className='kitna-container'>
+    <div class="kinetic"></div>
+    </div>
+) : (
+  <div className="container" >
       <Routes>
       <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />
@@ -56,6 +72,8 @@ const App = () => {
         </button>
       )}
     </div>
+)}
+</div>
   );
 };
 
