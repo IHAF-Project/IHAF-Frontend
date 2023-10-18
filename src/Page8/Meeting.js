@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./Meeting.css"
 import { useTranslation } from 'react-i18next';
 
@@ -36,6 +36,13 @@ function Meeting() {
     setMemberOpen(index)
   }
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setMemberOpen((memberOpen + 1) % 2);
+    }, 4000);
+    return () => clearTimeout(timeoutId);
+  }, [memberOpen]);
+  
   return (
     <div className='Meeting-container'>
 
@@ -47,7 +54,6 @@ function Meeting() {
           <p  className=''>Events</p>
           </div>
         </div>
-        
         {memberOpen === 0 &&
           <div className='Meeting-con-main'>
             <div className='zoom-meet-design-cont'>
@@ -56,18 +62,17 @@ function Meeting() {
             <div className='zoom-meeting-cont'>
               <p className='zoom-meet-code'>
                 Zoom meeting code :
-                <span title='Click to copy'
+                <span
                   className={`code-text ${isCodeCopied ? 'copied' : ''}`}
                   onClick={handleCopyCodeClick}
                 >
                   Your Zoom meeting code here
                 </span>
               </p>
-              {isCodeCopied && <p className='copied-message'>Code copied!</p>}
-            </div>
-          </div>
-}
-    
+       {isCodeCopied && <p className='copied-message'>Code copied!</p>}
+     </div>
+ </div>
+}   
 {memberOpen === 1 &&
            <div className='mmeting-tab-2'>
               <div className='metting-tab2-cont'>
