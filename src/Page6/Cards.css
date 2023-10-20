@@ -26,8 +26,8 @@
     border: none;
    }
    .main6-btn {
-    width: 16vw;
-    height: 8vh;
+    width: 19vw;
+    height: 9vh;
     display: flex;
     border-radius: 0.3vw;
     justify-content: center;
@@ -40,27 +40,22 @@
     text-transform: uppercase;
     font-weight: 500;
     justify-content: space-around;
-    transition:  0.3s ease;
+    transition: background-color 0.3s ease;
 }
-    
-   .main6-btn img {
-    width: 1.8vw;
-    height: auto;
-   }
    .main6-btn:hover {
     /* Define your hover styles here */
-
+    background: rgb(36, 6, 206);
     color: rgb(255, 255, 255);
-    background: linear-gradient(4deg, #ff3838 2.88%, #d50101 70.04%, #AE0707 96.06%), #E6E6E6;
    }
 .title-6{
     font-size: 3vw;
-    width: 28vw;
+   
 }
 .main-details6{
     font-size: 1.4vw;
     margin-bottom: 4vh;
     margin-top: 2vh;
+    font-family: Poppins ;
 }
 .main-right6{
     width: 60vw;
@@ -79,6 +74,7 @@ justify-content: center;
   background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
 
 }
+
 
 .wrapper .outer {
   display: flex;
@@ -185,7 +181,10 @@ justify-content: center;
   font-size: 18px;
   color: #fff;
 }
-
+.main6-btn img {
+  width: 1.8vw;
+  height: auto;
+}
 
 .card6 .left6 .name6{
     font-size: 2vw;
@@ -193,8 +192,9 @@ justify-content: center;
     align-items: first baseline;
 }
 .card6 .left6 .details6{
-    font-size: 1.2vw;
+    font-size: 1vw;
     width: 27vw;
+    font-family: Poppins ;
     /* margin-top: 4vh; */
    
 }
@@ -278,16 +278,17 @@ justify-content: center;
   width: 5vw;
 }
 .title-6 {
-  font-size: 3vw;
-  width: 28vw;
+  font-size: 7vw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
-
 }
 @media screen and (max-width: 915px) {
   .main6{
     flex-direction: column;
     justify-content: start;
-    height: 92vh;
+    height: 100vh;
   }
   .page4-container {
     height: auto;
@@ -297,10 +298,10 @@ justify-content: center;
   } */
   .main-left6 {
     width: 100vw;
-    height: 18vh;
+    height: 19vh;
     margin-inline-start:0vh;
     flex: none;
-    gap:16px;
+    gap:11px;
     align-items: center;
 
   }
@@ -316,12 +317,12 @@ justify-content: center;
   }
   .main-right6{
     width: 100vw;
-    height: 66vh;
+    height: 75vh;
    
   }
   .wrapper .card6{
     width: 80vw;
-    height:20vh;
+    height:26vh;
     border-radius: 1vh 10vh 10vh 1vh;
   }
   .left6 p {
@@ -340,12 +341,13 @@ justify-content: center;
 }
 .card6 .left6 .name6
 {
-  font-size: 5vw;
+  font-size: 3vw;
 }
 .left6{
   width: 51vw;
 }
 .main6-btn img {
-  width: 3vw;
+  width: 8vw;
 }
 }
+@media screen and (max-width: 912px) {}

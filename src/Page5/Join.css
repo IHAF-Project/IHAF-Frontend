@@ -29,12 +29,13 @@
 .part1-5{
 
     width: 100%;
-    height: 12vh;
+    height: 6vh;
     display: flex;
     overflow-x: hidden;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 1vw;
 }
 .part1-5::-webkit-scrollbar{
  width: 0;
@@ -80,7 +81,7 @@
 }
 .right-5 {
     width: 38vw;
-    height: 64vh;
+    height: 58vh;
     display: flex;
     align-items: center;
     background-size: cover;
@@ -91,6 +92,7 @@
     margin-top: 8vh;
 }
 .right-5 p{
+    width: 34vw;
     font-size: 1.4vw;
     padding-inline-start: 5vw;
     padding-inline-end: 5vw;
@@ -119,9 +121,6 @@
     margin-left: 0%;
     font-size: 1vw;
     margin-top: 5vh;
-}
-.right-5 button:hover{
-    background: linear-gradient(270deg, #fd2626 1.91%, #ff1111 99.81%), #E6E6E6;
 }
 .right-5 img{
     width: 2.5vw;
@@ -187,7 +186,7 @@
         justify-content: center;
     }
     .right-5 p{
-        font-size: 2.5vw;
+        font-size: 3vw;
     }
     .right-5 button{
         width: auto;
@@ -203,7 +202,7 @@
         /* margin: 0; */
     }
     .part2-5 {
-        height: auto;
+        align-items: center;
         padding-bottom: 2rem;
     }
     .right-5 {
@@ -211,11 +210,11 @@
         margin: 0;
     }
     .container-5 {
-        height: auto;
+        height: 58vh;
     }
     .right-5 button {
         margin: 0;
-        height: 0;
+        height: 6vh;
        
     }
     .part1-5 p {
@@ -224,14 +223,15 @@
     }
     .right-5 p {
         margin: 0;
-        width: 38vw;
+        width: 53vw;
     }
     .right-5 {
         align-items: center;
-        padding: 3rem;
+        padding: 0vw 6vw 2vw 6vw;
         justify-content: center;
         gap: 38px;
-        width: 34vw;
+        width: 55vw;
+        height: 36vh;
     }
     
 }

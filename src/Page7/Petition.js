@@ -30,7 +30,7 @@ function Petition() {
   return (
     <div className='page7-petition-container abc'>
       <div className='page-7-image-text'>
-        <img src={image1} alt='' className='page4-image1 hidden-13'></img>
+        <img src={image1} alt='' className='page7-image1 hidden-13'></img>
         <p className={`hidden-14 ${isTamilLanguage ? 'petition-7-btn-tamil' : 'petition-7-btn'}`}>{t('hello.3')}</p> 
       </div>
       

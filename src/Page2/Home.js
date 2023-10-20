@@ -1,6 +1,6 @@
 import React, { useRef,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import logo from "../images/IHAF ORGINAL LOGO 1.png"
+import logo from '../images/logo.png'
 import './Home.css'; 
 
 const Home = () => {
@@ -41,7 +41,7 @@ const Home = () => {
           <p className={`tit-2 ${isTamilLanguage ? 'tamil18-font2' : ''}`}>{t('Welcome.1')}</p>
         </div>
         <div className='part2-2'>
-          <div  ref={contentRef} class='hidden box-2'>
+          <div  ref={contentRef} class='hidden box-2 text-box'>
             <p className={`det-2 ${isTamilLanguage ? 'tamil18-font2' : ''}`}>{t('Welcome.2')}</p>
           </div>
           <div className='hidden-1 right-logo-2'>

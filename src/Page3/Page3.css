@@ -18,14 +18,13 @@
     justify-content: space-between;
     align-items: center;
     overflow-x: hidden;
-    gap: 6px;
 }
 .social-page-tp img {
     width: 75%;
 }
 .social-page-tp p {
 color: #FFF;
-font-family: 'Poppins';
+font-family: 'Noto Serif';
 font-size: 1rem;
 text-align: center;
 font-weight:500;
@@ -63,19 +62,13 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
     background: #868aa5;
     box-shadow: 0px 2.02564px 2.02564px 0px rgba(0, 0, 0, 0.25);
 }
-.tab:hover{
-    background: #555d8d;
-}
 .Tabactive{
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
    
 }
-.Tabactive:hover{
-    background: linear-gradient(4deg, #d10404 2.88%, #E66060 70.04%, #cf1313 96.06%), #E6E6E6;
-}
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 129px;
+    width: 107px;
     height: auto;
     align-items: center;
     justify-content: space-around;
@@ -110,7 +103,7 @@ text-transform: capitalize;
 .social-page-btm{
     display: flex;
     flex-direction: column;
-    /* gap:2rem; */
+    gap:2rem;
 }
 .Tab-content1{
     width: 100%;
@@ -119,7 +112,7 @@ text-transform: capitalize;
     flex-direction: column;
 }
 .Tab-content1-tp{
-     height: 13vh;
+     height: 15vh;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -144,7 +137,7 @@ text-transform: capitalize;
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
-    gap: 5vh;
+    gap: 1vh;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
@@ -171,8 +164,10 @@ text-transform: capitalize;
     .social-page-tp img{
         width: 65%;
     }
-    .tabs{
-        flex-direction: column;
+    .tabs {
+        flex-direction: row;
+        width: 100vw;
+        justify-content: center;
     }
    :is(.social-page-btm-con,.social-page-btm,.tab-content,.tab-bg,.Tab-content1){
     height: auto;
@@ -206,7 +201,7 @@ text-transform: capitalize;
     }
     .Tab-content1-tp p {
         
-        padding-inline: 2rem;
+        padding-inline: 1rem;
         padding-block: 0.5rem;
         width: 300px;
         font-size: 12.998px;
