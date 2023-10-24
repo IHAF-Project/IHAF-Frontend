@@ -4,12 +4,12 @@ import Ambeth from "../Assets/Frame 39.svg"
 import Quets from "../Assets/Frame 14.png"
 import PropTypes from 'prop-types';
 
-function Card1({isVisible}) {
+function Card1() {
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
   return (
       
-         <div className={`intro-slide-1 ${isVisible ? 'actived' : ''}`}>
+         <div className={`intro-slide-1 `}>
         <div className="intro-slide-content">
          <div className="intro-slide-content-right">
          <div className="intro-slide-content-right-top">

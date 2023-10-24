@@ -100,6 +100,26 @@
     height: 88vh;
     background-size: cover;
 }
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .intro-slide-1{
     background-image:url('../Assets/image5.jpg');
 }
@@ -230,9 +250,7 @@ color: #0c0000;
   overflow: hidden;
 }
 
-.intro-slide-1,
-.intro-slide-2,
-.intro-slide-3 {
+:is(.intro-slide-1,.intro-slide-2,.intro-slide-3 ){
   width: 100%;
   height: 100%;
   position: absolute;
