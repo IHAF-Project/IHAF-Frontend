@@ -19,6 +19,7 @@ function Card3({isVisible}) {
       {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
       </span>
      </div>
+
         </div>
         <div className="intro-slide-content-left">
         <div className="intro-slide-content-quates-1">

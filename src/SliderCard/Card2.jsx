@@ -28,7 +28,7 @@ function Card2({isVisible}) {
      <div className="Quates-img-1">
      <img src={Quets} alt='quates' />
      </div>
-      <p>“ {currentLanguage === 'ta' ? t('pageOne.3') : t('If a vote for everyone is the touchstone of political democracy, work for everyone is a measure of economic democracy.')}”</p>
+      <p>“ {currentLanguage === 'ta' ? t('pageOne.3') : t('If a for everyone is the touchstone of political democracy, work for everyone is a measure of economic democracy.')}”</p>
      <div className="Quates-img-2">
      <img src={Quets} alt='quates' style={{transform:'rotate(180deg)'}} />
      </div>

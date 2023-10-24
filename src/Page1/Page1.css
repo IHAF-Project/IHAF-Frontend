@@ -89,34 +89,13 @@
     }
     
   }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .Page-1{
     width: 100%;
     height:100vh;
     display: flex;
     flex-direction: column;
 }
-:is(.intro-slide-1,.intro-slide-2,.intro-slide-3){
+:is(.intro-slide-1,.intro-slide-2,.intro-slide-3,.intro-slide-4){
     width: 100%;
     height: 88vh;
     background-size: cover;
@@ -129,6 +108,9 @@
 }
 .intro-slide-3{
     background-image:url('../images/card3.png'); 
+}
+.intro-slide-4{
+  background-color: #00003B;
 }
 
 .intro-slide-content{
@@ -242,35 +224,37 @@ color: #0c0000;
 } 
 
 .card-container {
-    width: 100%;
-    height: 88vh; 
-    position: relative;
-    overflow: hidden; 
-  }
-
-:is(.intro-slide-1,.intro-slide-2,.intro-slide-3) {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 1s ease-in-out;
+  width: 100%; /* 100% * number of cards (3 in this case) */
+  height: 88vh;
+  position: relative;
+  overflow: hidden;
 }
 
-  @keyframes slideRightToLeft {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+.intro-slide-1,
+.intro-slide-2,
+.intro-slide-3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s ease-in-out;
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(100%);
   }
-  .actived {
+  100% {
     transform: translateX(0);
-    z-index: 3;
-    animation: slideRightToLeft 1s ease-in-out;
   }
-  
+}
+
+.actived {
+  transform: translateX(0);
+  z-index: 3;
+  animation: slideRightToLeft 1s linear ; /* 4s = duration of one full loop */
+}
 
 @media screen and (max-width:998px){
     :is(.intro-slide-content-quates ,.intro-slide-content-quates-1){

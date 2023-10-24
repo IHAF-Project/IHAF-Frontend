@@ -3,16 +3,11 @@ import "./Meeting.css"
 import { useTranslation } from 'react-i18next';
 
 function Meeting() {
-  const { t, i18n } = useTranslation()
-  const isTamilLanguage = i18n.language === 'ta'
-
-  const [value, setValue] = useState('1');
+  const { t } = useTranslation()
+  
   const [isCodeCopied, setIsCodeCopied] = useState(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    setIsCodeCopied(false); 
-  };
+
 
   const handleCopyCodeClick = () => {
     const zoomMeetingCode = 'Your Zoom meeting code here'; 
