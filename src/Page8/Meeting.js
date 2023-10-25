@@ -1,13 +1,26 @@
 import React, { useState,useEffect } from 'react';
 import "./Meeting.css"
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 function Meeting() {
   const { t } = useTranslation()
-  
   const [isCodeCopied, setIsCodeCopied] = useState(false);
+  const [meeting, setMeeting] = useState('');
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('https://ihaf-backend.vercel.app/new-meet');
+        setMeeting(response.data); 
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   const handleCopyCodeClick = () => {
     const zoomMeetingCode = 'Your Zoom meeting code here'; 
@@ -31,13 +44,14 @@ function Meeting() {
     setMemberOpen(index)
   }
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setMemberOpen((memberOpen + 1) % 2);
-    }, 4000);
-    return () => clearTimeout(timeoutId);
-  }, [memberOpen]);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setMemberOpen((memberOpen + 1) % 2);
+  //   }, 4000);
+  //   return () => clearTimeout(timeoutId);
+  // }, [memberOpen]);
   
+  console.log(meeting,"metting links..")
   return (
     <div className='Meeting-container'>
 
