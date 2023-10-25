@@ -146,5 +146,13 @@
   "2": "Mobile number used for membership registration enter",
   "3": "Mobile Number",
   "4":"Submit"
+},
+"Otp": {
+  "1": "OTP Verification",
+  "2": "We are sending you a OTP to verify your phone number",
+  "3": "Please enter your OTP here",
+  "4": "I didn't receive a OTP resend OTP !",
+  "5": "Resend",
+  "6": "Verify"
 }
 }
