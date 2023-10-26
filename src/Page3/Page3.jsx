@@ -107,8 +107,7 @@ useEffect(() => {
      
       <div className="tab-content hidden-6" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {activeTab === 0 && <TabContent2 embedId="Cz6P9g5Z9C8" />}
-        {activeTab === 1 && <TabContent1 />}
-        
+        {activeTab === 1 && <TabContent1 />}  
         {activeTab === 2 && <TabContent3 />}
       </div>
      </div>

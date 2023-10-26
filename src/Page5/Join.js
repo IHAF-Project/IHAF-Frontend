@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import './Join.css'; // Import your CSS file
-import modi from '../images/bg-modi 1 (1).png'
+import modi from '../images/bg-modi 1 (2).png'
 const Join = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';

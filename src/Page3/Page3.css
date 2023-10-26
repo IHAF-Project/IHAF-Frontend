@@ -68,7 +68,8 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
 }
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 107px;
+    width: 100px;
+    padding: 0.25em .5em ;
     height: auto;
     align-items: center;
     justify-content: space-around;

@@ -7,16 +7,14 @@ import './i18n';
 import './page-i18/I18n'
 import { BrowserRouter } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material/styles';
-import Demo from './Demo/Demo';
-
-
+// import Demo from './Demo/Demo';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter basename='/'>
      <StyledEngineProvider>
-     <App />
+     <App/>
      </StyledEngineProvider>
  {/* <Demo/>  */}
     </BrowserRouter>
@@ -24,7 +22,5 @@ root.render(
 );
 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

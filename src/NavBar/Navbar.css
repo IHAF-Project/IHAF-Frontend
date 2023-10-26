@@ -41,7 +41,7 @@ align-items: center;
   color: transparent; 
 }
 .navbar-logo img{
-  width: 90px;
+  width: 80px;
   height: auto;
   padding: 5px;
 }
@@ -115,7 +115,7 @@ position: relative;
 .navbar-toggle button{
   display: none;
 }
-:is(.navbar-login button ,.Navbar-login-ta button){
+:is(.navbar-login button  ,.Navbar-login-ta button ){
 display: flex;
 height:30.648px;
 padding: 1rem;
@@ -222,8 +222,8 @@ background: #356DFF;
   align-items: center;
 }
 .profile-icon img{
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
 }
 :is(.referal-code ,.feedback-pop ,.logout-pop){
   display: flex;
@@ -409,8 +409,8 @@ input:checked + .slider:after {
       padding-inline-end: 0;
   }
   .navbar-logo img{
-      width: 80px;
-      height: 80px;
+    width: 60px;
+    height: 60px;
   }
   .navbar-logo{
     gap: 0;
@@ -437,8 +437,8 @@ input:checked + .slider:after {
       padding-inline-start: 2rem;
   }
   .navbar-logo img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
   .navbar-links.active{
       position: absolute;
