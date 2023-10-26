@@ -19,16 +19,16 @@ function Card2({isVisible}) {
       {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
       </span>
      </div>
-     <div className="intro-slide-content-right-btm">
+     {/* <div className="intro-slide-content-right-btm">
      <img src={Amboth} alt='Ambeth' />
-     </div>
+     </div> */}
      </div>
      <div className="intro-slide-content-left">
       <div className="intro-slide-content-quates-1">
      <div className="Quates-img-1">
      <img src={Quets} alt='quates' />
      </div>
-      <p>“ {currentLanguage === 'ta' ? t('pageOne.3') : t('If a for everyone is the touchstone of political democracy, work for everyone is a measure of economic democracy.')}”</p>
+      <p className={`${tamilLanguage ? 'Quates-tamil' : 'Quates-english'}`}>“ {currentLanguage === 'ta' ? t('pageOne.14') : t('If a for everyone is the touchstone of political democracy, work for everyone is a measure of economic democracy.')}”</p>
      <div className="Quates-img-2">
      <img src={Quets} alt='quates' style={{transform:'rotate(180deg)'}} />
      </div>

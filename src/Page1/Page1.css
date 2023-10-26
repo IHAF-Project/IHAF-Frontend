@@ -1,12 +1,23 @@
 .intro-slide-content-quates span {
     display: inline-block;
     opacity: 0;
-    font-size: 33px;
+    font-weight: 600;
     font-family: Crimson Text;
     filter: blur(4px);
     margin-left: 0.2em;
     
   }
+  :is(.quates-card1-tamil,.quates-card1-english){
+    line-height: 48px;
+    width: 680px;
+    padding: 0.5px;
+}
+.quates-card1-tamil span{
+    font-size: 24.05px;
+}
+:is(.quates-card1-english span){
+    font-size: 32px;
+}
   .intro-slide-content-quates span:nth-child(1) {
     animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
   }
@@ -121,13 +132,13 @@
 }
 
 .intro-slide-1{
-    background-image:url('../Assets/image5.jpg');
+    background-image:url('../images/MicrosoftTeams-image\ \(18\).png');
 }
 .intro-slide-2{
-    background-image:url('../Assets/image2.jpg'); 
+    background-image:url('../images/MicrosoftTeams-image-2.png'); 
 }
 .intro-slide-3{
-    background-image:url('../images/card3.png'); 
+    background-image:url('../images/2.png'); 
 }
 .intro-slide-4{
   background-color: #00003B;
@@ -204,18 +215,32 @@ text-transform: uppercase;
     flex-direction: column;
 }
 
-:is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){
+/* :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){
    
     text-align: center;
     font-family: Crimson Text;
-    font-size: 33.405px;
+    font-size: 24.405px;
     font-style: italic;
     font-weight: 600;
     width: 651.089px;
     line-height: normal;
+} */
+:is(.Quates-tamil,.Quates-english){
+  text-align: center;
+  font-family: Crimson Text;
+  font-style: italic;
+  font-weight: 600;
+  width: 651.089px;
+  line-height: normal;
+}
+.Quates-tamil{
+  font-size: 24.405px;
+}
+.Quates-english{
+  font-size: 40.405px;
 }
 .intro-slide-content-quates p{
-color: #0c0000;
+color: #ffffff;
 
 }
 .intro-slide-content-quates-1 p{
@@ -321,7 +346,7 @@ color: #0c0000;
     }
     .navbar-logo img {
         width: auto;
-        height: 102px;
+        height: 60px;
 }
     .intro-slide-content-right-btm img{
         display: none;

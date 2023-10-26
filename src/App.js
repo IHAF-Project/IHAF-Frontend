@@ -13,6 +13,7 @@ import JoinMember from "./JoinMember/JoinMember"
 import { Route, Routes } from 'react-router-dom';
 import arrow from '../src/images/top.png'
 import Tree from './Tree';
+import Otp from './LogIn/OTP/Otp';
 
 const App = () => {
 
@@ -62,7 +63,8 @@ const App = () => {
         <Route path="/About" element={<About />} />
         <Route path="/FeedBack" element={<Feedback />} />
         <Route path="/Login" element={<Login/>} />
-        <Route path="/Login" element={<Profile/>} />
+        <Route path='/Otp' element={<Otp/>} />
+        <Route path='/profile/:memberId' element={<Profile />} />
         <Route path='/member' element={<JoinMember/>}></Route>
       </Routes>
  

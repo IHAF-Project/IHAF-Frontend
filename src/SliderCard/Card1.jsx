@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 function Card1() {
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
+    const tamilLanguage = i18n.language === 'ta'
   return (
       
          <div className={`intro-slide-1 `}>
@@ -18,16 +19,16 @@ function Card1() {
           {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
           </span>
          </div>
-         <div className="intro-slide-content-right-btm">
+         {/* <div className="intro-slide-content-right-btm">
          <img src={Ambeth} alt='Ambeth' />
-         </div>
+         </div> */}
          </div>
          <div className="intro-slide-content-left">
           <div className="intro-slide-content-quates">
          <div className="Quates-img-1">
          <img src={Quets} alt='quates' />
          </div>
-        <p>
+        <p className={`${tamilLanguage ? 'quates-card1-tamil': 'quates-card1-english'}`}>
     <span>“</span>
   <span> {currentLanguage === 'ta' ? t('pageOne.2') : t('One')}</span>
   <span>{currentLanguage === 'ta' ? t('pageOne.4') : t('should')}</span>

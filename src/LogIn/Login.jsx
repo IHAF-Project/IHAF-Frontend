@@ -2,30 +2,60 @@ import { useState } from "react"
 import "./Login.css"
 import Navbar from "../NavBar/Navbar";
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 function Login() {
+  
   const { t, i18n } = useTranslation();
-
   const isTamilLanguage = i18n.language === 'ta';
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     phoneNumber: '',
   });
-
+  const [isInputValid, setIsInputValid] = useState(true);
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const isValid = /^[0-9]{10}$/.test(value);
+    setIsInputValid(isValid);
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    console.log('Phone Number:', formData.phoneNumber);
+    if (isInputValid) {
+try{
+  const response = await axios.post("https://ihaf-backend.vercel.app/send-otp",{
+    phoneNumber:formData.phoneNumber,
+  })
+  const check = {data : {success : true}}
+if(check.data.success){
+  toast.success('OTP Sent Successfully', {
+      position: toast.POSITION.TOP_RIGHT ,
+  })
+  navigate('/Otp')
+}
+ else{
+  toast.error('somthing went wrong', { position: toast.POSITION.TOP_RIGHT })
+ }
+ console.log(response)
+}
+catch(error){
+  console.error('Error:', error);
+}
+}else {
+  // Show input error notification
+  toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_RIGHT });
+}
   };
-
+  const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
   return (
     <>
     <Navbar/>
@@ -45,6 +75,10 @@ function Login() {
             value={formData.phoneNumber}
             onChange={handleChange}
             placeholder="Enter your phone number"
+            style={{
+              borderColor: isInputValid ? '#355cc2' : '#cb0909',
+              border:'2px solid'
+            }}
           />
         </div>
         <div className="login-btn">
@@ -53,6 +87,7 @@ function Login() {
       </form>
      </div>
     </div>
+    <ToastContainer />
     </>
   )
 }
