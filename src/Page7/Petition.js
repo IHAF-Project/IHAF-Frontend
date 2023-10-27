@@ -107,7 +107,9 @@ function Petition() {
           {t('hello.3')}
         </p>
       </div>
-
+       <div className='page7-petition-text '>
+       <p className={`${isTamilLanguage ? 'page7-petition-tamil-p' : 'page7-petition-text-p'}`}>{t('hello.4')} </p>
+       </div>
       <div className="page7-input-container">
         <div className="petition-inputs">
           <div className="petition-input-cont">
