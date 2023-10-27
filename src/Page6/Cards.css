@@ -57,6 +57,9 @@
     margin-top: 2vh;
     font-family: Poppins ;
 }
+a{
+  text-decoration: none;
+}
 .main-right6{
     width: 60vw;
     height: 100vh;
