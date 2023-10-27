@@ -125,8 +125,9 @@ const Navbar = () => {
        <div className='Pop-page'>
        <div className='profile-icon'><Link to='/profile'><img src={profile4} alt='profile-icon' /></Link></div>
        <div className='referal-code'>
-       <img src={profile3} alt='refetal-code' />
-      
+
+       <img src={profile3} alt='refetal-code'/>
+
        <div className="paste-button">
    <button className="button">REFERALCODE &nbsp; ▼</button>
    <div className="dropdown-content">

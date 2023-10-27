@@ -5,6 +5,7 @@ import Card3 from '../SliderCard/Card3';
 import Navbar from "../NavBar/Navbar"
 import './Page1.css';
 
+
 const Page1 = () => {
 
   const [currentCardIndex, setCurrentCardIndex] = useState(0);

@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslation } from 'react-i18next'
 import Check from "../Assets/Check (2).svg"
+import Footer from '../Footer/Footer'
 
 function JionMember() {
 
@@ -529,6 +530,7 @@ function JionMember() {
      </div>
      </div>
     </div>
+    <Footer/>
     </div>
   )
 }

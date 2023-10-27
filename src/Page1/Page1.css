@@ -274,8 +274,8 @@ color: #0c0000;
 
 @media screen and (max-width:998px){
     :is(.intro-slide-content-quates ,.intro-slide-content-quates-1){
-        margin-right: 30em;
-        margin-top: 0em;
+      margin-right: 9em;
+      margin-top: 0em;
     }
     .intro-slide-content-right-btm img{
         height: 55vh;
@@ -287,6 +287,7 @@ color: #0c0000;
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){
         font-size: 31.405px;
+        width: 44vw;
     }
     .intro-slide-content-quates span  {
       font-size: 20px;
@@ -347,3 +348,5 @@ color: #0c0000;
     }
     
 }
+
+
