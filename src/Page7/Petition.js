@@ -33,7 +33,6 @@ function Petition() {
         <img src={image1} alt='' className='page7-image1 hidden-13'></img>
         <p className={`hidden-14 ${isTamilLanguage ? 'petition-7-btn-tamil' : 'petition-7-btn'}`}>{t('hello.3')}</p> 
       </div>
-      
       <div className='page7-input-container'>
        <div className='petition-inputs'>
         <div className='petition-input-cont'> 
