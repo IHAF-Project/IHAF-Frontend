@@ -8,6 +8,7 @@ import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 
 const Page4 = () => {
+
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -40,11 +41,11 @@ const Page4 = () => {
   useEffect(() => {
     const scrollers = document.querySelectorAll('.scroller');
       scrollers.forEach((scroller) => {
-        scroller.setAttribute('data-animated', true);
-        const scrollerInner = scroller.querySelector('.scroller__inner');
+        scroller.setAttribute('data-animated', true)
+        const scrollerInner = scroller.querySelector('.scroller__inner')
         const scrollerContent = Array.from(scrollerInner.children);
         scrollerContent.forEach((item) => {
-          const duplicatedItem = item.cloneNode(true);
+          const duplicatedItem = item.cloneNode(true)
           duplicatedItem.setAttribute('aria-hidden', true);
           scrollerInner.appendChild(duplicatedItem)
          

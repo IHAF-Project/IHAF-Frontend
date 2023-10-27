@@ -2,6 +2,7 @@ import React from 'react'
 import image1 from "../images/MicrosoftTeams-image 1.png"
 import "./Footer.css"
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom';
 function Footer() {
     const {t, i18n} = useTranslation ();
     
@@ -17,14 +18,26 @@ function Footer() {
          <div className='footer-social'>
            <div className='footer-join-us'>
               <div>
+                 <Link to="/member">
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
+                 </Link>
+                 <Link to="/home">
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.20')}</p>
+                 </Link>
+                 <Link to="/socialmedia">
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.21')}</p>
+                 </Link>
               </div>
               <div>
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.22')}</p>
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.23')}</p>
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p>
+                <Link to="/petition">
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.22')}</p>
+                </Link>
+                <Link to="/leader">
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.23')}</p>
+                </Link>
+                <Link to="/Feedback">
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p>
+                </Link>
               </div>
             </div> 
             <div className='footer-text-address-container'>

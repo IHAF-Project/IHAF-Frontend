@@ -7,7 +7,7 @@ import './Page1.css';
 
 const Page1 = () => {
 
-  const [currentCardIndex, setCurrentCardIndex] = useState(null);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -19,9 +19,6 @@ const Page1 = () => {
 
     return () => clearInterval(interval); 
   }, [isHovered]);
-
-
-  
 
   return (
     <div className="Page-1">
