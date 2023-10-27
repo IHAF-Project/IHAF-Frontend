@@ -3,20 +3,21 @@ import './Cards.css';
 import { useTranslation } from 'react-i18next';
 import ar from '../images/tri.png'
 import logo from '../images/logo.png'
+import { Link } from 'react-router-dom';
 const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
-    
-  
   return (
     <div className='main6 abc'>
         <div className='main-left6'>
-            <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>
-           
-            <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>
-            <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon'></img></button>
-        </div>
-        
+        <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>  
+        <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>
+        <Link to="/applyserve">
+        <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon'></img></button>
+        </Link>
+       
+   </div>
+  
 <div className='main-right6'>
   <div className="wrapper">
     <div className="outer">

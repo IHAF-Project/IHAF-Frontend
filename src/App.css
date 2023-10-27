@@ -76,7 +76,6 @@ section {
   transition: all 1s ease 0.5s  ;
 }
 .hidden-3 {
- 
   transform: translateY(10px);
   transition: all 1s ease 1s  ;
 }
@@ -150,40 +149,59 @@ section {
 
 
 
-
  :root {
   --primary-color: #181625;
   --accent-pink: #a876aa;
   --accent-white: #e2e7ee;
 }
 
+.image-logo-loading{
+  width: 200px;
+  height: 200px;
+  position: relative;
+  z-index:22 !important;
+}
+
+
+.kitna-container {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  height: 100vh;
+}
+
+
 
 
 .kinetic {
   position: relative;
-  height: 80px;
-  width: 80px;
-}
-.kitna-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary-color);
-  height: 100vh;
+  width:240px;
 }
 
 .kinetic::before,
 .kinetic::after {
   content: "";
   position: absolute;
-  border: 50px solid transparent;
+  top: 0;
+  left: 0;
+  width: 100;
+  height: 100;
+  border-radius: 50%;
+  border: 100px solid transparent;
   border-bottom-color: var(--accent-pink);
   animation: rotateA 2s ease-in-out infinite 0.5s,
     color-change 2s ease-in-out infinite 1s;
 }
 
 .kinetic::before {
+  border-radius: 50%;
   animation: rotateB 2s ease-in-out infinite,
+    color-change 2s ease-in-out infinite;
+}
+.kinetic::before {
+  border-radius: 50%;
+  animation: rotateC 2s ease-in-out infinite,
     color-change 2s ease-in-out infinite;
 }
 
@@ -218,6 +236,66 @@ section {
     transform: rotate(450deg);
   }
 }
+
+.kinetic1 {
+  position: relative;
+  width:240px;
+}
+
+.kinetic1::before,
+.kinetic1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100;
+  height: 100;
+  border-radius: 50%;
+  border: 100px solid transparent;
+  border-bottom-color: var(--accent-pink);
+  animation: rotateA 2s ease-in-out infinite 0.5s,
+    color-change 2s ease-in-out infinite 1s;
+}
+
+.kinetic1::before {
+  border-radius: 50%;
+  animation: rotateB 2s ease-in-out infinite,
+    color-change 2s ease-in-out infinite;
+}
+
+
+@keyframes rotateA {
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(140deg);
+  }
+
+  100% {
+    transform: rotate(330deg);
+  }
+}
+
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: rotate(30deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(260deg);
+  }
+
+  100% {
+    transform: rotate(280deg);
+  }
+}
+
 
 @keyframes color-change {
   75% {
