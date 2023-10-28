@@ -364,7 +364,7 @@ img.jionMember-coverImg{
     }
   }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:450px) {
   .JionFrom-content-inputs{
     flex-direction: column;
     gap:1em;

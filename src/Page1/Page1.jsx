@@ -40,7 +40,7 @@ const Page1 = () => {
         }}
         speed={1200}
         slidesPerGroupSkip={3}
-     
+        modules={[Autoplay]}
         className="mySwiper"
       >
         
