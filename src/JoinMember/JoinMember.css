@@ -334,6 +334,15 @@ font-weight: 400;
 line-height: normal;
 text-transform: uppercase;
 }
+@media screen and (max-width: 1024px) {
+  .JionFrom-content-left {
+    width: 70%;
+  }
+  img.jionMember-coverImg{
+    width: 100%;
+  }
+}
+
   @-webkit-keyframes HideList {
     from {
       transform: scaleY(1);
@@ -351,3 +360,4 @@ text-transform: uppercase;
       transform: scaleY(0);
     }
   }
+

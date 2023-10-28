@@ -17,7 +17,7 @@
     height: 15vh;
     justify-content: space-between;
     align-items: center;
-    overflow-x: hidden;
+  
 }
 .social-page-tp img {
     width: 75%;
@@ -41,11 +41,9 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
     justify-content: center;
 }
 .social-page-btm {
-    
-    width: min(80vw ,100%);
-    height: 85vh;
 
-   
+    width: 100%;
+    height: 85vh;
 }
 .tabs {
     display: flex;
@@ -94,12 +92,15 @@ text-transform: capitalize;
     align-items: center;
     justify-content: center;
 }
-.tab-bg{
-    width: min(80vw ,100%);
+.tab-bg-main{
+    width: 100vw;
     height: auto;
-    background-image: url('../Assets/back1.svg');
+    background-image: url('../imgg/IHAF\ website\ background\ \(2\).png');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .social-page-btm{
     display: flex;
@@ -110,6 +111,7 @@ text-transform: capitalize;
     width: 100%;
     height: 70vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 .Tab-content1-tp{
@@ -134,16 +136,23 @@ text-transform: capitalize;
 }
 .Tab-content1-bt {
     height: 55vh;
+    width: min(80vw ,100%);
     display: flex;
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
-    gap: 1vh;
+    gap: 2vw;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
 }
-
+.TabContent1-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
 .youtube {
     width: 64vw;
     height: 56vh;

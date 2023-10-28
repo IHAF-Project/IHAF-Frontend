@@ -52,7 +52,7 @@ function JionMember() {
      </div>
      <div className='JionFrom-content'>
      <div className='JionFrom-content-left'>
-     <img src={Ambeth} alt ='Ambethkar' />
+     <img src={Ambeth} alt ='Ambethkar' className='jionMember-coverImg'/>
      </div>
      <div className='JionFrom-content-right'>
      <form>

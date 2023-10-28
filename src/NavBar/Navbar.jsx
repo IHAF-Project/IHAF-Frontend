@@ -95,10 +95,10 @@ const refferal =localStorage.getItem('refferalCode');
       </div>
       <div className='navbarsocial-M'>
       <div className="navbar-social">
-      <a href="https://www.youtube.com" ><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.instagram.com" ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.linkedin.com" ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.facebook.com" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
+      <a href="https://x.com/ihafindia?s=21" ><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://instagram.com/ihafindia?igshid=MzRlODBiNWFlZA==" ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
       </div>
       <div className='translate-btn-1'>
         <button onClick={toggleLanguage}>

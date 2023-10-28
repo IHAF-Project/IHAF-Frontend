@@ -4,6 +4,7 @@ function TabContent2({embedId}) {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
   return (
+    <div className="tab-bg-main">
     <div className="tab-bg">
     <div className="TabContent1-content">
     <div className="Tab-content1-tp">
@@ -25,7 +26,7 @@ function TabContent2({embedId}) {
   </iframe>
      </div>
     </div>
-    
+    </div>
     </div>
   )
 }
