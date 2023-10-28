@@ -92,6 +92,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Gender_0"
+              required
               value="1"
               name="Ben"
               defaultChecked // Use defaultChecked for the initially checked radio
@@ -103,6 +104,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Gender_1"
+              required
               value="2"
               name="Ben"
             />
@@ -114,6 +116,7 @@ function JionMember() {
               type="radio"
               id="Gender_2"
               value="3"
+              required
               name="Ben"
             />
             <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.3') : t('Others')}</p>
@@ -158,6 +161,7 @@ function JionMember() {
           className="select-box__input"
           type="radio"
           id="education_0"
+          required
           value="UG"
           name="Education"
           defaultChecked // Use defaultChecked for the initially checked radio
@@ -169,6 +173,7 @@ function JionMember() {
           className="select-box__input"
           type="radio"
           id="education_1"
+          required
           value="PG"
           name="Education"
           defaultChecked // Use defaultChecked for the initially checked radio
@@ -179,6 +184,7 @@ function JionMember() {
         <input
           className="select-box__input"
           type="radio"
+          required
           id="education_2"
           value="10TH"
           name="Education"
@@ -191,6 +197,7 @@ function JionMember() {
           className="select-box__input"
           type="radio"
           id="education_3"
+          required
           value="12TH"
           name="Education"
           defaultChecked // Use defaultChecked for the initially checked radio
@@ -202,6 +209,7 @@ function JionMember() {
           className="select-box__input"
           type="radio"
           id="education_4"
+          required
           value="OTHER"
           name="Education"
           defaultChecked // Use defaultChecked for the initially checked radio
@@ -272,6 +280,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Blood_Group_0"
+              required
               value="A+"
               name="Blood_Group"
               defaultChecked // Use defaultChecked for the initially checked radio
@@ -283,6 +292,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Blood_Group_1"
+              required
               value="A-"
               name="Blood_Group"
             />
@@ -294,6 +304,7 @@ function JionMember() {
               type="radio"
               id="Blood_Group_2"
               value="B+"
+              required
               name="Blood_Group"
             />
             <p className="select-box__input-text">B+</p>
@@ -305,6 +316,7 @@ function JionMember() {
               id="Blood_Group_3"
               value="B-"
               name="Blood_Group"
+              required
             />
             <p className="select-box__input-text">B-</p>
           </div>
@@ -315,6 +327,7 @@ function JionMember() {
               id="Blood_Group_4"
               value="AB+"
               name="Blood_Group"
+              required
             />
             <p className="select-box__input-text">AB+</p>
           </div>
@@ -323,6 +336,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Blood_Group_5"
+              required
               value="AB-"
               name="Blood_Group"
             />
@@ -333,6 +347,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Blood_Group_6"
+              required
               value="O+"
               name="Blood_Group"
             />
@@ -343,6 +358,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Blood_Group_7"
+              required
               value="O-"
               name="Blood_Group"
             />
@@ -368,12 +384,12 @@ function JionMember() {
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_2" aria-hidden="aria-hidden" >
               B+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_3" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_3" aria-hidden="aria-hidden" >
               B-
             </label>
           </li>
@@ -412,6 +428,7 @@ function JionMember() {
             <input
               className="select-box__input"
               type="radio"
+              required
               id="Religion_0"
               value="Hinduism"
               name="Religion"
@@ -424,6 +441,7 @@ function JionMember() {
               className="select-box__input"
               type="radio"
               id="Religion_1"
+              required
               value="Christianity"
               name="Religion"
             />
@@ -435,6 +453,7 @@ function JionMember() {
               type="radio"
               id="Religion_2"
               value="Islam"
+              required
               name="Religion"
             />
             <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Religion.3') : t('Islam')}</p>

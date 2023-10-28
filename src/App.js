@@ -11,6 +11,7 @@ import { Route, Routes } from 'react-router-dom';
 import arrow from '../src/images/top.png'
 import image2 from "./images/logo1.png"
 import Tree from './Tree';
+import Otp from './LogIn/OTP/Otp';
 import Applyserve from './Page8/Applyserve';
 import Footer from './Footer/Footer';
 import Page1 from './Page1/Page1';
@@ -67,6 +68,8 @@ const App = () => {
         <Route path="/About" element={<About />} />
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/Login" element={<Login/>} />
+        <Route path='/Otp' element={<Otp/>} />
+        <Route path='/profile/:memberId' element={<Profile />} />
         <Route path="/Login" element={<Profile/>} />
         <Route path="/applyserve" element={<Applyserve/>} />
         <Route path="/footer" element={<Footer/>} />

@@ -29,7 +29,6 @@ const Home = () => {
       return () => {
         hiddenElements.forEach((el) => observer.unobserve(el));
         hiddenElements1.forEach((el) => observer.unobserve(el));
-       
       };
     }, []); 
 

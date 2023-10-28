@@ -23,12 +23,40 @@
       "10":"PANNEERSELVAM",
       "11":"(Asst.Secretary)",
       "12":"RAJATHIKKANNAN",
-      "13":"(Treasurer)",
+      "13":"(Executive Commitee Member)",
       "14":"He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client",
       "15":"The strongest people are not those who show strength in front of us but those who win battles we know nothing about.",
       "16":"IHAF understands the power of collaboration. We actively seek partnerships with like-minded organizations, institutions, and individuals to amplify our impact. Together, we can create a more just and compassionate world.",
       "17":"IHAF embraces innovative solutions to address complex societal challenges. We aim to adapt and develop new strategies to tackle persistent issues, always in alignment with our core values of justice and equality.",
-      "18":"An informed society is a powerful society. IHAF is committed to raising awareness and educating people about the importance of social justice and equality, and how we can collectively make a difference."
+      "18":"An informed society is a powerful society. IHAF is committed to raising awareness and educating people about the importance of social justice and equality, and how we can collectively make a difference.",
+      "19":"S.Manikandan",
+      "20":"Executive Commitee Member",
+      "21":"IHAF embraces innovative solutions to address complex societal challenges.",
+      "22":"Mohammed Rafee",
+      "23":"Executive Commitee Member",
+      "24":"An informed society is a powerful society. IHAF is committed to raising awareness and educating people about the importance of social justice and equality, and how we can collectively make a difference.",
+      "25":"K.Sudhakar",
+      "26":"Executive Commitee Member",
+      "27":"The strongest people are not those who show strength in front of us but those who win battles we know nothing about.",
+      "28":"Sathya",
+      "29":"Executive Commitee Member",
+      "30":"He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client",
+      "31":"M.Kalpana Iyyappan",
+      "32":"Executive Commitee Member",
+      "33":"Empower yourself with the Ambedkar Party membership and together, we'll shape a brighter, more inclusive future.",
+      "34":"E.Gejalakshmi Chandru",
+      "35":"Executive Commitee Member",
+      "36":"Empower yourself with the Ambedkar Party membership",
+      "37":"Sathishkumar",
+      "38":"Executive Commitee Member",
+      "39":"The Unified Manithaneya Ambedkar Federation has been engaged in service and political awareness for the underprivileged sections of the society in all the districts of Tamil Nadu  ",
+      "40":"N.Sivagurunathan",
+      "41":"Executive Commitee Member",
+      "42":"Achievingthe desired growth",
+      "43":"S.Vijayalakshmi",
+      "44":"Treasurer",
+      "45":"I see it as a platform for collaboration with like-minded individuals who share a common vision for their nation's future."
+   
     },
    "hello": {
     "1" : "This party is purely about maintaining equal rights for people from poor society and family",
@@ -146,5 +174,13 @@
   "2": "Mobile number used for membership registration enter",
   "3": "Mobile Number",
   "4":"Submit"
+},
+"Otp": {
+  "1": "OTP Verification",
+  "2": "We are sending you a OTP to verify your phone number",
+  "3": "Please enter your OTP here",
+  "4": "I didn't receive a OTP resend OTP !",
+  "5": "Resend",
+  "6": "Verify"
 }
 }

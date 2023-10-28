@@ -1,18 +1,26 @@
 import React, { useState,useEffect } from 'react';
 import "./Meeting.css"
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 function Meeting() {
-  const { t, i18n } = useTranslation()
-  const isTamilLanguage = i18n.language === 'ta'
-
-  const [value, setValue] = useState('1');
+  const { t } = useTranslation()
   const [isCodeCopied, setIsCodeCopied] = useState(false);
+  // const [meeting, setMeeting] = useState('');
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    setIsCodeCopied(false); 
-  };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.post('https://ihaf-backend.vercel.app/new-meet');
+  //       setMeeting(response.data); 
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []); 
 
   const handleCopyCodeClick = () => {
     const zoomMeetingCode = 'Your Zoom meeting code here'; 
@@ -36,13 +44,14 @@ function Meeting() {
     setMemberOpen(index)
   }
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setMemberOpen((memberOpen + 1) % 2);
-    }, 4000);
-    return () => clearTimeout(timeoutId);
-  }, [memberOpen]);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setMemberOpen((memberOpen + 1) % 2);
+  //   }, 4000);
+  //   return () => clearTimeout(timeoutId);
+  // }, [memberOpen]);
   
+ 
   return (
     <div className='Meeting-container'>
 

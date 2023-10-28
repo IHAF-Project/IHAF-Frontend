@@ -1,4 +1,4 @@
-import  { useState,useRef, useEffect} from 'react';
+import  { useState,useRef} from 'react';
 import './Navbar.css'; 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,7 +9,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import profile1 from '../Assets/Logout.svg'
 import profile2 from '../Assets/Chat (2).png'
 import profile3 from '../Assets/Exchange.png'
-import profile4 from '../Assets/User (1).svg'
+
 // import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -36,18 +36,23 @@ const Navbar = () => {
     i18n.changeLanguage(newLanguage);
    
  }
- 
+
+ const storedData = JSON.parse(localStorage.getItem('userData'));
+
+ const isAdminApproved = storedData?.data?.isAdminApproved
+ const memberId = storedData?.data?.memberID
+const refferal =localStorage.getItem('refferalCode');
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
 
- const referralCode = "SRT12345"; // Replace with your referral code
+ 
 
  const textRef = useRef(null);
  const [copyMessage, setCopyMessage] = useState("");
 
  const handleCopyClick = () => {
    const textArea = document.createElement("textarea");
-   textArea.value = referralCode;
+   textArea.value = refferal;
    document.body.appendChild(textArea);
    textArea.select();
    document.execCommand('copy');
@@ -57,6 +62,13 @@ const Navbar = () => {
      setCopyMessage("");
    }, 2000);
  };
+ 
+
+  const logoutUser = () =>{
+    localStorage.clear();
+    window.location.href ="/";
+  }
+ console.log(isAdminApproved,memberId,"Member")
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -97,11 +109,21 @@ const Navbar = () => {
         </button>
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
-        <button onClick={handleClickPop}>
+       
+         {isAdminApproved === true ? 
+          (
+         <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
+         ) :
+          ( 
+           <button>
           <p className={`${tamilLanguage ? 'Navbar-login-tamil' : 'Navbar-login-english'}`}>
-          <Link to='/login' style={{textDecoration:'none' ,color:'white'}}>{currentLanguage === 'ta' ?  t('Navbar.4'): t('Log In')}</Link>
-          </p>
-        </button>
+          <Link to='/login' style={{textDecoration:'none' ,color:'white'}}>{currentLanguage === 'ta' ?  t('Navbar.4'): t('Log In')}
+         </Link>
+         </p>
+         </button>
+         )}
+
+      
       </div>
       </div>
       </div>
@@ -123,7 +145,11 @@ const Navbar = () => {
       isPop &&
        <div className='Popcontainer'>
        <div className='Pop-page'>
-       <div className='profile-icon'><Link to='/profile'><img src={profile4} alt='profile-icon' /></Link></div>
+       <div className='profile-icon'>
+       {isAdminApproved === true ? (
+        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        </Link> ) : 'Not Approved Yet' } 
+       </div>
        <div className='referal-code'>
 
        <img src={profile3} alt='refetal-code'/>
@@ -132,7 +158,7 @@ const Navbar = () => {
    <button className="button">REFERALCODE &nbsp; ▼</button>
    <div className="dropdown-content">
     <a id="top"  onClick={handleCopyClick}  ref={textRef}
-          style={{ cursor: 'pointer'}}>{referralCode}</a>
+          style={{ cursor: 'pointer'}}>{refferal}</a>
     <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
   </div>
 </div>
@@ -141,7 +167,7 @@ const Navbar = () => {
         <img src={profile2} alt='feedback' />
        <p>FEEDBACK</p>
        </div>
-       <div className='logout-pop'>
+       <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>
        </div>

@@ -64,6 +64,7 @@
     width: 23vw;
     font-style: normal;
     line-height: normal;
+    padding:0.25em 0.5em;
 }
 
 
@@ -90,7 +91,7 @@
         background: var(--SS, linear-gradient(284deg, #B8C2DA -47.47%, #134FE9 42.98%, #4F0909 154.35%));
         font-size: 32px;
         height: 4rem;
-        width: 16rem;
+        width: 21rem;
         font-style: normal;
         line-height: normal;
     }

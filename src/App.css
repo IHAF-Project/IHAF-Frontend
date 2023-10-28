@@ -3,7 +3,7 @@
 .container{
   overflow: hidden;
   font-family: 'Crimson Text', serif;
-font-family: 'Noto Serif', serif;
+  font-family: 'Noto Serif', serif;
 }
   .scroll-to-top-btn img {
     display: none;
@@ -12,14 +12,12 @@ font-family: 'Noto Serif', serif;
     position: fixed;
     bottom: 20px;
     right: 20px;
-   
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
     display: flex;
-   
     background-size: cover;
   }
   .scroll-to-top-btn:hover{
@@ -46,15 +44,32 @@ section {
    transform: translateX(-100%);
    transition: all 1s ease 0.5s  ;
  }
-
- :is(.hidden-1,.hidden-11,.hidden-12) {
+ .hidden-1{
   opacity: 0;
   filter: blur(5px);
   transform: translateY(100px);
   transition: all 1s ease 0.5s  ;
 }
-
-:is(.hidden-10,.hidden-2 ){
+.hidden-11{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(100px);
+  transition: all 1s ease 0.5s  ;
+}
+.hidden-12{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(100px);
+  transition: all 1s ease 0.5s  ;
+}
+.hidden-10{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(100%);
+  overflow: hidden;
+  transition: all 1s ease 0.5s  ;
+}
+.hidden-2 {
   opacity: 0;
   filter: blur(5px);
   transform: translateX(100%);
@@ -83,14 +98,31 @@ section {
   transition: all 1s ease 0.5s  ;
 }
 
-:is(.hidden-7,.hidden-13){
+.hidden-7{
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
   overflow: hidden;
-  transition: all 1s ease 10s  ;
+  transition: all 1s ease 1s  ;
 }
-:is(.hidden-8,.hidden-9,.hidden-14){
+.hidden-13{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  overflow: hidden;
+  transition: all 1s ease 1s  ;
+}
+.hidden-14{
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s ease 1.2s  ;
+}
+.hidden-8{
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s ease 1.2s  ;
+}
+.hidden-9{
   opacity: 0;
   filter: blur(5px);
   transition: all 1s ease 1.2s  ;
