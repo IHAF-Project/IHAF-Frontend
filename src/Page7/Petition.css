@@ -75,7 +75,7 @@
     color: #FFF;
     cursor: pointer;
     padding: 10px 45px 10px 45px;
-    width: 24vw;
+    width: 170px;
     border: none;
     font-family: Poppins;
     font-size: 17.145px;
@@ -288,10 +288,7 @@ line-height: normal;
         font-style: normal;
         font-weight: 400;
     }
-    .page4-image1{
-        width: 36vw;
-    height: auto;
-    }
+ 
     .petition-7-btn {
         color: #FFF;
         font-family: Poppins;
@@ -318,6 +315,7 @@ line-height: normal;
     }
     .page7-petition-text{
         padding: 1rem;
+        height: 20vh;
     }
     .page7-petition-tamil-p{
         width: auto;
@@ -341,7 +339,8 @@ line-height: normal;
         width: 53vw;
     }
     .page-7-image-text {
-        height: 7vh;
+        height: 15vh;
+        padding: 0;
     }
     .petition-input-cont {
         padding-top: 0vh;

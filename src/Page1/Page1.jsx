@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import './Page1.css';
 
+
 const Page1 = () => {
 
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -20,7 +21,7 @@ const Page1 = () => {
       if (!isHovered) {
         setCurrentCardIndex((prevIndex) => (prevIndex + 1) % 3);
       }
-    }, 4000); 
+    }, 400000); 
 
     return () => clearInterval(interval); 
   }, [isHovered]);
@@ -34,12 +35,12 @@ const Page1 = () => {
         loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 4000,
+          delay: 400000,
           disableOnInteraction: false
         }}
         speed={1200}
         slidesPerGroupSkip={3}
-        modules={[Autoplay]}
+     
         className="mySwiper"
       >
         

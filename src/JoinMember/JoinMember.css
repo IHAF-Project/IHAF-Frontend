@@ -334,6 +334,18 @@ font-weight: 400;
 line-height: normal;
 text-transform: uppercase;
 }
+img.jionMember-coverImg{
+  width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .JionFrom-content-left {
+    width: 70%;
+  }
+  img.jionMember-coverImg{
+    width: 100%;
+  }
+}
+
   @-webkit-keyframes HideList {
     from {
       transform: scaleY(1);
@@ -351,3 +363,26 @@ text-transform: uppercase;
       transform: scaleY(0);
     }
   }
+
+@media screen and (max-width:420px) {
+  .JionFrom-content-inputs{
+    flex-direction: column;
+    gap:1em;
+    align-items: flex-start;
+  }
+  :is(.Upload-content-inputs,.JionFrom-content){
+    flex-direction: column;
+  }
+ .jionMember-coverImg{
+    width: 310px !important;
+  }
+  :is(.select-box,.JionFrom-content-inputs input,.Address){
+    margin: 0;
+  }
+  .jion-cont p{
+    display: none;
+  }
+  .JoinNow p{
+    margin: 0;
+  }
+}

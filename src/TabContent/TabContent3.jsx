@@ -4,6 +4,7 @@ function TabContent3() {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
   return (
+    <div className="tab-bg-main">
     <div className="tab-bg">
    <div className="Tab-content1">
    <div className="Tab-content1-tp">
@@ -12,8 +13,9 @@ function TabContent3() {
       <div className="Tab-content1-bt">
       <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
       <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
-      <TwitterEmbed  url="https://twitter.com/melvynxdev/status/1701551314017399145" width={328} />
+
       </div>
+    </div>
     </div>
     </div>
   )

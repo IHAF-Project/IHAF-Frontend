@@ -51,6 +51,7 @@ const Home = () => {
           <img src="\images\star2.png" alt="MyImage" ref={textRef}></img>
         </div>
       </div>
+    
     </div>
   );
 };

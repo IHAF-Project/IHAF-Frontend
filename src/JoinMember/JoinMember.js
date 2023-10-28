@@ -1,5 +1,5 @@
-import React, { Fragment ,useState,useRef} from 'react'
-import Ambeth from "../Assets/Ambeth.svg"
+import React, { Fragment ,useState} from 'react'
+import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
 import "./JoinMember.css"
 import polygon from "../Assets/Polygon 6.svg"
@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslation } from 'react-i18next'
 import Check from "../Assets/Check (2).svg"
+import Footer from '../Footer/Footer'
 
 function JionMember() {
 
@@ -52,7 +53,7 @@ function JionMember() {
      </div>
      <div className='JionFrom-content'>
      <div className='JionFrom-content-left'>
-     <img src={Ambeth} alt ='Ambethkar' />
+     <img src={Ambeth} alt ='Ambethkar' className='jionMember-coverImg'/>
      </div>
      <div className='JionFrom-content-right'>
      <form>
@@ -548,6 +549,7 @@ function JionMember() {
      </div>
      </div>
     </div>
+    <Footer/>
     </div>
   )
 }
