@@ -8,8 +8,8 @@ function Card1() {
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
     const tamilLanguage = i18n.language === 'ta'
+
   return (
-      
          <div className={`intro-slide-1 `}>
         <div className="intro-slide-content">
          <div className="intro-slide-content-right">
@@ -19,9 +19,6 @@ function Card1() {
           {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
           </span>
          </div>
-         {/* <div className="intro-slide-content-right-btm">
-         <img src={Ambeth} alt='Ambeth' />
-         </div> */}
          </div>
          <div className="intro-slide-content-left">
           <div className="intro-slide-content-quates">

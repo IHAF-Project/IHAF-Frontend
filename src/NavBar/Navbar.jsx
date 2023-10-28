@@ -151,8 +151,9 @@ const refferal =localStorage.getItem('refferalCode');
         </Link> ) : 'Not Approved Yet' } 
        </div>
        <div className='referal-code'>
-       <img src={profile3} alt='refetal-code' />
-      
+
+       <img src={profile3} alt='refetal-code'/>
+
        <div className="paste-button">
    <button className="button">REFERALCODE &nbsp; ▼</button>
    <div className="dropdown-content">

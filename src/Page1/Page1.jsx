@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import './Page1.css';
 
+
 const Page1 = () => {
 
   const [currentCardIndex, setCurrentCardIndex] = useState(0);

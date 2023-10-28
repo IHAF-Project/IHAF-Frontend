@@ -51,8 +51,7 @@ const App = () => {
   }, []);
 
   return (
-
-
+    
 <div>
 {isLoading ? (
   <div className='kitna-container'>

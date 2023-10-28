@@ -37,6 +37,7 @@ section {
   min-height: 100vh;
   background-color: blue;
  }
+
  .hidden {
    opacity: 0;
    filter: blur(5px);
@@ -75,6 +76,7 @@ section {
   overflow: hidden;
   transition: all 1s ease 0.5s  ;
 }
+
 .hidden-3 {
   transform: translateY(10px);
   transition: all 1s ease 1s  ;
