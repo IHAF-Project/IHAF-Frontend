@@ -21,7 +21,7 @@ const Page1 = () => {
       if (!isHovered) {
         setCurrentCardIndex((prevIndex) => (prevIndex + 1) % 3);
       }
-    }, 400000); 
+    }, 4000); 
 
     return () => clearInterval(interval); 
   }, [isHovered]);
@@ -35,7 +35,7 @@ const Page1 = () => {
         loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 400000,
+          delay: 4000,
           disableOnInteraction: false
         }}
         speed={1200}
