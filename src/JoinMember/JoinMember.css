@@ -334,6 +334,9 @@ font-weight: 400;
 line-height: normal;
 text-transform: uppercase;
 }
+img.jionMember-coverImg{
+  width: 100%;
+}
 @media screen and (max-width: 1024px) {
   .JionFrom-content-left {
     width: 70%;

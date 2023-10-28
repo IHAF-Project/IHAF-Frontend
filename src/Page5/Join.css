@@ -131,74 +131,7 @@
 }
 
 
-@media screen and (max-width: 476px) {
-    .part1-5 img{
-      width: 53vw;
-    }
-    .part2-5{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 42vh;
-     
-    }
-    .part1-5 p {
-        width: 41vw;
-        height: 4vh;
-        font-size: 2.8vw;
-    }
-    .left-5{
-        display: none;
-    }
-    .right-5{
-        width: 77vw;
-        height: 44vh;
-        border-radius: 0.4705rem 0.4705rem 8.9785rem 0.4705rem
-    }
-    .right-5 p{
-        font-size: 3vw;
-    }
-    .right-5 button {
-        width: 46vw;
-        height: 5vh;
-        font-size: 3.4vw;
-    }
-    .right-5 img{
-        width: 5.5vw;
-    }
-    .container-5{
-        height: 63vh;
-    }
-}
-@media screen and (max-width: 820px) {
-    .part1-5 img{
-        width: 62vw;
-    }
-    .part1-5 p{
-        width: 50vw;
-    }
-    .right-5{
-        width: 70vw;
-        height: 44vh;
-        border-radius: 0.4705rem 0.4705rem 4.9785rem 0.4705rem;
-    }
-    .left-5{
-        display: none;
-    }
-    .part2-5{
-        justify-content: center;
-    }
-    .right-5 p{
-        font-size: 3vw;
-    }
-    .right-5 button{
-        width: auto;
-        font-size: 3vw;
-    }
-    .right-5 img{
-        width: 5.5vw;
-    }
-}
+
 @media screen and (max-width: 915px) {
     .left-5 {
         height: auto;
@@ -207,13 +140,15 @@
     .part2-5 {
         align-items: center;
         padding-bottom: 2rem;
+        flex-direction: column;
+        height: 90vh;
     }
     .right-5 {
         height: 20vh;
         margin: 0;
     }
     .container-5 {
-        height: 58vh;
+        height: auto;
     }
     .right-5 button {
         margin: 0;
@@ -234,7 +169,66 @@
         justify-content: center;
         gap: 38px;
         width: 55vw;
-        height: 36vh;
+        height: 45vh;
+    }
+    .left-5 img {
+        width: 65vw;
+        height: auto;
     }
     
+}
+@media screen and (max-width: 820px) {
+    .part1-5 img{
+        width: 62vw;
+    }
+    .part1-5 p{
+        width: 50vw;
+    }
+    .right-5{
+        width: 70vw;
+        height: 44vh;
+        border-radius: 0.4705rem 0.4705rem 4.9785rem 0.4705rem;
+    }
+
+    .right-5 p{
+        font-size: 3vw;
+    }
+    .right-5 button{
+        width: auto;
+        font-size: 3vw;
+    }
+    .right-5 img{
+        width: 5.5vw;
+    }
+}
+@media screen and (max-width: 476px) {
+    .part1-5 img{
+      width: 53vw;
+    }
+    .part1-5 p {
+        width: 41vw;
+        height: 4vh;
+        font-size: 2.8vw;
+    }
+    .left-5 img{
+        width: 90vw;
+       
+    }
+    .right-5{
+        width: 77vw;
+        height: 44vh;
+        border-radius: 0.4705rem 0.4705rem 8.9785rem 0.4705rem
+    }
+    .right-5 p{
+        font-size: 3vw;
+    }
+    .right-5 button {
+        width: 46vw;
+        height: 5vh;
+        font-size: 3.4vw;
+    }
+    .right-5 img{
+        width: 5.5vw;
+    }
+
 }
