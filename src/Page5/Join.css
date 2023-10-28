@@ -204,6 +204,7 @@
 @media screen and (max-width: 476px) {
     .part1-5 img{
       width: 53vw;
+      height: 1em;
     }
     .part1-5 p {
         width: 41vw;

@@ -204,6 +204,13 @@ text-transform: capitalize;
     .youtube{
         width:325px;
     }
+    .tabs{
+        flex-direction: column;
+    }
+    :is(.youtube-box,.facebook-box ,.twitter-box){
+        width: 210px;
+        padding: 0;
+    }
     :is(.tab-bg,.social-page-btm) {
         width:100%;
     }
@@ -218,7 +225,9 @@ text-transform: capitalize;
         font-size: 12.998px;
     }
     .social-page-tp img {
-        width: 55%;
+        width: 100%;
+        padding: 0.5em;
+        height: 16px;
     }
     .Tab-content1-tp p{
         border-radius: 0;

@@ -15,7 +15,7 @@ function Card1() {
          <div className="intro-slide-content-right">
          <div className="intro-slide-content-right-top">
           <p>IHAF</p>
-          <span>
+          <span className={`${tamilLanguage ? 'Humanism-tamil': 'Humanism-english'}`}>
           {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
           </span>
          </div>

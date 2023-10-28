@@ -1,5 +1,5 @@
-import React, { Fragment ,useState,useRef} from 'react'
-import Ambeth from "../Assets/MicrosoftTeams-image (18).png"
+import React, { Fragment ,useState} from 'react'
+import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
 import "./JoinMember.css"
 import polygon from "../Assets/Polygon 6.svg"

@@ -142,7 +142,11 @@ section {
    transition: none;
   }
  }
-
+@media screen and (max-width:420px) {
+  .scroll-to-top-btn img{
+    width: 10vw;
+  }
+}
 
 
 

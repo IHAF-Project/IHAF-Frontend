@@ -39,7 +39,7 @@ const Navbar = () => {
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
 
- const isAdminApproved = storedData?.data?.isAdminApproved
+ const isAdminApproved = storedData?.data?.phoneNumber
  const memberId = storedData?.data?.memberID
 const refferal =localStorage.getItem('refferalCode');
  const currentLanguage = i18n.language;
@@ -83,7 +83,7 @@ const refferal =localStorage.getItem('refferalCode');
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
         <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
-        <Link to='/login' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+        <Link to='/member' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
         </div>
       <div className='navbar-content'>
         <ul>
@@ -110,7 +110,7 @@ const refferal =localStorage.getItem('refferalCode');
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
        
-         {isAdminApproved === true ? 
+         {isAdminApproved ? 
           (
          <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :

@@ -364,3 +364,25 @@ img.jionMember-coverImg{
     }
   }
 
+@media screen and (max-width:420px) {
+  .JionFrom-content-inputs{
+    flex-direction: column;
+    gap:1em;
+    align-items: flex-start;
+  }
+  :is(.Upload-content-inputs,.JionFrom-content){
+    flex-direction: column;
+  }
+ .jionMember-coverImg{
+    width: 310px !important;
+  }
+  :is(.select-box,.JionFrom-content-inputs input,.Address){
+    margin: 0;
+  }
+  .jion-cont p{
+    display: none;
+  }
+  .JoinNow p{
+    margin: 0;
+  }
+}

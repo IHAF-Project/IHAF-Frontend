@@ -21,7 +21,7 @@ const Page1 = () => {
       if (!isHovered) {
         setCurrentCardIndex((prevIndex) => (prevIndex + 1) % 3);
       }
-    }, 4000); 
+    }, 400000); 
 
     return () => clearInterval(interval); 
   }, [isHovered]);
@@ -35,12 +35,12 @@ const Page1 = () => {
         loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 4000,
+          delay: 400000,
           disableOnInteraction: false
         }}
         speed={1200}
         slidesPerGroupSkip={3}
-        modules={[Autoplay]}
+     
         className="mySwiper"
       >
         
