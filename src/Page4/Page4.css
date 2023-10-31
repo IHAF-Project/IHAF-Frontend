@@ -46,7 +46,7 @@ border-radius: 2px;
 }
 .page4-main{
     border-radius: 117.738px 5.887px 0px 117.738px;
-    width: 33vw;
+  
     height: auto;
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
     display: flex;
@@ -66,6 +66,7 @@ border-radius: 2px;
 .page4-p {
     color: #FFF;
     text-align: start;
+    margin: 0;
     font-family: Poppins;
     white-space: normal;
     font-size: 12px;
@@ -74,23 +75,26 @@ border-radius: 2px;
     padding-inline: inherit;
 }
 .page4-image2 {
-  width: 100%;
+  width: 126px;
   border-radius: 50%;
   height: 24.5vh;
   object-fit: cover;
+  height: 149px;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .page4-main-C{
     display: flex;
+    width: 351px;
+    height: 155px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .img-cover4 {
-  width: 16vw;
-  height: 24vh;
+  width: auto;
+  height: auto;
   display: flex;
     justify-content: center;
     align-items: center;
@@ -119,16 +123,17 @@ border-radius: 2px;
   flex-direction: row;
 }
 .page4-p-by{
-    display: flex;
-    width: 64%;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 1vw;
+  display: flex;
+  width: 183px;
+  flex-direction: column;
+  margin-right: 1rem;
+  justify-content: flex-start;
+  padding-left: 1vw;
    
 }
 .page4-by {
     text-align: end;
-    padding-right: 2rem;
+    padding-right: 1rem;
 }
 .by{
     color: #FFF;
@@ -138,6 +143,7 @@ border-radius: 2px;
 }
 .page4-by p{
     color: #FFF;
+    margin: 0;
     font-family: Racing Sans One;
     font-size: 1rem;
     font-weight: 400;
@@ -175,12 +181,6 @@ border-radius: 2px;
   height: auto;
   background: none;
 }
-.page4-main {
-  width: 54vw;
-}
-.page4-image2 {
-  height: 18vh;
-}
 .img-cover4 {
   height: 20vh;
 }
@@ -189,10 +189,6 @@ border-radius: 2px;
 @media screen and (max-width: 550px) {
   .img-cover4 {
     width: 45%;
-  }
-  .page4-image2{
-    width: 32vw;
-    height: 21vh;
   }
   .page4-main-C{
     gap: 0;
@@ -223,7 +219,7 @@ border-radius: 2px;
 .scroller[data-animated="true"] .scroller__inner {
   width: max-content;
   flex-wrap: nowrap;
-  animation: scroll var(--_animation-duration, 50s)
+  animation: scroll var(--_animation-duration, 25s)
     var(--_animation-direction, forwards) linear infinite;
 }
 
@@ -246,3 +242,11 @@ border-radius: 2px;
     width: 84%;
   }
 }
+
+
+
+
+
+
+
+

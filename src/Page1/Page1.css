@@ -405,7 +405,7 @@ color: #ffffff;
     }
     :is(.intro-slide-content-quates ,.intro-slide-content-quates-1) {
         margin-right: 4em;
-        margin-top: -10em;
+        margin-top: -9em;
 
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {
@@ -441,6 +441,9 @@ color: #ffffff;
   :is(.intro-slide-content-right-top p ,.intro-slide-content-right-top-tamil p) {
     font-size: 19.064px;
     width: auto;
+}
+:is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {
+  width: 91vw !important;
 }
 .intro-slide-content-right-top span {
   font-size: 11px;

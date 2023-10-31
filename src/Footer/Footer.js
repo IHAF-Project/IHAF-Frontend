@@ -18,26 +18,28 @@ function Footer() {
          <div className='footer-social'>
            <div className='footer-join-us'>
               <div>
-                 <Link to="/member">
+              
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
-                 </Link>
-                 <Link to="/home">
+            
+                
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.20')}</p>
-                 </Link>
-                 <Link to="/socialmedia">
+            
+              
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.21')}</p>
-                 </Link>
+               
               </div>
               <div>
-                <Link to="/petition">
+          
                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.22')}</p>
-                </Link>
-                <Link to="/leader">
+           
+              
                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.23')}</p>
-                </Link>
-                <Link to="/Feedback">
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p>
-                </Link>
+               
+           <Link to="/feedback">
+           <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p>
+           </Link>
+             
+         
               </div>
             </div> 
             <div className='footer-text-address-container'>
