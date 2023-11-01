@@ -20,9 +20,7 @@
     height: 4rem;
     font-size: 1rem;
     border: none;
-    font-style: normal;
-
-    line-height: normal;
+  
 }
 .page-4-btn{
    
@@ -50,7 +48,7 @@ border-radius: 2px;
     height: auto;
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .tamil-page4-p{
@@ -192,11 +190,9 @@ border-radius: 2px;
   }
   .page4-main-C{
     gap: 0;
-    justify-content: space-around;
+    justify-content: space-between;
   }
-  .page4-main {
-    width: 83vw;
-  }
+
 }
 
 
