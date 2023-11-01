@@ -8,7 +8,7 @@ const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
   return (
-    <div className='main6 abc'>
+    <div className='main6 abc' id='Leaders'>
         <div className='main-left6'>
         <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>  
         <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>

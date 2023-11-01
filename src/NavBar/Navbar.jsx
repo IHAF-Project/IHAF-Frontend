@@ -41,6 +41,8 @@ const Navbar = () => {
 
  const isAdminApproved = storedData?.data?.phoneNumber
  const memberId = storedData?.data?.memberID
+ const _id = storedData?.data?._id
+
 const refferal =localStorage.getItem('refferalCode');
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
@@ -68,6 +70,7 @@ const refferal =localStorage.getItem('refferalCode');
     localStorage.clear();
     window.location.href ="/";
   }
+  console.log(_id,"use")
  console.log(isAdminApproved,memberId,"Member")
   return (
     <nav className="navbar">
@@ -75,7 +78,7 @@ const refferal =localStorage.getItem('refferalCode');
         <img src= {logo} alt="Logo" />
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
-        <Link className='hovjoin' to='/member' ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+        <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
      
         </div>
          </div>
@@ -83,8 +86,10 @@ const refferal =localStorage.getItem('refferalCode');
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
         <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
-        <Link to='/member' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
-        </div>
+        <Link to={`/member/${_id}`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
+         <span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span>
+       </Link>
+      </div>
       <div className='navbar-content'>
         <ul>
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>

@@ -23,6 +23,7 @@
     align-items: center;
     flex-direction: column;
 }
+
 :is(.JionFrom-title-english h1,.JionFrom-title-tamil h1) {
 color: #000;
 font-family: 'Poppins',sans-serif;
@@ -130,6 +131,8 @@ line-height: normal;
 .JionFrom-content-inputs input{
    margin-left: 2rem;
     width: 18.15344rem;
+    height: 32px;
+    padding: 0.5em;
 }
 .JionFrom-content-inputs select{
     margin-right: 6em;
@@ -232,9 +235,10 @@ line-height: normal;
   }
   .Address {
     display: flex;
-    gap: 0.5em;
-    margin-left: 2rem;
+    gap: 1em;
     flex-direction: column;
+    margin-left: 180px;
+    margin-top: 32px;
 }
 .Upload-content-inputs{
   display: flex;
@@ -297,7 +301,7 @@ text-transform: capitalize;
   align-items: center;
   justify-content: center;
  }
-.JoinNow p{
+.JoinNow button{
   color: #FFF;
 font-family: Poppins;
 font-size: 1.24194rem;
@@ -305,6 +309,7 @@ font-style: normal;
 font-weight: 500;
 padding:0.5em 1em;
 width: 150px;
+border: none;
 line-height: normal;
 text-transform: uppercase;
 border-radius: 0.38213rem;
