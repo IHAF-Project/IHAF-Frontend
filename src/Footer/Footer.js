@@ -18,28 +18,26 @@ function Footer() {
          <div className='footer-social'>
            <div className='footer-join-us'>
               <div>
-              
+                <Link to='/member'>
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
-            
-                
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.20')}</p>
-            
+                 </Link>
               
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.21')}</p>
-               
+                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} ><a href='#Home' style={{textDecoration:'none',color:'white'}}>{t('hello.20')}</a></p>
+                
+             
+                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</a></p>
+                
               </div>
               <div>
-          
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.22')}</p>
-           
-              
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.23')}</p>
                
-           <Link to="/feedback">
-           <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p>
-           </Link>
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</a></p>
              
-         
+              
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Leaders' style={{textDecoration:'none',color:'white'}}>{t('hello.23')}</a></p>
+               
+              
+               <Link to='Feedback'><p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p></Link> 
+               
               </div>
             </div> 
             <div className='footer-text-address-container'>

@@ -325,7 +325,7 @@ line-height: normal;
 :is(.edit-image-title img,.donion-history-title img){
     margin-right: 1rem;
     width: 2.5rem;
-    height: 4rem;
+    height: 2.5rem;
 }
 .donation-history-table table{
     overflow-y: scroll;

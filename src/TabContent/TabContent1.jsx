@@ -24,22 +24,29 @@ function TabContent1() {
     fetchData();
 
   }, []);
-
-  console.log (linksitems, "links items can be retrieved");
+    
+  console.log(linksitems, "links items can be retrieved");
 
   return (
-    <div className="tab-bg">
-      {linksitems.map((items) => (
-        <div className="Tab-content1" key={items.id}>
+    <div className="tab-bg-main">
+      <div className="tab-bg">
+        <div className="Tab-content1">
           <div className="Tab-content1-tp">
-            <p> {currentLanguage === 'ta' ? t('pageThree.2') : t('Discover the latest events, rallies, and initiatives under IHAF’S transformative leadership')}</p>
+            <p>{currentLanguage === 'ta' ? t('pageThree.2') : t('Discover the latest events, rallies, and initiatives under IHAF’S transformative leadership')}</p>
           </div>
-          <div className="Tab-content1-bt" style={{ justifyContent: 'space-between' }}>
-            <InstagramEmbed url={items.link1} width={350} />
-            <InstagramEmbed url={items.link2} width={350} />
-          </div>
+          {linksitems.map((item) => (
+            <div className="Tab-content1-bt" key={item.id}>
+    
+              {item.platform === 'Instagram' && (
+                <div  className='embeddedurl'>
+                  <InstagramEmbed url={item.link1} width={350} />
+                  <InstagramEmbed url={item.link2} width={350} />
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   )
 }

@@ -17,7 +17,7 @@
     height: 15vh;
     justify-content: space-between;
     align-items: center;
-    overflow-x: hidden;
+  
 }
 .social-page-tp img {
     width: 75%;
@@ -41,16 +41,15 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
     justify-content: center;
 }
 .social-page-btm {
-    
-    width: min(80vw ,100%);
-    height: 85vh;
 
-   
+    width: 100%;
+    height: 85vh;
 }
 .tabs {
     display: flex;
     width: 100%;
     gap:1rem;
+    margin-left: -5vw;
     margin-top: -5vh;
     align-items: center;
     justify-content: flex-end;
@@ -94,12 +93,15 @@ text-transform: capitalize;
     align-items: center;
     justify-content: center;
 }
-.tab-bg{
-    width: min(80vw ,100%);
+.tab-bg-main{
+    width: 100vw;
     height: auto;
-    background-image: url('../Assets/back1.svg');
+    background-image: url('../imgg/IHAF\ website\ background\ \(2\).png');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .social-page-btm{
     display: flex;
@@ -110,6 +112,7 @@ text-transform: capitalize;
     width: 100%;
     height: 70vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 .Tab-content1-tp{
@@ -133,17 +136,30 @@ text-transform: capitalize;
     box-shadow: 0px 2.99008px 2.99008px 0px rgba(0, 0, 0, 0.25);
 }
 .Tab-content1-bt {
-    height: 55vh;
+    height: auto;
+    width: min(80vw ,100%);
     display: flex;
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
-    gap: 1vh;
+    overflow-x: hidden;
+    gap: 2vw;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
 }
-
+.embeddedurl{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.TabContent1-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
 .youtube {
     width: 64vw;
     height: 56vh;
@@ -194,6 +210,13 @@ text-transform: capitalize;
     .youtube{
         width:325px;
     }
+    .tabs{
+        flex-direction: column;
+    }
+    :is(.youtube-box,.facebook-box ,.twitter-box){
+        width: 210px;
+        padding: 0;
+    }
     :is(.tab-bg,.social-page-btm) {
         width:100%;
     }
@@ -208,7 +231,9 @@ text-transform: capitalize;
         font-size: 12.998px;
     }
     .social-page-tp img {
-        width: 55%;
+        width: 100%;
+        padding: 0.5em;
+        height: 16px;
     }
     .Tab-content1-tp p{
         border-radius: 0;

@@ -534,3 +534,13 @@ display: block;
 padding-inline-start: 12.5rem;
 }
 }
+@media screen and (max-width:420px){
+  .translate-btn{
+    display: block;
+    padding-inline-start: 8.5rem;
+    }
+    .navbarsocial-M{
+      flex-direction: column;
+      gap:1em
+    }
+}

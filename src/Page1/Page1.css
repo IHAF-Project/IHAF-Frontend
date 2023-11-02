@@ -249,7 +249,7 @@ text-transform: uppercase;
   font-size: 24.405px;
 }
 .Quates-english{
-  font-size: 28.405px;
+  font-size: 36.405px;
 }
 .intro-slide-content-quates p{
 color: #ffffff;
@@ -321,7 +321,7 @@ color: #ffffff;
   }
 
 :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {
-  width: 80vw !important;
+  width: 80vw ;
 }
 }
 
@@ -369,7 +369,7 @@ color: #ffffff;
       font-weight: 800;
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){  
-    width: 480px;
+    width: 345px;
     }
     :is(.intro-slide-content-right-top-tamil ,.intro-slide-content-right-top){
       width: 87vw;
@@ -394,15 +394,13 @@ color: #ffffff;
         font-size: 16.405px;
     }
     :is(.intro-slide-content-quates ,.intro-slide-content-quates-1) {
-        margin-right: 4em;
-        margin-top: -9em;
+        margin-right: 8em;
+        margin-top: -8em;
 
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {
-      font-weight: 500;
-
-      line-height: 4vh;
-      font-size: 21px;
+      font-weight: 600;
+      font-size: 18px;
     }
     :is(.Quates-img-2 img,.Quates-img-1 img){
       width: 175px;
@@ -413,23 +411,28 @@ color: #ffffff;
       width: 91vw;
     height: 5vh;
   }
-    .intro-slide-content-right-top p{
-        padding-block: 0;
-    }
+
     :is(.intro-slide-content-right-top-tamil ,.intro-slide-content-right-top) {
       margin-top: 1rem;
     
   }
   .intro-slide-content-right-top span {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
 }
-    
+
+:is(.intro-slide-content-right-top p ,.intro-slide-content-right-top-tamil p) {
+  font-size: 24.064px;
+}
+.intro-slide-content-right-top-tamil span{
+font-size: 12px;
+}
 }
 
 @media screen and (max-width: 331px) {
    
   :is(.intro-slide-content-right-top p ,.intro-slide-content-right-top-tamil p) {
-    font-size: 19.064px;
+    font-size: 26.064px;
     width: auto;
 }
 :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p) {

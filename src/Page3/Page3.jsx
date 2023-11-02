@@ -17,6 +17,7 @@ const Page3 = () => {
    const { t, i18n } = useTranslation();
    const currentLanguage = i18n.language;
 
+
    const handleTabClick = (index) => {
      setActiveTab(index);
   };
@@ -55,7 +56,7 @@ useEffect(() => {
   }, []); 
 
   return (
-    <div className='social-page-container'>
+    <div className='social-page-container' id='Social'>
      <div className='social-page-tp-con'>
       <div className='social-page-tp'>
       <p> {currentLanguage === 'ta' ? t('pageThree.1') : t('Social Media')}</p>

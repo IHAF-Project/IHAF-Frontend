@@ -1,5 +1,5 @@
-import React, { Fragment ,useState,useRef} from 'react'
-import Ambeth from "../Assets/Ambeth.svg"
+import React, { Fragment ,useState,useEffect} from 'react'
+import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
 import "./JoinMember.css"
 import polygon from "../Assets/Polygon 6.svg"
@@ -8,40 +8,128 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslation } from 'react-i18next'
 import Check from "../Assets/Check (2).svg"
 import Footer from '../Footer/Footer'
+import { useParams } from 'react-router-dom'
+import { Cloudinary } from '@cloudinary/url-gen';
 
 function JionMember() {
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const {t , i18n} =useTranslation()
+  const currentLanguage =i18n.language
+  const tamilLanguage =i18n.language === 'ta'
+
+
+  const {_id}=useParams()
   const [aadharFile, setAadharFile] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
+  const [formData,setformData] = useState({
+  name: "",
+  aadharCard: "",
+  referredBy: "",
+  gender: "",
+  education: "",
+  dateOfBirth: "",
+  bloodGroup: "",
+  religion: "",
+  address: "",
+  state: "",
+  district: "",
+  aadharCardURL: null,
+  profileURL: null
+});
 
-  const handleAadharFileSelect = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setAadharFile(selectedFile);
-      console.log('Aadhar file uploaded:', selectedFile);
+const handleFormChange = (e) => {
+  const { name, value } = e.target;
+ 
+  if (name === 'DateOfBirth') {
+    setformData({
+      ...formData,
+      [name]: value 
+    });
+  } else {
+    setformData({
+      ...formData,
+      [name]: value
+    });
+  }
+};
+
+  const updateFormData = async () => {
+    console.log('updateFormData')
+    try {
+      const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+      const data = await response.json();
+      setformData(data);
+      } else {
+        console.error('Failed to update data');
+      }
+    } catch (error) {
+      console.error('Error updating data:', error);
     }
   };
 
-  const handleProfileFileSelect = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setProfileFile(selectedFile);
-      console.log('Profile file uploaded:', selectedFile);
-    }
-  };
+ const handleFormSumbit = (e) => {
+  e.preventDefault();
+  updateFormData();
+  console.log(formData,'updated data');
+};
 
-  const handleDelete = (fileType) => {
-    if (fileType === 'aadhar') {
-      setAadharFile(null);
-    } else if (fileType === 'profile') {
-      setProfileFile(null);
-    }
-  };
 
-    const {t , i18n} =useTranslation()
-    const currentLanguage =i18n.language
-    const tamilLanguage =i18n.language === 'ta'
+
+const cloudinary = new Cloudinary({ cloud: { cloudName: process.env.REACT_APP_CLOUD_NAME } });
+
+const handleAadharFileSelect = (e) => {
+  const selectedFile = e.target.files[0];
+  if (selectedFile) {
+    // Upload file to Cloudinary and generate URL
+    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+
+    setAadharFile(imageUrl); // Assuming setAadharFile is a state update function for the image URL
+    setformData({
+      ...formData,
+      aadharCardURL: imageUrl,
+    });
+    console.log('Aadhar file uploaded:', imageUrl);
+  }
+};
+
+const handleProfileFileSelect = (e) => {
+  const selectedFile = e.target.files[0];
+  if (selectedFile) {
+    // Upload file to Cloudinary and generate URL
+    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+
+    setProfileFile(imageUrl); // Assuming setProfileFile is a state update function for the image URL
+    setformData({
+      ...formData,
+      profileURL: imageUrl,
+    });
+    console.log('Profile file uploaded:', imageUrl);
+  }
+};
+const handleDelete = (fileType) => {
+  if (fileType === 'aadhar') {
+    setAadharFile(null);
+    setformData({
+      ...formData,
+      aadharCardURL: null,
+    });
+  } else if (fileType === 'profile') {
+    setProfileFile(null);
+    setformData({
+      ...formData,
+      profileURL: null,
+    });
+  }
+};
+
 
   return (
     <div className='JionMembership-contain'>
@@ -53,31 +141,30 @@ function JionMember() {
      </div>
      <div className='JionFrom-content'>
      <div className='JionFrom-content-left'>
-     <img src={Ambeth} alt ='Ambethkar' />
+     <img src={Ambeth} alt ='Ambethkar' className='jionMember-coverImg'/>
      </div>
      <div className='JionFrom-content-right'>
-     <form>
+     <form  onSubmit={handleFormSumbit}>
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.3') : t('Name')}</label>
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input type='text' id='name' name='Name' required/> <br/>
+         <input type='text' id='name' name='name' value={formData.name} required onChange={handleFormChange}/> <br/>
          </div>
          <div className='JionFrom-content-inputs'>
         <div className='jion-cont'>
         <label>{currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}</label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input type='text' id='name' name='Name' required/> <br/>
+         <input type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
          </div>
-        
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.5') : t('Refferal code')}</label>
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input type='text' id='name' name='Name' required/> <br/>
+         <input type='text' id='RefferalCode' name='referredBy'  value={formData.referredBy} onChange={handleFormChange} required/> <br/>
          </div>
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
@@ -88,38 +175,40 @@ function JionMember() {
          <div className="select-box">
         <div className="select-box__current" tabIndex="1">
           <div className="select-box__value">
-            <input
-              className="select-box__input"
-              type="radio"
-              id="Gender_0"
-              required
-              value="1"
-              name="Ben"
-              defaultChecked // Use defaultChecked for the initially checked radio
-            />
-            <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.1') : t('Male')}</p>
-          </div>
-          <div className="select-box__value">
-            <input
-              className="select-box__input"
-              type="radio"
-              id="Gender_1"
-              required
-              value="2"
-              name="Ben"
-            />
-            <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.2') : t('FeMale')}</p>
-          </div>
-          <div className="select-box__value">
-            <input
-              className="select-box__input"
-              type="radio"
-              id="Gender_2"
-              value="3"
-              required
-              name="Ben"
-            />
-            <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.3') : t('Others')}</p>
+          <input
+        className="select-box__input"
+        type="radio"
+        id="Gender_0"
+        value="Male"
+        name="gender"
+        checked={formData.gender === 'Male'}
+        onChange={handleFormChange}
+      />
+      <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.1') : t('Male')}</p>
+    </div>
+    <div className="select-box__value">
+      <input
+        className="select-box__input"
+        type="radio"
+        id="Gender_1"
+        value="Female"
+        name="gender"
+        checked={formData.gender === 'Female'}
+        onChange={handleFormChange}
+      />
+      <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.2') : t('Female')}</p>
+    </div>
+    <div className="select-box__value">
+      <input
+        className="select-box__input"
+        type="radio"
+        id="Gender_2"
+        value="Others"
+        name="gender"
+        checked={formData.gender === 'Others'}
+        onChange={handleFormChange}
+      />
+      <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Gender.3') : t('Others')}</p>
           </div>
           <img
             className="select-box__icon"
@@ -148,7 +237,6 @@ function JionMember() {
       </div>
       </div>
          </div>
-      
          <div className='JionFrom-content-inputs'>
      <div className='jion-cont'>
      <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')}</label>
@@ -163,8 +251,9 @@ function JionMember() {
           id="education_0"
           required
           value="UG"
-          name="Education"
-          defaultChecked // Use defaultChecked for the initially checked radio
+          name="education"
+          checked={formData.education === "UG"} 
+          onChange={handleFormChange}
         />
         <p className="select-box__input-text">UG</p>
       </div>
@@ -175,8 +264,10 @@ function JionMember() {
           id="education_1"
           required
           value="PG"
-          name="Education"
-          defaultChecked // Use defaultChecked for the initially checked radio
+          name="education"
+          checked={formData.education === "PG"} 
+          onChange={handleFormChange}
+        
         />
         <p className="select-box__input-text">PG</p>
       </div>
@@ -187,8 +278,9 @@ function JionMember() {
           required
           id="education_2"
           value="10TH"
-          name="Education"
-          defaultChecked // Use defaultChecked for the initially checked radio
+          name="education"
+          checked={formData.education === "10TH"} 
+          onChange={handleFormChange}
         />
         <p className="select-box__input-text">10TH</p>
       </div>
@@ -199,8 +291,9 @@ function JionMember() {
           id="education_3"
           required
           value="12TH"
-          name="Education"
-          defaultChecked // Use defaultChecked for the initially checked radio
+          name="education"
+          checked={formData.education === "10TH"} 
+          onChange={handleFormChange}
         />
         <p className="select-box__input-text">12TH</p>
       </div>
@@ -211,8 +304,9 @@ function JionMember() {
           id="education_4"
           required
           value="OTHER"
-          name="Education"
-          defaultChecked // Use defaultChecked for the initially checked radio
+          name="education"
+          checked={formData.education === "OTHER"} 
+          onChange={handleFormChange}
         />
         <p className="select-box__input-text">OTHER</p>
       </div>
@@ -259,13 +353,17 @@ function JionMember() {
          </div>
         <div>
         <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        dateFormat="dd/MM/yyyy"
-        showYearDropdown
-        scrollableYearDropdown
-        yearDropdownItemNumber={100}
-      />
+  name="dateOfBirth" // Add the name attribute for the DatePicker input
+  selected={formData?.dateOfBirth}
+  onChange={(date) => handleFormChange({ target: { name: 'dateOfBirth', value: date } })}
+  dateFormat="dd/MM/yyyy"
+  showYearDropdown
+  scrollableYearDropdown
+  yearDropdownItemNumber={100}
+  
+/>
+
+
         </div>
          </div>
          <div className='JionFrom-content-inputs'>
@@ -282,8 +380,9 @@ function JionMember() {
               id="Blood_Group_0"
               required
               value="A+"
-              name="Blood_Group"
-              defaultChecked // Use defaultChecked for the initially checked radio
+              name="bloodGroup"
+              checked={formData.bloodGroup === "A+"}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">A+</p>
           </div>
@@ -294,7 +393,9 @@ function JionMember() {
               id="Blood_Group_1"
               required
               value="A-"
-              name="Blood_Group"
+              name="bloodGroup"
+              checked={formData.bloodGroup === "A-"}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">A-</p>
           </div>
@@ -305,7 +406,9 @@ function JionMember() {
               id="Blood_Group_2"
               value="B+"
               required
-              name="Blood_Group"
+              name="bloodGroup"
+              checked={formData.bloodGroup === 'B+'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">B+</p>
           </div>
@@ -315,8 +418,10 @@ function JionMember() {
               type="radio"
               id="Blood_Group_3"
               value="B-"
-              name="Blood_Group"
+              name="bloodGroup"
               required
+              checked={formData.bloodGroup === 'B-'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">B-</p>
           </div>
@@ -326,8 +431,10 @@ function JionMember() {
               type="radio"
               id="Blood_Group_4"
               value="AB+"
-              name="Blood_Group"
+              name="bloodGroup"
               required
+              checked={formData.bloodGroup === 'AB+'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">AB+</p>
           </div>
@@ -338,7 +445,9 @@ function JionMember() {
               id="Blood_Group_5"
               required
               value="AB-"
-              name="Blood_Group"
+              name="bloodGroup"
+              checked={formData.bloodGroup === 'AB-'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">AB-</p>
           </div>
@@ -349,7 +458,9 @@ function JionMember() {
               id="Blood_Group_6"
               required
               value="O+"
-              name="Blood_Group"
+              name="bloodGroup"
+              checked={formData.bloodGroup === 'O+'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">O+</p>
           </div>
@@ -360,7 +471,9 @@ function JionMember() {
               id="Blood_Group_7"
               required
               value="O-"
-              name="Blood_Group"
+              name="bloodGroup"
+              checked={formData.bloodGroup === 'O-'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">O-</p>
           </div>
@@ -431,8 +544,9 @@ function JionMember() {
               required
               id="Religion_0"
               value="Hinduism"
-              name="Religion"
-              defaultChecked // Use defaultChecked for the initially checked radio
+              name="religion"
+              checked={formData.religion === 'Hinduism'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Religion.2') : t('Hinduism')}</p>
           </div>
@@ -443,7 +557,9 @@ function JionMember() {
               id="Religion_1"
               required
               value="Christianity"
-              name="Religion"
+              name="religion"
+              checked={formData.religion === 'Christianity'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Religion.1') : t('Christianity')}</p>
           </div>
@@ -454,7 +570,9 @@ function JionMember() {
               id="Religion_2"
               value="Islam"
               required
-              name="Religion"
+              name="religion"
+              checked={formData.religion === 'Islam'}
+              onChange={handleFormChange}
             />
             <p className="select-box__input-text">{currentLanguage === 'ta' ? t('Religion.3') : t('Islam')}</p>
           </div>
@@ -485,17 +603,20 @@ function JionMember() {
       </div>
          </div>
          <div className='JionFrom-content-inputs'>
-         <div className='jion-cont'>
+        <div className='Address-jion'>
+        <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('Address.1') : t('JionMemberShip.11')}</label>
           <p> <Fragment>:</Fragment></p>
+          <textarea id='Address'name='address' value={formData.address} onChange={handleFormChange}></textarea>
          </div>
           <div className='Address'>
-          <textarea></textarea>
           <label>{currentLanguage === 'ta' ? t('Address.2') : t('state')}</label>
-          <input type="text" className="text-area-address" ></input>
+          <input type="text" className="text-area-address" id='State'name='state' value={formData.state} onChange={handleFormChange} ></input>
           <label>{currentLanguage === 'ta' ? t('Address.3') : t('District')}</label>
-           <input type="text" className="text-area-address" ></input>
+           <input type="text" className="text-area-address" id='District' name='district' value={formData.district} onChange={handleFormChange}></input>
           </div>
+        </div>
+        
          </div>
          <div className='Upload-content-inputs'>
         <div className='jion-cont'>
@@ -509,9 +630,8 @@ function JionMember() {
                    <div className='Upload-adhar-btn'>
                    <label className="upload-btn">
         {currentLanguage === 'ta' ? t('Aadhaar.5') : t('Upload Aadhar')}
-        <input type="file" name='aadhar' onChange={handleAadharFileSelect} style={{ display: 'none' }} />
+        <input type="file" name='aadharCardURL'  onChange={handleAadharFileSelect} style={{ display: 'none' }} />
       </label>
-
      </div>
      <div className='uploaded-btn'> 
       {aadharFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
@@ -531,7 +651,7 @@ function JionMember() {
          <div className='Upload-adhar-btn'>
          <label className="upload-btn">
         {currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload Profile')}
-        <input type="file" name='profile' onChange={handleProfileFileSelect} style={{ display: 'none' }} />
+        <input type="file" name='profileURL'  onChange={handleProfileFileSelect} style={{ display: 'none' }} />
       </label>
      </div>
     <div className='uploaded-btn'> 
@@ -543,7 +663,7 @@ function JionMember() {
       </div>
          </div>
          <div className='JoinNow'>
-         <p>{currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</p>
+         <button type="submit" onClick={handleFormSumbit}>{currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>
      </div>
