@@ -53,7 +53,7 @@ const Join = () => {
                         <p className={`details-5 ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
                             {t('Page5.2')}
                         </p>
-                        <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
+                        <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}>
                            
                             {t('Page5.3')}
                         </button>

@@ -12,7 +12,7 @@ import Cards from './Page6/Cards';
 function Tree() {
   return (
     <div>
-             <Page1 />
+      <Page1 />
       <Home />
       <Page3 />
       <Page4 />

@@ -7,7 +7,8 @@ import './i18n';
 import './page-i18/I18n'
 import { BrowserRouter } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material/styles';
-// import Demo from './Demo/Demo';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -19,7 +20,6 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
 
 
 reportWebVitals();
