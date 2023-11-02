@@ -28,22 +28,7 @@ const Page3 = () => {
   const handleMouseLeave = () => {
      setIsFrozen(false);
    };
-  
 
-  // useEffect(() => {
-  //   let interval;
-  //   if (!isFrozen) {
-  //     interval = setInterval(() => {
-  //       const active = (activeTab + 1) % 3;
-  //       setActiveTab(active);
-  //     }, 3000); 
-  //   }
-
-  //   return () => clearInterval(interval);
-  // }, [activeTab, isFrozen]); 
-
-
-//animaton for scrolling to reach the current page
 useEffect(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
