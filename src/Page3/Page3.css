@@ -49,6 +49,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
     display: flex;
     width: 100%;
     gap:1rem;
+    margin-left: -5vw;
     margin-top: -5vh;
     align-items: center;
     justify-content: flex-end;

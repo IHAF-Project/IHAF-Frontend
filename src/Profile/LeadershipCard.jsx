@@ -3,7 +3,7 @@ import logo from '../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
+function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,LocalityOfPosition,NameOfPosting}) {
 
   const cardRef = useRef(null);
 
@@ -15,7 +15,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
     <img src={logo} alt='logo' />
      <div className="member-card-top-details">
       <p>Integral Humanism Ambedkar Federation</p>
-      <span>Membership card</span>
+      <span>Leadership card</span>
      </div>
     </div>
     </div>
@@ -27,13 +27,21 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
        <>:</>
        <span>{name}</span>
       </div>
-      <div className="member-card-bt-details-name"> <p>Member ID </p>
+      <div className="member-card-bt-details-name"> <p>Leader ID </p>
       <>:</>
-      <span>{MemberID}</span>
+      <span>{LeaderID}</span>
       </div>
       <div className="member-card-bt-details-name"> <p>Date of joining </p>
       <>:</>
       <span>{DateOfJoining}</span>
+      </div>
+      <div className="member-card-bt-details-name"> <p>Locality of position</p>
+      <>:</>
+      <span>{LocalityOfPosition}</span>
+      </div>
+      <div className="member-card-bt-details-name"> <p>Name of posting</p>
+      <>:</>
+      <span>{NameOfPosting}</span>
       </div>
      </div>
      </div>
@@ -41,10 +49,10 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
      
   )
 }
-MembershipCard.propTypes = {
+LeadershipCard.propTypes = {
   name: PropTypes.node,
   MemberID: PropTypes.node,
   DateOfJoining: PropTypes.node,
 };
 
-export default MembershipCard
+export default LeadershipCard

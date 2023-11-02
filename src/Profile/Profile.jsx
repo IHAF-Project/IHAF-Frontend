@@ -5,12 +5,14 @@ import { useState } from "react"
 import MembershipCard from "./MembershipCard";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import LeadershipCard from "./LeadershipCard";
 
 
 function Profile() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [membershipCardOpen, setMembershipCardOpen]=useState(false)
+  const [leadershipCardOpen, setLeadershipCardOpen]=useState(false)
   const { memberId } = useParams();
   const [memberDetails, setMemberDetails] = useState(null);
 
@@ -38,6 +40,9 @@ function Profile() {
 
   const memberShipClick =()=>{
     setMembershipCardOpen(!membershipCardOpen)
+  }
+  const leadershipClick = ()=>{
+    setLeadershipCardOpen(!leadershipCardOpen)
   }
   const paymentData = [
     { id: 1, method: 'Credit Card', transactionId: '12345', amount: 100 },
@@ -172,6 +177,7 @@ const getDate =formatedate.toLocaleDateString()
 console.log(originalDate,"originalDate");
 
 const refferal=localStorage.setItem('refferalCode',memberDetails?.memberProfile?.referralCode)
+
   return (
     <>
     <div className="profile-contain">
@@ -181,14 +187,14 @@ const refferal=localStorage.setItem('refferalCode',memberDetails?.memberProfile?
     {memberDetails  && (
  <div className="profile-contain-bt">
  <div className="profile-bt-left">
-  <img src={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='' />
+  <img src={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='user-profile' />
  </div>
  <div className="profile-bt-right">
  <div className="user-profile-details">
    <h3>{memberDetails?.memberProfile?.name}</h3>
    <h4>{memberDetails?.memberProfile?.district}</h4>
    <p>Date of joining : {getDate}</p>
-   <span>Total number of referral : {memberDetails.refferalCount}</span>
+   <span>Total number of referral: {memberDetails?.refferalCount > 0 ? memberDetails.refferalCount : 0}</span>
  </div>
  <div className="user-profile-cards">
  <div className="membership-card-1">
@@ -208,7 +214,7 @@ const refferal=localStorage.setItem('refferalCode',memberDetails?.memberProfile?
 name={memberDetails?.memberProfile?.name}
 DateOfJoining ={getDate}
 MemberID={memberDetails?.memberProfile?.memberID}
-Profile={memberDetails?.memberProfile?.profileURL}
+Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
 />
    <div className="member-card-button">
    <p onClick={handleDownload}>Download</p>
@@ -218,8 +224,30 @@ Profile={memberDetails?.memberProfile?.profileURL}
   }
  </div>
  <div className="leadership-card">
- <p>Leadership card</p>
+ <p onClick={leadershipClick}>Leadership card</p>
  <East sx={{color:'#04419D'}}/>
+ {leadershipCardOpen && 
+  <div className="membership-card">
+   <div className="membership-card-container">
+   <div className="membership-card-tp">
+  <div className="membership-card-title">
+   <h1>Membership card</h1>
+   <img src={close} alt='Close' width='50px' height='50px' onClick={leadershipClick}/>
+  </div>
+   </div>
+
+<LeadershipCard
+name={memberDetails?.memberProfile?.name}
+DateOfJoining ={getDate}
+MemberID={memberDetails?.memberProfile?.memberID}
+Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+/>
+   <div className="member-card-button">
+   <p onClick={handleDownload}>Download</p>
+   </div>
+   </div>
+  </div>
+  }
  </div>
  <div className="donation-history">
  <p onClick={handleClick}>Donation history</p>
@@ -259,7 +287,6 @@ Profile={memberDetails?.memberProfile?.profileURL}
     </div>
  }
  </div>
-
  <div className="ref-code">
  <p>Your referral code</p>
  <span>{memberDetails?.memberProfile?.referralCode}</span>

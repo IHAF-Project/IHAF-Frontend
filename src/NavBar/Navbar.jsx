@@ -39,7 +39,7 @@ const Navbar = () => {
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
 
- const isAdminApproved = storedData?.data?.phoneNumber
+ const isAdminApproved = storedData?.success
  const memberId = storedData?.data?.memberID
  const _id = storedData?.data?._id
 
@@ -115,7 +115,7 @@ const refferal =localStorage.getItem('refferalCode');
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
        
-         {isAdminApproved ? 
+         {memberId? 
           (
          <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
@@ -146,12 +146,11 @@ const refferal =localStorage.getItem('refferalCode');
         </button>
       </div>
       
-      {
-      isPop &&
+      {isPop &&
        <div className='Popcontainer'>
        <div className='Pop-page'>
        <div className='profile-icon'>
-       {isAdminApproved === true ? (
+       {memberId ? (
         <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
         </Link> ) : 'Not Approved Yet' } 
        </div>
@@ -159,8 +158,8 @@ const refferal =localStorage.getItem('refferalCode');
 
        <img src={profile3} alt='refetal-code'/>
 
-       <div className="paste-button">
-   <button className="button">REFERALCODE &nbsp; ▼</button>
+    <div className="paste-button">
+   <button className="button">REFERALCODE &nbsp;▼</button>
    <div className="dropdown-content">
     <a id="top"  onClick={handleCopyClick}  ref={textRef}
           style={{ cursor: 'pointer'}}>{refferal}</a>
