@@ -15,6 +15,7 @@ function Profile() {
   const [leadershipCardOpen, setLeadershipCardOpen]=useState(false)
   const { memberId } = useParams();
   const [memberDetails, setMemberDetails] = useState(null);
+  const [leaderDetails, setLeaderDetails] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,7 +72,7 @@ function Profile() {
               /* Inline styles */
               .membar-card{
                 width: 30.5625rem;
-                height:50vh;
+                height:60vh;
                 border-radius: 1.6875rem;
                 background: #04419D;
                 color:#ffffff;
@@ -171,12 +172,120 @@ function Profile() {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
     };
+
+    const LeaderhandleDownload = () => {
+      const cardContent = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              /* Inline styles */
+              .leader-card{
+                width: 30.5625rem;
+                height:65vh;
+                border-radius: 1.6875rem;
+                background: #000;
+                color:#ffffff;
+                display: flex;
+                flex-direction: column;
+            }
+              
+            .leader-card-top{
+   
+              height: 8.25rem;
+              display: flex;
+              padding-block: 0.5em;
+             align-items: center;
+             justify-content: center;
+         }
+         .leader-card-border{
+             border: 1px solid #FFF;
+             display: flex;
+             align-items: center;
+             justify-content:space-around;
+             width: 28.5625rem;
+             height: 6.25rem;
+         }
+         .leader-card-border img{
+             width: 50px;
+             height: 50px;
+         }
+         .leader-card-top-details{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+            
+         }
+         :is(.leader-card-top-details p ,.leader-card-top-details span){
+         color: #FFF;
+         text-align: center;
+         font-family: 'Poppins';
+         font-size:1rem;
+         font-style: normal;
+         font-weight: 600;
+         line-height: normal;
+         text-transform: uppercase;
+         }
+         .leader-card-top-details span{
+         border: 1px solid #FFF;
+         padding:0.5em 2em;
+         }
+         .leader-card-bt{
+             display: flex;
+             padding-inline: 1em;
+             align-items: center;
+             justify-content: space-around;
+             
+         }
+         :is(.leader-card-bt p,.leader-card-bt span){
+             color: #FFF;
+             font-family: Poppins;
+             font-style: normal;
+             font-weight: 400;
+             line-height: normal;
+         }
+         .leader-card-bt p{
+             font-size: 1rem;
+         }
+         .leader-card-bt span{
+             font-size: 1.25rem;
+         }
+         .leader-card-bt img{
+             width: 115px;
+             height: 115px;
+             background: #D9D9D9;
+         }
+         .leader-card-bt-details-name{
+             display: flex;
+             align-items: center;
+             gap:0.5em;
+         }
+            </style>
+          </head>
+          <body>
+            ${document.querySelector('.leader-card').outerHTML}
+          </body>
+        </html>
+      `;
+    
+      const data = new Blob([cardContent], { type: 'text/html' });
+      const url = URL.createObjectURL(data);
+    
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'LeadershipCard.html';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+    
+      // Clean up
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    };
 const originalDate =memberDetails?.memberProfile?.createdAt
 const formatedate =new Date(originalDate)
 const getDate =formatedate.toLocaleDateString()
 console.log(originalDate,"originalDate");
-
-const refferal=localStorage.setItem('refferalCode',memberDetails?.memberProfile?.referralCode)
 
   return (
     <>
@@ -197,11 +306,11 @@ const refferal=localStorage.setItem('refferalCode',memberDetails?.memberProfile?
    <span>Total number of referral: {memberDetails?.refferalCount > 0 ? memberDetails.refferalCount : 0}</span>
  </div>
  <div className="user-profile-cards">
- <div className="membership-card-1">
+ <div className="membership-card-1" style={{cursor:'pointer'}}>
   <p onClick={memberShipClick}>Membership card</p>
   <East sx={{color:'#04419D'}}/>
   {membershipCardOpen && 
-  <div className="membership-card">
+  <div className="membership-card" >
    <div className="membership-card-container">
    <div className="membership-card-tp">
   <div className="membership-card-title">
@@ -223,7 +332,7 @@ Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.co
   </div>
   }
  </div>
- <div className="leadership-card">
+ <div className="leadership-card" style={{cursor:'pointer'}}>
  <p onClick={leadershipClick}>Leadership card</p>
  <East sx={{color:'#04419D'}}/>
  {leadershipCardOpen && 
@@ -231,7 +340,7 @@ Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.co
    <div className="membership-card-container">
    <div className="membership-card-tp">
   <div className="membership-card-title">
-   <h1>Membership card</h1>
+   <h1>Leadership card</h1>
    <img src={close} alt='Close' width='50px' height='50px' onClick={leadershipClick}/>
   </div>
    </div>
@@ -243,13 +352,13 @@ MemberID={memberDetails?.memberProfile?.memberID}
 Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
 />
    <div className="member-card-button">
-   <p onClick={handleDownload}>Download</p>
+   <p onClick={LeaderhandleDownload}>Download</p>
    </div>
    </div>
   </div>
   }
  </div>
- <div className="donation-history">
+ <div className="donation-history" style={{cursor:'pointer'}}>
  <p onClick={handleClick}>Donation history</p>
  <East sx={{color:'#04419D'}}/>
    {isOpen &&

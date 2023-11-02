@@ -39,7 +39,7 @@ const Navbar = () => {
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
 
- const isAdminApproved = storedData?.success
+ const phoneNumber = storedData?.data?.phoneNumber
  const memberId = storedData?.data?.memberID
  const _id = storedData?.data?._id
 
@@ -70,8 +70,7 @@ const refferal =localStorage.getItem('refferalCode');
     localStorage.clear();
     window.location.href ="/";
   }
-  console.log(_id,"use")
- console.log(isAdminApproved,memberId,"Member")
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -115,7 +114,7 @@ const refferal =localStorage.getItem('refferalCode');
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
        
-         {memberId? 
+         {phoneNumber ? 
           (
          <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
