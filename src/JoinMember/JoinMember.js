@@ -36,6 +36,13 @@ function JionMember() {
   aadharCardURL: null,
   profileURL: null
 });
+const [isFormValid, setIsFormValid] = useState(false);
+useEffect(() => {
+  const isValid = Object.values(formData).every(value => value !== "" && value !== null);
+  setIsFormValid(isValid);
+}, [formData]);
+
+
 
 const handleFormChange = (e) => {
   const { name, value } = e.target;
@@ -83,7 +90,7 @@ const handleFormChange = (e) => {
 
 
 
-const cloudinary = new Cloudinary({ cloud: { cloudName: process.env.REACT_APP_CLOUD_NAME } });
+const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
 
 const handleAadharFileSelect = (e) => {
   const selectedFile = e.target.files[0];
@@ -663,7 +670,11 @@ const handleDelete = (fileType) => {
       </div>
          </div>
          <div className='JoinNow'>
-         <button type="submit" onClick={handleFormSumbit}>{currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
+         <button type="submit" 
+         onClick={handleFormSumbit} 
+         disabled={!isFormValid}
+  >
+    {currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>
      </div>

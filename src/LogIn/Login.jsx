@@ -59,6 +59,7 @@ catch(error){
 }
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
+  
   return (
     <>
     <Navbar/>
