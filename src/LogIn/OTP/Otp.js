@@ -45,12 +45,13 @@ function Otp() {
       const verifyResult = {data : {sucess: true}}
 
       if (verifyResult.data.sucess) {
-        toast.success('verify otp success',{ position: toast.POSITION.TOP_RIGHT ,
-          style: {
-            zIndex: 5, 
-          }
+        toast.success('verify otp success',{
+           position: toast.POSITION.TOP_RIGHT ,
+           autoClose:2000
         })
+       setTimeout(()=>{
         navigate('/')
+       },3000) 
       }else{
         toast.error('invaild OTP',{ position: toast.POSITION.TOP_RIGHT })
       }

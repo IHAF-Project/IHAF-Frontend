@@ -11,7 +11,7 @@
   .page7-petition-text {
     display: flex;
     justify-content: center;
-    height: 12vh;
+    height: auto;
     align-items: center;
 }
 .page7-petition-text-p{
@@ -36,17 +36,14 @@
 .petition-inputs {
     border-radius: 8px;
     background: #033876;
-    /* padding-left: 2rem; */
     flex-direction: column;
-    /* padding-bottom: 1rem; */
     display: flex;
-    gap: 3px;
-    /* padding-top: 2rem; */
+     gap: 26px;
     justify-content: space-evenly;
     width: auto;
-    padding-inline: 3rem;
+    padding: 2rem;
     height: auto;
-    padding-bottom: 2rem;
+   
 }
 .page7-input-container {
     display: flex;
@@ -57,7 +54,7 @@
 }
 .page7-submit {
     display: flex;
-    height: 10vh;
+    height: auto;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -66,8 +63,8 @@
     display: flex;
     padding-top: 1rem;
     align-items: center;
-    gap: 8px;
-    height: 13vh;
+    justify-content: space-around;
+    height: auto;
 }
 .petition-submit-btn{
     border-radius: 5.275px;
@@ -111,13 +108,11 @@
 }
 .input-name-petition{
     background: #033876;
-    border-top: none;
-    border-left: none;
+
     color: #FFF;
     width: 30vw;
-    border-bottom: 1px solid #FFF;
-    border-right: none;
-    height: 2.5rem;
+    border: 1px solid #FFF;
+    height: 3.5rem;
 }
 .input-contact-petition{
     background: #033876;
@@ -135,7 +130,8 @@
     color: #FFF;
     border: 1px solid #FFF;
     margin-top: 1rem;
-    height: 5rem;
+    height: 7rem;
+    resize: none;
 }
 .petition-in-c{
     display: flex;
@@ -331,7 +327,7 @@ line-height: normal;
         height: auto;
     }
     .petition-7-btn{
-        width: 30vw;
+        width: 43vw;
     }
 }
 @media screen and (max-width:420px){

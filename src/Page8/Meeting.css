@@ -148,6 +148,9 @@
  .meeting-events{
     width: 10rem;
  }
+ .Meeting-container{
+    height: 80vh;
+ }
     .zoom-meet-design-cont {
         display: flex;
         width: 73vw;

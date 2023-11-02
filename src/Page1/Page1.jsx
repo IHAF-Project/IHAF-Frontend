@@ -27,7 +27,7 @@ const Page1 = () => {
   }, [isHovered]);
 
   return (
-    <div className="Page-1">
+    <div className="Page-1" id='Home'>
        <Navbar/>
       <>
       <Swiper

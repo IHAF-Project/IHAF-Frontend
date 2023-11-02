@@ -3,7 +3,7 @@ import logo from '../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile }) {
+function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
 
   const cardRef = useRef(null);
 

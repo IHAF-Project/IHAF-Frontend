@@ -6,9 +6,9 @@ import image3 from '../images/annamalai-bjp-1.jpeg';
 import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
+import axios from 'axios';
 
 const Page4 = () => {
-
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
@@ -40,19 +40,47 @@ const Page4 = () => {
 
   useEffect(() => {
     const scrollers = document.querySelectorAll('.scroller');
-      scrollers.forEach((scroller) => {
-        scroller.setAttribute('data-animated', true)
-        const scrollerInner = scroller.querySelector('.scroller__inner')
-        const scrollerContent = Array.from(scrollerInner.children);
-        scrollerContent.forEach((item) => {
-          const duplicatedItem = item.cloneNode(true)
-          duplicatedItem.setAttribute('aria-hidden', true);
-          scrollerInner.appendChild(duplicatedItem)
-         
-        });
+    scrollers.forEach((scroller) => {
+      scroller.setAttribute('data-animated', true);
+      const scrollerInner = scroller.querySelector('.scroller__inner');
+      const scrollerContent = Array.from(scrollerInner.children);
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute('aria-hidden', true);
+        scrollerInner.appendChild(duplicatedItem);
       });
+    });
+  }, []);
 
-  }, [currentLanguage]);
+  const [feeditems, setFeedItems] = useState([]);
+
+   useEffect(() => {
+
+  const fetchItems = async () => {
+
+    try {
+
+      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+
+      const  f1 = response.data
+
+      setFeedItems(f1)
+
+      console.log (f1, "fetched items is received")
+      
+    } catch (error) {
+      
+      console.error (error, "Failed to fetch items")
+
+    }
+
+  }
+       
+    fetchItems()
+
+    }, []);
+
+   
 
   return (
     <div className='page4-container'>
@@ -65,90 +93,45 @@ const Page4 = () => {
       <div className='page4-main-cont1'>
         <div className='scroller'>
           <div className='scroller__inner'>
-          <div className='page4-main'>
-            <div className='page4-main-C'>
-              <div className='img-cover4'>
-                <img src={image2} alt='' className='page4-image2' />
-              </div>
-              <div className='page4-p-by'>
-                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                  {t('hello.1')}
-                </p>
-                <div className='page4-by'>
-                  <p className='by'>by</p>
-                  <p>Sonamvard</p>
+            {feeditems.map(item => (
+              <div className='page4-main' key={item.id}>
+                <div className='page4-main-C'>
+                  <div className='img-cover4'>
+                    <img src={image2} alt='' className='page4-image2' />
+                  </div>
+                  <div className='page4-p-by'>
+                    <p className="page4-p">
+                      {item.content}
+                    </p>
+                    <div className='page4-by'>
+                      <p className='by'>by</p>
+                      <p>{item.name}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className='page4-main'>
-            <div className='page4-main-C'>
-              <div className='img-cover4'>
-                <img src={image3} alt='' className='page4-image2' />
-              </div>
-              <div className='page4-p-by'>
-                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                  {t('hello.1')}
-                </p>
-                <div className='page4-by'>
-                  <p className='by'>by</p>
-                  <p>Sonamvard</p>
+            ))},
+            {feeditems.map(item => (
+              <div className='page4-main' key={item.id}>
+                <div className='page4-main-C'>
+                  <div className='img-cover4'>
+                    <img src={image2} alt='' className='page4-image2' />
+                  </div>
+                  <div className='page4-p-by'>
+                    <p className="page4-p">
+                      {item.content}
+                    </p>
+                    <div className='page4-by'>
+                      <p className='by'>by</p>
+                      <p>{item.name}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className='page4-main'>
-            <div className='page4-main-C'>
-              <div className='img-cover4'>
-                <img src={image4} alt='' className='page4-image2' />
-              </div>
-              <div className='page4-p-by'>
-                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                  {t('hello.1')}
-                </p>
-                <div className='page4-by'>
-                  <p className='by'>by</p>
-                  <p>Sonamvard</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='page4-main'>
-            <div className='page4-main-C'>
-              <div className='img-cover4'>
-                <img src={image2} alt='' className='page4-image2' />
-              </div>
-              <div className='page4-p-by'>
-                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                  {t('hello.1')}
-                </p>
-                <div className='page4-by'>
-                  <p className='by'>by</p>
-                  <p>Sonamvard</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='page4-main'>
-            <div className='page4-main-C'>
-              <div className='img-cover4'>
-                <img src={image2} alt='' className='page4-image2' />
-              </div>
-              <div className='page4-p-by'>
-                <p className={`${isTamilLanguage ? 'tamil-page4-p' : 'page4-p'}`}>
-                  {t('hello.1')}
-                </p>
-                <div className='page4-by'>
-                  <p className='by'>by</p>
-                  <p>Sonamvard</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            ))}
           </div>
         </div>
       </div>
-
     </div>
   );
 };

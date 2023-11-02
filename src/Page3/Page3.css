@@ -49,6 +49,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
     display: flex;
     width: 100%;
     gap:1rem;
+    margin-left: -5vw;
     margin-top: -5vh;
     align-items: center;
     justify-content: flex-end;
@@ -135,7 +136,7 @@ text-transform: capitalize;
     box-shadow: 0px 2.99008px 2.99008px 0px rgba(0, 0, 0, 0.25);
 }
 .Tab-content1-bt {
-    height: 55vh;
+    height: auto;
     width: min(80vw ,100%);
     display: flex;
     justify-content: center;
@@ -146,6 +147,11 @@ text-transform: capitalize;
 }
 .Tab-content1-bt::-webkit-scrollbar{
     width: 0;
+}
+.embeddedurl{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 .TabContent1-content {
     display: flex;

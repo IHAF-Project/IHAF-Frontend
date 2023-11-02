@@ -39,9 +39,11 @@ const Navbar = () => {
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
 
- const isAdminApproved = storedData?.data?.phoneNumber
+ const phoneNumber = storedData?.data?.phoneNumber
  const memberId = storedData?.data?.memberID
-const refferal =localStorage.getItem('refferalCode');
+ const _id = storedData?.data?._id
+ const refferal = storedData?.data?.referralCode
+
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
 
@@ -68,14 +70,18 @@ const refferal =localStorage.getItem('refferalCode');
     localStorage.clear();
     window.location.href ="/";
   }
- console.log(isAdminApproved,memberId,"Member")
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <img src= {logo} alt="Logo" />
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
-        <Link className='hovjoin' to='/member' ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+      { _id ? (
+  <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+      ): (
+''
+      )}
      
         </div>
          </div>
@@ -83,8 +89,10 @@ const refferal =localStorage.getItem('refferalCode');
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
         <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
-        <Link to='/member' style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}><span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
-        </div>
+       {_id ? ( <Link to={`/member/${_id}`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
+         <span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span>
+       </Link>) : ('')}
+      </div>
       <div className='navbar-content'>
         <ul>
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
@@ -110,7 +118,7 @@ const refferal =localStorage.getItem('refferalCode');
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
        
-         {isAdminApproved ? 
+         {phoneNumber ? 
           (
          <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
@@ -141,12 +149,11 @@ const refferal =localStorage.getItem('refferalCode');
         </button>
       </div>
       
-      {
-      isPop &&
+      {isPop &&
        <div className='Popcontainer'>
        <div className='Pop-page'>
        <div className='profile-icon'>
-       {isAdminApproved === true ? (
+       {memberId ? (
         <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
         </Link> ) : 'Not Approved Yet' } 
        </div>
@@ -154,8 +161,8 @@ const refferal =localStorage.getItem('refferalCode');
 
        <img src={profile3} alt='refetal-code'/>
 
-       <div className="paste-button">
-   <button className="button">REFERALCODE &nbsp; ▼</button>
+    <div className="paste-button">
+   <button className="button">REFERALCODE &nbsp;▼</button>
    <div className="dropdown-content">
     <a id="top"  onClick={handleCopyClick}  ref={textRef}
           style={{ cursor: 'pointer'}}>{refferal}</a>

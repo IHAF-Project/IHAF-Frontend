@@ -39,11 +39,14 @@ try{
 if(check.data.success){
   toast.success('OTP Sent Successfully', {
       position: toast.POSITION.TOP_RIGHT ,
+      autoClose:2000
   })
-  navigate('/Otp')
+  setTimeout(() => {
+    navigate('/Otp');
+  }, 3000); 
 }
  else{
-  toast.error('somthing went wrong', { position: toast.POSITION.TOP_RIGHT })
+  toast.error('Failed to update data', { position: toast.POSITION.TOP_RIGHT })
  }
  console.log(response)
 }
@@ -56,6 +59,7 @@ catch(error){
 }
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
+  
   return (
     <>
     <Navbar/>
