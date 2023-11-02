@@ -343,9 +343,9 @@ color: #ffffff;
         width: 73vw;
     }
     :is(.intro-slide-content-quates p,.intro-slide-content-quates-1 p){
-        font-size: 22.405px;
+        font-size: 26.405px;
         width: 44vw;
-        font-weight: 400;
+        font-weight: 500;
         letter-spacing: .5px;
     }
     .intro-slide-content-quates span  {
