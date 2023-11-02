@@ -6,24 +6,25 @@ import axios from 'axios';
 function Meeting() {
   const { t } = useTranslation()
   const [isCodeCopied, setIsCodeCopied] = useState(false);
-  // const [meeting, setMeeting] = useState('');
+  const [meeting, setMeeting] = useState('hlo');
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.post('https://ihaf-backend.vercel.app/new-meet');
-  //       setMeeting(response.data); 
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        
+        const response = await axios.get('ihaf-backend.vercel.app/new-meet');
+        setMeeting(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  //   fetchData();
-  // }, []); 
+    fetchData();
+  }, []); 
 
   const handleCopyCodeClick = () => {
-    const zoomMeetingCode = 'Your Zoom meeting code here'; 
+    const zoomMeetingCode = meeting; 
     const tempInput = document.createElement('input');
     document.body.appendChild(tempInput);
     tempInput.value = zoomMeetingCode;
@@ -75,7 +76,7 @@ function Meeting() {
                   className={`code-text ${isCodeCopied ? 'copied' : ''}`}
                   onClick={handleCopyCodeClick}
                 >
-                  Your Zoom meeting code here
+                  {meeting}
                 </span>
               </p>
        {isCodeCopied && <p className='copied-message'>Code copied!</p>}
