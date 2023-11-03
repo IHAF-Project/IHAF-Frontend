@@ -29,7 +29,7 @@
 .part1-5{
 
     width: 100%;
-    height: 6vh;
+    height: auto;
     display: flex;
     overflow-x: hidden;
     flex-direction: row;

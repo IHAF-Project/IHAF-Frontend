@@ -10,6 +10,9 @@ import Check from "../Assets/Check (2).svg"
 import Footer from '../Footer/Footer'
 import { useParams } from 'react-router-dom'
 import { Cloudinary } from '@cloudinary/url-gen';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
 
 function JionMember() {
 
@@ -19,6 +22,7 @@ function JionMember() {
 
 
   const {_id}=useParams()
+  const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
   const [formData,setformData] = useState({
@@ -37,6 +41,9 @@ function JionMember() {
   profileURL: null
 });
 
+const [isFormValid, setIsFormValid] = useState(false);
+
+
 const handleFormChange = (e) => {
   const { name, value } = e.target;
  
@@ -53,27 +60,56 @@ const handleFormChange = (e) => {
   }
 };
 
-  const updateFormData = async () => {
-    console.log('updateFormData')
-    try {
-      const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+const updateFormData = async () => {
   
-      if (response.ok) {
+    const isValid = Object.values(formData).every(value => value !== "" && value !== null);
+  
+    if (!isValid) {
+      // Show notification if form is not valid
+      toast.error('All fields are required. Please fill in all the fields.', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+  try {
+    const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
       const data = await response.json();
       setformData(data);
-      } else {
-        console.error('Failed to update data');
-      }
-    } catch (error) {
-      console.error('Error updating data:', error);
+      // Show success notification if data is updated
+      toast.success('Data updated successfully!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(()=>{
+        navigate('/')
+      },3000)
+    } else {
+      // Show error notification if data update fails
+      toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose:2000
+      });
+      setTimeout(()=>{
+        navigate('/')
+      },3000)
+      console.error('Failed to update data');
     }
-  };
+  } catch (error) {
+    // Show error notification if an error occurs during update
+    toast.error('Error updating data. Please try again later.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    console.error('Error updating data:', error);
+  }
+};
+
 
  const handleFormSumbit = (e) => {
   e.preventDefault();
@@ -83,7 +119,7 @@ const handleFormChange = (e) => {
 
 
 
-const cloudinary = new Cloudinary({ cloud: { cloudName: process.env.REACT_APP_CLOUD_NAME } });
+const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
 
 const handleAadharFileSelect = (e) => {
   const selectedFile = e.target.files[0];
@@ -663,12 +699,17 @@ const handleDelete = (fileType) => {
       </div>
          </div>
          <div className='JoinNow'>
-         <button type="submit" onClick={handleFormSumbit}>{currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
+         <button type="submit" 
+         onClick={handleFormSumbit} 
+         
+  >
+    {currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>
      </div>
      </div>
     </div>
+    <ToastContainer/>
     <Footer/>
     </div>
   )

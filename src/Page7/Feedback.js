@@ -9,7 +9,7 @@ function Feedback() {
 
   const [feeditems, setFeedItems] = useState({
     memberID: "",
-    link1: "",
+    content: "",
   });
 
   const handleSubmit = async (e) => {

@@ -131,6 +131,7 @@
     border: 1px solid #FFF;
     margin-top: 1rem;
     height: 7rem;
+    resize: none;
 }
 .petition-in-c{
     display: flex;

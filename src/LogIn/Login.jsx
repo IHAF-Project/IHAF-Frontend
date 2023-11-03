@@ -46,7 +46,7 @@ if(check.data.success){
   }, 3000); 
 }
  else{
-  toast.error('somthing went wrong', { position: toast.POSITION.TOP_RIGHT })
+  toast.error('Failed to update data', { position: toast.POSITION.TOP_RIGHT })
  }
  console.log(response)
 }
@@ -59,6 +59,7 @@ catch(error){
 }
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
+  
   return (
     <>
     <Navbar/>
