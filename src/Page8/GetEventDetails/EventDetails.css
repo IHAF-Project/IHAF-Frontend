@@ -1,0 +1,57 @@
+.eventdetails-main {
+    width: 100%;
+    height: 100vh;
+}
+.topic-event-details {
+    width: 100%;
+    height: 18.9375rem;
+    background: #E9E9E9;
+    display: flex;
+    align-items: center;
+}
+.event-details-logo img {
+  
+    width: 18.7875rem;
+    height: 13.122rem;
+}
+span {
+    font-weight: 400;
+}
+.images-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px; 
+    justify-content: space-around; 
+    justify-items: center; 
+    align-items: center;
+    padding: 10px;
+    margin: 10px; 
+    box-sizing: border-box;  
+  }
+  
+  .images-wrap img {
+    width: 40vw; 
+    max-width: 100%; 
+    height: auto;
+  }
+  
+  
+  
+@media screen and (max-width :496px) {
+    .images-wrap img {
+        width: 100%;
+    }
+    .images-wrap {
+        padding: 1rem;
+    }
+    .topic-event-details {
+        flex-direction: column;
+        height: auto;
+    }
+    
+}
+@media screen and (max-width :696px) {
+    .images-wrap img {
+        width: 100%;
+    }
+}

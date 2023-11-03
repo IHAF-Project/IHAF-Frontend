@@ -113,6 +113,15 @@
     background-color: white;
     color: black; 
   }
+  img.zoom-meet-design {
+    /* width: 60vw; */
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    width: 68vw;
+    background-position: center;
+    height: 51vh;
+}
   
 
 
