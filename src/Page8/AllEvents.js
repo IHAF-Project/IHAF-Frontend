@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import "./Meeting.css"
 
 function AllEvents() {
   const { t } = useTranslation();
@@ -12,12 +13,20 @@ function AllEvents() {
       .then((data) => setEventData(data.data))
       .catch((error) => console.error(error));
   }, []);
-console.log (eventData, "photo===")
+
   return (
     <div>
-      {eventData.map((event, index) => (
-        <div key={event._id} className='metting-tab2-cont'>
-          <img src={event.eventPhoto} alt={event.eventTitle} />
+      {eventData.map((event) => (
+        <div key={event._id} className='meeting-tab2-cont'>
+         
+          <div className="event-photos">
+            {event.eventPhoto.map((photo) => (
+              <img key={photo._id} src={photo.url} alt={event.eventTitle} />
+            ))}
+                      
+
+          </div>
+
         </div>
       ))}
     </div>
