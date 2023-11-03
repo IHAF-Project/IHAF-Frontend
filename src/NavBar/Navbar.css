@@ -50,7 +50,7 @@ align-items: center;
   align-items: center;
   width: 64%;
   gap:1rem;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .navbarsocial-M {
 display: flex;

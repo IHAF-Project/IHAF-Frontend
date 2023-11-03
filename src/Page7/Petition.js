@@ -32,10 +32,8 @@ function Petition() {
 
 
   const [data, setdata] = useState({
-    name: '',
-    phoneNumber: '',
+    memberID: '',
     issues: '',
-    address: '',
     imageURL: '',
   });
 
@@ -118,8 +116,8 @@ function Petition() {
             <input
               className="input-name-petition"
               type="text"
-              name="name"
-              value={data.name}
+              name="memberID"
+              value={data.memberID}
               onChange={handleChange}
             />
           </div>
