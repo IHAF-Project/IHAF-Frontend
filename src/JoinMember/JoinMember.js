@@ -41,7 +41,7 @@ function JionMember() {
   profileURL: null
 });
 
-const [isFormValid, setIsFormValid] = useState(false);
+
 
 
 const handleFormChange = (e) => {
@@ -62,15 +62,20 @@ const handleFormChange = (e) => {
 
 const updateFormData = async () => {
   
-    const isValid = Object.values(formData).every(value => value !== "" && value !== null);
-  
-    if (!isValid) {
-      // Show notification if form is not valid
-      toast.error('All fields are required. Please fill in all the fields.', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
-      return;
+  const isValid = Object.entries(formData).every(([key, value]) => {
+    if (key === "referredBy") {
+      return true;
     }
+    return value !== "" && value !== null;
+  });
+  
+  if (!isValid) {
+    toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+  
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
@@ -255,17 +260,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Gender_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_0"  >
             {currentLanguage === 'ta' ? t('Gender.1') : t('Male')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_1"  >
             {currentLanguage === 'ta' ? t('Gender.2') : t('FeMale')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_2"  >
             {currentLanguage === 'ta' ? t('Gender.3') : t('Others')}
             </label>
           </li>
@@ -355,27 +360,27 @@ const handleDelete = (fileType) => {
     </div>
     <ul className="select-box__list">
       <li>
-        <label className="select-box__option" htmlFor="education_0" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_0"  >
           UG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_1" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_1"  >
           PG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_2" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_2"  >
           10th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_3" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_3"  >
           12th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_4" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_4"  >
           Others
         </label>
       </li>
@@ -523,42 +528,42 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_0"  >
               A+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_1">
               A-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_2" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_2"   >
               B+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_3" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_3"   >
               B-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_4" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_4"  >
               AB+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_5" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_5"  >
               AB-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_6" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_6"  >
               O+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_7" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_7"  >
               O-
             </label>
           </li>
@@ -621,17 +626,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Religion_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_0"  >
             {currentLanguage === 'ta' ? t('Religion.2') : t('Hinduism')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_1"  >
             {currentLanguage === 'ta' ? t('Religion.1') : t('Christianity')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_2"  >
             {currentLanguage === 'ta' ? t('Religion.3') : t('Islam')}
             </label>
           </li>

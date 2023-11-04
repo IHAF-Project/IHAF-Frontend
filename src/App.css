@@ -151,6 +151,10 @@ section {
   .scroll-to-top-btn img{
     width: 10vw;
   }
+  .embeddedurl{
+    flex-direction: column !important;
+  }
+
 }
 
 
