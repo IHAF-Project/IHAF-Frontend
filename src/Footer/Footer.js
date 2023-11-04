@@ -7,6 +7,9 @@ function Footer() {
     const {t, i18n} = useTranslation ();
     
     const isTamilLanguage = i18n.language === 'ta';
+
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    const _id = storedData?.data?._id
   return (
     <div className='Footer-container'>
     <div className='Footer-container-main'>
@@ -18,9 +21,15 @@ function Footer() {
          <div className='footer-social'>
            <div className='footer-join-us'>
               <div>
-                <Link to='/member'>
+               {_id ? (
+                 <Link to={`/member/${_id}`}>
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
                  </Link>
+               ):(
+                
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
+               
+               )}
               
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} ><a href='#Home' style={{textDecoration:'none',color:'white'}}>{t('hello.20')}</a></p>
                 

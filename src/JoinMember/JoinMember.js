@@ -41,7 +41,7 @@ function JionMember() {
   profileURL: null
 });
 
-const [isFormValid, setIsFormValid] = useState(false);
+
 
 
 const handleFormChange = (e) => {
@@ -62,15 +62,20 @@ const handleFormChange = (e) => {
 
 const updateFormData = async () => {
   
-    const isValid = Object.values(formData).every(value => value !== "" && value !== null);
-  
-    if (!isValid) {
-      // Show notification if form is not valid
-      toast.error('All fields are required. Please fill in all the fields.', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
-      return;
+  const isValid = Object.entries(formData).every(([key, value]) => {
+    if (key === "referredBy") {
+      return true;
     }
+    return value !== "" && value !== null;
+  });
+  
+  if (!isValid) {
+    toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+  
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
