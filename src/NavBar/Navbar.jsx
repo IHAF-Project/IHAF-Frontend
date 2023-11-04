@@ -109,9 +109,9 @@ const Navbar = () => {
         <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
       </div>
       <div className='translate-btn-1'>
-        <button onClick={toggleLanguage}>
+        <button>
         <div className="toggle-container">
-        <input type="checkbox" className='toggle'/>
+        <input type="checkbox" className='toggle'  onClick={toggleLanguage}/>
         <div className="slider round"></div>
      </div>
         </button>
