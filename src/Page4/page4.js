@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import image2 from '../images/amitcha.jpg';
-import image3 from '../images/annamalai-bjp-1.jpeg';
-import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 import axios from 'axios';
@@ -53,34 +51,45 @@ const Page4 = () => {
   }, []);
 
   const [feeditems, setFeedItems] = useState([]);
+  const [dataitems, setdataitems] = useState([]);
+  const member = feeditems[0]?.memberID;
 
-   useEffect(() => {
-
-  const fetchItems = async () => {
-
-    try {
-
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
-
-      const  f1 = response.data
-
-      setFeedItems(f1)
-
-      console.log (f1, "fetched items is received")
-      
-    } catch (error) {
-      
-      console.error (error, "Failed to fetch items")
-
+  console.log ( "member ID is " + member)
+  
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+        const f1 = response.data;
+        setFeedItems(f1);
+      } catch (error) {
+        console.error(error, "Failed to fetch items");
+      }
     }
-
-  }
-       
-    fetchItems()
-
-    }, []);
-
-   
+  
+    fetchItems();
+  }, []);
+  
+  useEffect(() => {
+    const fetchdetails = async () => {
+      try {
+        const response = await axios.get(`https://ihaf-backend.vercel.app/get-member-profile/${member}`);
+        const dataitems = response.data.data;
+        setdataitems(dataitems);
+        console.log(dataitems, "fetched items is received");
+      } catch (error) {
+        console.error(error, "Failed to fetch items");
+      }
+    }
+  
+    if (member) {
+      fetchdetails(member); 
+    }
+  }, [member]);
+  
+  console.log(dataitems, "fetched items is received");
+  console.log(member, "memberid is ???? ");
+  
 
   return (
     <div className='page4-container'>
@@ -105,7 +114,7 @@ const Page4 = () => {
                     </p>
                     <div className='page4-by'>
                       <p className='by'>by</p>
-                      <p>{item.name}</p>
+                      <p>{item.memberID}</p>
                     </div>
                   </div>
                 </div>
@@ -118,9 +127,11 @@ const Page4 = () => {
                     <img src={image2} alt='' className='page4-image2' />
                   </div>
                   <div className='page4-p-by'>
+                    
                     <p className="page4-p">
                       {item.content}
                     </p>
+      
                     <div className='page4-by'>
                       <p className='by'>by</p>
                       <p>{item.name}</p>
