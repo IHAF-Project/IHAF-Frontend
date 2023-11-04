@@ -7,8 +7,8 @@ import './i18n';
 import './page-i18/I18n'
 import { BrowserRouter } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material/styles';
-import EventDetails from './Page8/GetEventDetails/EventDetails';
-import Meeting from './Page8/Meeting';
+// import EventDetails from './Page8/GetEventDetails/EventDetails';
+// import Meeting from './Page8/Meeting';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,9 +17,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter basename='/'>
      <StyledEngineProvider>
-     {/* <App/> */}
+     <App/>
      {/* <EventDetails/> */}
-     <Meeting/>
+     {/* <Meeting/> */}
      </StyledEngineProvider>
     </BrowserRouter>
   </React.StrictMode>
