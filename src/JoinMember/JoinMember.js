@@ -260,17 +260,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Gender_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_0"  >
             {currentLanguage === 'ta' ? t('Gender.1') : t('Male')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_1"  >
             {currentLanguage === 'ta' ? t('Gender.2') : t('FeMale')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_2"  >
             {currentLanguage === 'ta' ? t('Gender.3') : t('Others')}
             </label>
           </li>
@@ -360,27 +360,27 @@ const handleDelete = (fileType) => {
     </div>
     <ul className="select-box__list">
       <li>
-        <label className="select-box__option" htmlFor="education_0" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_0"  >
           UG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_1" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_1"  >
           PG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_2" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_2"  >
           10th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_3" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_3"  >
           12th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_4" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_4"  >
           Others
         </label>
       </li>
@@ -528,42 +528,42 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_0"  >
               A+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_1">
               A-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_2" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_2"   >
               B+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_3" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_3"   >
               B-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_4" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_4"  >
               AB+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_5" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_5"  >
               AB-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_6" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_6"  >
               O+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_7" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_7"  >
               O-
             </label>
           </li>
@@ -626,17 +626,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Religion_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_0"  >
             {currentLanguage === 'ta' ? t('Religion.2') : t('Hinduism')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_1"  >
             {currentLanguage === 'ta' ? t('Religion.1') : t('Christianity')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_2"  >
             {currentLanguage === 'ta' ? t('Religion.3') : t('Islam')}
             </label>
           </li>
