@@ -7,15 +7,36 @@ import { Link } from 'react-router-dom';
 const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
+
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    const phoneNumber =storedData?.data?.phoneNumber;
+    const memberId =storedData?.data?.memberID;
+    const _id = storedData?.data?._id
+
   return (
     <div className='main6 abc' id='Leaders'>
         <div className='main-left6'>
         <p className={`title-6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}> {t('Page6.1')}</p>  
         <p className={`main-details6  ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.2')} </p>
-        <Link to="/applyserve">
-        <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon'></img></button>
-        </Link>
        
+      
+        {phoneNumber ? (
+  memberId ? (
+    <Link to='/applyserve'>
+      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+    </Link>
+  ) : (
+    <Link to={`/member/${_id}`}>
+      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+    </Link>
+  )
+) : (
+  <Link to="/login">
+    <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+  </Link>
+)}
+
+      
    </div>
   
 <div className='main-right6'>
