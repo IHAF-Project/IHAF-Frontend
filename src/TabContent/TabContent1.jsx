@@ -41,7 +41,7 @@ function TabContent1() {
                   <InstagramEmbed url={item.link1} width={350} />
                   <InstagramEmbed url={item.link2} width={350} />
                 </div>
-            }
+              }
             </div>
           ))}
           
