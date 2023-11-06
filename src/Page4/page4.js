@@ -39,6 +39,7 @@ const Page4 = () => {
 
     function addAnimation() {
       scrollers.forEach((scroller) => {
+        
         scroller.setAttribute('data-animated', true);
         const scrollerInner = scroller.querySelector('.scroller__inner');
         const scrollerContent = Array.from(scrollerInner.children);
@@ -77,7 +78,7 @@ const Page4 = () => {
 
   }
        
-    fetchItems()
+    fetchItems( )
 
     }, []);
 
@@ -95,6 +96,24 @@ const Page4 = () => {
         <div className='scroller' data-direction="left" data-speed="slow" >
           <div className='scroller__inner'>
             {feeditems.map(item => (
+              <div className='page4-main' key={item.id}>
+                <div className='page4-main-C'>
+                  <div className='img-cover4'>
+                    <img src={item.profileURL} alt='' className='page4-image2' />
+                  </div>
+                  <div className='page4-p-by'>
+                    <p className="page4-p">
+                      {item.content}
+                    </p>
+                    <div className='page4-by'>
+                      <p className='by'>by</p>
+                      <p>{item.name}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))},
+              {feeditems.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>
                   <div className='img-cover4'>
