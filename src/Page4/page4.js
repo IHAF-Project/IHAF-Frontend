@@ -85,7 +85,7 @@ const Page4 = () => {
    
 
   return (
-    <div className='page4-container'>
+    <div className='page4-container' >
       <div className='page-4-image-text'>
         <img src={image1} alt='' className='page4-image1 hidden-7' />
         <button className={`hidden-8 ${isTamilLanguage ? 'tamil-page-4-btn' : 'page-4-btn'}`}>
