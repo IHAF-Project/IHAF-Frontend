@@ -36,15 +36,15 @@ function TabContent1() {
           </div>
           {linksitems.map((item) => (
             <div className="Tab-content1-bt" key={item.id}>
-    
-              {item.platform === 'Instagram' && (
+              {item.platform === 'Instagram' &&
                 <div  className='embeddedurl'>
                   <InstagramEmbed url={item.link1} width={350} />
                   <InstagramEmbed url={item.link2} width={350} />
                 </div>
-              )}
+              }
             </div>
           ))}
+          
         </div>
       </div>
     </div>

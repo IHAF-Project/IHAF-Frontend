@@ -7,10 +7,18 @@ function Feedback() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === "ta";
 
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const memberID=storedData?.data?.memberID
+  const profileURL = storedData?.data?.profileURL
+  const name = storedData?.data?.name
+
+  console.log(profileURL,'profileURL')
 
   const [feeditems, setFeedItems] = useState({
-    memberID: "",
+    memberID: memberID || "",
     content: "",
+    name: name ||"",       
+    profileURL: profileURL || ""  
   });
 
   const handleSubmit = async (e) => {
@@ -27,7 +35,6 @@ function Feedback() {
         const data = response.data;
         console.log(data, "feedback items received");
         setFeedItems(data);
-
       } else {
         console.error(response.data, "feedback error message");
       }

@@ -7,10 +7,11 @@ import axios from 'axios';
 function Petition() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const memberIDget = localStorage.getItem('userData');
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const memberID=storedData?.data?.memberID
 
   useEffect(() => {
-    console.log("data",memberIDget)
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -34,7 +35,7 @@ function Petition() {
 
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
   const [data, setdata] = useState({
-    memberID: '',
+    memberID: memberID || "",
     issues: '',
     imageURL: '',
   });

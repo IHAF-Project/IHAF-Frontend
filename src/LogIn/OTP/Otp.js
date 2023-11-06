@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 import React, { useState, useRef } from 'react';
 import './Otp.css';
 import Navbar from '../../NavBar/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import refresh from "../../images/Refresh.svg"
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
@@ -64,7 +65,7 @@ function Otp() {
   const handleResendClick = async () => {
     try {
       const phoneNumber = localStorage.getItem('phoneNumber');
-      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/member-resendotp', {
+      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/resend-otp', {
         phoneNumber: phoneNumber,
       });
 
@@ -106,12 +107,15 @@ function Otp() {
             ))}
           </div>
           <div>
+
             <button className='otp-verify-btn' onClick={handleSubmit}>
               {t('Otp.6')}
             </button>
           </div>
           <div className='resent-otp' onClick={handleResendClick}>
-          {t('Otp.5')}
+          <p>I didn’t receive a OTP resend OTP !</p>
+          <span>{t('Otp.5')}</span>
+          <img src={refresh} alt='refresh' width='16px' height='16px' />
           </div>
         </div>
       </div>

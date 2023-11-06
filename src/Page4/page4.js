@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import image2 from '../images/amitcha.jpg';
-import image3 from '../images/annamalai-bjp-1.jpeg';
-import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 import axios from 'axios';
@@ -38,49 +36,46 @@ const Page4 = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const scrollers = document.querySelectorAll('.scroller');
-    scrollers.forEach((scroller) => {
-      scroller.setAttribute('data-animated', true);
-      const scrollerInner = scroller.querySelector('.scroller__inner');
-      const scrollerContent = Array.from(scrollerInner.children);
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        duplicatedItem.setAttribute('aria-hidden', true);
-        scrollerInner.appendChild(duplicatedItem);
-      });
-    });
-  }, []);
-
   const [feeditems, setFeedItems] = useState([]);
-
-   useEffect(() => {
-
-  const fetchItems = async () => {
-
-    try {
-
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
-
-      const  f1 = response.data
-
-      setFeedItems(f1)
-
-      console.log (f1, "fetched items is received")
-      
-    } catch (error) {
-      
-      console.error (error, "Failed to fetch items")
-
+ 
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+        const f1 = response.data;
+        setFeedItems(f1);
+      } catch (error) {
+        console.error(error, "Failed to fetch items");
+      }
     }
 
+    fetchItems();
+  }, []);
+
+  const [details, setDetails] = useState([]);
+
+  console.log (details, "details is for selected item");
+
+  const Fetching = async (feed) => {
+    try {
+      const response = await axios.get(`https://ihaf-backend.vercel.app/select-feedback/${feed}`);
+      const dataitems = response.data.data;
+      setDetails(dataitems);
+      console.log(dataitems, "data items????????????????");
+    } catch (error) {
+      console.error(error, "Error fetching feedback");
+    }
   }
-       
-    fetchItems()
 
-    }, []);
+  useEffect(() => {
+    feeditems.forEach(item => {
+      const feed = item._id;
+      Fetching(feed);
+      console.log(feed, "Fetching items from server for feedback");
+    });
+  }, [feeditems]);
 
-   
+  console.log(feeditems, "Fetched items");
 
   return (
     <div className='page4-container'>
@@ -92,30 +87,11 @@ const Page4 = () => {
       </div>
       <div className='page4-main-cont1'>
         <div className='scroller'>
-          <div className='scroller__inner'>
             {feeditems.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>
                   <div className='img-cover4'>
-                    <img src={image2} alt='' className='page4-image2' />
-                  </div>
-                  <div className='page4-p-by'>
-                    <p className="page4-p">
-                      {item.content}
-                    </p>
-                    <div className='page4-by'>
-                      <p className='by'>by</p>
-                      <p>{item.name}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))},
-            {feeditems.map(item => (
-              <div className='page4-main' key={item.id}>
-                <div className='page4-main-C'>
-                  <div className='img-cover4'>
-                    <img src={image2} alt='' className='page4-image2' />
+                    <img src={item.profileURL} alt='' className='page4-image2' />
                   </div>
                   <div className='page4-p-by'>
                     <p className="page4-p">
@@ -129,7 +105,6 @@ const Page4 = () => {
                 </div>
               </div>
             ))}
-          </div>
         </div>
       </div>
     </div>
@@ -137,3 +112,6 @@ const Page4 = () => {
 };
 
 export default Page4;
+
+
+
