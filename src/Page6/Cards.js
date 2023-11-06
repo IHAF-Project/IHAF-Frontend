@@ -23,16 +23,16 @@ const Cards = () => {
         {phoneNumber ? (
   memberId ? (
     <Link to='/applyserve'>
-      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.5vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
     </Link>
   ) : (
     <Link to={`/member/${_id}`}>
-      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.5vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
     </Link>
   )
 ) : (
   <Link to="/login">
-    <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+    <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1.5vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
   </Link>
 )}
 
