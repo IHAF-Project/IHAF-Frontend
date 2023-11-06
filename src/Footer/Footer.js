@@ -20,7 +20,7 @@ function Footer() {
          <p className={`${isTamilLanguage ? 'Footer-integral-tamil' : 'Footer-integral'} `} >{t('hello.17')}</p>
          <div className='footer-social'>
            <div className='footer-join-us'>
-              <div>
+              <div className='foot-bt-content-1'>
                {_id ? (
                  <Link to={`/member/${_id}`}>
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
@@ -37,7 +37,7 @@ function Footer() {
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</a></p>
                 
               </div>
-              <div>
+              <div className='foot-bt-content-2'>
                
                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</a></p>
              

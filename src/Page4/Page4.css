@@ -150,6 +150,7 @@ border-radius: 2px;
 @media screen and (max-width: 968px) {
   .page4-main-cont1{
     padding: 0;
+    margin-top: 10em;
    
   }
   .page4-image1 {
@@ -165,8 +166,7 @@ border-radius: 2px;
   width: 44vw;
 }
 .page4-container{
-  height: auto;
-  background: none;
+  height: 50vh;
 }
 .img-cover4 {
   height: 20vh;

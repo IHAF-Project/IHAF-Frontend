@@ -150,6 +150,14 @@ function Profile() {
              align-items: center;
              gap:0.5em;
          }
+       @media (max-width:820px){
+        .membership-card-container{
+          height: 55vh;
+      }
+      .membar-card{
+          height: 35vh;
+      }
+       }
             </style>
           </head>
           <body>
@@ -260,6 +268,13 @@ function Profile() {
              align-items: center;
              gap:0.5em;
          }
+         @media (max-width:820px){
+          .leadership-card-container{
+            height: 55vh;
+        }
+        .leader-card{
+            height: 35vh;
+        }
             </style>
           </head>
           <body>

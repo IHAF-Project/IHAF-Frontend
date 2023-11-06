@@ -160,8 +160,18 @@ background: linear-gradient(252deg, #000 -10.35%, #4A4848 2.44%, #000 100%);
     .part1-2 p {
         font-size: 4vw;
     }
+    .part1-2{
+        height: auto;
+    }
+    .box-2{
+        width: 70vw;
+    }
+    .container-2{
+        height: auto;
+    }
     .part2-2{
-        display: flex;
+        height: auto;
+        flex-direction: column-reverse;
     }
     .right-logo-2{
         width: 30vw;

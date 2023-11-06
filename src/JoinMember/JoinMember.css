@@ -228,6 +228,7 @@ line-height: normal;
     height: 8em;
     margin-right:5em;
     resize: none;
+    border: 1px solid #000000;
   }
   .JionFrom-content-inputs textarea:focus{
     outline: none;
@@ -374,11 +375,29 @@ img.jionMember-coverImg{
     }
   }
 
+  @media screen and (max-width: 820px) {
+    .JionFrom-content{
+      flex-direction: column;
+      align-items: center;
+    }
+    .JionFrom-content-inputs{
+      width: 75vw;
+    }
+    img.jionMember-coverImg {
+      width: 100%;
+      height: 55vh;
+      object-fit: cover;
+  }
+
+  }
 @media screen and (max-width:450px) {
   .JionFrom-content-inputs{
     flex-direction: column;
     gap:1em;
     align-items: flex-start;
+  }
+  .JionFrom-content-left{
+    width: 100%;
   }
   :is(.Upload-content-inputs,.JionFrom-content){
     flex-direction: column;
@@ -391,6 +410,10 @@ img.jionMember-coverImg{
   }
   .jion-cont p{
     display: none;
+  }
+  .jion-cont{
+    flex-direction: column;
+    align-items: flex-start;
   }
   .JoinNow p{
     margin: 0;

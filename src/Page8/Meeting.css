@@ -172,8 +172,8 @@
  }
     .zoom-meet-design-cont {
         display: flex;
-        width: 73vw;
-        height: 41vh;
+        width: 75vw;
+        height: 40vh;
         border-radius: 4px;
         background: #FFF;
         justify-content: center;
@@ -183,6 +183,10 @@
         width: 64vw; 
         flex-direction: column;
  
+    }
+    img.zoom-meet-design{
+        width: 75vw;
+        height: 40vh;
     }
     .zoom-meet-design{
         font-size: 1.5rem;
@@ -205,10 +209,13 @@
     .meeting-events{
         width: 10rem;
      }
+     .Meeting-con-main{
+        padding: 1em;
+     }
     .zoom-meet-design-cont {
         display: flex;
-        width: 73vw;
-        height: 41vh;
+        width: 75vw;
+        height: 40vh;
         border-radius: 4px;
         padding: 0.5rem;
         background: #FFF;
