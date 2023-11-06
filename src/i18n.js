@@ -15,7 +15,6 @@ i18n
     fallbackLng: 'ta',
     debug: true,
     whitelist:language,
-
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     }

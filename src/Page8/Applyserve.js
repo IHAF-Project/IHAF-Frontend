@@ -63,7 +63,7 @@ function Applyserve() {
               type='text'
               className='serve-name'
               name='name'
-              value={serve.name}
+              value={serve.memberID}
               onChange={(e) => setServe({ ...serve, name: e.target.value })}
             />
           </div>

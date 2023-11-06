@@ -7,8 +7,10 @@ import axios from 'axios';
 function Petition() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
+  const memberIDget = localStorage.getItem('userData');
 
   useEffect(() => {
+    console.log("data",memberIDget)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -30,13 +32,16 @@ function Petition() {
   }, []);
 
 
-
+  const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
   const [data, setdata] = useState({
     memberID: '',
     issues: '',
     imageURL: '',
   });
-
+// Function to handle a successful submission and open the popup
+const handleSuccess = () => {
+  setSuccessPopupOpen(true);
+};
   const handleChange = (e) => {
     const { name, value } = e.target;
     setdata({
@@ -58,6 +63,7 @@ function Petition() {
       const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
       const secureUrl = response.data.secure_url;
       console.log(secureUrl, "upload");
+      handleSuccess();
       setdata({
         ...data,
         imageURL: secureUrl,
@@ -67,9 +73,9 @@ function Petition() {
     }
   };
   const handlesubmit = async (e) => {
-    
+   
     e.preventDefault();
-
+ 
     try {
       const res = await fetch('https://ihaf-backend.vercel.app/new-petition', {
         method: 'POST',
@@ -78,7 +84,7 @@ function Petition() {
         },
         body: JSON.stringify(data),
       });
-
+ 
       if (res.ok) {
         const t1 = await res.json();
         console.log(t1, 'success');
@@ -91,7 +97,7 @@ function Petition() {
       console.error('Error', error);
     }
   };
-  
+
 
   return (
     <div className="page7-petition-container abc" id='Petition'>
@@ -165,6 +171,14 @@ function Petition() {
           </div>
         </div>
       </div>
+      {/* Successful submission popup */}
+      {isSuccessPopupOpen && (
+        <div className="success-popup">
+          <p>Your submission was successful!</p>
+          <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>Close</button>
+          {/* You can add additional content or a close button here */}
+        </div>
+      )}
     </div>
   );
 }

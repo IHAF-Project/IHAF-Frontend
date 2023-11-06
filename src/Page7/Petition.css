@@ -371,3 +371,24 @@ line-height: normal;
     }
     
 }
+/* Add this CSS to your stylesheet */
+.success-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+  }
+  
+  .success-popup p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  /* You can customize the styling further to match your design preferences */
+  
