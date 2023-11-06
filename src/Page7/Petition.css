@@ -330,6 +330,22 @@ line-height: normal;
     .petition-7-btn{
         width: 43vw;
     }
+    .input-name-petition{
+        width: 60vw;
+    }
+    .input-address-petition{
+        width: 60vw;
+    }
+    .input-audio-petition{
+        width: 60vw;
+    }
+ 
+}
+@media screen and (max-width: 1054px) {
+    .petition-in-c{
+        width: 18rem;
+    }
+    
 }
 @media screen and (max-width:420px){
     .petition-7-btn {
