@@ -7,18 +7,22 @@ function Feedback() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === "ta";
 
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const memberID=storedData?.data?.memberID
+  const profileURL = storedData?.data?.profileURL
+  const name = storedData?.data?.name
+
+  console.log(profileURL,'profileURL')
+
   const [feeditems, setFeedItems] = useState({
-    memberID: "",
+    memberID: memberID || "",
     content: "",
-    name: "",       
-    profileURL: ""  
+    name: name ||"",       
+    profileURL: profileURL || ""  
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    feeditems.name = "";
-    feeditems.profileURL = "";
 
     try {
       const response = await axios.post('https://ihaf-backend.vercel.app/new-feedback', feeditems, {

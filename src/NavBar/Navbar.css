@@ -426,6 +426,9 @@ input:checked + .slider:after {
       display: flex;
       margin-right: 2rem;
   }
+  .navbar{
+  justify-content: space-between;
+  }
   .navbar-links{
       display: none;
   }
@@ -434,7 +437,7 @@ input:checked + .slider:after {
   }
   .translate-btn{
       display: block;
-      padding-inline-start: 2rem;
+      padding-inline-start: 13.5rem;
   }
   .navbar-logo img{
     width: 80px;

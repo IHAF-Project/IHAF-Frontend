@@ -1,7 +1,7 @@
-import React, { Fragment ,useState,useEffect} from 'react'
+import React, { Fragment ,useState} from 'react'
 import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
-import "./JoinMember.css"
+import axios from 'axios'
 import polygon from "../Assets/Polygon 6.svg"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -13,6 +13,8 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import "./JoinMember.css"
+
 
 function JionMember() {
 
@@ -124,37 +126,64 @@ const updateFormData = async () => {
 
 
 
-const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
+// const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
 
-const handleAadharFileSelect = (e) => {
+// const handleAadharFileSelect = (e) => {
+//   const selectedFile = e.target.files[0];
+//   if (selectedFile) {
+//     // Upload file to Cloudinary and generate URL
+//     const imageUrl = cloudinary.image(selectedFile.name).toURL();
+
+//     setAadharFile(imageUrl); // Assuming setAadharFile is a state update function for the image URL
+//     setformData({
+//       ...formData,
+//       aadharCardURL: imageUrl,
+//     });
+//     console.log('Aadhar file uploaded:', imageUrl);
+//   }
+// };
+
+
+const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
-  if (selectedFile) {
-    // Upload file to Cloudinary and generate URL
-    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  formData.append('upload_preset', 'ivs6otkx');
 
-    setAadharFile(imageUrl); // Assuming setAadharFile is a state update function for the image URL
-    setformData({
-      ...formData,
-      aadharCardURL: imageUrl,
-    });
-    console.log('Aadhar file uploaded:', imageUrl);
+  try {
+    const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
+    const secureUrl = response.data.secure_url;
+    console.log(secureUrl, "upload");
+    setAadharFile(secureUrl);
+    setformData(prevData => ({
+      ...prevData,
+      aadharCardURL: secureUrl,
+    }));
+  } catch (error) {
+    console.log('Error uploading Aadhar file:', error);
   }
 };
 
-const handleProfileFileSelect = (e) => {
+const handleProfileFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
-  if (selectedFile) {
-    // Upload file to Cloudinary and generate URL
-    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  formData.append('upload_preset', 'ivs6otkx');
 
-    setProfileFile(imageUrl); // Assuming setProfileFile is a state update function for the image URL
-    setformData({
-      ...formData,
-      profileURL: imageUrl,
-    });
-    console.log('Profile file uploaded:', imageUrl);
+  try {
+    const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
+    const secureUrl = response.data.secure_url;
+    console.log(secureUrl, "upload");
+    setProfileFile(secureUrl);
+    setformData(prevData => ({
+      ...prevData,
+      profileURL: secureUrl,
+    }));
+  } catch (error) {
+    console.log('Error uploading profile file:', error);
   }
 };
+
 const handleDelete = (fileType) => {
   if (fileType === 'aadhar') {
     setAadharFile(null);
@@ -170,7 +199,6 @@ const handleDelete = (fileType) => {
     });
   }
 };
-
 
   return (
     <div className='JionMembership-contain'>
