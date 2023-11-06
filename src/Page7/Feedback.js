@@ -10,10 +10,15 @@ function Feedback() {
   const [feeditems, setFeedItems] = useState({
     memberID: "",
     content: "",
+    name: "",       
+    profileURL: ""  
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    feeditems.name = "";
+    feeditems.profileURL = "";
 
     try {
       const response = await axios.post('https://ihaf-backend.vercel.app/new-feedback', feeditems, {
@@ -26,7 +31,6 @@ function Feedback() {
         const data = response.data;
         console.log(data, "feedback items received");
         setFeedItems(data);
-
       } else {
         console.error(response.data, "feedback error message");
       }

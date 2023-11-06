@@ -44,7 +44,6 @@ border-radius: 2px;
 }
 .page4-main{
     border-radius: 117.738px 5.887px 0px 117.738px;
-  
     height: auto;
     background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
     display: flex;
@@ -115,6 +114,7 @@ border-radius: 2px;
 .page4-main-cont1{
   display: flex;
   padding: 2rem;
+ justify-content: center;
   gap: 1.3rem;
    overflow-x: hidden;
   flex-wrap: nowrap;
@@ -176,8 +176,7 @@ border-radius: 2px;
   width: 44vw;
 }
 .page4-container{
-  height: auto;
-  background: none;
+  height: 65vh;
 }
 .img-cover4 {
   height: 20vh;
@@ -195,42 +194,34 @@ border-radius: 2px;
 
 }
 
+
 .scroller {
-  width: 100%;
-}
-
-.scroller__inner {
-  padding-block: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.scroller[data-animated="true"] {
+  margin: 0 auto;
+  width: 95%;
+  white-space: nowrap;
   overflow: hidden;
+  position: absolute;
 }
 
-.scroller[data-animated="true"] .scroller__inner {
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: scroll var(--_animation-duration, 25s)
-    var(--_animation-direction, forwards) linear infinite;
+.page4-main {
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 5s linear infinite;
 }
 
-.scroller[data-direction="right"] {
-  --_animation-direction: reverse;
+.page4-main{
+  animation-delay: 2.5s;
 }
 
-.scroller[data-direction="left"] {
-  --_animation-direction: forwards;
-}
-
-@keyframes scroll {
-  to {
-    transform: translate(calc(-50% - 0.5rem));
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
   }
 }
+
 
 @media screen and (max-width:210px) {
   .page4-image2{
