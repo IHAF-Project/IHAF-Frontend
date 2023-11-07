@@ -17,6 +17,7 @@ import Page1 from './Page1/Page1';
 import Petition from './Page7/Petition';
 import Cards from './Page6/Cards';
 import Page4 from './Page4/page4';
+import EventDetails from "./Page8/GetEventDetails/EventDetails.js"
 import Page3 from './Page3/Page3';
 
 const App = () => {
@@ -78,6 +79,7 @@ const App = () => {
         <Route path="/feedbackuser" element={<Page4/>} />
         <Route path="/socialmedia" element={<Page3/>} />
         <Route path='/member/:_id' element={<JoinMember/>}></Route>
+        <Route path='/events/:_id' element={<EventDetails/>}></Route>
       </Routes>
  
       {showScrollButton && (
