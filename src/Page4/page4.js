@@ -62,13 +62,10 @@ const Page4 = () => {
 
     try {
 
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+      const response = await fetch('https://ihaf-backend.vercel.app/get-selected-feeedback');
+      const  data = await response.json();
+      setFeedItems(data.data)
 
-      const  f1 = response.data
-
-      setFeedItems(f1)
-
-      console.log (f1, "fetched items is received")
       
     } catch (error) {
       
@@ -78,11 +75,11 @@ const Page4 = () => {
 
   }
        
-    fetchItems( )
+    fetchItems()
 
     }, []);
 
-
+console.log(feeditems,'feeditems')
   return (
     <div className='page4-container' >
       <div className='page-4-image-text'>
@@ -94,7 +91,7 @@ const Page4 = () => {
       <div className='page4-main-cont1'>
         <div className='scroller' data-direction="left" data-speed="slow" >
           <div className='scroller__inner'>
-            {feeditems.map(item => (
+            {feeditems?.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>
                   <div className='img-cover4'>
