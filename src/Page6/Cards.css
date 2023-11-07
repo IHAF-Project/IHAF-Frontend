@@ -309,7 +309,7 @@ justify-content: center;
   }
   .main-left6 {
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     margin-inline-start:0vh;
     flex: none;
     gap: 0.75em;;
@@ -323,8 +323,13 @@ justify-content: center;
     text-align: center;
     padding-inline-start: 11px;
 }
+.apply-content{
+  font-size: 1em;
+}
 .main6-btn {
   height: 5vh;
+  position: relative;
+  z-index: 2;
   width: 40vw;
   font-size: 12px;
 }

@@ -63,7 +63,7 @@ const App = () => {
 ) : (
   <div className="container" >
       <Routes>
-      <Route path="/" element={<Tree />} />
+       <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/Login" element={<Login/>} />

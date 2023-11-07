@@ -82,7 +82,6 @@ const Page4 = () => {
 
     }, []);
 
-   
 
   return (
     <div className='page4-container' >

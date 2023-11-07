@@ -1,6 +1,6 @@
 .page4-container {
   width: 100%;
-  height: 64vh;
+  height: 65vh;
   overflow: hidden;
   background-image: url(http://localhost:3001/static/media/1.7571330138245d240b3b.png);
   background-size: 100%;
@@ -178,6 +178,9 @@ border-radius: 2px;
   .img-cover4 {
     width: 45%;
 
+  }
+  .page4-main-cont1{
+    margin-top: 5em;
   }
   .page4-main-C{
     gap: 0;
