@@ -108,11 +108,11 @@
   img.zoom-meet-design {
     /* width: 60vw; */
     background-size: cover;
-    object-fit: fill;
+    object-fit: cover;
     background-position: center;
     width: 60vw;
     background-position: center;
-    height: 60vh;
+    height: auto;
 }
 .event-photos img {
     width: 30vw;
@@ -194,6 +194,11 @@
  .meeting-eve{
    width: 10rem;
  }
+ .Meeting-container {
+    height: auto;
+ }
+ 
+ 
 
 }
 
@@ -238,6 +243,9 @@
     .tab2-cont {
         width: 100%;
     }
+    .Meeting-container {
+        height: auto;
+     }
 
 
 }

@@ -19,15 +19,19 @@ function Otp() {
 
   const navigate =useNavigate();
 
-  const handleInputChange = (index, value) => {
+  const handleInputChange = (index, value, e) => {
     const newOtpValues = [...otpValues];
     newOtpValues[index] = value;
     setOtpValues(newOtpValues);
-
+  
     if (value !== '' && index < inputRefs.length - 1) {
       inputRefs[index + 1].current.focus();
+    } else if (value === '' && index > 0 && (e.key === 'Backspace' || e.key === 'Delete')) {
+      // If backspace or delete is pressed and the field is empty, move to the previous field
+      inputRefs[index - 1].current.focus();
     }
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -94,17 +98,18 @@ function Otp() {
             <h4>{t('Otp.3')}</h4>
           </div>
           <div className='otp-input-container'>
-            {otpValues.map((value, index) => (
-              <input
-                key={index}
-                type='text'
-                maxLength='1'
-                value={value}
-                onChange={(e) => handleInputChange(index, e.target.value)}
-                ref={inputRefs[index]}
-                className='otp-input'
-              />
-            ))}
+          {otpValues.map((value, index) => (
+  <input
+    key={index}
+    type='text'
+    maxLength='1'
+    value={value}
+    onChange={(e) => handleInputChange(index, e.target.value, e)}
+    ref={inputRefs[index]}
+    className='otp-input'
+  />
+))}
+
           </div>
           <div>
 

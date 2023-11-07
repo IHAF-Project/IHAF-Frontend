@@ -33,7 +33,7 @@
 .apply-content {
     color: #000;
     font-family: Poppins;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
     font-style: normal;
     font-weight: 500;
@@ -204,9 +204,10 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     .Applyserve-container {
         height: auto;
     }
-    .Apply-serve-main{
+    .Apply-serve-main {
         width: 84vw;
         height: 85vh;
+        margin-bottom: 3rem;
     }
     .apply-serve-name{
         width: 24vw;

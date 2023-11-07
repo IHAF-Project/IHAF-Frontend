@@ -1,12 +1,13 @@
 .page4-container {
   width: 100%;
-  height: 48vh;
+  height: 64vh;
   overflow: hidden;
-  background-image: url("../imgg/1.png");
-  background-size: 100% ;
+  background-image: url(http://localhost:3001/static/media/1.7571330138245d240b3b.png);
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  background-color: #8fa0cc;
 }
 .page4-image1{
     width: 70vw;

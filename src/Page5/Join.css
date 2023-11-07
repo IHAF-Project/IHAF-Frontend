@@ -215,10 +215,11 @@
         width: 90vw;
        
     }
-    .right-5{
-        width: 77vw;
-        height: 44vh;
-        border-radius: 0.4705rem 0.4705rem 8.9785rem 0.4705rem
+    .right-5 {
+        width: 62vw;
+        height: 35vh;
+    
+        border-radius: 0.4705rem 0.4705rem 3.9785rem 0.4705rem
     }
     .right-5 p{
         font-size: 3vw;
