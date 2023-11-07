@@ -14,6 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import "./JoinMember.css"
+import useScrollToTop from '../Hooks/useScrollToTop'
 
 
 function JionMember() {
@@ -125,25 +126,6 @@ const updateFormData = async () => {
 };
 
 
-
-// const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
-
-// const handleAadharFileSelect = (e) => {
-//   const selectedFile = e.target.files[0];
-//   if (selectedFile) {
-//     // Upload file to Cloudinary and generate URL
-//     const imageUrl = cloudinary.image(selectedFile.name).toURL();
-
-//     setAadharFile(imageUrl); // Assuming setAadharFile is a state update function for the image URL
-//     setformData({
-//       ...formData,
-//       aadharCardURL: imageUrl,
-//     });
-//     console.log('Aadhar file uploaded:', imageUrl);
-//   }
-// };
-
-
 const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
   const formData = new FormData();
@@ -200,6 +182,7 @@ const handleDelete = (fileType) => {
   }
 };
 
+useScrollToTop();
   return (
     <div className='JionMembership-contain'>
     <Fragment><Navbar/></Fragment>

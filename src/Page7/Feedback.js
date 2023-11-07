@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Feedback.css';
 import axios from 'axios';
+import useScrollToTop from '../Hooks/useScrollToTop';
 
 function Feedback() {
   const { t, i18n } = useTranslation();
@@ -42,7 +43,7 @@ function Feedback() {
       console.error(error, "error message");
     }
   }
-
+useScrollToTop();
   return (
     <div className='feedback-container abc'>
       <div className='feedback-container-main'>

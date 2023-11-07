@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import "./Applyserve.css"
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom';
+import useScrollToTop from '../Hooks/useScrollToTop';
+
 
 function Applyserve() {
 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const [dropdown2Value, setDropdown2Value] = useState('');
   const dropdown2Options = ["Option 1", "Option 2", "Option 3"];
-  const handleDropdown2Change = (event) => {
-    const selectedValue = event.target.value;
-    setDropdown2Value(selectedValue);
-  };
-  
-  const navigate = useNavigate();
 
   const [serve, setServe] = useState({
     name: "",
@@ -48,9 +42,10 @@ function Applyserve() {
       console.error("error", error);
     }
   }
-
+useScrollToTop();
   return (
     <div className='Applyserve-container'>
+      
       <p className={`${isTamilLanguage ? 'apply-toserve-head-tamil' : 'apply-toserve-head'}`}>{t("hello.31")}</p>
       <p className={`${isTamilLanguage ? 'apply-content-tamil' : 'apply-content'}`}>{t('hello.32')}</p>
       <div className='Apply-serve-main'>

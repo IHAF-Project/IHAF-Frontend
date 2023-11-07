@@ -2,6 +2,8 @@ import React,{useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import './Join.css'; // Import your CSS file
 import modi from '../images/bg-modi 1 (2).png'
+import { Link } from 'react-router-dom';
+
 const Join = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
@@ -35,6 +37,12 @@ const Join = () => {
        hiddenElements3.forEach((el) => observer.unobserve(el));
       };
     }, []); 
+
+    
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    const phoneNumber =storedData?.data?.phoneNumber;
+    const _id = storedData?.data?._id
+
     return (
         <div>
             <div className={`container-5 ${isTamilLanguage ? 'tamil20-font5' : ''}`}>
@@ -53,10 +61,17 @@ const Join = () => {
                         <p className={`details-5 ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
                             {t('Page5.2')}
                         </p>
-                        <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}>
-                           
-                            {t('Page5.3')}
-                        </button>
+                       
+                        {phoneNumber ? (
+    <Link to={`/member/${_id}`}>
+     <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}> {t('Page5.3')}</button>
+    </Link>
+  
+) : (
+  <Link to="/login">
+   <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}>{t('Page5.3')}</button>
+  </Link>
+)}
                     </div>
                 </div>
             </div>

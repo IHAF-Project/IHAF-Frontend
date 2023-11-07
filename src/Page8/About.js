@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { useTranslation } from 'react-i18next';
 import  Navbar from "../NavBar/Navbar"
 import Footer from "../Footer/Footer"
+import useScrollToTop from '../Hooks/useScrollToTop';
 function About() {
   const textRef = useRef(null);
   const { t, i18n } = useTranslation();
@@ -38,7 +39,7 @@ function About() {
       });
     });
   }, []);
-
+useScrollToTop();
   return (
     <div className='about-container'>
        <Navbar/>

@@ -20,10 +20,8 @@
     height: 4rem;
     font-size: 1rem;
     border: none;
-  
 }
 .page-4-btn{
-   
   background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
 color: #FFF;
 font-family: Poppins;
@@ -102,19 +100,10 @@ border-radius: 2px;
   flex-direction: row;
   justify-content: space-between;
 }
-.page4-main-cont{
-    display: flex;
-    padding: 2rem;
-    gap: 1.3rem;
- overflow-x: hidden;
- background: rgba(255, 255, 255, 0.61);
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
+
 .page4-main-cont1{
   display: flex;
   padding: 2rem;
- justify-content: center;
   gap: 1.3rem;
    overflow-x: hidden;
   flex-wrap: nowrap;
@@ -187,6 +176,10 @@ border-radius: 2px;
 @media screen and (max-width: 550px) {
   .img-cover4 {
     width: 45%;
+
+  }
+  .page4-main-cont1{
+    margin-top: 5em;
   }
   .page4-main-C{
     gap: 0;
@@ -195,31 +188,44 @@ border-radius: 2px;
 
 }
 
-
 .scroller {
-  margin: 0 auto;
-  width: 95%;
-  white-space: nowrap;
+  width: 100%;
+}
+
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
   overflow: hidden;
-  position: absolute;
+
 }
 
-.page4-main {
-  overflow: hidden;
-  display: inline-block;
-  animation: marquee 5s linear infinite;
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 60s)
+    var(--_animation-direction, forwards) linear infinite;
 }
 
-.page4-main{
-  animation-delay: 2.5s;
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-100%, 0);
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 90s !important; 
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
   }
 }
 

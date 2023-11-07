@@ -10,6 +10,9 @@
     border: 0.506px solid #000;
     background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
 }
+.backbtn{
+    display: none;
+}
 .apply-toserve-head {
     color: #000;
     font-family: Poppins;
@@ -228,6 +231,9 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     }
     .equalen{
         display: none;
+    }
+    .backbtn{
+        display: block;
     }
   }
 
