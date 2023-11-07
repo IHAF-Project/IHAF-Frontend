@@ -120,7 +120,7 @@
   img.zoom-meet-design {
     /* width: 60vw; */
     background-size: cover;
-    object-fit: fill;
+    object-fit: cover;
     background-position: center;
     width: 50vw;
     background-position: center;

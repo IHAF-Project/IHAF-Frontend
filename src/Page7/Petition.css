@@ -210,6 +210,7 @@ line-height: normal;
     line-height: normal;
     width: 8rem;
 }
+
 .petition-select {
     background: #033876;
     color: #FFF;
@@ -394,13 +395,21 @@ line-height: normal;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+    background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 999;
     text-align: center;
-  }
+    display: flex;
+    flex-direction: column;
+    width: 36vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Poppins;
+    color: black;
+}
   
   .success-popup p {
     font-size: 18px;
@@ -408,4 +417,10 @@ line-height: normal;
   }
   
   /* You can customize the styling further to match your design preferences */
-  
+  .close-button {
+    width: 11vw;
+    height: 4vh;
+    background-color: #da1111;
+    color: white;
+    border: none;
+}

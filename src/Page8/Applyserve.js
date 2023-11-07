@@ -9,7 +9,47 @@ function Applyserve() {
 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const dropdown2Options = ["Option 1", "Option 2", "Option 3"];
+  const posting = [ 'Secretary','cief','sub']
+  const tamilNaduDistricts = [
+    'Ariyalur',
+    'Chengalpattu',
+    'Chennai',
+    'Coimbatore',
+    'Cuddalore',
+    'Dharmapuri',
+    'Dindigul',
+    'Erode',
+    'Kallakurichi',
+    'Kanchipuram',
+    'Kanyakumari',
+    'Karur',
+    'Krishnagiri',
+    'Madurai',
+    'Nagapattinam',
+    'Namakkal',
+    'Nilgiris',
+    'Perambalur',
+    'Pudukkottai',
+    'Ramanathapuram',
+    'Ranipet',
+    'Salem',
+    'Sivaganga',
+    'Tenkasi',
+    'Thanjavur',
+    'Theni',
+    'Thoothukudi',
+    'Tiruchirappalli',
+    'Tirunelveli',
+    'Tirupathur',
+    'Tiruppur',
+    'Tiruvallur',
+    'Tiruvannamalai',
+    'Tiruvarur',
+    'Vellore',
+    'Viluppuram',
+    'Virudhunagar',
+  ];
+  
 
 const storedData =JSON.parse(localStorage.getItem('userData'));
 const memberID =storedData?.data?.memberID
@@ -89,7 +129,7 @@ useScrollToTop();
                 className='serve-name-P'
               >
                 <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
+                {tamilNaduDistricts.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>
@@ -111,7 +151,7 @@ useScrollToTop();
                 className='serve-name-N'
               >
                 <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
+                {posting.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>

@@ -17,7 +17,7 @@ import Page1 from './Page1/Page1';
 import Petition from './Page7/Petition';
 import Cards from './Page6/Cards';
 import Page4 from './Page4/page4';
-import EventDetails from "./Page8/GetEventDetails/EventDetails"
+import EventDetails from "./Page8/GetEventDetails/EventDetails.js"
 import Page3 from './Page3/Page3';
 
 const App = () => {

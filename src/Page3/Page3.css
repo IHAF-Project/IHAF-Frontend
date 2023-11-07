@@ -67,7 +67,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
 }
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 100px;
+    width: 114px;
     padding: 0.25em .5em ;
     height: auto;
     align-items: center;
@@ -156,9 +156,10 @@ text-transform: capitalize;
 .TabContent1-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
+    height: 75vh;
 }
 .youtube {
     width: 64vw;
