@@ -16,6 +16,7 @@
 }
 span {
     font-weight: 400;
+    padding-left: 1rem;
 }
 .images-wrap {
     display: grid;

@@ -119,6 +119,7 @@ function Petition() {
               name="memberID"
               value={data.memberID}
               onChange={handleChange}
+              disabled
             />
           </div>
        

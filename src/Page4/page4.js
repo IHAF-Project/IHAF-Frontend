@@ -60,7 +60,7 @@ const Page4 = () => {
 
     try {
 
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+      const response = await axios.get('ihaf-backend.vercel.app/get-selected-feeedback');
 
       const  f1 = response.data
 
