@@ -10,19 +10,7 @@ function Meeting() {
 
   // const [meeting, setMeeting] = useState('');
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.post('https://ihaf-backend.vercel.app/new-meet');
-  //       setMeeting(response.data); 
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []); 
+  
 
  
 
