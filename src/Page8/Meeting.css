@@ -11,6 +11,18 @@
     flex-direction: row;
     padding: 38px 0px 0px 0px;
 }
+.events-main {
+    padding: 3rem;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    /* height: 100%; */
+    gap: 5rem;
+    flex-wrap: wrap;
+    justify-items: center;
+    /* align-items: center; */
+    justify-content: center;
+    /* align-content: center; */
+}
 .meeting-eve{
     background-color: #FFF;
     color: #000;
@@ -110,9 +122,9 @@
     background-size: cover;
     object-fit: fill;
     background-position: center;
-    width: 60vw;
+    width: 50vw;
     background-position: center;
-    height: 60vh;
+    height: auto;
 }
 .event-photos img {
     width: 30vw;
@@ -122,15 +134,16 @@
     height: 30vh;
 }
 .event-photos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px; 
-    justify-content: space-around; 
-    justify-items: center; 
-    align-items: center;
-    padding: 10px;
-    margin: 10px; 
-    box-sizing: border-box; 
+    display: flex;
+    grid-template-columns: repeat(0fr, 0fr);
+    gap: 60px;
+    justify-content: center;
+    /* justify-items: center; */
+    /* align-items: center; */
+    /* padding: 10px; */
+    /* margin: 10px; */
+    /* box-sizing: border-box; */
+    flex-wrap: wrap;
 }
   
 
@@ -194,6 +207,11 @@
  .meeting-eve{
    width: 10rem;
  }
+ .Meeting-container {
+    height: auto;
+ }
+ 
+ 
 
 }
 
@@ -238,6 +256,16 @@
     .tab2-cont {
         width: 100%;
     }
+    .Meeting-container {
+        height: auto;
+     }
+     .event-photos img {
+        width: auto;
+        height: 18vh;
+     }
+     .events-main {
+        gap: 1rem;
+     }
 
 
 }
