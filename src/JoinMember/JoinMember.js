@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next'
 import Check from "../Assets/Check (2).svg"
 import Footer from '../Footer/Footer'
 import { useParams } from 'react-router-dom'
-import { Cloudinary } from '@cloudinary/url-gen';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,27 +27,31 @@ function JionMember() {
   const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
-  const [formData,setformData] = useState({
-  name: "",
-  aadharCard: "",
-  referredBy: "",
-  gender: "",
-  education: "",
-  dateOfBirth: "",
-  bloodGroup: "",
-  religion: "",
-  address: "",
-  state: "",
-  district: "",
-  aadharCardURL: null,
-  profileURL: null
-});
-
-
-
-
+  const [formData, setformData] = useState({
+    name: "",
+    aadharCard: "",
+    referredBy: "",
+    gender: "",
+    education: "",
+    dateOfBirth: "",
+    bloodGroup: "",
+    religion: "",
+    address: "",
+    state: "",
+    district: "",
+    aadharCardURL: null,
+    profileURL: null
+  });
+  
+  const [isInputValid, setIsInputValid] = useState(true);
+  
 const handleFormChange = (e) => {
   const { name, value } = e.target;
+  let isValid = true;
+
+  if (name === "aadharCard") {
+    isValid = /^[0-9]{12}$/.test(value);
+  }
  
   if (name === 'DateOfBirth') {
     setformData({
@@ -56,6 +59,7 @@ const handleFormChange = (e) => {
       [name]: value 
     });
   } else {
+    setIsInputValid(isValid);
     setformData({
       ...formData,
       [name]: value
@@ -210,6 +214,7 @@ useScrollToTop();
          <p> <Fragment>:</Fragment></p>
         </div>
          <input type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
+         {/* {!isInputValid && <p style={{fontSize:'0.75em',marginTop:'2em',color:'red'}}>Aadhar Card number must have 12 digits.</p>} */}
          </div>
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>

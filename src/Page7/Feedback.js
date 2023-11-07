@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import './Feedback.css';
 import axios from 'axios';
 import useScrollToTop from '../Hooks/useScrollToTop';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Feedback() {
   const { t, i18n } = useTranslation();
@@ -38,9 +40,15 @@ function Feedback() {
         setFeedItems(data);
       } else {
         console.error(response.data, "feedback error message");
+        toast.success('User feedback received successfully',{
+          position:'top-right'
+        })
       }
     } catch (error) {
-      console.error(error, "error message");
+      console.error(error.message, "error message");
+      toast.error('Feedback validation failed',{
+        position:'top-right'
+      })
     }
   }
 useScrollToTop();
@@ -78,6 +86,7 @@ useScrollToTop();
           </button>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

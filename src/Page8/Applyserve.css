@@ -78,7 +78,7 @@
     align-items: center;
 }
 .serve-name {
-    width: 27vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
@@ -87,7 +87,7 @@
 border: 0.754px solid #FFF;
 }
 .serve-name-P {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
@@ -96,7 +96,7 @@ border: 0.754px solid #FFF;
 border: 0.754px solid #FFF;
 }
 .serve-name-N {
-    width: 34vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
@@ -252,6 +252,9 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     .apply-content-tamil{
         width: auto;
         padding-inline: 0.5rem;
+    }
+    .apply-content{
+        font-size: 1em;
     }
     .equalen{
         display: none;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import "./Applyserve.css"
 import { useTranslation } from 'react-i18next'
 import useScrollToTop from '../Hooks/useScrollToTop';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Applyserve() {
 
@@ -11,11 +11,13 @@ function Applyserve() {
   const isTamilLanguage = i18n.language === 'ta';
   const dropdown2Options = ["Option 1", "Option 2", "Option 3"];
 
+const storedData =JSON.parse(localStorage.getItem('userData'));
+const memberID =storedData?.data?.memberID
+
   const [serve, setServe] = useState({
-    name: "",
-    postingLocation: "",
-    postingName: "",
-    qualification: "",
+    memberID: memberID || " ",
+    postingLocation: " ",
+    postingName: " ",
   });
 
   const handlesubmit = async (e) => {
@@ -33,13 +35,23 @@ function Applyserve() {
       if (Response.ok) {
         const res = await Response.json();
         setServe(res);
+        toast.success('Application send Successfully',{
+          position:'top-right'
+        });
         console.log(res, "Apply to serve datas");
       } else {
         const er = await Response.json();
         console.error(er, "error getting");
+        toast.error('You are banned from LeaderShip and cannot apply for a leader posting',{
+          position:'top-right'
+        });
+       
       }
     } catch (error) {
       console.error("error", error);
+      toast.error('Somthing went Wrong',{
+        position:'top-right'
+      });
     }
   }
 useScrollToTop();
@@ -59,6 +71,7 @@ useScrollToTop();
               className='serve-name'
               name='name'
               value={serve.memberID}
+              disabled
               onChange={(e) => setServe({ ...serve, name: e.target.value })}
             />
           </div>
@@ -107,33 +120,11 @@ useScrollToTop();
             </div>
           </div>
         </div>
-        <div className='apply-serve-cont'>
-          <div className='apply-serve-name'>
-            <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('hello.36')}</p> <p className='equalen'>:</p>
-          </div>
-          <div>
-            <div className='data5'>
-              <select
-                value={serve.qualification}
-                name='qualification'
-                onChange={(e) => setServe({ ...serve, qualification: e.target.value })}
-                className='serve-name-Q'
-              >
-                <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
         <div>
           <button className='serve-joinNow' onClick={handlesubmit}>Join Now</button>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   )
 }
