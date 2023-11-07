@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 import React, { useState, useRef } from 'react';
 import './Otp.css';
 import Navbar from '../../NavBar/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import refresh from "../../images/Refresh.svg"
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,15 +19,19 @@ function Otp() {
 
   const navigate =useNavigate();
 
-  const handleInputChange = (index, value) => {
+  const handleInputChange = (index, value, e) => {
     const newOtpValues = [...otpValues];
     newOtpValues[index] = value;
     setOtpValues(newOtpValues);
-
+  
     if (value !== '' && index < inputRefs.length - 1) {
       inputRefs[index + 1].current.focus();
+    } else if (value === '' && index > 0 && (e.key === 'Backspace' || e.key === 'Delete')) {
+      // If backspace or delete is pressed and the field is empty, move to the previous field
+      inputRefs[index - 1].current.focus();
     }
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -64,7 +69,7 @@ function Otp() {
   const handleResendClick = async () => {
     try {
       const phoneNumber = localStorage.getItem('phoneNumber');
-      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/member-resendotp', {
+      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/resend-otp', {
         phoneNumber: phoneNumber,
       });
 
@@ -93,25 +98,29 @@ function Otp() {
             <h4>{t('Otp.3')}</h4>
           </div>
           <div className='otp-input-container'>
-            {otpValues.map((value, index) => (
-              <input
-                key={index}
-                type='text'
-                maxLength='1'
-                value={value}
-                onChange={(e) => handleInputChange(index, e.target.value)}
-                ref={inputRefs[index]}
-                className='otp-input'
-              />
-            ))}
+          {otpValues.map((value, index) => (
+  <input
+    key={index}
+    type='text'
+    maxLength='1'
+    value={value}
+    onChange={(e) => handleInputChange(index, e.target.value, e)}
+    ref={inputRefs[index]}
+    className='otp-input'
+  />
+))}
+
           </div>
           <div>
+
             <button className='otp-verify-btn' onClick={handleSubmit}>
               {t('Otp.6')}
             </button>
           </div>
           <div className='resent-otp' onClick={handleResendClick}>
-          {t('Otp.5')}
+          <p>I didn’t receive a OTP resend OTP !</p>
+          <span>{t('Otp.5')}</span>
+          <img src={refresh} alt='refresh' width='16px' height='16px' />
           </div>
         </div>
       </div>

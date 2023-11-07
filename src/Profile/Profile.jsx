@@ -4,7 +4,7 @@ import close from "../Assets/+.png"
 import { useState } from "react"
 import MembershipCard from "./MembershipCard";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LeadershipCard from "./LeadershipCard";
 
 
@@ -150,6 +150,14 @@ function Profile() {
              align-items: center;
              gap:0.5em;
          }
+       @media (max-width:820px){
+        .membership-card-container{
+          height: 55vh;
+      }
+      .membar-card{
+          height: 35vh;
+      }
+       }
             </style>
           </head>
           <body>
@@ -260,6 +268,13 @@ function Profile() {
              align-items: center;
              gap:0.5em;
          }
+         @media (max-width:820px){
+          .leadership-card-container{
+            height: 55vh;
+        }
+        .leader-card{
+            height: 35vh;
+        }
             </style>
           </head>
           <body>
@@ -291,12 +306,13 @@ console.log(originalDate,"originalDate");
     <>
     <div className="profile-contain">
      <div className="profile-contain-tp">
+     <Link to='/' style={{cursor:'pointer'}}><img src='https://cdn-icons-png.flaticon.com/512/4682/4682711.png' alt='back'width='35px' height='35px' style={{rotate:'180deg',paddingInlineEnd:'2em'}}/></Link> 
      <p>Profile</p>
      </div>
     {memberDetails  && (
  <div className="profile-contain-bt">
  <div className="profile-bt-left">
-  <img src={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='user-profile' />
+<img src={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='user-profile' />
  </div>
  <div className="profile-bt-right">
  <div className="user-profile-details">
@@ -350,6 +366,9 @@ name={memberDetails?.memberProfile?.name}
 DateOfJoining ={getDate}
 MemberID={memberDetails?.memberProfile?.memberID}
 Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+LeaderID={memberDetails?.memberProfile?.leaderID}
+Location ={memberDetails?.memberProfile?.postingLocation}
+PostingName ={memberDetails?.memberProfile?.postingName}
 />
    <div className="member-card-button">
    <p onClick={LeaderhandleDownload}>Download</p>

@@ -1,7 +1,7 @@
-import React, { Fragment ,useState,useEffect} from 'react'
+import React, { Fragment ,useState} from 'react'
 import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
-import "./JoinMember.css"
+import axios from 'axios'
 import polygon from "../Assets/Polygon 6.svg"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -9,10 +9,12 @@ import { useTranslation } from 'react-i18next'
 import Check from "../Assets/Check (2).svg"
 import Footer from '../Footer/Footer'
 import { useParams } from 'react-router-dom'
-import { Cloudinary } from '@cloudinary/url-gen';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import "./JoinMember.css"
+import useScrollToTop from '../Hooks/useScrollToTop'
+
 
 function JionMember() {
 
@@ -25,27 +27,31 @@ function JionMember() {
   const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
-  const [formData,setformData] = useState({
-  name: "",
-  aadharCard: "",
-  referredBy: "",
-  gender: "",
-  education: "",
-  dateOfBirth: "",
-  bloodGroup: "",
-  religion: "",
-  address: "",
-  state: "",
-  district: "",
-  aadharCardURL: null,
-  profileURL: null
-});
-
-const [isFormValid, setIsFormValid] = useState(false);
-
-
+  const [formData, setformData] = useState({
+    name: "",
+    aadharCard: "",
+    referredBy: "",
+    gender: "",
+    education: "",
+    dateOfBirth: "",
+    bloodGroup: "",
+    religion: "",
+    address: "",
+    state: "",
+    district: "",
+    aadharCardURL: null,
+    profileURL: null
+  });
+  
+  const [isInputValid, setIsInputValid] = useState(true);
+  
 const handleFormChange = (e) => {
   const { name, value } = e.target;
+  let isValid = true;
+
+  if (name === "aadharCard") {
+    isValid = /^[0-9]{12}$/.test(value);
+  }
  
   if (name === 'DateOfBirth') {
     setformData({
@@ -53,6 +59,7 @@ const handleFormChange = (e) => {
       [name]: value 
     });
   } else {
+    setIsInputValid(isValid);
     setformData({
       ...formData,
       [name]: value
@@ -62,15 +69,20 @@ const handleFormChange = (e) => {
 
 const updateFormData = async () => {
   
-    const isValid = Object.values(formData).every(value => value !== "" && value !== null);
-  
-    if (!isValid) {
-      // Show notification if form is not valid
-      toast.error('All fields are required. Please fill in all the fields.', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
-      return;
+  const isValid = Object.entries(formData).every(([key, value]) => {
+    if (key === "referredBy") {
+      return true;
     }
+    return value !== "" && value !== null;
+  });
+  
+  if (!isValid) {
+    toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+  
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
@@ -118,38 +130,46 @@ const updateFormData = async () => {
 };
 
 
-
-const cloudinary = new Cloudinary({ cloud: { cloudName: 'di8yozs46'} });
-
-const handleAadharFileSelect = (e) => {
+const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
-  if (selectedFile) {
-    // Upload file to Cloudinary and generate URL
-    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  formData.append('upload_preset', 'ivs6otkx');
 
-    setAadharFile(imageUrl); // Assuming setAadharFile is a state update function for the image URL
-    setformData({
-      ...formData,
-      aadharCardURL: imageUrl,
-    });
-    console.log('Aadhar file uploaded:', imageUrl);
+  try {
+    const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
+    const secureUrl = response.data.secure_url;
+    console.log(secureUrl, "upload");
+    setAadharFile(secureUrl);
+    setformData(prevData => ({
+      ...prevData,
+      aadharCardURL: secureUrl,
+    }));
+  } catch (error) {
+    console.log('Error uploading Aadhar file:', error);
   }
 };
 
-const handleProfileFileSelect = (e) => {
+const handleProfileFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
-  if (selectedFile) {
-    // Upload file to Cloudinary and generate URL
-    const imageUrl = cloudinary.image(selectedFile.name).toURL();
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+  formData.append('upload_preset', 'ivs6otkx');
 
-    setProfileFile(imageUrl); // Assuming setProfileFile is a state update function for the image URL
-    setformData({
-      ...formData,
-      profileURL: imageUrl,
-    });
-    console.log('Profile file uploaded:', imageUrl);
+  try {
+    const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
+    const secureUrl = response.data.secure_url;
+    console.log(secureUrl, "upload");
+    setProfileFile(secureUrl);
+    setformData(prevData => ({
+      ...prevData,
+      profileURL: secureUrl,
+    }));
+  } catch (error) {
+    console.log('Error uploading profile file:', error);
   }
 };
+
 const handleDelete = (fileType) => {
   if (fileType === 'aadhar') {
     setAadharFile(null);
@@ -166,7 +186,7 @@ const handleDelete = (fileType) => {
   }
 };
 
-
+useScrollToTop();
   return (
     <div className='JionMembership-contain'>
     <Fragment><Navbar/></Fragment>
@@ -194,6 +214,7 @@ const handleDelete = (fileType) => {
          <p> <Fragment>:</Fragment></p>
         </div>
          <input type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
+         {/* {!isInputValid && <p style={{fontSize:'0.75em',marginTop:'2em',color:'red'}}>Aadhar Card number must have 12 digits.</p>} */}
          </div>
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
@@ -255,17 +276,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Gender_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_0"  >
             {currentLanguage === 'ta' ? t('Gender.1') : t('Male')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_1"  >
             {currentLanguage === 'ta' ? t('Gender.2') : t('FeMale')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Gender_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Gender_2"  >
             {currentLanguage === 'ta' ? t('Gender.3') : t('Others')}
             </label>
           </li>
@@ -355,27 +376,27 @@ const handleDelete = (fileType) => {
     </div>
     <ul className="select-box__list">
       <li>
-        <label className="select-box__option" htmlFor="education_0" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_0"  >
           UG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_1" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_1"  >
           PG
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_2" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_2"  >
           10th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_3" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_3"  >
           12th
         </label>
       </li>
       <li>
-        <label className="select-box__option" htmlFor="education_4" aria-hidden="aria-hidden">
+        <label className="select-box__option" htmlFor="education_4"  >
           Others
         </label>
       </li>
@@ -523,42 +544,42 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_0"  >
               A+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_1">
               A-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_2" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_2"   >
               B+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_3" aria-hidden="aria-hidden" >
+            <label className="select-box__option" htmlFor="Blood_Group_3"   >
               B-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_4" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_4"  >
               AB+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_5" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_5"  >
               AB-
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_6" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_6"  >
               O+
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Blood_Group_7" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Blood_Group_7"  >
               O-
             </label>
           </li>
@@ -621,17 +642,17 @@ const handleDelete = (fileType) => {
         </div>
         <ul className="select-box__list">
           <li>
-            <label className="select-box__option" htmlFor="Religion_0" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_0"  >
             {currentLanguage === 'ta' ? t('Religion.2') : t('Hinduism')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_1" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_1"  >
             {currentLanguage === 'ta' ? t('Religion.1') : t('Christianity')}
             </label>
           </li>
           <li>
-            <label className="select-box__option" htmlFor="Religion_2" aria-hidden="aria-hidden">
+            <label className="select-box__option" htmlFor="Religion_2"  >
             {currentLanguage === 'ta' ? t('Religion.3') : t('Islam')}
             </label>
           </li>

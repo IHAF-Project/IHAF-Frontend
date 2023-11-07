@@ -1,6 +1,6 @@
 .Meeting-container {
     background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
-    height: 100vh;
+    height: auto;
 }
 .Meeting-con-M {
     display: flex;
@@ -10,6 +10,18 @@
     /* height: 12vh; */
     flex-direction: row;
     padding: 38px 0px 0px 0px;
+}
+.events-main {
+    padding: 3rem;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    /* height: 100%; */
+    gap: 5rem;
+    flex-wrap: wrap;
+    justify-items: center;
+    /* align-items: center; */
+    justify-content: center;
+    /* align-content: center; */
 }
 .meeting-eve{
     background-color: #FFF;
@@ -108,11 +120,11 @@
   img.zoom-meet-design {
     /* width: 60vw; */
     background-size: cover;
-    object-fit: fill;
+    object-fit: cover;
     background-position: center;
-    width: 60vw;
+    width: 50vw;
     background-position: center;
-    height: 60vh;
+    height: auto;
 }
 .event-photos img {
     width: 30vw;
@@ -122,15 +134,16 @@
     height: 30vh;
 }
 .event-photos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px; 
-    justify-content: space-around; 
-    justify-items: center; 
-    align-items: center;
-    padding: 10px;
-    margin: 10px; 
-    box-sizing: border-box; 
+    display: flex;
+    grid-template-columns: repeat(0fr, 0fr);
+    gap: 60px;
+    justify-content: center;
+    /* justify-items: center; */
+    /* align-items: center; */
+    /* padding: 10px; */
+    /* margin: 10px; */
+    /* box-sizing: border-box; */
+    flex-wrap: wrap;
 }
   
 
@@ -172,8 +185,8 @@
  }
     .zoom-meet-design-cont {
         display: flex;
-        width: 73vw;
-        height: 41vh;
+        width: 75vw;
+        height: 40vh;
         border-radius: 4px;
         background: #FFF;
         justify-content: center;
@@ -184,12 +197,21 @@
         flex-direction: column;
  
     }
+    img.zoom-meet-design{
+        width: 75vw;
+        height: 40vh;
+    }
     .zoom-meet-design{
         font-size: 1.5rem;
     }
  .meeting-eve{
    width: 10rem;
  }
+ .Meeting-container {
+    height: auto;
+ }
+ 
+ 
 
 }
 
@@ -205,10 +227,13 @@
     .meeting-events{
         width: 10rem;
      }
+     .Meeting-con-main{
+        padding: 1em;
+     }
     .zoom-meet-design-cont {
         display: flex;
-        width: 73vw;
-        height: 41vh;
+        width: 75vw;
+        height: 40vh;
         border-radius: 4px;
         padding: 0.5rem;
         background: #FFF;
@@ -231,6 +256,16 @@
     .tab2-cont {
         width: 100%;
     }
+    .Meeting-container {
+        height: auto;
+     }
+     .event-photos img {
+        width: auto;
+        height: 18vh;
+     }
+     .events-main {
+        gap: 1rem;
+     }
 
 
 }

@@ -67,7 +67,7 @@ background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%)
 }
 :is(.youtube-box,.facebook-box ,.twitter-box){
     display: flex;
-    width: 100px;
+    width: 114px;
     padding: 0.25em .5em ;
     height: auto;
     align-items: center;
@@ -156,9 +156,10 @@ text-transform: capitalize;
 .TabContent1-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
+    height: 75vh;
 }
 .youtube {
     width: 64vw;
@@ -169,10 +170,32 @@ text-transform: capitalize;
         font-size: 2.8vw;
         padding: 0.5rem;
     }
+    .tab-content{
+        height: auto;
+    }
+    .social-page-btm{
+        height: auto;
+    }
+    .Tab-content1-tp{
+        height: 8vh;
+    }
+    .Tab-content1{
+        height: auto;
+    }
+    .social-page-tp{
+        height: auto;
+    }
     .tabs{
         margin-top: -2.5vh;
     }
+    .social-page-btm-con{
+        height: auto;
+        padding-block: 2.5em;
+    }
     :is(.tab-bg,.social-page-btm){
+        width: min(90vw ,100%);
+    }
+    .Tab-content1-bt{
         width: min(90vw ,100%);
     }
     

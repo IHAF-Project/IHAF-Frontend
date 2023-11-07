@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
-import image2 from '../images/amitcha.jpg';
-import image3 from '../images/annamalai-bjp-1.jpeg';
-import image4 from '../images/annamalai-bjp-1.jpeg';
 import image1 from '../images/Arrow 1 (1).png';
 import './Page4.css';
 import axios from 'axios';
@@ -39,17 +35,23 @@ const Page4 = () => {
   }, []);
 
   useEffect(() => {
-    const scrollers = document.querySelectorAll('.scroller');
-    scrollers.forEach((scroller) => {
-      scroller.setAttribute('data-animated', true);
-      const scrollerInner = scroller.querySelector('.scroller__inner');
-      const scrollerContent = Array.from(scrollerInner.children);
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        duplicatedItem.setAttribute('aria-hidden', true);
-        scrollerInner.appendChild(duplicatedItem);
+    const scrollers = document.querySelectorAll('.scroller')
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        
+        scroller.setAttribute('data-animated', true);
+        const scrollerInner = scroller.querySelector('.scroller__inner');
+        const scrollerContent = Array.from(scrollerInner.children);
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          duplicatedItem.setAttribute('aria-hidden', true);
+          scrollerInner.appendChild(duplicatedItem);
+        });
       });
-    });
+    }
+
+    addAnimation();
   }, []);
 
   const [feeditems, setFeedItems] = useState([]);
@@ -60,13 +62,10 @@ const Page4 = () => {
 
     try {
 
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+      const response = await fetch('https://ihaf-backend.vercel.app/get-selected-feeedback');
+      const  data = await response.json();
+      setFeedItems(data.data)
 
-      const  f1 = response.data
-
-      setFeedItems(f1)
-
-      console.log (f1, "fetched items is received")
       
     } catch (error) {
       
@@ -80,10 +79,9 @@ const Page4 = () => {
 
     }, []);
 
-   
-
+console.log(feeditems,'feeditems')
   return (
-    <div className='page4-container'>
+    <div className='page4-container' >
       <div className='page-4-image-text'>
         <img src={image1} alt='' className='page4-image1 hidden-7' />
         <button className={`hidden-8 ${isTamilLanguage ? 'tamil-page-4-btn' : 'page-4-btn'}`}>
@@ -91,13 +89,13 @@ const Page4 = () => {
         </button>
       </div>
       <div className='page4-main-cont1'>
-        <div className='scroller'>
+        <div className='scroller' data-direction="left" data-speed="slow" >
           <div className='scroller__inner'>
-            {feeditems.map(item => (
+            {feeditems?.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>
                   <div className='img-cover4'>
-                    <img src={image2} alt='' className='page4-image2' />
+                    <img src={item.profileURL} alt='' className='page4-image2' />
                   </div>
                   <div className='page4-p-by'>
                     <p className="page4-p">
@@ -111,11 +109,11 @@ const Page4 = () => {
                 </div>
               </div>
             ))},
-            {feeditems.map(item => (
+              {feeditems.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>
                   <div className='img-cover4'>
-                    <img src={image2} alt='' className='page4-image2' />
+                    <img src={item.profileURL} alt='' className='page4-image2' />
                   </div>
                   <div className='page4-p-by'>
                     <p className="page4-p">

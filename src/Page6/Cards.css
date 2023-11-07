@@ -1,5 +1,5 @@
 .tamil20-font6{
-  font-size: 20px;
+  font-size: 20;
 }
 .abc{
   color:#001854;
@@ -52,7 +52,7 @@
    
 }
 .main-details6{
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     margin-bottom: 4vh;
     margin-top: 2vh;
     font-family: Poppins ;
@@ -231,13 +231,13 @@ justify-content: center;
     justify-content: start;
     height: 100vh;
   }
-  .page4-container {
-    height: auto;
-  }
 
   /* .container-5 {
     height: 70vh;
   } */
+  .tamil20-font6{
+    font-size: 16px !important;
+  }
   .main-left6 {
     width: 100vw;
     height: 19vh;
@@ -250,6 +250,9 @@ justify-content: center;
   .main-details6{
     margin-bottom: 0vh;
     margin-top: 0vh;
+    padding-inline: 2em;
+    text-align: center;
+   
   }
   .main6-btn{
     height: 5vh;
@@ -293,6 +296,9 @@ justify-content: center;
     width: 120px;
     height: 120px;
 }
+.tamil20-font6{
+  font-size: 0.5em !important;
+}
 }
 
 @media screen and (max-width: 476px) {
@@ -303,7 +309,7 @@ justify-content: center;
   }
   .main-left6 {
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     margin-inline-start:0vh;
     flex: none;
     gap: 0.75em;;
@@ -317,8 +323,13 @@ justify-content: center;
     text-align: center;
     padding-inline-start: 11px;
 }
+.apply-content{
+  font-size: 1em;
+}
 .main6-btn {
   height: 5vh;
+  position: relative;
+  z-index: 2;
   width: 40vw;
   font-size: 12px;
 }
@@ -329,7 +340,7 @@ justify-content: center;
   }
   .wrapper .card6{
     width: 90vw;
-    height:22vh;
+    height:25vh;
     border-radius: 1vh 10vh 10vh 1vh;
   }
   .left6 p {

@@ -100,7 +100,7 @@
     background: linear-gradient(180deg, #A9CBFF 0%, #1865D9 100%);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .profile-contain-tp p{
 color: #FFF;
@@ -703,6 +703,7 @@ font-size: 1.3em;
     .profile-bt-right {
         width: 45.6875rem;
     }
+
     .profile-bt-left {
         width: 20.5625rem;
         height: 20.4375rem;
@@ -711,6 +712,9 @@ font-size: 1.3em;
         width: 12.5em;
         height: 12.5em;
       
+    }
+    .member-card-button{
+        width: 300px;
     }
     :is(.image-open ,.donion-history){
         top: 10vh;
@@ -764,7 +768,13 @@ font-size: 1.3em;
     :is(.edit-image-title img,.donion-history-title img){
         margin-right: 1rem;
         width: 2.5rem;
-        height: 4rem;
+        height: 2.5rem;
+    }
+    .membership-card-container{
+        height: 55vh;
+    }
+    .membar-card{
+        height: 35vh;
     }
 }
 @media screen and (max-width: 600px) {
@@ -832,6 +842,30 @@ font-size: 1.3em;
     }
     .donion-history-title{
         width: 95%;
+    }
+    .member-card-border{
+        width: 20.5625rem;
+    }
+    :is(.leader-card,.membar-card){
+        width: 350px;
+    }
+    :is(.member-card-top-details p ,.member-card-top-details span,.member-card-bt p,.leader-card-top-details p ,.leader-card-top-details span){
+        font-size: 0.8em;
+    }
+    :is(.leader-card-bt img,.member-card-bt img ){
+        width: 80px;
+        height: 80px;
+        background: #D9D9D9;
+    }
+    :is(.leader-card-bt span,.member-card-bt span) {
+        font-size: 1rem;
+    }
+    .membership-card-container{
+        height: auto;
+        width: 365px;
+    }
+    :is(.membership-card ,.leadership-card ,.donation-history ){
+        width: 100%;
     }
     .serial-Num {
         font-size: 1.02119rem;
