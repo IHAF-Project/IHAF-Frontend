@@ -30,7 +30,7 @@ function Login() {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    if (isInputValid) {
+    if (formData.phoneNumber.length === 10 && isInputValid) {
 try{
   const response = await axios.post("https://ihaf-backend.vercel.app/send-otp",{
     phoneNumber:formData.phoneNumber,
@@ -58,8 +58,7 @@ catch(error){
   toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_RIGHT });
 }
   };
-  const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
-  
+
   return (
     <>
     <Navbar/>
@@ -81,7 +80,8 @@ catch(error){
             placeholder="Enter your phone number"
             style={{
               borderColor: isInputValid ? '#355cc2' : '#cb0909',
-              border:'2px solid'
+              border:'2px solid',
+              boxShadow: isInputValid ? '0px 0px 4px 6px rgba(153,189,232,0.36)' : '0px 0px 4px 6px rgba(232,153,153,0.36)'
             }}
           />
         </div>
