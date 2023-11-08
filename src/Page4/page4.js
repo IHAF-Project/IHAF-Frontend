@@ -62,9 +62,9 @@ const Page4 = () => {
 
     try {
 
-      const response = await axios.get('https://ihaf-backend.vercel.app/get-all-feedback');
+      const response = await axios.get('https://ihaf-backend.vercel.app/get-selected-feeedback');
 
-      const  f1 = response.data
+      const  f1 = await response.data.data;
 
       setFeedItems(f1)
 
@@ -82,7 +82,7 @@ const Page4 = () => {
 
     }, []);
 
-   
+    console.log (feeditems, "fetched items is received")
 
   return (
     <div className='page4-container' >
@@ -94,44 +94,45 @@ const Page4 = () => {
       </div>
       <div className='page4-main-cont1'>
         <div className='scroller' data-direction="left" data-speed="slow" >
-          <div className='scroller__inner'>
-            {feeditems.map(item => (
-              <div className='page4-main' key={item.id}>
-                <div className='page4-main-C'>
-                  <div className='img-cover4'>
-                    <img src={item.profileURL} alt='' className='page4-image2' />
-                  </div>
-                  <div className='page4-p-by'>
-                    <p className="page4-p">
-                      {item.content}
-                    </p>
-                    <div className='page4-by'>
-                      <p className='by'>by</p>
-                      <p>{item.name}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))},
-              {feeditems.map(item => (
-              <div className='page4-main' key={item.id}>
-                <div className='page4-main-C'>
-                  <div className='img-cover4'>
-                    <img src={item.profileURL} alt='' className='page4-image2' />
-                  </div>
-                  <div className='page4-p-by'>
-                    <p className="page4-p">
-                      {item.content}
-                    </p>
-                    <div className='page4-by'>
-                      <p className='by'>by</p>
-                      <p>{item.name}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <div className='scroller__inner'>
+  {feeditems.map((item) => (
+    <div className='page4-main' key={item._id}>
+      <div className='page4-main-C'>
+        <div className='img-cover4'>
+          <img src={item.profileURL} alt='' className='page4-image2' />
+        </div>
+        <div className='page4-p-by'>
+          <p className="page4-p">
+            {item.content}
+          </p>
+          <div className='page4-by'>
+            <p className='by'>by</p>
+            <p>{item.name}</p>
           </div>
+        </div>
+      </div>
+    </div>
+  ))},
+  {feeditems.map((item) => (
+    <div className='page4-main' key={item._id}>
+      <div className='page4-main-C'>
+        <div className='img-cover4'>
+          <img src={item.profileURL} alt='' className='page4-image2' />
+        </div>
+        <div className='page4-p-by'>
+          <p className="page4-p">
+            {item.content}
+          </p>
+          <div className='page4-by'>
+            <p className='by'>by</p>
+            <p>{item.name}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </div>

@@ -9,16 +9,23 @@ function Applyserve() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [dropdown2Value, setDropdown2Value] = useState('');
-  const dropdown2Options = ["Option 1", "Option 2", "Option 3"];
+  const dropdown2Options = ["	Chennai", "Option 2", "Option 3"];
+
+  const tamilNaduDistricts = [ 'Ariyalur', 'Chennai', 'Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kanchipuram','Kanyakumari','Karur', 'Krishnagiri', 'Madurai', 'Nagapattinam','Namakkal', 'Perambalur', 'Pudukkottai','Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur','Theni','Thiruvallur','Thiruvarur','Thoothukudi (Tuticorin)','Tiruchirappalli', 'Tirunelveli','Tiruppur','Tiruvannamalai','Vellore','Viluppuram','Virudhunagar','Tenkasi','Chengalpattu','Ranipet','Tirupathur','Kallakurichi','Mayiladuthurai','Dindigul',
+  ];
+  
   const handleDropdown2Change = (event) => {
     const selectedValue = event.target.value;
     setDropdown2Value(selectedValue);
   };
   
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const memberID=storedData?.data?.memberID
+
   const navigate = useNavigate();
 
   const [serve, setServe] = useState({
-    name: "",
+    memberID: memberID || "",
     postingLocation: "",
     postingName: "",
     qualification: "",
@@ -62,8 +69,9 @@ function Applyserve() {
             <input
               type='text'
               className='serve-name'
-              name='name'
+              name='MemberID'
               value={serve.memberID}
+              disabled
               onChange={(e) => setServe({ ...serve, name: e.target.value })}
             />
           </div>
@@ -81,11 +89,11 @@ function Applyserve() {
                 className='serve-name-P'
               >
                 <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
+                {tamilNaduDistricts.map((district, index) => (
+           <option key={index} value={district}>
+             {district}
+           </option>
+           ))}
               </select>
             </div>
           </div>
@@ -101,28 +109,6 @@ function Applyserve() {
                 name='postingName'
                 onChange={(e) => setServe({ ...serve, postingName: e.target.value })}
                 className='serve-name-N'
-              >
-                <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className='apply-serve-cont'>
-          <div className='apply-serve-name'>
-            <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('hello.36')}</p> <p className='equalen'>:</p>
-          </div>
-          <div>
-            <div className='data5'>
-              <select
-                value={serve.qualification}
-                name='qualification'
-                onChange={(e) => setServe({ ...serve, qualification: e.target.value })}
-                className='serve-name-Q'
               >
                 <option value="">Select an option</option>
                 {dropdown2Options.map((option) => (
