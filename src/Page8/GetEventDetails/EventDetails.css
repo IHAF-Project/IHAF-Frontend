@@ -49,6 +49,10 @@ span {
         flex-direction: column;
         height: auto;
     }
+    .event-details-logo img {
+        width: auto;
+        height: 8.122rem;
+    }
     
 }
 @media screen and (max-width :696px) {

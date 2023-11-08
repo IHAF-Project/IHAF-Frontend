@@ -236,7 +236,7 @@
         height: 40vh;
         border-radius: 4px;
         padding: 0.5rem;
-        background: #FFF;
+        background:none;
         justify-content: center;
         align-items: center;
     }
