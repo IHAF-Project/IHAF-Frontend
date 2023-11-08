@@ -1,0 +1,148 @@
+.Meeting-container {
+    width: 100%;
+    height: 100vh;
+ }
+ .Meeting-con-M{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+     gap: 1rem;
+     height: 5.0625rem;
+     flex-direction: row;
+ }
+ .meeting-eve{
+     background-color: #FFF;
+     color: #000;
+     justify-content: center;
+     height: 5vh;
+     align-items: center;
+     text-transform: uppercase;
+     font-family: Poppins;
+     cursor: pointer;
+     display: flex;
+     font-size: 13px;
+     width: 11rem;
+ }
+ .meeting-events {
+     color: #FFF;
+     text-align: center;
+     font-family: Poppins;
+     text-transform: uppercase;
+     cursor: pointer;
+     border-radius: 2px;
+     background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
+     font-size: 13px;
+     border: none;
+     display: flex;
+     height: 5vh;
+     width: 11rem;
+     justify-content: center;
+     align-items: center;
+     font-style: normal;
+   
+ }
+ .zoom-meet-design {
+     color: #000;
+     text-align: center;
+     font-family: Poppins;
+     font-size: 36.846px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+ }
+ .zoom-meet-design-cont {
+     display: flex;
+     width: 68vw;
+     height: 51vh;
+     border-radius: 4px;
+     background: #FFF;
+     justify-content: center;
+     align-items: center;
+ }
+ .Meeting-con-main {
+     display: flex;
+     padding-bottom: 1rem;
+     align-items: center;
+     flex-direction: column;
+ }
+ .meeting-cont-btn{
+     display: flex;
+     align-items: center;
+     flex-direction: row;
+ }
+ .meeting-cont-btn {
+     display: flex;
+     justify-content: space-between;
+     width: 42vw;
+     padding: 2rem;
+     flex-direction: row;
+ }
+ .zoom-meet-code {
+     color: #bb8f8f;
+     text-align: center;
+     font-family: Poppins;
+     font-size: 22.108px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+ }
+ .zoom-link {
+     color: #8f1f1f;
+     text-align: center;
+     font-family: Poppins;
+     font-size: 14.738px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+ }
+ .zoom-meeting-cont {
+     display: flex;
+     width: 40rem;
+     height: 19rem;
+     align-items: center;
+     padding-left: 0.5rem;
+     padding-right: 0.5rem;
+     border: 1px solid rgb(131, 59, 59);
+     margin-top: 2rem;
+     justify-content: space-around;
+ }
+ .selected-tab {
+     background-color: rgb(183, 85, 85);
+     color: rgb(94, 50, 50); 
+   }
+   
+              /* Events styles */
+ 
+ 
+ .events-main {
+     width: 100%;
+     height: auto;
+ }
+ .tables-1 {
+     width: 24.3125rem;
+ height: 21.4375rem;
+ border: 1px solid #000;
+ }
+ .events-tables {
+     display: flex;
+     gap: 1rem;
+     flex-wrap: wrap;
+     /* width: 100%; */
+     align-items: center;
+     justify-content: center;
+     padding: 2rem;
+ }
+ .image-pre {
+     width: 100%;
+     height: 200px;
+     border: 1px solid black;
+ }
+ 
+ @media screen and (max-width: 496px) {
+     .zoom-meeting-cont  {
+         width: auto;
+     }
+     
+ }
+ 

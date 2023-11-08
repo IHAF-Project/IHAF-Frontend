@@ -42,6 +42,85 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
+  const tamilNaduDistricts = [
+    'Ariyalur',
+    'Chengalpattu',
+    'Chennai',
+    'Coimbatore',
+    'Cuddalore',
+    'Dharmapuri',
+    'Dindigul',
+    'Erode',
+    'Kallakurichi',
+    'Kanchipuram',
+    'Kanyakumari',
+    'Karur',
+    'Krishnagiri',
+    'Madurai',
+    'Nagapattinam',
+    'Namakkal',
+    'Nilgiris',
+    'Perambalur',
+    'Pudukkottai',
+    'Ramanathapuram',
+    'Ranipet',
+    'Salem',
+    'Sivaganga',
+    'Tenkasi',
+    'Thanjavur',
+    'Theni',
+    'Thoothukudi',
+    'Tiruchirappalli',
+    'Tirunelveli',
+    'Tirupathur',
+    'Tiruppur',
+    'Tiruvallur',
+    'Tiruvannamalai',
+    'Tiruvarur',
+    'Vellore',
+    'Viluppuram',
+    'Virudhunagar',
+  ];
+  const indianStates = [
+    'Andaman and Nicobar Islands',
+    'Andhra Pradesh',
+    'Arunachal Pradesh',
+    'Assam',
+    'Bihar',
+    'Chandigarh',
+    'Chhattisgarh',
+    'Dadra and Nagar Haveli',
+    'Daman and Diu',
+    'Delhi',
+    'Goa',
+    'Gujarat',
+    'Haryana',
+    'Himachal Pradesh',
+    'Jammu and Kashmir',
+    'Jharkhand',
+    'Karnataka',
+    'Kerala',
+    'Ladakh',
+    'Lakshadweep',
+    'Madhya Pradesh',
+    'Maharashtra',
+    'Manipur',
+    'Meghalaya',
+    'Mizoram',
+    'Nagaland',
+    'Odisha',
+    'Puducherry',
+    'Punjab',
+    'Rajasthan',
+    'Sikkim',
+    'Tamil Nadu',
+    'Telangana',
+    'Tripura',
+    'Uttar Pradesh',
+    'Uttarakhand',
+    'West Bengal',
+  ];
+  
   
   const [isInputValid, setIsInputValid] = useState(true);
   
@@ -668,9 +747,37 @@ useScrollToTop();
          </div>
           <div className='Address'>
           <label>{currentLanguage === 'ta' ? t('Address.2') : t('state')}</label>
-          <input type="text" className="text-area-address" id='State'name='state' value={formData.state} onChange={handleFormChange} ></input>
+          <div className='data5'>
+  <select
+    value={formData.district}
+    name='district'
+    onChange={handleFormChange}
+    className='text-area-address' // Add your CSS class here
+  >
+    <option value="">Select an option</option>
+    {tamilNaduDistricts.map((option) => (
+      <option key={option} value={option}>
+        {option}
+      </option>
+    ))}
+  </select>
+</div>
           <label>{currentLanguage === 'ta' ? t('Address.3') : t('District')}</label>
-           <input type="text" className="text-area-address" id='District' name='district' value={formData.district} onChange={handleFormChange}></input>
+          <div className='data5'>
+  <select
+    value={formData.state}
+    name='state'
+    onChange={handleFormChange}
+    className='text-area-address' // Add your CSS class here
+  >
+    <option value="">Select an option</option>
+    {indianStates.map((option) => (
+      <option key={option} value={option}>
+        {option}
+      </option>
+    ))}
+  </select>
+</div>
           </div>
         </div>
         
