@@ -76,6 +76,10 @@ border: 1px solid #000;
     line-height: normal;
     border: 1px solid #000;
 }
+.form-login input:focus{
+    outline: none;
+    border-color: rgb(95, 255, 63);
+}
 .form-login input::placeholder{
 color: #767676;
 font-size: 21.827px;
