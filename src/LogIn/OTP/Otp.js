@@ -1,9 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useRef } from 'react';
 import './Otp.css';
-import Navbar from '../../NavBar/Navbar';
+import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
 import {useNavigate } from 'react-router-dom';
 import refresh from "../../images/Refresh.svg"
+
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
@@ -51,18 +54,18 @@ function Otp() {
 
       if (verifyResult.data.sucess) {
         toast.success('verify otp success',{
-           position: toast.POSITION.TOP_RIGHT ,
+           position: toast.POSITION.TOP_CENTER ,
            autoClose:2000
         })
        setTimeout(()=>{
         navigate('/')
        },3000) 
       }else{
-        toast.error('invaild OTP',{ position: toast.POSITION.TOP_RIGHT })
+        toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
       }
     } catch (error) {
       console.log(error);
-      toast.error('invaild OTP',{ position: toast.POSITION.TOP_RIGHT })
+      toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
     }
   };
 
@@ -74,13 +77,13 @@ function Otp() {
       });
 
       if (resendResponse.data.success) {
-        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_RIGHT });
+        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER});
       } else {
-        toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_RIGHT });
+        toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
       }
     } catch (error) {
       console.error(error);
-      toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_RIGHT });
+      toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
   return (
@@ -112,15 +115,19 @@ function Otp() {
 
           </div>
           <div>
-
-            <button className='otp-verify-btn' onClick={handleSubmit}>
+          <Stack spacing={2} direction="row">
+          <Button variant="contained" className='otp-verify-btn' onClick={handleSubmit}>
               {t('Otp.6')}
-            </button>
+            </Button>
+            </Stack>
           </div>
+         
           <div className='resent-otp' onClick={handleResendClick}>
-          <p>I didn’t receive a OTP resend OTP !</p>
+          <p >I didn’t receive a OTP resend OTP !</p>
+          <div className='resend'>
           <span>{t('Otp.5')}</span>
           <img src={refresh} alt='refresh' width='16px' height='16px' />
+          </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Feedback.css';
 import axios from 'axios';
-import useScrollToTop from '../Hooks/useScrollToTop';
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
