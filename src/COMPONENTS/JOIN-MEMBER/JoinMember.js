@@ -1,13 +1,13 @@
 import React, { Fragment ,useState} from 'react'
-import Ambeth from "../Assets/MicrosoftTeams-image (19).png"
-import Navbar from '../NavBar/Navbar'
+import Ambeth from "../../Assets/MicrosoftTeams-image (19).png"
+import Navbar from '../NAVBAR/Navbar'
 import axios from 'axios'
-import polygon from "../Assets/Polygon 6.svg"
+import polygon from "../../Assets/Polygon 6.svg"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslation } from 'react-i18next'
-import Check from "../Assets/Check (2).svg"
-import Footer from '../Footer/Footer'
+import Check from "../../Assets/Check (2).svg"
+import Footer from '../FOOTER/Footer'
 import { useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";

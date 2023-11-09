@@ -1,6 +1,8 @@
 import { useState } from "react"
 import "./Login.css"
-import Navbar from "../NavBar/Navbar";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Navbar from "../COMPONENTS/NAVBAR/Navbar";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
@@ -38,7 +40,7 @@ try{
   const check = {data : {success : true}}
 if(check.data.success){
   toast.success('OTP Sent Successfully', {
-      position: toast.POSITION.TOP_RIGHT ,
+      position: toast.POSITION.TOP_CENTER ,
       autoClose:2000
   })
   setTimeout(() => {
@@ -46,7 +48,7 @@ if(check.data.success){
   }, 3000); 
 }
  else{
-  toast.error('Failed to update data', { position: toast.POSITION.TOP_RIGHT })
+  toast.error('Failed to update data', { position: toast.POSITION.TOP_CENTER })
  }
  console.log(response)
 }
@@ -55,7 +57,7 @@ catch(error){
 }
 }else {
   // Show input error notification
-  toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_RIGHT });
+  toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_CENTER });
 }
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
@@ -86,7 +88,12 @@ catch(error){
           />
         </div>
         <div className="login-btn">
-          <button type="submit"className={` login-button ${isTamilLanguage ? 'tamil18-font5': ''}`} style={{ width: isTamilLanguage ? '212px' : '' , fontSize: isTamilLanguage ? '21.827px' : '' }}>{t('Login.4')}</button>
+          {/* <button type="submit"className={` login-button ${isTamilLanguage ? 'tamil18-font5': ''}`} style={{ width: isTamilLanguage ? '212px' : '' , fontSize: isTamilLanguage ? '21.827px' : '' }}>{t('Login.4')}</button> */}
+          <Stack spacing={2} direction="row">
+     
+     <Button variant="contained" type="submit"className={` login-button ${isTamilLanguage ? 'tamil18-font5': ''}`} style={{ width: isTamilLanguage ? '212px' : '' , fontSize: isTamilLanguage ? '21.827px' : '' }}>{t('Login.4')}</Button>
+
+   </Stack>
         </div>
       </form>
      </div>

@@ -1,7 +1,7 @@
 import React, { useRef,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../images/logo.png'
-import './Home.css'; 
+import './Page2.css'; 
 
 const Home = () => {
   const textRef = useRef(null);

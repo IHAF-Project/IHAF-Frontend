@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import Card1 from '../SliderCard/Card1';
 import Card2 from '../SliderCard/Card2';
 import Card3 from '../SliderCard/Card3';
-import Navbar from "../NavBar/Navbar"
+import Navbar from "../COMPONENTS/NAVBAR/Navbar"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import './Page1.css';
-import useScrollToTop from '../Hooks/useScrollToTop';
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 
 
 const Page1 = () => {

@@ -65,6 +65,7 @@
 }
 .code-text{
     padding-left: 2vw;
+    cursor: pointer;
 }
 
 .Meeting-con-main {

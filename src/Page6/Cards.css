@@ -41,6 +41,7 @@
     font-weight: 500;
     justify-content: space-around;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
    .main6-btn:hover {
     /* Define your hover styles here */
