@@ -11,6 +11,7 @@
 }
 .resent-otp {
     display: flex;
+    cursor: pointer;
     align-items: center;
     gap: 7px;
     /* justify-content: space-evenly; */

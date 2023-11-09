@@ -3,6 +3,8 @@ import React, { useState, useRef } from 'react';
 import './Otp.css';
 import Navbar from '../../NavBar/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
@@ -50,7 +52,7 @@ function Otp() {
 
       if (verifyResult.data.sucess) {
         toast.success('verify otp success',{
-           position: toast.POSITION.TOP_RIGHT ,
+           position: toast.POSITION.TOP_CENTER ,
            autoClose:2000
         })
        setTimeout(()=>{
@@ -111,11 +113,14 @@ function Otp() {
 
           </div>
           <div>
-            <button className='otp-verify-btn' onClick={handleSubmit}>
+          <Stack spacing={2} direction="row">
+          <Button variant="contained" className='otp-verify-btn' onClick={handleSubmit}>
               {t('Otp.6')}
-            </button>
+            </Button>
+            </Stack>
           </div>
           <div className='resent-otp' onClick={handleResendClick}>
+            <p>I didn't receive a OTP </p>
           {t('Otp.5')}
           </div>
         </div>
