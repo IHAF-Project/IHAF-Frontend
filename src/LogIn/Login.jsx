@@ -58,7 +58,7 @@ catch(error){
   toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_RIGHT });
 }
   };
-
+  const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
   return (
     <>
     <Navbar/>
