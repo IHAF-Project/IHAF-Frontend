@@ -1,5 +1,5 @@
 import React from 'react'
-import image1 from "../images/MicrosoftTeams-image 1.png"
+import image1 from "../../images/MicrosoftTeams-image 1.png"
 import "./Footer.css"
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom';

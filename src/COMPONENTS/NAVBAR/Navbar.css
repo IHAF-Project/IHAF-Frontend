@@ -162,7 +162,9 @@ background: #356DFF;
   border-radius: 2rem;
 
 }
-
+.toggle{
+  cursor: pointer;
+}
 .hovjoin:hover{
 
   color: #ffffff;

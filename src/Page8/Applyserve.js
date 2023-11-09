@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Applyserve.css"
 import { useTranslation } from 'react-i18next'
-import useScrollToTop from '../Hooks/useScrollToTop';
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

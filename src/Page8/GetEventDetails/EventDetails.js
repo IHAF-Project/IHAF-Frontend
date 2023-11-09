@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import './EventDetails.css';
 import logo009 from "../../Assets/MicrosoftTeams-image 1.png"
-import Navbar from '../../NavBar/Navbar';
+import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
 
 function EventDetails() {
   const { t } = useTranslation();

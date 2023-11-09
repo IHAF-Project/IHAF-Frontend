@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import image1 from '../images/Arrow 1 (1).png';
-import './Page4.css';
+import './Feedback-scroll.css';
 import axios from 'axios';
 
 const Page4 = () => {

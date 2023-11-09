@@ -1,4 +1,4 @@
-import './Page3.css'
+import './Social.css'
 import Arrow from '../Assets/Arrow 1.png'
 import  { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next'

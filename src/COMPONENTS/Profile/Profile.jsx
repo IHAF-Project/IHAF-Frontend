@@ -1,6 +1,6 @@
 import { East } from "@mui/icons-material"
 import "./Profile.css"
-import close from "../Assets/+.png"
+import close from "../../Assets/+.png"
 import { useState } from "react"
 import MembershipCard from "./MembershipCard";
 import { useEffect } from "react";
@@ -416,7 +416,7 @@ PostingName ={memberDetails?.memberProfile?.postingName}
  }
  </div>
  <div className="ref-code">
- <p>Your referral code</p>
+ <p className="referral">Your referral code</p>
  <span>{memberDetails?.memberProfile?.referralCode}</span>
  </div>
  </div>
