@@ -71,11 +71,11 @@ border-radius: 2px;
     padding-inline: inherit;
 }
 .page4-image2 {
-  width: 126px;
+  width: 140px;
   border-radius: 50%;
   height: 24.5vh;
   object-fit: cover;
-  height: 149px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,13 +188,13 @@ border-radius: 2px;
   }
   .page4-main-C {
     
-    height: 129px;
-    
+    height: 140px;
+    width: 300px;
 }
 .page4-image2 {
   
-  height: 115px;
-  
+  height: 120px;
+  width: 120px;
 }
 
 }

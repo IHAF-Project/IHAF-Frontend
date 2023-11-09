@@ -61,6 +61,7 @@ catch(error){
 }
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
+  console.log(phoneNumber)
   return (
     <>
     <Navbar/>
@@ -82,7 +83,7 @@ catch(error){
             placeholder="Enter your phone number"
             style={{
               borderColor: isInputValid ? '#355cc2' : '#cb0909',
-              border:'2px solid',
+              border:'2px solid black',
               boxShadow: isInputValid ? '0px 0px 4px 6px rgba(153,189,232,0.36)' : '0px 0px 4px 6px rgba(232,153,153,0.36)'
             }}
           />

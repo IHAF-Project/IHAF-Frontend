@@ -177,6 +177,9 @@ text-transform: capitalize;
     .social-page-btm{
         height: auto;
     }
+    .TabContent1-content{
+        height: 45vh;
+    }
     .Tab-content1-tp{
         height: 8vh;
     }
@@ -227,7 +230,7 @@ text-transform: capitalize;
         border-radius: 0;
     }
 }
-@media screen and (max-width:420px){
+@media screen and (max-width:450px){
     .instagram{
         width: 325px;
     }
@@ -261,5 +264,11 @@ text-transform: capitalize;
     }
     .Tab-content1-tp p{
         border-radius: 0;
+    }
+    .TabContent1-content {
+      
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
     }
 }
