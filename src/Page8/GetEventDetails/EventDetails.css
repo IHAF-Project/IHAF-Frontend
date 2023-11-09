@@ -12,6 +12,15 @@
     /* justify-content: flex-start; */
     gap: 10vw;
 }
+.wraps{
+    overflow-y: scroll;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+}
+.wraps::-webkit-scrollbar{
+    width: 0;
+}
 .event-details-logo img {
   
     width: 18.7875rem;
@@ -38,19 +47,17 @@ span {
     max-width: 100%; 
     height: auto;
   }
-  .event-details-list h3{
-    display: flex;
-    flex-direction: column;
-    gap:20vw
-  }
-  
+
   
 @media screen and (max-width :496px) {
     .images-wrap img {
         width: 100%;
     }
     .images-wrap {
-        padding: 1rem;
+       display: flex;
+       flex-direction: column;
+       width: auto;
+       height: auto;
     }
     .topic-event-details {
         flex-direction: column;

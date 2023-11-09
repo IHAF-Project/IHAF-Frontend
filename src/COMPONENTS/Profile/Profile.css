@@ -99,7 +99,7 @@
 }
 .profile-contain-tp{
     height: 15vh;
-    background: linear-gradient(180deg,#f54141,#240000);
+    background: linear-gradient(180deg, #A9CBFF 0%, #1865D9 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
