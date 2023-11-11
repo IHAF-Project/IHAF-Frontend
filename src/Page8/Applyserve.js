@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-
 import "./Applyserve.css"
 import { useTranslation } from 'react-i18next'
+import useScrollToTop from '../Hooks/useScrollToTop';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 function Applyserve() {
@@ -22,7 +24,7 @@ function Applyserve() {
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const memberID=storedData?.data?.memberID
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [serve, setServe] = useState({
     memberID: memberID || "",
@@ -46,18 +48,29 @@ function Applyserve() {
       if (Response.ok) {
         const res = await Response.json();
         setServe(res);
+        toast.success('Application send Successfully',{
+          position:'top-right'
+        });
         console.log(res, "Apply to serve datas");
       } else {
         const er = await Response.json();
         console.error(er, "error getting");
+        toast.error('You are banned from LeaderShip and cannot apply for a leader posting',{
+          position:'top-right'
+        });
+       
       }
     } catch (error) {
       console.error("error", error);
+      toast.error('Somthing went Wrong',{
+        position:'top-right'
+      });
     }
   }
-
+useScrollToTop();
   return (
     <div className='Applyserve-container'>
+      
       <p className={`${isTamilLanguage ? 'apply-toserve-head-tamil' : 'apply-toserve-head'}`}>{t("hello.31")}</p>
       <p className={`${isTamilLanguage ? 'apply-content-tamil' : 'apply-content'}`}>{t('hello.32')}</p>
       <div className='Apply-serve-main'>
@@ -120,11 +133,11 @@ function Applyserve() {
             </div>
           </div>
         </div>
-
         <div>
           <button className='serve-joinNow' onClick={handlesubmit}>Join Now</button>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   )
 }

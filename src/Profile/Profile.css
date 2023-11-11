@@ -100,7 +100,7 @@
     background: linear-gradient(180deg, #A9CBFF 0%, #1865D9 100%);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .profile-contain-tp p{
 color: #FFF;

@@ -30,9 +30,9 @@ function Footer() {
                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
                
                )}
-              
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} ><a href='#Home' style={{textDecoration:'none',color:'white'}}>{t('hello.20')}</a></p>
-                
+               <Link to='/'>
+                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} >{t('hello.20')}</p>
+                 </Link>
              
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</a></p>
                 

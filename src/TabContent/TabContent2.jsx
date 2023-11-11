@@ -41,7 +41,7 @@ function TabContent2({ embedId }) {
           {linksitems.map((item) => (
             <div className="Tab-content1-bt" key={item.id}>
               {item.platform === 'Youtube' && (
-                <YouTubeEmbed url={item.link1} width={450} height={300}  className="youtube" />
+                <YouTubeEmbed url={item.link1} width={650} height={300}  className="youtube" />
               )}
             </div>
           ))}

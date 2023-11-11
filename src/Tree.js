@@ -9,7 +9,9 @@ import Meeting from './Page8/Meeting';
 import Home from './Page2/Home';
 import Join from './Page5/Join';
 import Cards from './Page6/Cards';
+import useScrollToTop from './Hooks/useScrollToTop.js';
 function Tree() {
+  useScrollToTop();
   return (
     <div>
       <Page1 />

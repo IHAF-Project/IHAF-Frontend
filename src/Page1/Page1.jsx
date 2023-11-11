@@ -9,23 +9,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import './Page1.css';
+import useScrollToTop from '../Hooks/useScrollToTop';
 
 
 const Page1 = () => {
-
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isHovered) {
-        setCurrentCardIndex((prevIndex) => (prevIndex + 1) % 3);
-      }
-    }, 4000); 
-
-    return () => clearInterval(interval); 
-  }, [isHovered]);
-
+  useScrollToTop();
   return (
     <div className="Page-1" id='Home'>
        <Navbar/>
