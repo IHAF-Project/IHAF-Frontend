@@ -59,11 +59,11 @@ function Otp() {
         navigate('/')
        },3000) 
       }else{
-        toast.error('invaild OTP',{ position: toast.POSITION.TOP_RIGHT })
+        toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
       }
     } catch (error) {
       console.log(error);
-      toast.error('invaild OTP',{ position: toast.POSITION.TOP_RIGHT })
+      toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
     }
   };
 
@@ -75,13 +75,13 @@ function Otp() {
       });
 
       if (resendResponse.data.success) {
-        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_RIGHT });
+        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER });
       } else {
-        toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_RIGHT });
+        toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
       }
     } catch (error) {
       console.error(error);
-      toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_RIGHT });
+      toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
   return (
