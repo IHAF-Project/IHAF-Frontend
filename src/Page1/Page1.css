@@ -1,6 +1,7 @@
 .intro-slide-content-quates span {
     display: inline-block;
     opacity: 0;
+    padding-left: 0;
     font-weight: 600;
     font-family: Crimson Text;
     filter: blur(4px);

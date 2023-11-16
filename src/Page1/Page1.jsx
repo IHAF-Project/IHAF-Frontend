@@ -31,11 +31,11 @@ const Page1 = () => {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        
         <SwiperSlide><Card1 /></SwiperSlide>
         <SwiperSlide><Card2/></SwiperSlide>
         <SwiperSlide><Card3/></SwiperSlide>
-      </Swiper></>
+      </Swiper>
+      </>
     </div>
   );
 };
