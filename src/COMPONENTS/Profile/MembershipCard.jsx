@@ -1,5 +1,5 @@
 import {useRef } from 'react';
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 

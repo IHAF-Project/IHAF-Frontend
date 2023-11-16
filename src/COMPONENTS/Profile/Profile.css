@@ -87,13 +87,15 @@
     transform: rotate(330deg) translate(0, -130%);
     animation-delay: -0.1s;
   }
-
+.referral{
+    cursor: pointer;
+}
 .profile-contain{
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: rgb(236, 255, 255);
+    background-color:white;
 }
 .profile-contain-tp{
     height: 15vh;
@@ -216,7 +218,7 @@ line-height: normal;
     font-family: 'Poppins';
     font-size: 1rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     margin:0.5em;
 }
@@ -237,11 +239,12 @@ color: #000;
 font-family: Poppins;
 font-size: 0.875rem;
 font-style: normal;
+height: 45px;
+width: 163px;
 font-weight: 400;
 line-height: normal;
 background-color: #FFF;
 text-align: center;
-padding:0.3rem 3rem;
 
 }
 :is(.membership-card-1 ,.leadership-card ,.donation-history ){
@@ -450,7 +453,6 @@ padding: 0.25em 1em;
 .membar-card{
     width: 30.5625rem;
     height:50vh;
-    border-radius: 1.6875rem;
     background: #04419D;
     color:#ffffff;
     display: flex;
@@ -546,14 +548,13 @@ line-height: normal;
 }
 
 
-.leader-card{
-    width: 30.5625rem;
-    height:60vh;
-    border-radius: 1.6875rem;
+.leader-card {
     background: #000205;
-    color:#ffffff;
+    color: #fff;
     display: flex;
     flex-direction: column;
+    height: 50vh;
+    width: 34.5625rem;
 }
 .leader-card-top{
    
@@ -587,7 +588,7 @@ text-align: center;
 font-family: 'Poppins';
 font-size:1rem;
 font-style: normal;
-font-weight: 600;
+
 line-height: normal;
 text-transform: uppercase;
 }
@@ -681,6 +682,7 @@ font-size: 1.3em;
     .profile-bt-left{
         width: 22.5625rem;
         height: 22.4375rem;
+        background-color: #04419d;
        }
        .profile-bt-left img{
         width: 12.5em;

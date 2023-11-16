@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Applyserve.css"
 import { useTranslation } from 'react-i18next'
-import useScrollToTop from '../Hooks/useScrollToTop';
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -10,16 +10,12 @@ function Applyserve() {
 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const [dropdown2Value, setDropdown2Value] = useState('');
-  const dropdown2Options = ["	Chennai", "Option 2", "Option 3"];
+  const posting = [ 'Secretary','cief','sub']
+
+  
 
   const tamilNaduDistricts = [ 'Ariyalur', 'Chennai', 'Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kanchipuram','Kanyakumari','Karur', 'Krishnagiri', 'Madurai', 'Nagapattinam','Namakkal', 'Perambalur', 'Pudukkottai','Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur','Theni','Thiruvallur','Thiruvarur','Thoothukudi (Tuticorin)','Tiruchirappalli', 'Tirunelveli','Tiruppur','Tiruvannamalai','Vellore','Viluppuram','Virudhunagar','Tenkasi','Chengalpattu','Ranipet','Tirupathur','Kallakurichi','Mayiladuthurai','Dindigul',
   ];
-  
-  const handleDropdown2Change = (event) => {
-    const selectedValue = event.target.value;
-    setDropdown2Value(selectedValue);
-  };
   
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const memberID=storedData?.data?.memberID
@@ -102,11 +98,11 @@ useScrollToTop();
                 className='serve-name-P'
               >
                 <option value="">Select an option</option>
-                {tamilNaduDistricts.map((district, index) => (
-           <option key={index} value={district}>
-             {district}
-           </option>
-           ))}
+                {tamilNaduDistricts.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -124,7 +120,7 @@ useScrollToTop();
                 className='serve-name-N'
               >
                 <option value="">Select an option</option>
-                {dropdown2Options.map((option) => (
+                {posting.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>

@@ -5,9 +5,21 @@
 .topic-event-details {
     width: 100%;
     height: 18.9375rem;
-    background: #E9E9E9;
+    background: #230202;
     display: flex;
     align-items: center;
+    color: white;
+    /* justify-content: flex-start; */
+    gap: 10vw;
+}
+.wraps{
+    overflow-y: scroll;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+}
+.wraps::-webkit-scrollbar{
+    width: 0;
 }
 .event-details-logo img {
   
@@ -16,7 +28,7 @@
 }
 span {
     font-weight: 400;
-    padding-left: 1rem;
+    padding-left: 0.25rem;
 }
 .images-wrap {
     display: grid;
@@ -35,19 +47,25 @@ span {
     max-width: 100%; 
     height: auto;
   }
-  
-  
+
   
 @media screen and (max-width :496px) {
     .images-wrap img {
         width: 100%;
     }
     .images-wrap {
-        padding: 1rem;
+       display: flex;
+       flex-direction: column;
+       width: auto;
+       height: auto;
     }
     .topic-event-details {
         flex-direction: column;
         height: auto;
+    }
+    .event-details-logo img {
+        width: auto;
+        height: 8.122rem;
     }
     
 }

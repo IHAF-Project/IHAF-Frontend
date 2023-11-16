@@ -6,14 +6,14 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import profile1 from '../Assets/Logout.svg'
-import profile2 from '../Assets/Chat (2).png'
-import profile3 from '../Assets/Exchange.png'
+import profile1 from '../../Assets/Logout.svg'
+import profile2 from '../../Assets/Chat (2).png'
+import profile3 from '../../Assets/Exchange.png'
 
 // import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)

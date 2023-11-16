@@ -176,7 +176,8 @@ const handleSuccess = () => {
       {/* Successful submission popup */}
       {isSuccessPopupOpen && (
         <div className="success-popup">
-          <p>Your submission was successful!</p>
+          <p>You submitted your petition successful!</p>
+          <p>Our support team will contact you and solve your petition quickly as possible.</p>
           <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>Close</button>
           {/* You can add additional content or a close button here */}
         </div>

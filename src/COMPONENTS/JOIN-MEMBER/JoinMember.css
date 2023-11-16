@@ -228,6 +228,7 @@ line-height: normal;
     height: 8em;
     margin-right:5em;
     resize: none;
+    margin-left: 1rem;
     border: 1px solid #000000;
   }
   .JionFrom-content-inputs textarea:focus{
@@ -238,7 +239,7 @@ line-height: normal;
     display: flex;
     gap: 1em;
     flex-direction: column;
-    margin-left: 180px;
+    margin-left: 198px;
     margin-top: 32px;
 }
 .Upload-content-inputs{

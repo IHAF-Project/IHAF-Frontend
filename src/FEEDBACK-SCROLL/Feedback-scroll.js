@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import image1 from '../images/Arrow 1 (1).png';
-import './Page4.css';
+import './Feedback-scroll.css';
 import axios from 'axios';
 
 const Page4 = () => {
@@ -101,10 +101,6 @@ console.log(feeditems,'feeditems')
                     <p className="page4-p">
                       {item.content}
                     </p>
-                    <div className='page4-by'>
-                      <p className='by'>by</p>
-                      <p>{item.name}</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -119,10 +115,6 @@ console.log(feeditems,'feeditems')
                     <p className="page4-p">
                       {item.content}
                     </p>
-                    <div className='page4-by'>
-                      <p className='by'>by</p>
-                      <p>{item.name}</p>
-                    </div>
                   </div>
                 </div>
               </div>

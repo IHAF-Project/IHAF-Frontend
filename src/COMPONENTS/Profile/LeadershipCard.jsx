@@ -1,9 +1,9 @@
 import {useRef } from 'react';
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 
-function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,LocalityOfPosition,NameOfPosting}) {
+function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingName}) {
 
   const cardRef = useRef(null);
 
@@ -37,11 +37,11 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,LocalityOfPosition
       </div>
       <div className="leader-card-bt-details-name"> <p>Locality of position</p>
       <>:</>
-      <span>{LocalityOfPosition}</span>
+      <span>{Location}</span>
       </div>
       <div className="leader-card-bt-details-name"> <p>Name of posting</p>
       <>:</>
-      <span>{NameOfPosting}</span>
+      <span>{PostingName}</span>
       </div>
      </div>
      </div>

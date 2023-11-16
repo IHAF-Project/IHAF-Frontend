@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import image1 from "../images/Emergency call.png"
+
 import "./Page8.css"
 function Page8() {
-    const { t, i18n } = useTranslation();
-    const isTamilLanguage = i18n.languages == ('ta')
+    const { t } = useTranslation();
+
   return (
     <div className='page8-container'>
       <div className='page8-main'>
