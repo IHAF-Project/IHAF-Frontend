@@ -42,6 +42,7 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
+
   const tamilNaduDistricts = [
     'Ariyalur',
     'Chengalpattu',
@@ -81,6 +82,7 @@ function JionMember() {
     'Viluppuram',
     'Virudhunagar',
   ];
+
   const indianStates = [
     'Andaman and Nicobar Islands',
     'Andhra Pradesh',
@@ -174,7 +176,6 @@ const updateFormData = async () => {
     if (response.ok) {
       const data = await response.json();
       setformData(data);
-      // Show success notification if data is updated
       toast.success('Data updated successfully!', {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -182,7 +183,7 @@ const updateFormData = async () => {
         navigate('/')
       },3000)
     } else {
-      // Show error notification if data update fails
+     
       toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:2000
@@ -193,7 +194,7 @@ const updateFormData = async () => {
       console.error('Failed to update data');
     }
   } catch (error) {
-    // Show error notification if an error occurs during update
+
     toast.error('Error updating data. Please try again later.', {
       position: toast.POSITION.TOP_RIGHT,
     });
@@ -489,7 +490,7 @@ useScrollToTop();
          </div>
         <div>
         <DatePicker
-  name="dateOfBirth" // Add the name attribute for the DatePicker input
+  name="dateOfBirth" 
   selected={formData?.dateOfBirth}
   onChange={(date) => handleFormChange({ target: { name: 'dateOfBirth', value: date } })}
   dateFormat="dd/MM/yyyy"
@@ -499,9 +500,8 @@ useScrollToTop();
   
 />
 
-
-        </div>
-         </div>
+ </div>
+    </div>
          <div className='JionFrom-content-inputs'>
           <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.9') : t('Blood Group')}</label>

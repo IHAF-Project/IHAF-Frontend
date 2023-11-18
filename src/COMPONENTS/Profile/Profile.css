@@ -104,6 +104,14 @@
     align-items: center;
     justify-content: space-between;
 }
+.ref-span {
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: blue !important;
+    align-items: center;
+    justify-content: center;
+}
 .profile-contain-tp p{
 color: #FFF;
 font-family: 'Poppins', sans-serif;

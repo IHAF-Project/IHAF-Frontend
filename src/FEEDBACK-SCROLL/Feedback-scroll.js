@@ -7,7 +7,9 @@ import axios from 'axios';
 const Page4 = () => {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
+  
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
   useEffect(() => {
     setCurrentLanguage(i18n.language);
   }, [i18n.language]);
@@ -104,7 +106,7 @@ console.log(feeditems,'feeditems')
                   </div>
                 </div>
               </div>
-            ))},
+            ))}
              {feeditems?.map(item => (
               <div className='page4-main' key={item.id}>
                 <div className='page4-main-C'>

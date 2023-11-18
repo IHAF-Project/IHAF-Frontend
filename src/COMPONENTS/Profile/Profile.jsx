@@ -77,6 +77,16 @@ function Profile() {
   const getDate = formatedate.toLocaleDateString();
   console.log(originalDate, "originalDate");
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert('Referral code copied to clipboard!');
+      })
+      .catch((err) => {
+        console.error('Unable to copy to clipboard', err);
+      });
+  };
+
   return (
     <>
       <div className="profile-contain">
@@ -192,7 +202,11 @@ function Profile() {
                 </div>
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
-                  <span>{memberDetails?.memberProfile?.referralCode}</span>
+                  <span className="ref-span"
+        onClick={() => copyToClipboard(memberDetails?.memberProfile?.referralCode)}
+      >
+        {memberDetails?.memberProfile?.referralCode}
+      </span>
                 </div>
               </div>
             </div>

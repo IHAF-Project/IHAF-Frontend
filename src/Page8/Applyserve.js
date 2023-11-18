@@ -97,7 +97,7 @@ useScrollToTop();
                 onChange={(e) => setServe({ ...serve, postingLocation: e.target.value })}
                 className='serve-name-P'
               >
-                <option value="">Select an option</option>
+                <option value="">Posting Location</option>
                 {tamilNaduDistricts.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -119,7 +119,7 @@ useScrollToTop();
                 onChange={(e) => setServe({ ...serve, postingName: e.target.value })}
                 className='serve-name-N'
               >
-                <option value="">Select an option</option>
+                <option value="">Posting Name</option>
                 {posting.map((option) => (
                   <option key={option} value={option}>
                     {option}
