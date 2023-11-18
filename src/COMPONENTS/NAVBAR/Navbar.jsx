@@ -154,7 +154,10 @@ const Navbar = () => {
        <div className='Popcontainer'>
        
        <div className='Pop-page'>
-       <img src={closeimg} alt=''  className='closeimage-popup' onClick={handleClickPop} ></img>
+       <div className='popup-image-close'>
+        <p className='closeimage-popup' onClick={handleClickPop} >X</p>
+      
+       </div>
        <div className='profile-icon'>
        {memberId ? (
         <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
