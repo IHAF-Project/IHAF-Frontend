@@ -11,8 +11,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Otp() {
 
+function Otp() {
+  const lastInputRef = useRef();
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
 
@@ -36,7 +37,7 @@ function Otp() {
   };
   
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    
 
     try {
       const otp = otpValues.join(''); 
@@ -59,7 +60,7 @@ function Otp() {
         })
        setTimeout(()=>{
         navigate('/')
-       },3000) 
+       },0) 
       }else{
         toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
       }
@@ -68,6 +69,13 @@ function Otp() {
       toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
     }
   };
+  const handleKeyDown = async(e) => {
+    
+    if(e.key==='Enter'){
+      e.preventDefault();
+      await handleSubmit(e);
+    }
+  }
 
   const handleResendClick = async () => {
     try {
@@ -102,15 +110,16 @@ function Otp() {
           </div>
           <div className='otp-input-container'>
           {otpValues.map((value, index) => (
-  <input
-    key={index}
-    type='text'
-    maxLength='1'
-    value={value}
-    onChange={(e) => handleInputChange(index, e.target.value, e)}
-    ref={inputRefs[index]}
-    className='otp-input'
-  />
+          <input
+            key={index}
+            type='text'
+            maxLength='1'
+            value={value}
+            onKeyDown={handleKeyDown}
+            onChange={(e) => handleInputChange(index, e.target.value, e)}
+            ref={inputRefs[index]}
+            className='otp-input'
+          />
 ))}
 
           </div>
