@@ -15,7 +15,7 @@ function Profile() {
   const [leadershipCardOpen, setLeadershipCardOpen]=useState(false)
   const { memberId } = useParams();
   const [memberDetails, setMemberDetails] = useState(null);
-  const [leaderDetails, setLeaderDetails] = useState(null)
+
 
   useEffect(() => {
     const fetchData = async () => {
