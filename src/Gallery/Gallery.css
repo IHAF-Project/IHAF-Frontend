@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Press+Start+2P&display=swap');
+
+
+
+.gallery-heading {
+    color: #000;
+    font-family: Poppins;
+    font-size: 36px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+}
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-head {
+    height: 21vh;
+    align-items: center;
+    display: flex;
+}
+.gallery-body {
+    display: flex;
+    justify-content: space-around;
+    width: 52%;
+}
+.image-text {
+    color: #0805A7;
+    font-family: Poppins;
+    font-size: 20px;
+    cursor: pointer;
+    border-bottom: 3px solid #FF1F1F;
+    font-weight: 400;
+}
+.images-gal {
+    width: 323px;
+    border-radius: 15px;
+    height: 341px;
+}
+.gallery-images-container{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.image-text-cont{
+    color: #202132;
+    font-family: Poppins;
+    cursor: pointer;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400; 
+}
+.video-image{
+    width: 633px;
+    height: 281px; 
+}
+.videos-container{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+}
+
+.video-item{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+.play-btn {
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 63.791px;
+    background: linear-gradient(284deg, #B8C2DA -47.47%, #134FE9 42.98%, #4F0909 154.35%);
+    font-family: 'Press Start 2P';
+    font-size: 20.535px;
+    text-align: center;
+    gap: 19px;
+    align-items: center;
+    display: flex;
+    border: none;
+    padding: 14.721px 28.215px 15.948px 35.576px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  .close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
