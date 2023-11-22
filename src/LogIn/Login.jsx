@@ -74,6 +74,7 @@ catch(error){
 }else {
   // Show input error notification
   handleNotification('Invalid phone number. Please enter 10 digits.', 'error');
+  console.log("error in input")
   
 }
 

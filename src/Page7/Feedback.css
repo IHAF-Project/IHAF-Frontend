@@ -12,6 +12,14 @@
     flex-direction: column;
     height: auto;
 }
+p.count{
+    margin-left: 2rem;
+}
+.feed-sub {
+    display: flex;
+    flex-direction: column;
+    
+}
 .Feedback-heading{
     color: #000;
     font-family: Poppins;
@@ -51,7 +59,7 @@
 }
 .feedbackname{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     width: 20vw;
     justify-content: space-between;
     flex-direction: row;
@@ -67,7 +75,7 @@
 }
 .feedback-input-conta{
     display: flex;
-    align-items: baseline;
+    /* align-items: baseline; */
 }
 .feedback-input-name{
     margin-left: 2rem;
@@ -76,6 +84,12 @@
     width: 30vw;
     background: #D3E6FD;
     height: 6vh;
+    display: flex;
+    text-align: center;
+}
+.equal1 {
+    padding-right: 2rem;
+    color: #000;
 }
 .feed-name{
     color: #000;
@@ -100,6 +114,7 @@ line-height: normal;
     font-size: 1rem;
     background: #D3E6FD;
     height: 26vh;
+    padding-inline: 0.8vw;
 }
 .feed-btn-con {
     justify-content: center;
@@ -178,6 +193,8 @@ line-height: normal;
     .feedback-container{
         height: auto;
     }
+  
+    
     
 }
 
