@@ -58,7 +58,7 @@ useEffect (() =>{
 },[])
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
- const memberId =storedData?.data?.memberID ||userData?.memberID
+ const memberId =userData?.memberID
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
