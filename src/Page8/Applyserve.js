@@ -11,8 +11,7 @@ function Applyserve() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const posting = [ 'Secretary','cief','sub']
-
-
+  
   const tamilNaduDistricts = [ 'Ariyalur', 'Chennai', 'Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kanchipuram','Kanyakumari','Karur', 'Krishnagiri', 'Madurai', 'Nagapattinam','Namakkal', 'Perambalur', 'Pudukkottai','Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur','Theni','Thiruvallur','Thiruvarur','Thoothukudi (Tuticorin)','Tiruchirappalli', 'Tirunelveli','Tiruppur','Tiruvannamalai','Vellore','Viluppuram','Virudhunagar','Tenkasi','Chengalpattu','Ranipet','Tirupathur','Kallakurichi','Mayiladuthurai','Dindigul',
   ];
   
