@@ -82,6 +82,7 @@ const App = () => {
         <Route path="/gallery" element={<Gallery/>} />
         <Route path='/member/:_id' element={<JoinMember/>}></Route>
         <Route path='/events/:_id' element={<EventDetails/>}></Route>
+        <Route path='/join/:_id' element={<JoinMember/>}></Route>
       </Routes>
  
       {showScrollButton && (

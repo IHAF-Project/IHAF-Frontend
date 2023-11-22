@@ -58,6 +58,7 @@ useEffect (() =>{
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
  const memberId =storedData?.data?.memberID ||userData?.memberID
+// const memberId= false
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
@@ -167,33 +168,58 @@ useEffect (() =>{
        <div className='Popcontainer'>
        
        <div className='Pop-page'>
-       <div className='popup-image-close'>
-         <img src={closeimg} className='closeimage-popup' onClick={handleClickPop}></img>
-       </div>
+       {/* <div className='popup-image-close'>
+        X
+       </div> */}
        <div className='profile-icon'>
-       {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
-        </Link> ) : 'Not Approved Yet' } 
-       </div>
-       <div className='referal-code'>
-
-       <img src={profile3} alt='refetal-code'/>
-
-    <div className="paste-button">
-   <button className="button">REFERALCODE &nbsp;▼</button>
-   <div className="dropdown-content">
-    <a id="top"  onClick={handleCopyClick}  ref={textRef}
-          style={{ cursor: 'pointer'}}>{refferal}</a>
-    <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
-  </div>
+  {memberId ? (
+    <Link to={`/profile/${memberId}`}>
+      <img
+        src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+        alt='ProfileImage'
+        width="75px"
+        height="75px"
+      />
+    </Link>
+  ) : (
+    <>
+      <Link to={`/join/${memberId}`} style={{ textDecoration: 'underline',color: 'yellow' }}>Join in</Link>{" "}IHAF soon...
+    </>
+  )}
 </div>
-       </div>
-       <div className='feedback-pop'>
-        <img src={profile2} alt='feedback' />
-        <Link to="/feedback">
-        <p>FEEDBACK</p>
-        </Link>
-       </div>
+
+
+    {memberId && (
+  <div className='referal-code'>
+    <img src={profile3} alt='refetal-code'/>
+    <div className="paste-button">
+      <button className="button">REFERALCODE &nbsp;▼</button>
+      <div className="dropdown-content">
+        <a
+          id="top"
+          onClick={handleCopyClick}
+          ref={textRef}
+          style={{ cursor: 'pointer'}}
+        >
+          {refferal}
+        </a>
+        <div style={{ backgroundColor: 'white', color: 'black', margin: '0.5rem', fontSize: '16px' }}>
+          {copyMessage}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+{memberId && (
+  <div className='feedback-pop'>
+    <img src={profile2} alt='feedback' />
+    <Link to="/feedback">
+      <p>FEEDBACK</p>
+    </Link>
+  </div>
+)}
+
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>
