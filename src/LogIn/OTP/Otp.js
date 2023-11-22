@@ -11,8 +11,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Otp() {
 
+function Otp() {
+  const lastInputRef = useRef();
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
 
@@ -35,50 +36,51 @@ function Otp() {
     }
   };
   
-// Handle submit operation
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-    const otp = otpValues.join('');
-    const phoneNumber = localStorage.getItem('phoneNumber');
-
-    // Use the then method to handle the resolved value of the Promise
-    axios
-      .post('https://ihaf-backend.vercel.app/verify-otp', {
-        otp: otp,
-        phoneNumber: phoneNumber,
-      })
-      .then((response) => {
-        // Access the data from the resolved Promise
-        const userData = response.data;
-        localStorage.setItem('userData', JSON.stringify(userData));
-
-        console.log(userData, 'UserData');
-        const verifyResult = { data: { success: true } };
-
-        if (verifyResult.data.success) {
-          toast.success('verify otp success', {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 2000,
-          });
-          setTimeout(() => {
-            // Assuming navigate is a function to redirect to a different page
-            navigate('/');
-          }, 3000);
-        } else {
-          toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
-      });
-  } catch (error) {
-    console.error('Error in handleSubmit:', error);
-    toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
-  }
-};
+  const handleSubmit = async (e) => {
+    try {
+      const otp = otpValues.join('');
+      const phoneNumber = localStorage.getItem('phoneNumber');
+  
+      // Use the then method to handle the resolved value of the Promise
+      axios
+        .post('https://ihaf-backend.vercel.app/verify-otp', {
+          otp: otp,
+          phoneNumber: phoneNumber,
+        })
+        .then((response) => {
+          // Access the data from the resolved Promise
+          const userData = response.data;
+          localStorage.setItem('userData', JSON.stringify(userData));
+  
+          console.log(userData, 'UserData');
+          const verifyResult = { data: { success: true } };
+  
+          if (verifyResult.data.success) {
+            toast.success('verify otp success', {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 2000,
+            });
+            setTimeout(() => {
+              navigate('/');
+            }, 0);
+          } else {
+            toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
+    }
+  };
+  
+    
+    const handleKeyDown = async(e) => {
+    
+      if(e.key==='Enter'){
+        e.preventDefault();
+        await handleSubmit(e);
+      }
+    }
 
 
 
@@ -129,15 +131,16 @@ useEffect(()=>{
           </div>
           <div className='otp-input-container'>
           {otpValues.map((value, index) => (
-  <input
-    key={index}
-    type='text'
-    maxLength='1'
-    value={value}
-    onChange={(e) => handleInputChange(index, e.target.value, e)}
-    ref={inputRefs[index]}
-    className='otp-input'
-  />
+          <input
+            key={index}
+            type='text'
+            maxLength='1'
+            value={value}
+            onKeyDown={handleKeyDown}
+            onChange={(e) => handleInputChange(index, e.target.value, e)}
+            ref={inputRefs[index]}
+            className='otp-input'
+          />
 ))}
 
           </div>

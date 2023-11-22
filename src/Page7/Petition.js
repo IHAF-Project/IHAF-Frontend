@@ -90,7 +90,7 @@ const handleSuccess = () => {
       const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
       const secureUrl = response.data.secure_url;
       console.log(secureUrl, "upload");
-      handleSuccess();
+      
       setdata({
         ...data,
         imageURL: secureUrl,
@@ -116,6 +116,7 @@ const handleSuccess = () => {
         const t1 = await res.json();
         console.log(t1, 'success');
         setdata(t1);
+        handleSuccess();
       } else {
         const errorResponse = await res.json();
         console.error('Error Response:', errorResponse);

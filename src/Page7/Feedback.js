@@ -5,8 +5,10 @@ import axios from 'axios';
 import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 function Feedback() {
+  const navigate = useNavigate()
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === "ta";
   const [userData, setUserData] = useState(null);
@@ -44,7 +46,9 @@ useEffect (() =>{
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setTimeout(() => {
+      setFeedItems(prevState => ({ ...prevState, content: "" }));
+    }, 1000);
     try {
       const response = await axios.post('https://ihaf-backend.vercel.app/new-feedback', feeditems, {
         headers: {
@@ -91,7 +95,8 @@ useScrollToTop();
             <input
               type='text'
               className='feedback-input-name'
-              value={memberID}
+              value={feeditems.memberID}
+              disabled
               onChange={(e) => setFeedItems({ ...feeditems, memberID: e.target.value })}
             />
           </div>
@@ -101,7 +106,7 @@ useScrollToTop();
               className='feedback-textarea'
               value={feeditems.content}
               onChange={(e) => setFeedItems({ ...feeditems, content: e.target.value })}
-              placeholder='100/12'
+              placeholder='1/100'
             />
           </div>
         </div>

@@ -104,6 +104,14 @@
     align-items: center;
     justify-content: space-between;
 }
+.ref-span {
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: blue !important;
+    align-items: center;
+    justify-content: center;
+}
 .profile-contain-tp p{
 color: #FFF;
 font-family: 'Poppins', sans-serif;
@@ -239,11 +247,12 @@ color: #000;
 font-family: Poppins;
 font-size: 0.875rem;
 font-style: normal;
+height: 45px;
+width: 163px;
 font-weight: 400;
 line-height: normal;
 background-color: #FFF;
 text-align: center;
-padding:0.3rem 3rem;
 
 }
 :is(.membership-card-1 ,.leadership-card ,.donation-history ){
@@ -452,7 +461,6 @@ padding: 0.25em 1em;
 .membar-card{
     width: 30.5625rem;
     height:50vh;
-    border-radius: 1.6875rem;
     background: #04419D;
     color:#ffffff;
     display: flex;
@@ -550,7 +558,6 @@ line-height: normal;
 
 .leader-card {
     background: #000205;
-    border-radius: 1.6875rem;
     color: #fff;
     display: flex;
     flex-direction: column;

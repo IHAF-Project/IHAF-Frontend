@@ -14,12 +14,13 @@ import profile3 from '../../Assets/Exchange.png'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
+import axios from 'axios';
 
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
-const  [userData,setUserData] = useState(null)
+ const  [userData,setUserData] = useState(null)
 
 
   const handleClickPop = () => {
@@ -44,10 +45,12 @@ const  [userData,setUserData] = useState(null)
  const _id = storedData?.data?._id
 
 useEffect (() =>{
+
   const fetchData = async () =>{
-    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const response = await axios.get(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
     const data = await response.json();
-  if(data?.data?.isAdminApproved === true){
+    
+  if(data?.data?.isAdminApproved){
     setUserData(data?.data)
     console.log(userData,'api-successfully')
   }else{

@@ -86,7 +86,7 @@ const Join = () => {
   
 ) : (
   <Link to="/login">
-   <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}>{t('Page5.3')}</button>
+   <button  className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}>{t('Page5.3')}</button>
   </Link>
 )}
                     </div>

@@ -112,7 +112,8 @@
     "3":"people",
     "4":"Login",
     "5":"Jion us",
-    "6":"Donate"
+    "6":"Donate",
+    "7":"Gallery"
 },
 "pageOne":{
     "1":"INTEGRAL HUMANISM AMBEDKAR FEDERATION",
@@ -164,7 +165,7 @@
 },
 "Address":{
   "1":"Address",
-  "2":"state",
+  "2":"State",
   "3":"District",
   "4":"Not Uploaded",
   "5":"Uploaded"

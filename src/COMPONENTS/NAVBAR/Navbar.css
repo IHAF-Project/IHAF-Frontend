@@ -204,21 +204,22 @@ background: #356DFF;
   right: 0;
   width: 100%;
   display: flex;
-  top:12vh;
+  top:10vh;
   position: absolute;
   justify-content: flex-end;
 }
 .Pop-page{
-  width: 211px;
-  height: 45vh;
+  width: 239px;
+  height: auto;
   display: flex;
+  background: linear-gradient(270deg, #FFF -27.12%, #1B4AC4 -0.22%, #042069 23.08%, #01154B 33.23%);
   padding: 1rem;
   flex-direction: column;
- background-color: #ffffff;
 }
 .profile-icon{
   width: 100%;
   height: 15vh;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,7 +235,7 @@ background: #356DFF;
   align-items: center;
 }
 :is(.referal-code p,.feedback-pop p,.logout-pop p){
-  color: #000;
+  color: white;
 font-family: Poppins;
 font-size: 16px;
 font-style: normal;
@@ -260,11 +261,19 @@ height: 30px;
   background-color: #ffffff;
   color: #212121;
   font-size: 15px;
+  padding: 9px;
   display: flex;
   border: 2px solid transparent;
-  border-radius: 15px;
   cursor: pointer;
   align-items: center;
+}
+.closeimage-popup{
+  width: 24px;
+  height: 20px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid white;
 }
 
 .dropdown-content {
@@ -277,8 +286,13 @@ height: 30px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
-  background-color: #212121;
+  background-color: #007aff;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.popup-image-close{
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .dropdown-content a {
@@ -428,6 +442,12 @@ input:checked + .slider:after {
       display: flex;
       margin-right: 2rem;
   }
+  .Popcontainer{
+    left: -137px;
+  }
+  .Pop-page{
+    width: 239px;
+  }
   .navbar{
   justify-content: space-between;
   }
@@ -439,7 +459,6 @@ input:checked + .slider:after {
   }
   .translate-btn{
       display: block;
-      padding-inline-start: 13.5rem;
   }
   .navbar-logo img{
     width: 80px;
@@ -538,6 +557,9 @@ display: none;
 display: block;
 padding-inline-start: 12.5rem;
 }
+.Popcontainer{
+  left: -13px;
+}
 }
 @media screen and (max-width:420px){
   .translate-btn{
@@ -547,5 +569,8 @@ padding-inline-start: 12.5rem;
     .navbarsocial-M{
       flex-direction: column;
       gap:1em
+    }
+    .Popcontainer{
+      left: -37px;
     }
 }
