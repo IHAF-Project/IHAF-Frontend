@@ -1,4 +1,4 @@
-import  { useState,useRef} from 'react';
+import  { useState,useRef, useEffect} from 'react';
 import './Navbar.css'; 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,10 +15,13 @@ import closeimg from "../../../src/Assets/+.png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
+
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
+const  [userData,setUserData] = useState(null)
+
 
   const handleClickPop = () => {
     setIsPop(!isPop);
@@ -39,17 +42,28 @@ const Navbar = () => {
  }
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
-
- const phoneNumber = storedData?.data?.phoneNumber
- const memberId = storedData?.data?.memberID
  const _id = storedData?.data?._id
- const refferal = storedData?.data?.referralCode
+
+useEffect (() =>{
+  const fetchData = async () =>{
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const data = await response.json();
+  if(data?.data?.isAdminApproved === true){
+    setUserData(data?.data)
+    console.log(userData,'api-successfully')
+  }else{
+    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+  }
+  }
+  fetchData()
+},[])
+
+ const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
+ const memberId =storedData?.data?.memberID ||userData?.memberID
+ const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
-
- 
-
  const textRef = useRef(null);
  const [copyMessage, setCopyMessage] = useState("");
 

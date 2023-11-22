@@ -7,8 +7,9 @@ import axios from 'axios';
 function Petition() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const storedData = JSON.parse(localStorage.getItem('userData'));
-  const memberID=storedData?.data?.memberID
+  const [userData, setUserData] = useState(null);
+
+
 
   useEffect(() => {
     
@@ -31,11 +32,30 @@ function Petition() {
       hiddenElements1.forEach((el) => observer.unobserve(el));
     };
   }, []);
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const _id = storedData?.data?._id
 
+  useEffect (() =>{
+    const fetchData = async () =>{
+      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+      const data = await response.json();
+    if(data?.data?.isAdminApproved === true){
+      setUserData(data?.data)
+      console.log(userData,'api-successfully')
+    }else{
+      console.log(storedData?.data?.isAdminApproved,'local-successfully')
+    }
+    }
+    fetchData()
+  },[])
+
+  console.log(userData?.memberID, 'api')
+ const memberID = userData?.memberID
 
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
+
   const [data, setdata] = useState({
-    memberID: memberID || "",
+    memberID:memberID ||"",
     issues: '',
     imageURL: '',
   });
@@ -51,7 +71,13 @@ const handleSuccess = () => {
     });
   };
 
-
+  useEffect(() => {
+    // Update data when memberID changes
+    setdata((prevData) => ({
+      ...prevData,
+      memberID: memberID || '',
+    }));
+  }, [memberID]);
 
   const handleFileChange = async (e) => {
  

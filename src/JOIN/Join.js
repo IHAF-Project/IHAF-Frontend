@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import { useTranslation } from 'react-i18next';
 import './Join.css'; // Import your CSS file
 import modi from '../images/bg-modi 1 (2).png'
@@ -38,10 +38,26 @@ const Join = () => {
       };
     }, []); 
 
-    
+    const [userData, setUserData] = useState(null);
+
     const storedData = JSON.parse(localStorage.getItem('userData'));
-    const phoneNumber =storedData?.data?.phoneNumber;
     const _id = storedData?.data?._id
+    
+    useEffect (() =>{
+      const fetchData = async () =>{
+        const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+        const data = await response.json();
+      if(data?.data?.isAdminApproved === true){
+        setUserData(data?.data)
+        console.log(userData,'api-successfully')
+      }else{
+        console.log(storedData?.data?.isAdminApproved,'local-successfully')
+      }
+      }
+      fetchData()
+    },[])
+
+    const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber
     
 
     return (

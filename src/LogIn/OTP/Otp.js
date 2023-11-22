@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Otp.css';
 import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
 import {useNavigate } from 'react-router-dom';
@@ -37,45 +37,53 @@ function Otp() {
   };
   
   const handleSubmit = async (e) => {
-    
-
     try {
-      const otp = otpValues.join(''); 
+      const otp = otpValues.join('');
       const phoneNumber = localStorage.getItem('phoneNumber');
-
-      const response = await axios.post('https://ihaf-backend.vercel.app/verify-otp', {
-        otp: otp,
-        phoneNumber: phoneNumber,
-      });
-     
-        localStorage.setItem('userData', JSON.stringify(response.data));
-   
-       console.log(response?.data,"UserData");
-      const verifyResult = {data : {sucess: true}}
-
-      if (verifyResult.data.sucess) {
-        toast.success('verify otp success',{
-           position: toast.POSITION.TOP_CENTER ,
-           autoClose:2000
+  
+      // Use the then method to handle the resolved value of the Promise
+      axios
+        .post('https://ihaf-backend.vercel.app/verify-otp', {
+          otp: otp,
+          phoneNumber: phoneNumber,
         })
-       setTimeout(()=>{
-        navigate('/')
-       },0) 
-      }else{
-        toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
-      }
+        .then((response) => {
+          // Access the data from the resolved Promise
+          const userData = response.data;
+          localStorage.setItem('userData', JSON.stringify(userData));
+  
+          console.log(userData, 'UserData');
+          const verifyResult = { data: { success: true } };
+  
+          if (verifyResult.data.success) {
+            toast.success('verify otp success', {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 2000,
+            });
+            setTimeout(() => {
+              navigate('/');
+            }, 0);
+          } else {
+            toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
+          }
+        });
     } catch (error) {
       console.log(error);
-      toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
+      toast.error('invalid OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
-  const handleKeyDown = async(e) => {
+  
     
-    if(e.key==='Enter'){
-      e.preventDefault();
-      await handleSubmit(e);
+    const handleKeyDown = async(e) => {
+    
+      if(e.key==='Enter'){
+        e.preventDefault();
+        await handleSubmit(e);
+      }
     }
-  }
+
+
+
 
   const handleResendClick = async () => {
     try {
@@ -94,6 +102,19 @@ function Otp() {
       toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
+
+
+const Register = async (memberID)=>{
+  try{
+    const response = await axios.get(`https://ihaf-backend.vercel.app/get-member-profile/${memberID}`)
+    console.log(response.data,'member')
+  }catch(error){
+  console.error(error);
+  }
+}
+useEffect(()=>{
+  Register()
+},[]);
   return (
     <div className='otp-main'>
       <Navbar />

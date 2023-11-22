@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Feedback.css';
 import axios from 'axios';
@@ -11,11 +11,29 @@ function Feedback() {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === "ta";
+  const [userData, setUserData] = useState(null);
 
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const memberID=storedData?.data?.memberID
-  const profileURL = storedData?.data?.profileURL
-  const name = storedData?.data?.name
+ const _id = storedData?.data?._id
+
+useEffect (() =>{
+  const fetchData = async () =>{
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const data = await response.json();
+  if(data?.data?.isAdminApproved === true){
+    setUserData(data?.data)
+    console.log(userData,'api-successfully')
+  }else{
+    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+  }
+  }
+  fetchData()
+},[])
+
+
+  const memberID=userData?.memberID
+  const profileURL = storedData?.data?.profileURL || userData?.profileURL
+  const name = storedData?.data?.name || userData?.name
 
   console.log(profileURL,'profileURL')
 
@@ -55,6 +73,16 @@ function Feedback() {
       })
     }
   }
+  useEffect(() => {
+    
+    setFeedItems((prevFeedItems) => ({
+      ...prevFeedItems,
+      memberID: userData?.memberID || '',
+      profileURL: userData?.profileURL || '',
+      name: userData?.name || '',
+  
+    }));
+  }, [userData]);
 useScrollToTop();
   return (
     <div className='feedback-container abc'>
