@@ -42,6 +42,7 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
+
   const tamilNaduDistricts = [
     'Ariyalur',
     'Chengalpattu',
@@ -81,6 +82,7 @@ function JionMember() {
     'Viluppuram',
     'Virudhunagar',
   ];
+
   const indianStates = [
     'Andaman and Nicobar Islands',
     'Andhra Pradesh',
@@ -181,7 +183,6 @@ const updateFormData = async (e) => {
     if (response.ok) {
       const data = await response.json();
       setformData(data);
-      // Show success notification if data is updated
       toast.success('Data updated successfully!', {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -189,7 +190,7 @@ const updateFormData = async (e) => {
         navigate('/')
       },5000)
     } else {
-      // Show error notification if data update fails
+     
       toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:4000
@@ -200,7 +201,7 @@ const updateFormData = async (e) => {
       console.error('Failed to update data');
     }
   } catch (error) {
-    // Show error notification if an error occurs during update
+
     toast.error('Error updating data. Please try again later.', {
       position: toast.POSITION.TOP_RIGHT,
     });

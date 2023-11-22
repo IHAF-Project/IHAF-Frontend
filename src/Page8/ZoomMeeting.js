@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function ZoomMeeting() {
   const [isCodeCopied, setIsCodeCopied] = useState(false);
-  const [meetData, setMeetData] = useState([]);
+
   const [selectedMeetUrl, setSelectedMeetUrl] = useState('');
   const [selectedMeetCardUrl, setSelectedMeetCardUrl] = useState('');
 
@@ -11,7 +11,6 @@ function ZoomMeeting() {
     fetch('https://ihaf-backend.vercel.app/get-meet')
       .then((response) => response.json())
       .then((data) => {
-        setMeetData(data.data);
         if (data.data.length > 0) {
           setSelectedMeetUrl(data.data[0].meetUrl);
           setSelectedMeetCardUrl(data.data[0].meetCardUrl);

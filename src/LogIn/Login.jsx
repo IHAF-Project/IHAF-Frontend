@@ -31,6 +31,7 @@ function Login() {
 
   const closeNotification = () => {
     setShowNotification(false);
+    return false;
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,6 +79,7 @@ catch(error){
 
   };
   const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
+  console.log(phoneNumber)
   return (
     <>
       <Navbar />

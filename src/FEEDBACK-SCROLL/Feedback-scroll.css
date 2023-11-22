@@ -61,7 +61,7 @@ border-radius: 2px;
 
 .page4-p {
     color: #FFF;
-    text-align: start;
+    text-align: center;
     margin: 0;
     font-family: Poppins;
     white-space: normal;
@@ -71,21 +71,21 @@ border-radius: 2px;
     padding-inline: inherit;
 }
 .page4-image2 {
-  width: 126px;
+  width: 140px;
   border-radius: 50%;
   height: 24.5vh;
   object-fit: cover;
-  height: 149px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .page4-main-C{
     display: flex;
-    width: 351px;
-    height: 155px;
+    width: 400px;
+    height: 186px;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 1em;
     align-items: center;
 }
 .img-cover4 {
@@ -112,7 +112,6 @@ border-radius: 2px;
 }
 .page4-p-by{
   display: flex;
-  width: 183px;
   flex-direction: column;
   margin-right: 1rem;
   justify-content: flex-start;
@@ -121,7 +120,7 @@ border-radius: 2px;
 }
 .page4-by {
     text-align: end;
-    padding-right: 1rem;
+    padding: 1em;
 }
 .by{
     color: #FFF;
@@ -188,13 +187,13 @@ border-radius: 2px;
   }
   .page4-main-C {
     
-    height: 129px;
-    
+    height: 172px;
+    width: 356px;
 }
 .page4-image2 {
   
-  height: 115px;
-  
+  height: 120px;
+  width: 120px;
 }
 
 }
@@ -231,7 +230,7 @@ border-radius: 2px;
 }
 
 .scroller[data-speed="slow"] {
-  --_animation-duration: 90s !important; 
+  --_animation-duration: 60s !important; 
 }
 
 @keyframes scroll {
