@@ -19,6 +19,7 @@ import Cards from './Page6/Cards';
 import Page4 from './FEEDBACK-SCROLL/Feedback-scroll.js';
 import EventDetails from "./Page8/GetEventDetails/EventDetails.js"
 import Page3 from './SOCIAL-MEDIA/Social.jsx';
+import Gallery from './Gallery/Gallery.js';
 
 const App = () => {
 
@@ -78,6 +79,7 @@ const App = () => {
         <Route path="/leader" element={<Cards/>} />
         <Route path="/feedbackuser" element={<Page4/>} />
         <Route path="/socialmedia" element={<Page3/>} />
+        <Route path="/gallery" element={<Gallery/>} />
         <Route path='/member/:_id' element={<JoinMember/>}></Route>
         <Route path='/events/:_id' element={<EventDetails/>}></Route>
       </Routes>

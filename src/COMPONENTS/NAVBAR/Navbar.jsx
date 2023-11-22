@@ -10,8 +10,6 @@ import profile1 from '../../Assets/Logout.svg'
 import profile2 from '../../Assets/Chat (2).png'
 import profile3 from '../../Assets/Exchange.png'
 import closeimg from "../../../src/Assets/+.png"
-
-// import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
@@ -113,6 +111,7 @@ useEffect (() =>{
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
           <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li>
+          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
         </ul>
       </div>
       </div>
@@ -168,7 +167,9 @@ useEffect (() =>{
        <div className='Popcontainer'>
        
        <div className='Pop-page'>
-       <img src={closeimg} alt=''  className='closeimage-popup' onClick={handleClickPop} ></img>
+       <div className='popup-image-close'>
+         <img src={closeimg} className='closeimage-popup' onClick={handleClickPop}></img>
+       </div>
        <div className='profile-icon'>
        {memberId ? (
         <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
