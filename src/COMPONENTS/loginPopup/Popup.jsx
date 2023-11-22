@@ -8,6 +8,7 @@ const Popup = ({ message, type, onClose }) => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onClose();
+     
     }, 2000); // Adjust the timeout as needed
 
     return () => clearTimeout(timer);

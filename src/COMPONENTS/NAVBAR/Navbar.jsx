@@ -43,6 +43,7 @@ const Navbar = () => {
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
  const _id = storedData?.data?._id
+ 
 
 useEffect (() =>{
 
