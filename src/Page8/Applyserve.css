@@ -10,6 +10,9 @@
     border: 0.506px solid #000;
     background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
 }
+.backbtn{
+    display: none;
+}
 .apply-toserve-head {
     color: #000;
     font-family: Poppins;
@@ -33,7 +36,7 @@
 .apply-content {
     color: #000;
     font-family: Poppins;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
     font-style: normal;
     font-weight: 500;
@@ -48,8 +51,8 @@
     font-weight: 500;
 }
 .Apply-serve-main {
-    border-radius: 21.741px;
-    border: 0.506px solid #000;
+    border-radius: 8.741px;
+   
     background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
     width: 55vw;
     padding: 1rem;
@@ -73,18 +76,21 @@
     display: flex;
     width: 53vw;
     align-items: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 .serve-name {
-    width: 27vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
     font-size: 1.2rem;
     background: #FFF;
 border: 0.754px solid #FFF;
+text-align: center;
 }
 .serve-name-P {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
@@ -93,7 +99,7 @@ border: 0.754px solid #FFF;
 border: 0.754px solid #FFF;
 }
 .serve-name-N {
-    width: 34vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 2.263px;
     color: #000;
@@ -162,6 +168,7 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
   background-position: calc(100% - 18px) center;
   padding-right: 30px; /* Adjust as needed to make space for the arrow */
    background-size: 18px; 
+   text-align: center;
   
   }
 
@@ -204,9 +211,10 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     .Applyserve-container {
         height: auto;
     }
-    .Apply-serve-main{
+    .Apply-serve-main {
         width: 84vw;
         height: 85vh;
+        margin-bottom: 3rem;
     }
     .apply-serve-name{
         width: 24vw;
@@ -229,6 +237,9 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     .equalen{
         display: none;
     }
+    .backbtn{
+        display: block;
+    }
   }
 
   @media screen and (max-width:413px) {
@@ -246,6 +257,9 @@ background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), 
     .apply-content-tamil{
         width: auto;
         padding-inline: 0.5rem;
+    }
+    .apply-content{
+        font-size: 1em;
     }
     .equalen{
         display: none;

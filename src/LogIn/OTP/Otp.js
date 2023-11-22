@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useRef } from 'react';
 import './Otp.css';
-import Navbar from '../../NavBar/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
+import {useNavigate } from 'react-router-dom';
+import refresh from "../../images/Refresh.svg"
+
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
@@ -57,7 +59,7 @@ function Otp() {
         })
        setTimeout(()=>{
         navigate('/')
-       },3000) 
+       },100) 
       }else{
         toast.error('invaild OTP',{ position: toast.POSITION.TOP_CENTER })
       }
@@ -70,12 +72,12 @@ function Otp() {
   const handleResendClick = async () => {
     try {
       const phoneNumber = localStorage.getItem('phoneNumber');
-      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/member-resendotp', {
+      const resendResponse = await axios.post('https://ihaf-backend.vercel.app/resend-otp', {
         phoneNumber: phoneNumber,
       });
 
       if (resendResponse.data.success) {
-        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER });
+        toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER});
       } else {
         toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
       }
@@ -119,9 +121,13 @@ function Otp() {
             </Button>
             </Stack>
           </div>
+         
           <div className='resent-otp' onClick={handleResendClick}>
-            <p>I didn't receive a OTP </p>
-          {t('Otp.5')}
+          <p >I didn’t receive a OTP resend OTP !</p>
+          <div className='resend'>
+          <span>{t('Otp.5')}</span>
+          <img src={refresh} alt='refresh' width='16px' height='16px' />
+          </div>
           </div>
         </div>
       </div>

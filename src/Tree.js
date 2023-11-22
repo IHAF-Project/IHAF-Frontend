@@ -1,15 +1,17 @@
 import React from 'react'
-import Page1 from './Page1/Page1.jsx';
-import Page3 from './Page3/Page3.jsx';
-import Page4 from './Page4/page4';
+import Page1 from './INTRO-PAGE/Page1.jsx';
+import Page3 from './SOCIAL-MEDIA/Social.jsx';
+import Page4 from './FEEDBACK-SCROLL/Feedback-scroll.js';
 import Petition from './Page7/Petition';
 import Page8 from './Page8/Page8';
-import Footer from './Footer/Footer';
+import Footer from './COMPONENTS/FOOTER/Footer.js';
 import Meeting from './Page8/Meeting';
-import Home from './Page2/Home';
-import Join from './Page5/Join';
+import Home from './AMBEDKAR-FED/Page2.js';
+import Join from './JOIN/Join.js';
 import Cards from './Page6/Cards';
+import useScrollToTop from './COMPONENTS/Hooks/useScrollToTop.js';
 function Tree() {
+  useScrollToTop();
   return (
     <div>
       <Page1 />

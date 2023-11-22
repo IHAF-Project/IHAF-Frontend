@@ -4,8 +4,9 @@ import "./About.css";
 import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { useTranslation } from 'react-i18next';
-import  Navbar from "../NavBar/Navbar"
-import Footer from "../Footer/Footer"
+import  Navbar from "../COMPONENTS/NAVBAR/Navbar"
+import Footer from "../COMPONENTS/FOOTER/Footer"
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 function About() {
   const textRef = useRef(null);
   const { t, i18n } = useTranslation();
@@ -38,7 +39,7 @@ function About() {
       });
     });
   }, []);
-
+useScrollToTop();
   return (
     <div className='about-container'>
        <Navbar/>

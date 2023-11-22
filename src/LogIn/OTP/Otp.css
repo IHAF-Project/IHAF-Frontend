@@ -11,17 +11,34 @@
 }
 .resent-otp {
     display: flex;
-    cursor: pointer;
+    
     align-items: center;
-    gap: 7px;
-    /* justify-content: space-evenly; */
+    justify-content: center;
+    gap: 8px;
+   
+}
+.resend{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4vw;
+}
+.resent-otp span{
+  color: #0465F5;
+font-family: Poppins;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 .otp-verify-btn {
-    background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
-    padding: 0.5625rem 1rem 0.625rem 1rem;
-    color: azure;
-    border: none;
-    border-radius: 5px;
+  background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
+  /* padding: 0.5625rem 1rem 0.625rem 1rem; */
+  color: azure;
+  border: none;
+  border-radius: 5px;
+  width: 12vw;
 }
 
 .otp-box-contain {

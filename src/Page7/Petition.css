@@ -1,5 +1,5 @@
 .page7-petition-container {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%), url('../imgg/page5-bg.png') lightgray 50% / cover no-repeat;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%), url('../images/page5-bg.png') lightgray 50% / cover no-repeat;
     width: 100%;
     height: auto;
   }
@@ -108,6 +108,7 @@
 }
 .input-name-petition{
     background: #033876;
+    text-align: center;
 
     color: #FFF;
     width: 30vw;
@@ -150,7 +151,7 @@
     gap: 2rem;
 }
 .file-upload-petition{
- 
+ cursor: pointer;
     text-align: center;
     color: #FFF;
     padding-block: 0.5rem;
@@ -209,6 +210,7 @@ line-height: normal;
     line-height: normal;
     width: 8rem;
 }
+
 .petition-select {
     background: #033876;
     color: #FFF;
@@ -278,7 +280,7 @@ line-height: normal;
         color: #000;
         text-align: center;
         font-family: Poppins;
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 0px;
         width: auto;
         font-style: normal;
@@ -329,6 +331,22 @@ line-height: normal;
     .petition-7-btn{
         width: 43vw;
     }
+    .input-name-petition{
+        width: 60vw;
+    }
+    .input-address-petition{
+        width: 60vw;
+    }
+    .input-audio-petition{
+        width: 60vw;
+    }
+ 
+}
+@media screen and (max-width: 1054px) {
+    .petition-in-c{
+        width: 18rem;
+    }
+    
 }
 @media screen and (max-width:420px){
     .petition-7-btn {
@@ -370,4 +388,39 @@ line-height: normal;
         width: 46vw;
     }
     
+}
+/* Add this CSS to your stylesheet */
+.success-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 36vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Poppins;
+    color: black;
+}
+  
+  .success-popup p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  /* You can customize the styling further to match your design preferences */
+  .close-button {
+    width: 11vw;
+    height: 4vh;
+    background-color: #da1111;
+    color: white;
+    border: none;
 }
