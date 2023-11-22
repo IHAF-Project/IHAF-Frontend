@@ -204,13 +204,13 @@ background: #356DFF;
   right: 0;
   width: 100%;
   display: flex;
-  top:12vh;
+  top:10vh;
   position: absolute;
   justify-content: flex-end;
 }
 .Pop-page{
   width: 239px;
-  height: 45vh;
+  height: auto;
   display: flex;
   background: linear-gradient(270deg, #FFF -27.12%, #1B4AC4 -0.22%, #042069 23.08%, #01154B 33.23%);
   padding: 1rem;

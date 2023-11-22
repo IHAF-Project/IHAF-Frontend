@@ -1,4 +1,4 @@
-import  { useState,useRef} from 'react';
+import  { useState,useRef, useEffect} from 'react';
 import './Navbar.css'; 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -13,10 +13,13 @@ import closeimg from "../../../src/Assets/+.png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
+
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
+const  [userData,setUserData] = useState(null)
+
 
   const handleClickPop = () => {
     setIsPop(!isPop);
@@ -37,17 +40,29 @@ const Navbar = () => {
  }
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
-
- const phoneNumber = storedData?.data?.phoneNumber
- const memberId = storedData?.data?.memberID
  const _id = storedData?.data?._id
- const refferal = storedData?.data?.referralCode
+
+useEffect (() =>{
+  const fetchData = async () =>{
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const data = await response.json();
+  if(data?.data?.isAdminApproved === true){
+    setUserData(data?.data)
+    console.log(userData,'api-successfully')
+  }else{
+    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+  }
+  }
+  fetchData()
+},[])
+
+ const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
+ const memberId =storedData?.data?.memberID ||userData?.memberID
+// const memberId= false
+ const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
-
- 
-
  const textRef = useRef(null);
  const [copyMessage, setCopyMessage] = useState("");
 
@@ -153,33 +168,58 @@ const Navbar = () => {
        <div className='Popcontainer'>
        
        <div className='Pop-page'>
-       <div className='popup-image-close'>
-         <img src={closeimg} className='closeimage-popup' onClick={handleClickPop}></img>
-       </div>
+       {/* <div className='popup-image-close'>
+        X
+       </div> */}
        <div className='profile-icon'>
-       {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
-        </Link> ) : 'Not Approved Yet' } 
-       </div>
-       <div className='referal-code'>
-
-       <img src={profile3} alt='refetal-code'/>
-
-    <div className="paste-button">
-   <button className="button">REFERALCODE &nbsp;▼</button>
-   <div className="dropdown-content">
-    <a id="top"  onClick={handleCopyClick}  ref={textRef}
-          style={{ cursor: 'pointer'}}>{refferal}</a>
-    <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
-  </div>
+  {memberId ? (
+    <Link to={`/profile/${memberId}`}>
+      <img
+        src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+        alt='ProfileImage'
+        width="75px"
+        height="75px"
+      />
+    </Link>
+  ) : (
+    <>
+      <Link to={`/join/${memberId}`} style={{ textDecoration: 'underline',color: 'yellow' }}>Join in</Link>{" "}IHAF soon...
+    </>
+  )}
 </div>
-       </div>
-       <div className='feedback-pop'>
-        <img src={profile2} alt='feedback' />
-        <Link to="/feedback">
-        <p>FEEDBACK</p>
-        </Link>
-       </div>
+
+
+    {memberId && (
+  <div className='referal-code'>
+    <img src={profile3} alt='refetal-code'/>
+    <div className="paste-button">
+      <button className="button">REFERALCODE &nbsp;▼</button>
+      <div className="dropdown-content">
+        <a
+          id="top"
+          onClick={handleCopyClick}
+          ref={textRef}
+          style={{ cursor: 'pointer'}}
+        >
+          {refferal}
+        </a>
+        <div style={{ backgroundColor: 'white', color: 'black', margin: '0.5rem', fontSize: '16px' }}>
+          {copyMessage}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+{memberId && (
+  <div className='feedback-pop'>
+    <img src={profile2} alt='feedback' />
+    <Link to="/feedback">
+      <p>FEEDBACK</p>
+    </Link>
+  </div>
+)}
+
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>

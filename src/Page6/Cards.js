@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cards.css';
 import { useTranslation } from 'react-i18next';
 import ar from '../images/tri.png'
@@ -8,10 +8,28 @@ const Cards = () => {
     const { t, i18n } = useTranslation();
     const isTamilLanguage = i18n.language === 'ta';
 
+    const [userData, setUserData] = useState(null);
+
     const storedData = JSON.parse(localStorage.getItem('userData'));
-    const phoneNumber =storedData?.data?.phoneNumber;
-    const memberId =storedData?.data?.memberID;
     const _id = storedData?.data?._id
+    
+    useEffect (() =>{
+      const fetchData = async () =>{
+        const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+        const data = await response.json();
+      if(data?.data?.isAdminApproved === true){
+        setUserData(data?.data)
+        console.log(userData,'api-successfully')
+      }else{
+        console.log(storedData?.data?.isAdminApproved,'local-successfully')
+      }
+      }
+      fetchData()
+    },[])
+
+    const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber
+    const memberId =userData?.memberID
+   
 
   return (
     <div className='main6 abc' id='Leaders'>
