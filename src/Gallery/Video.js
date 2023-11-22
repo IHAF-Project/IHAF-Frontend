@@ -1,6 +1,6 @@
 // Video.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import image2 from "../Assets/Polygon 11.png";
 import image1 from "../Assets/Frame 258.png";
 
@@ -24,12 +24,10 @@ function Video({ favorites, toggleFavorite }) {
     setPopupOpen(false);
   };
 
-  const favoriteVideos = videos.filter((_, index) => favorites[index]);
-
   return (
     <div className='gallery-images-container'>
       <div className='videos-container'>
-        {favoriteVideos.map((video, index) => (
+        {videos.map((video, index) => (
           <div key={index} className='video-item'>
             <div>
               <img

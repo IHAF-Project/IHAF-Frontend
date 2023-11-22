@@ -3,7 +3,7 @@ import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
+function MembershipCard({ name,MemberID,DateOfJoining}) {
 
   const cardRef = useRef(null);
 
@@ -20,7 +20,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
     </div>
     </div>
      <div className="member-card-bt">
-     <img src={Profile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='logo' />
+     <img src={localStorage.getItem('profile') || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='logo' />       
      <div className="member-card-bt-details">
       <div className="member-card-bt-details-name">
        <p>Name </p>
