@@ -84,10 +84,11 @@ function Gallery() {
         <div className='gallery-images-container'>
           {images.map((image, index) => (
             <div key={index} className='image-container'>
-              <img src={image.url} alt={`image ${index + 1}`} className='images-gal' />
-              <div className='favorite-icon' onClick={() => toggleFavorite(index, 'image')}>
+               <div className='favorite-icon' onClick={() => toggleFavorite(index, 'image')} style={{ fontSize: '24px',cursor: 'pointer' }}>
                 {favorites[index] ? '❤️' : '🤍'}
               </div>
+              <img src={image.url} alt={`image ${index + 1}`} className='images-gal' />
+             
             </div>
           ))}
         </div>
@@ -122,7 +123,7 @@ function Gallery() {
             <button className={`${fav === 1 ? 'fav-text' : 'fav-text-C'}`} onClick={() => handleClick1 (1)} >VIDEOS</button>
           </div>
          </div>
-         <div>
+         <div className='gallery-video'>
           <div className='gallery-fav-cont' >
           <div className='gallery-head'>
         <p className='gallery-heading'>Gallery</p>
@@ -156,7 +157,7 @@ function Gallery() {
              {images
             .filter((_, index) => videoFavorites[index])
             .map((video, index) => (
-              <video controls width="600" height="400" key={index}>
+              <video controls  className='video-galry' key={index}>
                 <source src={video.url} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
