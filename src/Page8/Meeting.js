@@ -8,11 +8,6 @@ import ZoomMeeting from './ZoomMeeting';
 function Meeting() {
   const { t } = useTranslation()
 
-  // const [meeting, setMeeting] = useState('');
-
-  
-
- 
 
   const [memberOpen,setMemberOpen] =useState(0)
 
@@ -20,14 +15,7 @@ function Meeting() {
     setMemberOpen(index)
   }
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setMemberOpen((memberOpen + 1) % 2);
-  //   }, 4000);
-  //   return () => clearTimeout(timeoutId);
-  // }, [memberOpen]);
   
- 
   return (
     <div className='Meeting-container'>
 

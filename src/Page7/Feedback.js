@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Feedback.css';
 import axios from 'axios';
 import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 function Feedback() {
+  const navigate = useNavigate()
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === "ta";
+  const [userData, setUserData] = useState(null);
 
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const memberID=storedData?.data?.memberID
-  const profileURL = storedData?.data?.profileURL
-  const name = storedData?.data?.name
+ const _id = storedData?.data?._id
+
+useEffect (() =>{
+  const fetchData = async () =>{
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const data = await response.json();
+  if(data?.data?.isAdminApproved === true){
+    setUserData(data?.data)
+    console.log(userData,'api-successfully')
+  }else{
+    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+  }
+  }
+  fetchData()
+},[])
+
+
+  const memberID=userData?.memberID
+  const profileURL = storedData?.data?.profileURL || userData?.profileURL
+  const name = storedData?.data?.name || userData?.name
 
   console.log(profileURL,'profileURL')
 
@@ -26,7 +46,9 @@ function Feedback() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setTimeout(() => {
+      setFeedItems(prevState => ({ ...prevState, content: "" }));
+    }, 1000);
     try {
       const response = await axios.post('https://ihaf-backend.vercel.app/new-feedback', feeditems, {
         headers: {
@@ -51,6 +73,16 @@ function Feedback() {
       })
     }
   }
+  useEffect(() => {
+    
+    setFeedItems((prevFeedItems) => ({
+      ...prevFeedItems,
+      memberID: userData?.memberID || '',
+      profileURL: userData?.profileURL || '',
+      name: userData?.name || '',
+  
+    }));
+  }, [userData]);
 useScrollToTop();
   return (
     <div className='feedback-container abc'>
@@ -64,6 +96,7 @@ useScrollToTop();
               type='text'
               className='feedback-input-name'
               value={feeditems.memberID}
+              disabled
               onChange={(e) => setFeedItems({ ...feeditems, memberID: e.target.value })}
             />
           </div>
@@ -73,7 +106,7 @@ useScrollToTop();
               className='feedback-textarea'
               value={feeditems.content}
               onChange={(e) => setFeedItems({ ...feeditems, content: e.target.value })}
-              placeholder='100/12'
+              placeholder='1/100'
             />
           </div>
         </div>
