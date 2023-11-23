@@ -1,8 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Press+Start+2P&display=swap');
 
-
-
 .gallery-heading {
     color: #000;
     font-family: Poppins;
@@ -19,6 +17,7 @@
 }
 .gallery-head {
     height: 21vh;
+        justify-content: center;
     align-items: center;
     display: flex;
 }
@@ -35,6 +34,17 @@
     border-bottom: 3px solid #FF1F1F;
     font-weight: 400;
 }
+.fav-text{
+ padding: 9px 56px 9px 49px;
+ align-items: center;
+ background: #FFE458;
+ color: #000;
+ border: none;
+font-family: Poppins;
+font-size: 20px;
+font-weight: 400;
+}
+
 .images-gal {
     width: 323px;
     border-radius: 15px;
@@ -44,7 +54,6 @@
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
-    margin-bottom: 8rem;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -55,6 +64,16 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400; 
+}
+.fav-text-C {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    padding: 9px 56px 9px 49px;
+    background-color: #0805A7;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
 }
 .video-image{
     width: 633px;
@@ -89,32 +108,63 @@
     font-style: normal;
     font-weight: 400;
 }
-
+.dfgbsdfgf{
+    width: 100%;
+}
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
   }
-  
+  .gallery-fav-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .popup-content {
     text-align: center;
   }
   
   .close-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     
+     border: 3px solid #FF1F1F;
     margin-top: 10px;
+    position: relative;
     cursor: pointer;
+  }
+  .video-control{
+    width: 500px;
+    position: relative;
+    height: 350px;
+  }
+  .favorate-image-C{
+    width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    background: var(--blue-g, linear-gradient(268deg, #356DFF 0%, #001854 97.38%), #E6E6E6);
+  }
+  .sdfghjkk{
+    margin-top: 10rem;
+  }
+  .favorate-image-container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: 880px) {
+    .video-item{
+        flex-direction: column;
+    }
+    .video-image{
+       width: 83vw;
+    }
   }

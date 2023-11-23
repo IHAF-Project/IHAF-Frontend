@@ -59,7 +59,7 @@ function Petition() {
     issues: '',
     imageURL: '',
   });
-// Function to handle a successful submission and open the popup
+
 const handleSuccess = () => {
   setSuccessPopupOpen(true);
 };
@@ -200,13 +200,12 @@ const handleSuccess = () => {
           </div>
         </div>
       </div>
-      {/* Successful submission popup */}
+     
       {isSuccessPopupOpen && (
         <div className="success-popup">
           <p>You submitted your petition successful!</p>
           <p>Our support team will contact you and solve your petition quickly as possible.</p>
           <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>Close</button>
-          {/* You can add additional content or a close button here */}
         </div>
       )}
     </div>
