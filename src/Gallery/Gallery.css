@@ -116,7 +116,6 @@ font-weight: 400;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -131,16 +130,19 @@ font-weight: 400;
   }
   
   .close-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     
+     border: 3px solid #FF1F1F;
     margin-top: 10px;
+    position: relative;
     cursor: pointer;
+  }
+  .video-control{
+    width: 500px;
+    position: relative;
+    height: 350px;
   }
   .favorate-image-C{
     width: 240px;

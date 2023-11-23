@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import image2 from "../Assets/Polygon 11.png";
 import image1 from "../Assets/Frame 258.png";
+import close from "../Assets/+.png"
 
 function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -52,13 +53,13 @@ function Video({ favorites, toggleFavorite }) {
       {popupOpen && selectedVideo && (
         <div className='popup'>
           <div className='popup-content'>
-            <video controls width="600" height="400">
+          <img src={close} className='close-btn' onClick={closePopup} ></img>
+            <video controls className='video-control'>
               <source src={selectedVideo} type="video/mp4" />
               Your browser does not support the video tag.
+             
             </video>
-            <button className='close-btn' onClick={closePopup}>
-              Close
-            </button>
+           
           </div>
         </div>
       )}
