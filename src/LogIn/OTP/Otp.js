@@ -113,27 +113,31 @@ function Otp() {
           <div className='opt-h4'>
             <h4>{t('Otp.3')}</h4>
           </div>
-          <div className='otp-input-container'>
-            <OtpInput style={{
-                    gap: '2vw'}}
-              value={otp}
-              onChange={setOtp}
-              numInputs={4}
-              className='otp-input'
-              renderInput={(props, index) => (
-                <input
-                  {...props}
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    fontSize: '16px',
-                    textAlign: 'center',
-                    gap: '1rem',
-                  }}
-                  onKeyDown={(e) => handleKeyDown(e)}
-                />
-              )}
-            />
+          <div className='otp-input-container' >
+          <OtpInput
+      value={otp}
+      onChange={setOtp}
+      numInputs={4}
+      className='otp-input'
+      isInputNum
+    
+      renderInput={(props, index) => (
+        <input
+          {...props}
+          style={{
+            width: '40px',
+            height: '40px',
+            fontSize: '16px',
+            display: 'flex',
+            textAlign: 'center',
+            marginLeft: "10px",
+            border : "none"
+           
+          }}
+          onKeyDown={(e) => handleKeyDown(e)}
+        />
+      )}
+    />
           </div>
           <div>
             <Stack spacing={2} direction="row">
