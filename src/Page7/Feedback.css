@@ -5,7 +5,7 @@
     justify-content: center;
 }
 .feedback-container-main{
-    background: #D3E6FD;
+    background: #d7ebbb;
     width: 75vw;
     display: flex;
     align-items: center;
@@ -82,10 +82,11 @@ p.count{
     font-size: 1rem;
     border: 0.752px solid #000;
     width: 30vw;
-    background: #D3E6FD;
+    background: #fff;
     height: 6vh;
     display: flex;
     text-align: center;
+    font-weight: 600;
 }
 .equal1 {
     padding-right: 2rem;
@@ -112,7 +113,7 @@ line-height: normal;
     width: 30vw;
     border: 0.752px solid #000;
     font-size: 1rem;
-    background: #D3E6FD;
+    background: #fff;
     height: 26vh;
     padding-inline: 0.8vw;
 }
