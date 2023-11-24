@@ -19,12 +19,22 @@ function Gallery() {
     { url: image2 },
   ];
 
-  const [favorites, setFavorites] = useState(loadFavorites('fav'));
-  const [videoFavorites, setVideoFavorites] = useState(loadFavorites('videoFav'));
   const [open, setOpen] = useState(0);
 
+  function saveFavorites(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function loadFavorites(key) {
+    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
+  }
+
+  const [favorites, setFavorites] = useState(loadFavorites('fav'));
+  const [videoFavorites, setVideoFavorites] = useState(loadFavorites('videoFav'));
+
+
   useEffect(() => {
-    saveFavorites('fav', favorites);
+    saveFavorites('fav', favorites); 
   }, [favorites]);
 
   useEffect(() => {
@@ -33,6 +43,7 @@ function Gallery() {
 
   const handleClick = (index) => {
     setOpen(index);
+
   };
 
   const toggleFavorite = (index, type) => {
@@ -47,16 +58,8 @@ function Gallery() {
     }
   };
 
-  function loadFavorites(key) {
-    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
-  }
-
-  function saveFavorites(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
 
   const [fav , setfav] = useState(0)
-
   const handleClick1 = (index) => {
     setfav(index)
   }
@@ -84,7 +87,7 @@ function Gallery() {
         <div className='gallery-images-container'>
           {images.map((image, index) => (
             <div key={index} className='image-container'>
-              <img src={image.url} alt={`image ${index + 1}`} className='images-gal' />
+              <img src={image.url} alt={`${index + 1}`} className='images-gal' />
               <div className='favorite-icon' onClick={() => toggleFavorite(index, 'image')}>
                 {favorites[index] ? '❤️' : '🤍'}
               </div>
@@ -139,14 +142,12 @@ function Gallery() {
         </p>
          </div>
           </div>
-    
-         
          {fav === 0 && 
          <div className='gallery-images-container'>
            {images
             .filter((_, index) => favorites[index])
             .map((image, index) => (
-              <img src={image.url} key={index} alt={`image ${index + 1}`} className='images-gal' />
+              <img src={image.url} key={index} alt={`${index + 1}`} className='images-gal' />
             ))}
          </div>
          }

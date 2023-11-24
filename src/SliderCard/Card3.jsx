@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next'
 import Quets from "../Assets/Frame 14.png"
 
-function Card3({isVisible}) {
+function Card3() {
   
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -10,7 +9,7 @@ function Card3({isVisible}) {
   const tamilLanguage =i18n.language === 'ta'
   
     return (
-      <div className={`intro-slide-3 ${isVisible ? 'actived' : ''}`}>
+      <div className={`intro-slide-3`}>
       <div className="intro-slide-content">
         <div className="intro-slide-content-right">
         <div className={`${tamilLanguage ? 'intro-slide-content-right-top-tamil' : 'intro-slide-content-right-top'}`}>
@@ -36,7 +35,5 @@ function Card3({isVisible}) {
     )
   }
   
-   Card3.propTypes = {
-    isVisible: PropTypes.node,
-};
+  
   export default Card3

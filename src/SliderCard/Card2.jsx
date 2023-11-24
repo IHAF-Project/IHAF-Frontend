@@ -1,16 +1,14 @@
 import { useTranslation } from 'react-i18next'
-import Amboth from "../Assets/Frame 152.svg"
 import Quets from "../Assets/Frame 14.png"
-import PropTypes from 'prop-types';
 
-function Card2({isVisible}) {
+function Card2() {
+
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
-
     const tamilLanguage =i18n.language === 'ta'
     
   return (
-    <div  className={`intro-slide-2 ${isVisible ? 'actived' : ''}`}>
+    <div  className={`intro-slide-2`}>
     <div className="intro-slide-content">
      <div className="intro-slide-content-right">
      <div className={`${tamilLanguage ? 'intro-slide-content-right-top-tamil' : 'intro-slide-content-right-top'}`}>
@@ -19,9 +17,6 @@ function Card2({isVisible}) {
       {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
       </span>
      </div>
-     {/* <div className="intro-slide-content-right-btm">
-     <img src={Amboth} alt='Ambeth' />
-     </div> */}
      </div>
      <div className="intro-slide-content-left">
       <div className="intro-slide-content-quates-1">
@@ -38,8 +33,5 @@ function Card2({isVisible}) {
   </div>
   )
 }
-Card2.propTypes = {
-    isVisible: PropTypes.node,
-};
-  
+
 export default Card2

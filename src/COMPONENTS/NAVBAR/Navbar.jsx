@@ -9,18 +9,16 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import profile1 from '../../Assets/Logout.svg'
 import profile2 from '../../Assets/Chat (2).png'
 import profile3 from '../../Assets/Exchange.png'
-
-// import Logo from "public/images/MicrosoftTeams-image (22).png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
-import axios from 'axios';
+
 
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
- const  [userData,setUserData] = useState(null)
+ const [userData,setUserData] = useState(null)
 
 
   const handleClickPop = () => {
@@ -34,10 +32,10 @@ const Navbar = () => {
  const { t, i18n } = useTranslation();
 
  function toggleLanguage() {
-    const currentLanguage = i18n.language; 
 
-    const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
-    i18n.changeLanguage(newLanguage);
+  const currentLanguage = i18n.language; 
+  const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
+  i18n.changeLanguage(newLanguage);
    
  }
 
@@ -48,7 +46,7 @@ const Navbar = () => {
 useEffect (() =>{
 
   const fetchData = async () =>{
-    const response = await axios.get(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
     const data = await response.json();
     
   if(data?.data?.isAdminApproved){
@@ -67,6 +65,7 @@ useEffect (() =>{
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
+
  const textRef = useRef(null);
  const [copyMessage, setCopyMessage] = useState("");
 
@@ -100,7 +99,6 @@ useEffect (() =>{
       ): (
 ''
       )}
-     
         </div>
          </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
@@ -116,6 +114,7 @@ useEffect (() =>{
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
           <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li>
+          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
         </ul>
       </div>
       </div>

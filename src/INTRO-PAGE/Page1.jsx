@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import Card1 from '../SliderCard/Card1';
 import Card2 from '../SliderCard/Card2';
 import Card3 from '../SliderCard/Card3';
@@ -13,7 +13,9 @@ import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 
 
 const Page1 = () => {
+ 
   useScrollToTop();
+
   return (
     <div className="Page-1" id='Home'>
        <Navbar/>
@@ -31,7 +33,7 @@ const Page1 = () => {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide><Card1 /></SwiperSlide>
+        <SwiperSlide><Card1/></SwiperSlide>
         <SwiperSlide><Card2/></SwiperSlide>
         <SwiperSlide><Card3/></SwiperSlide>
       </Swiper>
