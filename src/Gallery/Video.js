@@ -7,6 +7,7 @@ import close from "../Assets/+.png"
 
 function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
+  
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const videos = [
