@@ -115,14 +115,7 @@ function Gallery() {
       }
       {open === 2 && (
         <div className='favorate-image-container'>
-         <div className='favorate-image-C'>
-         <div className='sdfghjkk'>
-         <button className={`${fav === 0 ? 'fav-text' : 'fav-text-C'}`} onClick={ () => handleClick1 (0)}> IMAGES</button>
-         </div>
-          <div>
-            <button className={`${fav === 1 ? 'fav-text' : 'fav-text-C'}`} onClick={() => handleClick1 (1)} >VIDEOS</button>
-          </div>
-         </div>
+        
          <div className='gallery-video'>
           <div className='gallery-fav-cont' >
           <div className='gallery-head'>
@@ -140,7 +133,16 @@ function Gallery() {
         </p>
          </div>
           </div>
-    
+          <div className='fav-main'>
+          <div className='favorate-image-C'>
+         <div className='sdfghjkk'>
+         <button className={`${fav === 0 ? 'fav-text' : 'fav-text-C'}`} onClick={ () => handleClick1 (0)}> IMAGES</button>
+         </div>
+          <div>
+            <button className={`${fav === 1 ? 'fav-text' : 'fav-text-C'}`} onClick={() => handleClick1 (1)} >VIDEOS</button>
+          </div>
+         </div>
+         </div>
          
          {fav === 0 && 
          <div className='gallery-images-container'>
