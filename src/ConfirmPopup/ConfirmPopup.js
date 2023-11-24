@@ -9,7 +9,9 @@ import close from '../../src/images/Close (1).png'
   return (
     <div className="custom-popup">
       <div className="popup-content">
+        <div className='btn-close'>
       <button className='close-btnn' onClick={onCancel}><img src={close} alt='close'></img></button>
+      </div>
       <p>OTP sent to your mobile number ends with ******{lastThreeDigits}</p>
       <div className='popup-button'>
       <Link to="/Otp">

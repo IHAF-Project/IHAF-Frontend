@@ -13,9 +13,13 @@
 .close-btnn{
     border: none;
     background-color: transparent; 
-    margin-left: 35vw;
-    margin-top: 2vh;
 
+}
+.btn-close {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
 }
 .close-btnn img{
     width: 2vw;
