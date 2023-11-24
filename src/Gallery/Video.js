@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+// Video.js
+
+import React, { useState, useEffect } from 'react';
 import image2 from "../Assets/Polygon 11.png";
 import image1 from "../Assets/Frame 258.png";
+import close from "../Assets/+.png"
 
-function Video() {
+function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
@@ -28,12 +31,17 @@ function Video() {
         {videos.map((video, index) => (
           <div key={index} className='video-item'>
             <div>
+            <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' }}>
+  {favorites[index] ? '❤️' : '🤍'}
+</div>
+
               <img
                 src={image1}
                 alt={`video ${index + 1}`}
                 className='video-image'
                 onClick={() => openPopup(video)}
               />
+           
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
@@ -47,13 +55,13 @@ function Video() {
       {popupOpen && selectedVideo && (
         <div className='popup'>
           <div className='popup-content'>
-            <video controls width="600" height="400">
+         
+            <video controls className='video-control'>
               <source src={selectedVideo} type="video/mp4" />
               Your browser does not support the video tag.
+             
             </video>
-            <button className='close-btn' onClick={closePopup}>
-              Close
-            </button>
+            <img src={close} className='close-btn' onClick={closePopup} ></img>
           </div>
         </div>
       )}

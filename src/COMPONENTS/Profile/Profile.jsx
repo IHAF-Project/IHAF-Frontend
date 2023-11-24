@@ -51,14 +51,14 @@ function Profile() {
 
   const exportToPNG = (elementSelector, fileName) => {
     const elementToCapture = document.querySelector(elementSelector);
-
+  
     if (!elementToCapture) {
       console.error('Element not found for capture');
       return;
     }
-
-    html2canvas(elementToCapture).then((canvas) => {
-      const url = canvas.toDataURL(); 
+  
+    html2canvas(elementToCapture, { useCORS: true }).then((canvas) => {
+      const url = canvas.toDataURL();
       const a = document.createElement('a');
       a.href = url;
       a.download = `${fileName}.png`;
@@ -67,7 +67,7 @@ function Profile() {
       document.body.removeChild(a);
     });
   };
-
+  
   const LeaderhandleDownload = () => {
     exportToPNG('.leader-card', 'LeadershipCard');
   };

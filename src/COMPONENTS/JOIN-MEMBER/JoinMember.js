@@ -310,24 +310,24 @@ useScrollToTop();
          </div>
          <input type='text' id='name' name='name' value={formData.name} required onChange={handleFormChange}/> <br/>
          </div>
-{/* adhaarnumber */}
+
          <div className='JionFrom-content-inputs'>
         <div className='jion-cont'>
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
          <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
-         {/* {!isInputValid && <p style={{fontSize:'0.75em',marginTop:'2em',color:'red'}}>Aadhar Card number must have 12 digits.</p>} */}
+       
          </div>
-{/* Refferal */}
+
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
          <label >{currentLanguage === 'ta' ? t('JionMemberShip.5') : t('Refferal code')}</label>
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input placeholder='(Optional)' type='text' id='RefferalCode' name='referredBy'  value={formData.referredBy} onChange={handleFormChange} required/> <br/>
+         <input placeholder='(Optional)' type='text' id='RefferalCode' name='referredBy'  value={formData.referredBy} onChange={handleFormChange}/> <br/>
          </div>
-{/* gender */}
+
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
            <label>{currentLanguage === 'ta' ? t('JionMemberShip.4') : t('JionMemberShip.4')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
@@ -349,7 +349,7 @@ useScrollToTop();
             </select>
         </div>
          </div>
-{/* education */}
+
          <div className='JionFrom-content-inputs'>
      <div className='jion-cont'>
      <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')} <span style={{ color: 'red', paddingLeft:'0' }}>*</span></label>
