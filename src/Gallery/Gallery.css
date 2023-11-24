@@ -29,6 +29,7 @@
     background: #4B4B4B;
     width: 54vw;
     height: 10vh;
+    align-items: center
 }
 .image-text {
   color: #000;
@@ -56,7 +57,7 @@
   font-weight: 400;
   width: 12vw;
   height: 5vh;
-  border-radius: 2.5vw;
+  border-radius: 1.5vw;
 }
 
 .images-gal {
@@ -166,14 +167,14 @@
     overflow-y: scroll;
   }
   .favorate-image-C {
-    width: 30vw;
-    padding: 1.2rem;
+    width: 35vw;
+    /* padding: 1.2rem; */
     display: flex;
     align-items: center;
     gap: -1rem;
-    border-radius: 3.5vh;
+    border-radius: 6.5vh;
     background: #DFA5A5;
-    height: 3vh;
+    height: 9vh;
     justify-content: space-around;
 }
 .fav-main {
