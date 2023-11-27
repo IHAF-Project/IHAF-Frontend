@@ -26,6 +26,8 @@ function JionMember() {
   const {_id}=useParams()
   const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
+  const [popsuccess, setpopsuccess] = useState(false);
+  const [popdata, setpopdata] = useState('');
   const [profileFile, setProfileFile] = useState(null);
   const [formData, setformData] = useState({
     name: "",
@@ -183,12 +185,11 @@ const updateFormData = async (e) => {
     if (response.ok) {
       const data = await response.json();
       setformData(data);
-      toast.success('Data updated successfully!', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
-      setTimeout(()=>{
-        navigate('/')
-      },5000)
+      setpopdata('successfully')
+      // toast.success('Data updated successfully!', {
+      //   position: toast.POSITION.TOP_RIGHT,
+      // });
+     
     } else {
      
       toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
@@ -217,7 +218,18 @@ const handleFormSumbit = async (e) => {
   console.log(formData, 'updated data');
 };
 
+const handleYesClick =async (e) => {
+  
+ if(popdata==='successfully'){
+  setpopsuccess(false)
+    navigate('/')
+ }
+ else{
+  setpopsuccess(false)
 
+ }
+
+}
 
 const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
@@ -556,6 +568,19 @@ useScrollToTop();
      </div>
     </div>
     <ToastContainer/>
+    
+{popsuccess && (
+  <div className='popup-overlay'>
+    <div className='gallery-popup'>
+      <p>Items uploaded {popdata}!</p>
+      <div>
+        <button onClick={handleYesClick} className='popup-yes'>
+          Okey
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     <Footer/>
     </div>
   )
