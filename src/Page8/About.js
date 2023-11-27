@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import image1 from "../images/IHAF ORGINAL LOGO 1.png";
+import image1 from "../images/MicrosoftTeams-image 1.png";
 import "./About.css";
 import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { useTranslation } from 'react-i18next';
-
+import  Navbar from "../COMPONENTS/NAVBAR/Navbar"
+import Footer from "../COMPONENTS/FOOTER/Footer"
+import useScrollToTop from '../COMPONENTS/Hooks/useScrollToTop';
 function About() {
   const textRef = useRef(null);
   const { t, i18n } = useTranslation();
@@ -37,9 +39,10 @@ function About() {
       });
     });
   }, []);
-
+useScrollToTop();
   return (
     <div className='about-container'>
+       <Navbar/>
       <div className='about-main-cont'>
         <div>
           <img src={image1} alt='' className='about-image' />
@@ -68,6 +71,7 @@ function About() {
         <p className={`${isTamilLanguage ? 'achiving-head-tamil' : 'achiving-head'}`}>{t('hello.42')}</p>
         <p className={`${isTamilLanguage ? 'providing-text-tamil' : 'providing-text'}`}>{t('hello.43')}</p>
       </div>
+     <Footer/>
     </div>
   );
 }

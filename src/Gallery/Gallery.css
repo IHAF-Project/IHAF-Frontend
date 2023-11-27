@@ -1,0 +1,221 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Press+Start+2P&display=swap');
+
+.gallery-heading {
+    color: #000;
+    font-family: Poppins;
+    font-size: 36px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+}
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-head {
+    height: 21vh;
+        justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.gallery-body {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 3.0625rem;
+    border: 1px solid #000;
+    background: #4B4B4B;
+    width: 54vw;
+    height: 10vh;
+    align-items: center
+}
+.image-text {
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  cursor: pointer;
+  
+  font-weight: 400;
+  width: 11vw;
+  height: 6vh;
+  background-color: #DFA5A5;
+  text-align: center;
+  border-radius: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fav-text {
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 19px;
+  background-color: #4b4b4b;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  width: 12vw;
+  height: 5vh;
+  border-radius: 1.5vw;
+}
+
+.images-gal {
+    width: 323px;
+    border-radius: 15px;
+    height: 341px;
+}
+.gallery-images-container{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.image-text-cont {
+  color: #fff;
+  font-family: Poppins;
+  cursor: pointer;
+  font-size: 22px;
+  /* font-style: normal; */
+  font-weight: 400;
+}
+.fav-text-C {
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 20px;
+  
+  background-color: #DFA5A5;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  width: 12vw;
+  height: 5vh;
+  border-radius: 0.5vw;
+}
+.video-image{
+    width: 633px;
+    height: 281px; 
+}
+.videos-container{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+}
+
+.video-item{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+.play-btn {
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 63.791px;
+    background: linear-gradient(284deg, #B8C2DA -47.47%, #134FE9 42.98%, #4F0909 154.35%);
+    font-family: 'Press Start 2P';
+    font-size: 20.535px;
+    text-align: center;
+    gap: 19px;
+    align-items: center;
+    display: flex;
+    border: none;
+    padding: 14.721px 28.215px 15.948px 35.576px;
+    font-style: normal;
+    font-weight: 400;
+}
+.dfgbsdfgf{
+    width: 100%;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  .gallery-fav-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .popup-content {
+    text-align: center;
+  }
+  
+  .close-btn {
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     right: 9px;
+     border: 3px solid #FF1F1F;
+    margin-top: 10px;
+    position: absolute;
+    cursor: pointer;
+  }
+  .video-control{
+    width: 764px;
+    position: relative;
+    height: 440px;
+  }
+  .gallery-video{
+    height: 88vh;
+    overflow-x: hidden;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .favorate-image-C {
+    width: 35vw;
+    /* padding: 1.2rem; */
+    display: flex;
+    align-items: center;
+    gap: -1rem;
+    border-radius: 6.5vh;
+    background: #DFA5A5;
+    height: 9vh;
+    justify-content: space-around;
+}
+.fav-main {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2vh;
+}
+  .video-galry{
+    width: 320px;
+    height: 200px;
+  }
+  .sdfghjkk{
+   
+      color: #FFF;
+      font-family: Poppins;
+      font-size: 20px;
+      background-color: #DFA5A5;
+      border: none;
+      font-style: normal;
+      font-weight: 400;
+      width: 12vw;
+      height: 5vh;
+      border-radius: 0.5vw;
+  
+   
+  }
+  .favorate-image-container{
+    display: flex;
+  }
+  .favorite-icon {
+    position: absolute;
+}
+
+  @media screen and (max-width: 880px) {
+    .video-item{
+        flex-direction: column;
+    }
+    .video-image{
+       width: 83vw;
+    }
+  }
