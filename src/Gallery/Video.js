@@ -50,6 +50,7 @@ function Video({ favorites, toggleFavorite }) {
                 className='video-image'
                 onClick={() => openPopup(video)}
               />
+               
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
