@@ -41,15 +41,19 @@ function Video({ favorites, toggleFavorite }) {
         {videos.map((video, index) => (
           <div key={index} className='video-item'>
             <div>
-              <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' }}>
+              <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' ,zIndex:3}}>
                 {favorites[index] ? '❤️' : '🤍'}
               </div>
-              <img
+              <video controls className='video-image'  poster='https://th.bing.com/th/id/OIP.UydJkzJIHUXPqXpYl0IU-gAAAA?rs=1&pid=ImgDetMain' >
+              <source src={video.videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+              {/* <img
                 src={image1}
                 alt={`video ${index + 1}`}
-                className='video-image'
+                
                 onClick={() => openPopup(video)}
-              />
+              /> */}
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
