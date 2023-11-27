@@ -1,28 +1,28 @@
-
-import CustomNotification  from '../COMPONENTS/login popup/Popup';
-import { useState } from "react"
-import "./Login.css"
+import React, { useState } from "react";
+import axios from "axios";
 import Stack from '@mui/material/Stack';
+import "./Login.css"
 import Button from '@mui/material/Button';
 import Navbar from "../COMPONENTS/NAVBAR/Navbar";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
+import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+
 
 function Login() {
-  
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     phoneNumber: '',
   });
   const [isInputValid, setIsInputValid] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationData, setNotificationData] = useState({});
+  // New state variable to hold data for ConfirmPopup
+  const [confirmPopupData, setConfirmPopupData] = useState(null);
 
   const handleNotification = (message, type) => {
     setNotificationData({ message, type });
@@ -31,8 +31,8 @@ function Login() {
 
   const closeNotification = () => {
     setShowNotification(false);
-    return false;
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const isValid = /^[0-9]{10}$/.test(value);
@@ -42,44 +42,53 @@ function Login() {
       [name]: value,
     });
   };
-  const handleKeyDown = async(e) => {
-    
-    if(e.key==='Enter'){
+
+  const handleKeyDown = async (e) => {
+    if (e.key === 'Enter') {
       e.preventDefault();
       handleSubmit(e);
     }
-  }
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    if (formData.phoneNumber.length === 10 && isInputValid) {
-try{
-  const response = await axios.post("https://ihaf-backend.vercel.app/send-otp",{
-    phoneNumber:formData.phoneNumber,
-  })
-  const check = {data : {success : true}}
-if(check.data.success){
-  handleNotification('OTP Sent Successfully', 'success');
-  setTimeout(() => {
-    navigate('/Otp');
-  }, 4); 
-}
- else{
-  handleNotification('Failed to update data', 'error');
- }
- console.log(response)
-}
-catch(error){
-  console.error('Error:', error);
-}
-}else {
-  // Show input error notification
-  handleNotification('Invalid phone number. Please enter 10 digits.', 'error');
-  
-}
-
   };
-  const phoneNumber = localStorage.setItem('phoneNumber',formData.phoneNumber)
-  console.log(phoneNumber)
+  const handleCancel1 = () => {
+    setShowPopup(false);
+   
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.phoneNumber.length === 10 && isInputValid) {
+      try {
+        const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
+          phoneNumber: formData.phoneNumber,
+        });
+
+        const check = { data: { success: true } };
+
+        if (check.data.success) {
+
+          setConfirmPopupData(formData.phoneNumber);
+
+          // Show ConfirmPopup on successful OTP send
+          setShowPopup(true);
+
+          handleNotification('OTP Sent Successfully', 'success');
+        } else {
+          handleNotification('Failed to update data', 'error');
+        }
+        console.log(response);
+      } catch (error) {
+        console.error('Error:', error);
+        window.alert("You are suspended for 6 months");
+      }
+    } else {
+      // Show input error notification
+      toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_CENTER });
+    }
+  };
+
+  const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
+
   return (
     <>
       <Navbar />
@@ -102,7 +111,7 @@ catch(error){
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                onKeyDown={handleKeyDown} // <-- Use handleKeyDown here
+                onKeyDown={handleKeyDown}
                 placeholder="Enter your phone number"
                 style={{
                   borderColor: isInputValid ? '#355cc2' : '#cb0909',
@@ -131,14 +140,20 @@ catch(error){
           </form>
         </div>
       </div>
-     {/* Replace ToastContainer with your custom notification */}
-          <CustomNotification
-            message={notificationData.message}
-            type={notificationData.type}
-            onClose={closeNotification}
-          />
+      {/* Replace ToastContainer with your custom notification */}
+      <ToastContainer />
+      
+      {/* Conditionally render ConfirmPopup */}
+      {showPopup && (
+        <ConfirmPopup
+          // Add relevant props as needed
+          data={confirmPopupData} // Pass data as a prop
+         
+          onCancel={handleCancel1}
+        />
+      )}
     </>
   );
 }
 
-export default Login
+export default Login;

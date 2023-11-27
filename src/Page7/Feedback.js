@@ -91,7 +91,7 @@ useScrollToTop();
         <p className={`${isTamilLanguage ? 'Feedback-text-tamil' : 'Feedback-text'}`}>{t('hello.11')}</p>
         <div className='feedback-input-data'>
           <div className='feedback-input-conta'>
-            <div className='feedbackname'><div className={`${isTamilLanguage ? 'feed-name-tamil' : 'feed-name'}`}>{t("hello.12")}</div> <div className='equal'>:</div></div>
+            <div className='feedbackname'><div className={`${isTamilLanguage ? 'feed-name-tamil' : 'feed-name'}`}>{t("hello.12")}</div> <div className='equal1'>:</div></div>
             <input
               type='text'
               className='feedback-input-name'
@@ -101,13 +101,16 @@ useScrollToTop();
             />
           </div>
           <div className='feedback-input-conta'>
-            <div className='feedbackname'><div className={`${isTamilLanguage ? 'feed-name-tamil' : 'feed-name'}`}>{t("hello.13")}</div> <div className='equal'>:</div></div>
+            <div className='feedbackname'><div className={`${isTamilLanguage ? 'feed-name-tamil' : 'feed-name'}`}>{t("hello.13")}</div> <div className='equal1'>:</div></div>
+            <div className='feed-sub'>
             <textarea
               className='feedback-textarea'
               value={feeditems.content}
               onChange={(e) => setFeedItems({ ...feeditems, content: e.target.value })}
-              placeholder='1/100'
+              maxLength={100}
             />
+            <p className='count'>{feeditems.content.length}/100</p>
+            </div>
           </div>
         </div>
         <div className='feed-btn-con'>

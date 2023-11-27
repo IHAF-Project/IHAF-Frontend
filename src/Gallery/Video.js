@@ -3,17 +3,27 @@
 import React, { useState, useEffect } from 'react';
 import image2 from "../Assets/Polygon 11.png";
 import image1 from "../Assets/Frame 258.png";
-import close from "../Assets/+.png"
+import close from "../Assets/+.png";
 
 function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [videos, setVideos] = useState([]);
 
-  const videos = [
-    'https://res.cloudinary.com/ddanljbwx/video/upload/v1676715944/samples/cld-sample-video.mp4',
-    'https://res.cloudinary.com/ddanljbwx/video/upload/v1688620948/y90ecyx5b4fjilfvnela.mp4',
-    'https://res.cloudinary.com/ddanljbwx/video/upload/v1676715944/samples/cld-sample-video.mp4',
-  ];
+  useEffect(() => {
+    // Fetch videos from the API when the component mounts
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('https://ihaf-backend.vercel.app/get-all-images-videos');
+        const data = await response.json();
+        setVideos(data.data.getVideos.map(video => video.videoUrl));
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+
+    fetchVideos();
+  }, []); // Empty dependency array ensures the effect runs only once
 
   const openPopup = (videoUrl) => {
     setSelectedVideo(videoUrl);
@@ -31,10 +41,9 @@ function Video({ favorites, toggleFavorite }) {
         {videos.map((video, index) => (
           <div key={index} className='video-item'>
             <div>
-            <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' }}>
-             {favorites[index] ? '❤️' : '🤍'}
-               </div>
-
+              <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' }}>
+                {favorites[index] ? '❤️' : '🤍'}
+              </div>
               <img
                 src={image1}
                 alt={`video ${index + 1}`}
@@ -52,18 +61,14 @@ function Video({ favorites, toggleFavorite }) {
       </div>
 
       {popupOpen && selectedVideo && (
-        <div className="modal-overlay3">
         <div className='popup'>
           <div className='popup-content'>
-         
             <video controls className='video-control'>
               <source src={selectedVideo} type="video/mp4" />
               Your browser does not support the video tag.
-             
             </video>
-            <img src={close} className='close-btn' onClick={closePopup} ></img>
+            <img src={close} className='close-btn' onClick={closePopup} alt="Close button" />
           </div>
-        </div>
         </div>
       )}
     </div>

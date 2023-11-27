@@ -17,6 +17,10 @@
     gap: 8px;
    
 }
+.otp-input {
+  display: flex;
+  gap: 1rem  !important;
+}
 .resend{
   cursor: pointer;
   display: flex;
