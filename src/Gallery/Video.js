@@ -32,8 +32,8 @@ function Video({ favorites, toggleFavorite }) {
           <div key={index} className='video-item'>
             <div>
             <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' }}>
-  {favorites[index] ? '❤️' : '🤍'}
-</div>
+             {favorites[index] ? '❤️' : '🤍'}
+               </div>
 
               <img
                 src={image1}
@@ -41,7 +41,6 @@ function Video({ favorites, toggleFavorite }) {
                 className='video-image'
                 onClick={() => openPopup(video)}
               />
-           
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
@@ -53,6 +52,7 @@ function Video({ favorites, toggleFavorite }) {
       </div>
 
       {popupOpen && selectedVideo && (
+        <div className="modal-overlay3">
         <div className='popup'>
           <div className='popup-content'>
          
@@ -63,6 +63,7 @@ function Video({ favorites, toggleFavorite }) {
             </video>
             <img src={close} className='close-btn' onClick={closePopup} ></img>
           </div>
+        </div>
         </div>
       )}
     </div>

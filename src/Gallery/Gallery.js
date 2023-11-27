@@ -19,6 +19,8 @@ function Gallery() {
     { url: image2 },
   ];
 
+
+
   const [favorites, setFavorites] = useState(loadFavorites('fav'));
   const [videoFavorites, setVideoFavorites] = useState(loadFavorites('videoFav'));
   const [open, setOpen] = useState(0);
@@ -110,7 +112,7 @@ function Gallery() {
           Favorites
         </p>
       </div>
-        <Video favorites={videoFavorites} toggleFavorite={toggleFavorite} />
+        <Video favorites={videoFavorites} toggleFavorite={toggleFavorite}  />
       </div>
       }
       {open === 2 && (
