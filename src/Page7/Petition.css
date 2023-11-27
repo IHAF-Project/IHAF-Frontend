@@ -1,13 +1,17 @@
 .page7-petition-container {
-    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%), url('../images/MicrosoftTeams-image (17).png') lightgray 50% / cover no-repeat; */
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%), url('../images/page5-bg.png') lightgray 50% / cover no-repeat;
     width: 100%;
     height: auto;
   }
+  .page7-image1 {
+    width: 77vw;
+    height: 1rem;
+}
   
   .page7-petition-text {
     display: flex;
     justify-content: center;
-    height: 12vh;
+    height: auto;
     align-items: center;
 }
 .page7-petition-text-p{
@@ -32,17 +36,14 @@
 .petition-inputs {
     border-radius: 8px;
     background: #033876;
-    /* padding-left: 2rem; */
     flex-direction: column;
-    /* padding-bottom: 1rem; */
     display: flex;
-    gap: 3px;
-    /* padding-top: 2rem; */
+     gap: 26px;
     justify-content: space-evenly;
     width: auto;
-    padding-inline: 3rem;
+    padding: 2rem;
     height: auto;
-    padding-bottom: 2rem;
+   
 }
 .page7-input-container {
     display: flex;
@@ -53,7 +54,7 @@
 }
 .page7-submit {
     display: flex;
-    height: 10vh;
+    height: auto;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -62,8 +63,8 @@
     display: flex;
     padding-top: 1rem;
     align-items: center;
-    gap: 10px;
-    height: 16vh;
+    justify-content: space-around;
+    height: auto;
 }
 .petition-submit-btn{
     border-radius: 5.275px;
@@ -71,16 +72,14 @@
     color: #FFF;
     cursor: pointer;
     padding: 10px 45px 10px 45px;
-    /* width: 13rem; */
+    width: 170px;
     border: none;
     font-family: Poppins;
     font-size: 17.145px;
     font-style: normal;
     line-height: normal;
     background: linear-gradient(270deg, #820000 1.91%, #FF0505 99.81%), #E6E6E6;
-}
-.petition-submit-btn:hover{
-    background: linear-gradient(270deg, #c41111 1.91%, #a70202 99.81%), #E6E6E6;
+    
 }
 .petition-in {
     color: #FFF;
@@ -97,7 +96,9 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal; 
+    width: 91vw;
 }
+
 .petition-input-cont {
     display: flex;
     align-items: center;
@@ -107,13 +108,12 @@
 }
 .input-name-petition{
     background: #033876;
-    border-top: none;
-    border-left: none;
+    text-align: center;
+
     color: #FFF;
     width: 30vw;
-    border-bottom: 1px solid #FFF;
-    border-right: none;
-    height: 2.5rem;
+    border: 1px solid #FFF;
+    height: 3.5rem;
 }
 .input-contact-petition{
     background: #033876;
@@ -131,7 +131,8 @@
     color: #FFF;
     border: 1px solid #FFF;
     margin-top: 1rem;
-    height: 5rem;
+    height: 7rem;
+    resize: none;
 }
 .petition-in-c{
     display: flex;
@@ -150,7 +151,7 @@
     gap: 2rem;
 }
 .file-upload-petition{
- 
+ cursor: pointer;
     text-align: center;
     color: #FFF;
     padding-block: 0.5rem;
@@ -162,12 +163,12 @@
 }
 .petition-7-btn {
     color: #FFF;
-    font-family: Poppins;
+    font-family:Noto Serif;
     /* padding: 5px 29px 0px 56px; */
     font-size: 16px;
     height: 7vh;
     display: flex;
-    width: 24vw;
+    width: 25vw;
     border: none;
     font-weight: 500;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
@@ -178,14 +179,14 @@
 }
 .petition-7-btn-tamil {
     display: flex;
-    width: 18vw;
+    width: 22.1vw;
     padding: 10px;
     height: auto;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 2px;
-    font-size: 1rem;
+    font-size: 1.2vw;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
     margin-inline-start: 2vw;
 }
@@ -209,6 +210,7 @@ line-height: normal;
     line-height: normal;
     width: 8rem;
 }
+
 .petition-select {
     background: #033876;
     color: #FFF;
@@ -270,7 +272,7 @@ line-height: normal;
     .page7-submit {
         display: flex;
         height: 10vh;
-        width: 100%;
+        width: 71vw;
         align-items: center;
         justify-content: center;
     }
@@ -278,16 +280,13 @@ line-height: normal;
         color: #000;
         text-align: center;
         font-family: Poppins;
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 0px;
         width: auto;
         font-style: normal;
         font-weight: 400;
     }
-    .page4-image1{
-        width: 50vw;
-    height: auto;
-    }
+ 
     .petition-7-btn {
         color: #FFF;
         font-family: Poppins;
@@ -297,11 +296,11 @@ line-height: normal;
         width: auto;
         padding: 10px;
         height: auto;
-        background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
+        background: linear-gradient(160deg, #356DFF 14.5%, #0030AD 79.56%), #E6E6E6;
         line-height: normal;
     }
     .petition-7-btn-tamil{
-        width: 48vw;
+        width: 39vw;
         font-size: 2.8vw;
     }
     .page-4-image-text {
@@ -314,6 +313,7 @@ line-height: normal;
     }
     .page7-petition-text{
         padding: 1rem;
+        height: 20vh;
     }
     .page7-petition-tamil-p{
         width: auto;
@@ -329,15 +329,23 @@ line-height: normal;
         height: auto;
     }
     .petition-7-btn{
-        width: 30vw;
+        width: 43vw;
     }
+ 
+}
+@media screen and (max-width: 1054px) {
+       .petition-in-c{
+        width: 18rem;
+    }
+    
 }
 @media screen and (max-width:420px){
     .petition-7-btn {
         width: 53vw;
     }
     .page-7-image-text {
-        height: 7vh;
+        height: 15vh;
+        padding: 0;
     }
     .petition-input-cont {
         padding-top: 0vh;
@@ -357,10 +365,53 @@ line-height: normal;
     .input-address-petition {
         width: 69vw;
     }
-    .input-audio-petition{
+    .input-audio-petition {
         width: 0vh;
+        padding-top: 3vh;
     }
     .file-upload-petition{
         padding-block: 0vh
     }
+    .page7-input-container{
+        padding-top: 2vh;
+    }
+    .petition-submit-btn {
+        width: 46vw;
+    }
+    
+}
+/* Add this CSS to your stylesheet */
+.success-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 36vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Poppins;
+    color: black;
+}
+  
+  .success-popup p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  /* You can customize the styling further to match your design preferences */
+  .close-button {
+    width: 11vw;
+    height: 4vh;
+    background-color: #da1111;
+    color: white;
+    border: none;
 }

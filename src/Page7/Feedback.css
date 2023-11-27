@@ -5,12 +5,20 @@
     justify-content: center;
 }
 .feedback-container-main{
-    background: #D3E6FD;
+    background: #d7ebbb;
     width: 75vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     height: auto;
+}
+p.count{
+    margin-left: 2rem;
+}
+.feed-sub {
+    display: flex;
+    flex-direction: column;
+    
 }
 .Feedback-heading{
     color: #000;
@@ -51,7 +59,7 @@
 }
 .feedbackname{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     width: 20vw;
     justify-content: space-between;
     flex-direction: row;
@@ -67,15 +75,22 @@
 }
 .feedback-input-conta{
     display: flex;
-    align-items: baseline;
+    /* align-items: baseline; */
 }
 .feedback-input-name{
     margin-left: 2rem;
     font-size: 1rem;
     border: 0.752px solid #000;
     width: 30vw;
-    background: #D3E6FD;
+    background: #fff;
     height: 6vh;
+    display: flex;
+    text-align: center;
+    font-weight: 600;
+}
+.equal1 {
+    padding-right: 2rem;
+    color: #000;
 }
 .feed-name{
     color: #000;
@@ -98,8 +113,9 @@ line-height: normal;
     width: 30vw;
     border: 0.752px solid #000;
     font-size: 1rem;
-    background: #D3E6FD;
+    background: #fff;
     height: 26vh;
+    padding-inline: 0.8vw;
 }
 .feed-btn-con {
     justify-content: center;
@@ -119,9 +135,9 @@ line-height: normal;
     cursor: pointer;
     border: none;
     height: 3rem;
+    letter-spacing: 0.5px;
     width: 12rem;
     line-height: normal;
-    text-transform: lowercase;
 }
 .feedback-btn-tamil{
     color: #FFF;
@@ -178,20 +194,20 @@ line-height: normal;
     .feedback-container{
         height: auto;
     }
+  
+    
     
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .feedback-input-conta {
         display: flex;
         flex-direction: column;
         align-items: baseline;
         gap: 2rem;
     }
-    .feedback-container{
-        height: auto;
-    }
+
     .feedback-input-name {
        margin-left: 0rem;
         font-size: 1rem;
@@ -201,10 +217,8 @@ line-height: normal;
         height: 33.822px;
     }
     .feedback-container {
-        display: flex;
-        align-items: center;
-        height: auto;
-        justify-content: center;
+    height: 100vh;
+      align-items: normal;
     }
     .feedback-textarea {
          margin-left: 0rem; 
@@ -228,11 +242,11 @@ line-height: normal;
     .feedback-btn {
         color: #FFF;
         font-family: Poppins;
-        font-size: 16px;
+        font-size: 14px;
         border-radius: 6.013px;
         background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
         font-style: normal;
-        font-weight: 600;
+        font-weight: 400;
         cursor: pointer;
         border: none;
         height: 2rem;

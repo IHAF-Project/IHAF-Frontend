@@ -1,25 +1,23 @@
 
 import { useTranslation } from 'react-i18next'
-import Ambeth from "../Assets/Frame 39.svg"
 import Quets from "../Assets/Frame 14.png"
 import PropTypes from 'prop-types';
 
-function Card1({isVisible}) {
+function Card1() {
+
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
+    const tamilLanguage = i18n.language === 'ta'
+
   return (
-      
-         <div className={`intro-slide-1 ${isVisible ? 'actived' : ''}`}>
+         <div className={`intro-slide-1 `}>
         <div className="intro-slide-content">
          <div className="intro-slide-content-right">
          <div className="intro-slide-content-right-top">
           <p>IHAF</p>
-          <span>
+          <span className={`${tamilLanguage ? 'Humanism-tamil': 'Humanism-english'}`}>
           {currentLanguage === 'ta' ? t('pageOne.1') : t('Integral Humanism Ambedkar Federation')}
           </span>
-         </div>
-         <div className="intro-slide-content-right-btm">
-         <img src={Ambeth} alt='Ambeth' />
          </div>
          </div>
          <div className="intro-slide-content-left">
@@ -27,7 +25,7 @@ function Card1({isVisible}) {
          <div className="Quates-img-1">
          <img src={Quets} alt='quates' />
          </div>
-        <p>
+        <p className={`${tamilLanguage ? 'quates-card1-tamil': 'quates-card1-english'}`}>
     <span>“</span>
   <span> {currentLanguage === 'ta' ? t('pageOne.2') : t('One')}</span>
   <span>{currentLanguage === 'ta' ? t('pageOne.4') : t('should')}</span>
@@ -48,7 +46,6 @@ function Card1({isVisible}) {
   <span>{currentLanguage === 'ta' ? t(null) : t('equal')}</span>
  <span>”</span>
 </p>
-          {/* <p>“ {currentLanguage === 'ta' ? t('pageOne.2') : t('One should think in terms of the poor, because development can happen only when everyone gets equal.')}”</p> */}
          <div className="Quates-img-2">
          <img src={Quets} alt='quates' style={{transform:'rotate(180deg)'}} />
          </div>
