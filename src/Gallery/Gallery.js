@@ -13,6 +13,27 @@ function Gallery() {
   const [open, setOpen] = useState(0);
   const [popupContent, setPopupContent] = useState('');
 
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    // Fetch videos from the API when the component mounts
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('https://ihaf-backend.vercel.app/get-all-images-videos');
+        const data = await response.json();
+        setVideos(data.data.getVideos);
+        console.log(videos,'videos')
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+
+    fetchVideos();
+  }, []); // Empty dependency array ensures the effect runs only once
+
+
+
+
   useEffect(() => {
     fetchImages();
   }, []);
@@ -37,6 +58,7 @@ function Gallery() {
       const response = await fetch('https://ihaf-backend.vercel.app/get-all-images-videos');
       const data = await response.json();
       setImages(data.data.getImage);
+    
     } catch (error) {
       console.error('Error fetching images:', error);
     }
@@ -186,7 +208,20 @@ function Gallery() {
                   ))}
               </div>
             )}
-            {fav === 1 && <Video favorites={videoFavorites} toggleFavorite={toggleFavorite} />}
+            {fav === 1 && 
+          
+            <div className='gallery-images-container'>
+             {videos
+            .filter((_, index) => videoFavorites[index])
+            .map((video, index) => (
+              <video controls  className='video-galry' key={index}>
+                <source src={video.videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ))}
+          </div>
+           
+          }
           </div>
         </div>
       )}
