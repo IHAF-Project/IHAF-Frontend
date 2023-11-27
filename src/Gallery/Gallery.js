@@ -1,44 +1,72 @@
-// Gallery.js
-
 import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import Video from './Video';
 import Navbar from '../COMPONENTS/NAVBAR/Navbar';
-
-
+ 
+ 
 function Gallery() {
   const [images, setImages] = useState([]);
   const [favorites, setFavorites] = useState(loadFavorites('fav'));
   const [videoFavorites, setVideoFavorites] = useState(loadFavorites('videoFav'));
   const [open, setOpen] = useState(0);
   const [popupContent, setPopupContent] = useState('');
-
+ 
+  const [videos, setVideos] = useState([]);
+ 
+  useEffect(() => {
+    // Fetch videos from the API when the component mounts
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('https://ihaf-backend.vercel.app/get-all-images-videos');
+        const data = await response.json();
+        setVideos(data.data.getVideos);
+        console.log(videos,'videos')
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+ 
+    fetchVideos();
+  }, []); // Empty dependency array ensures the effect runs only once
+ 
+ 
+ 
+ 
   useEffect(() => {
     fetchImages();
   }, []);
-
+ 
+  function saveFavorites(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+ 
+  function loadFavorites(key) {
+    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
+  }
   useEffect(() => {
     saveFavorites('fav', favorites);
   }, [favorites]);
-
+ 
   useEffect(() => {
     saveFavorites('videoFav', videoFavorites);
   }, [videoFavorites]);
-
+ 
   async function fetchImages() {
     try {
       const response = await fetch('https://ihaf-backend.vercel.app/get-all-images-videos');
       const data = await response.json();
       setImages(data.data.getImage);
+   
     } catch (error) {
       console.error('Error fetching images:', error);
     }
   }
-
+ 
   const handleClick = (index) => {
     setOpen(index);
+ 
   };
-
+ 
   const toggleFavorite = (index, type) => {
     if (type === 'video') {
       const newVideoFavorites = [...videoFavorites];
@@ -50,29 +78,20 @@ function Gallery() {
       setFavorites(newFavorites);
     }
   };
-
-  function loadFavorites(key) {
-    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
-  }
-
-  function saveFavorites(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
+ 
+ 
   const [fav, setFav] = useState(0);
-
+ 
   const handleClick1 = (index) => {
     setFav(index);
   };
-
-  const handlePopupClose = () => {
-    setPopupContent('');
-  };
-
+ 
+ 
+ 
   return (
     <div>
       <Navbar />
-
+ 
       {open === 0 && (
         <div className='gallery-container'>
           <div className='gallery-head'>
@@ -96,17 +115,17 @@ function Gallery() {
                   {favorites[index] ? '❤️' : '🤍'}
                 </div>
                 <img
-                  src={image.imageUrl} 
-                  alt={`image ${index + 1}`}
+                  src={image.imageUrl}
+                  alt={`${index + 1}`}
                   className='images-gal'
-                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`image ${index + 1}`} />)}
+                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
                 />
               </div>
             ))}
           </div>
         </div>
       )}
-
+ 
       {open === 1 && (
         <div className='gallery-container'>
           <div className='gallery-head'>
@@ -137,7 +156,7 @@ function Gallery() {
           />
         </div>
       )}
-
+ 
       {open === 2 && (
         <div className='favorate-image-container'>
           <div className='gallery-video'>
@@ -171,7 +190,7 @@ function Gallery() {
                 </div>
               </div>
             </div>
-
+ 
             {fav === 0 && (
               <div className='gallery-images-container'>
                 {images
@@ -187,15 +206,28 @@ function Gallery() {
                   ))}
               </div>
             )}
-            {fav === 1 && <Video favorites={videoFavorites} toggleFavorite={toggleFavorite} />}
+            {fav === 1 &&
+         
+            <div className='gallery-images-container'>
+             {videos
+            .filter((_, index) => videoFavorites[index])
+            .map((video, index) => (
+              <video controls  className='video-galry' key={index}>
+                <source src={video.videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ))}
+          </div>
+           
+          }
           </div>
         </div>
       )}
-
+ 
       {/* Popup */}
      
     </div>
   );
 }
-
+ 
 export default Gallery;
