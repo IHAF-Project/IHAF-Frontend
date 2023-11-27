@@ -1,10 +1,10 @@
 
 import { useTranslation } from 'react-i18next'
-import Ambeth from "../Assets/Frame 39.svg"
 import Quets from "../Assets/Frame 14.png"
 import PropTypes from 'prop-types';
 
 function Card1() {
+
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
     const tamilLanguage = i18n.language === 'ta'
@@ -46,7 +46,6 @@ function Card1() {
   <span>{currentLanguage === 'ta' ? t(null) : t('equal')}</span>
  <span>”</span>
 </p>
-          {/* <p>“ {currentLanguage === 'ta' ? t('pageOne.2') : t('One should think in terms of the poor, because development can happen only when everyone gets equal.')}”</p> */}
          <div className="Quates-img-2">
          <img src={Quets} alt='quates' style={{transform:'rotate(180deg)'}} />
          </div>

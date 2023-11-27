@@ -140,7 +140,6 @@ const handleFormChange = (e) => {
   if (name === "aadharCard") {
     isValid = /^[0-9]{12}$/.test(value);
   }
- 
   if (name === 'DateOfBirth') {
     setformData({
       ...formData,
@@ -219,7 +218,7 @@ const handleFormSumbit = async (e) => {
 
 
 
-const handleAadharFileSelect = async (e) => {
+  const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
   const formData = new FormData();
   formData.append('file', selectedFile);
@@ -258,9 +257,10 @@ const handleProfileFileSelect = async (e) => {
     console.log('Error uploading profile file:', error);
   }
 };
+
 const handleKeyDown = (e) => {
+  e.preventDefault(); // Prevent the default form submission
   if (e.key === 'Enter') {
-    e.preventDefault(); // Prevent the default form submission
     handleFormSumbit(e);
   }
 };

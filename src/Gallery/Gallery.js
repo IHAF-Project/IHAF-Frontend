@@ -38,8 +38,15 @@ function Gallery() {
     fetchImages();
   }, []);
 
+  function saveFavorites(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function loadFavorites(key) {
+    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
+  }
   useEffect(() => {
-    saveFavorites('fav', favorites);
+    saveFavorites('fav', favorites); 
   }, [favorites]);
 
   useEffect(() => {
@@ -59,6 +66,7 @@ function Gallery() {
 
   const handleClick = (index) => {
     setOpen(index);
+
   };
 
   const toggleFavorite = (index, type) => {
@@ -73,13 +81,6 @@ function Gallery() {
     }
   };
 
-  function loadFavorites(key) {
-    return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
-  }
-
-  function saveFavorites(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
 
   const [fav, setFav] = useState(0);
 
@@ -87,9 +88,7 @@ function Gallery() {
     setFav(index);
   };
 
-  const handlePopupClose = () => {
-    setPopupContent('');
-  };
+
 
   return (
     <div>
@@ -119,9 +118,9 @@ function Gallery() {
                 </div>
                 <img
                   src={image.imageUrl} 
-                  alt={`image ${index + 1}`}
+                  alt={`${index + 1}`}
                   className='images-gal'
-                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`image ${index + 1}`} />)}
+                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
                 />
               </div>
             ))}

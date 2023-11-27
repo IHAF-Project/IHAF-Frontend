@@ -44,8 +44,8 @@ function Login() {
   };
 
   const handleKeyDown = async (e) => {
+    e.preventDefault();
     if (e.key === 'Enter') {
-      e.preventDefault();
       handleSubmit(e);
     }
   };
