@@ -13,7 +13,6 @@ const Popup = ({ message, type, onClose }) => {
 
     return () => clearTimeout(timer);
   }, [onClose]);
-
   return isVisible ? (
     <div className={`custom-notification ${type}`}>
       <p>{message}</p>

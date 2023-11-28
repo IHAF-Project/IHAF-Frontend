@@ -53,10 +53,10 @@ function ZoomMeeting() {
             className={`code-text ${isCodeCopied ? 'copied' : ''}`}
             onClick={handleCopyCodeClick}
           >
-            {selectedMeetUrl}
+           <a href='{selectedMeetUrl}'> {selectedMeetUrl}</a> 
           </span>
         </p>
-        {isCodeCopied && window.alert("link copied")}
+       
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
-import React, { useState ,useEffect} from 'react'
+// Video.js
+
+import React, { useState ,useEffect} from 'react';
 import image2 from "../Assets/Polygon 11.png";
 import close from "../Assets/+.png";
  

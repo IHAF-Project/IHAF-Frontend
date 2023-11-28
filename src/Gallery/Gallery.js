@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import Video from './Video';
 import Navbar from '../COMPONENTS/NAVBAR/Navbar';
+import { useTranslation } from 'react-i18next';
+// import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
  
  
 function Gallery() {
+  const { t, i18n } = useTranslation();
+  const isTamilLanguage = i18n.language === 'ta';
   const [images, setImages] = useState([]);
   const [favorites, setFavorites] = useState(loadFavorites('fav'));
   const [videoFavorites, setVideoFavorites] = useState(loadFavorites('videoFav'));
@@ -44,7 +48,7 @@ function Gallery() {
     return JSON.parse(localStorage.getItem(key)) || Array(images.length).fill(false);
   }
   useEffect(() => {
-    saveFavorites('fav', favorites);
+    saveFavorites('fav', favorites); 
   }, [favorites]);
  
   useEffect(() => {
@@ -94,53 +98,66 @@ function Gallery() {
  
       {open === 0 && (
         <div className='gallery-container'>
+          <div className='sub-main' >'
           <div className='gallery-head'>
-            <p className='gallery-heading'>Gallery</p>
+            <p className='gallery-heading'> {t('Gallery.1')}</p>
           </div>
           <div className='gallery-body'>
             <p className={` ${open === 0 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(0)}>
-              Image
+            {t('Gallery.2')}
             </p>
             <p className={` ${open === 1 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(1)}>
-              Video
+            {t('Gallery.3')}
             </p>
             <p className={`${open === 2 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(2)}>
-              Favorites
+            {t('Gallery.4')}
             </p>
           </div>
-          <div className='gallery-images-container'>
-            {images.map((image, index) => (
-              <div key={index} className='image-container'>
-                <div className='favorite-icon' onClick={() => toggleFavorite(index, 'image')} style={{ fontSize: '24px', cursor: 'pointer' }}>
-                  {favorites[index] ? '❤️' : '🤍'}
-                </div>
-                <img
-                  src={image.imageUrl}
-                  alt={`${index + 1}`}
-                  className='images-gal'
-                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
-                />
-              </div>
-            ))}
           </div>
+          <div className='gallery-images-container'>
+  {images.length > 0 ? (
+    images.map((image, index) => (
+      <div key={index} className='image-container'>
+        <div
+          className='favorite-icon'
+          onClick={() => toggleFavorite(index, 'image')}
+          style={{ fontSize: '24px', cursor: 'pointer' }}
+        >
+          {favorites[index] ? '❤️' : '🤍'}
+        </div>
+        <img
+          src={image.imageUrl}
+          alt={`${index + 1}`}
+          className='images-gal'
+          onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
+        />
+      </div>
+    ))
+  ) : (
+    <div  className='no-data-message'>No images available</div>
+  )}
+</div>
+
         </div>
       )}
  
       {open === 1 && (
         <div className='gallery-container'>
+          <div className='sub-main' >'
           <div className='gallery-head'>
-            <p className='gallery-heading'>Gallery</p>
+            <p className='gallery-heading'> {t('Gallery.1')}</p>
           </div>
           <div className='gallery-body'>
             <p className={` ${open === 0 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(0)}>
-              Image
+            {t('Gallery.2')}
             </p>
             <p className={` ${open === 1 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(1)}>
-              Video
+            {t('Gallery.3')}
             </p>
             <p className={`${open === 2 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(2)}>
-              Favorites
+            {t('Gallery.4')}
             </p>
+          </div>
           </div>
           <Video
             favorites={videoFavorites}
@@ -159,33 +176,33 @@ function Gallery() {
  
       {open === 2 && (
         <div className='favorate-image-container'>
-          <div className='gallery-video'>
-            <div className='gallery-fav-cont'>
-              <div className='gallery-head'>
-                <p className='gallery-heading'>Gallery</p>
-              </div>
-              <div className='gallery-body'>
-                <p className={` ${open === 0 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(0)}>
-                  Image
-                </p>
-                <p className={` ${open === 1 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(1)}>
-                  Video
-                </p>
-                <p className={`${open === 2 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(2)}>
-                  Favorites
-                </p>
-              </div>
-            </div>
+          <div className='gallery-container'>
+          <div className='sub-main' >'
+          <div className='gallery-head'>
+            <p className='gallery-heading'> {t('Gallery.1')}</p>
+          </div>
+          <div className='gallery-body'>
+            <p className={` ${open === 0 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(0)}>
+            {t('Gallery.2')}
+            </p>
+            <p className={` ${open === 1 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(1)}>
+            {t('Gallery.3')}
+            </p>
+            <p className={`${open === 2 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(2)}>
+            {t('Gallery.4')}
+            </p>
+          </div>
+          </div>
             <div className='fav-main'>
               <div className='favorate-image-C'>
                 <div className='sdfghjkk'>
                   <button className={`${fav === 0 ? 'fav-text' : 'fav-text-C'}`} onClick={() => handleClick1(0)}>
-                    IMAGES
+                  {t('Gallery.2')}
                   </button>
                 </div>
                 <div>
                   <button className={`${fav === 1 ? 'fav-text' : 'fav-text-C'}`} onClick={() => handleClick1(1)}>
-                    VIDEOS
+                  {t('Gallery.3')}
                   </button>
                 </div>
               </div>

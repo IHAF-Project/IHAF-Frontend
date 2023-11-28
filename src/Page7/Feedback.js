@@ -61,10 +61,18 @@ useEffect (() =>{
         console.log(data, "feedback items received");
         setFeedItems(data);
       } else {
-        console.error(response.data, "feedback error message");
         toast.success('User feedback received successfully',{
           position:'top-right'
+         
         })
+        console.error(response.data, "feedback error message");
+        setTimeout(()=>{
+         
+          navigate('/')
+        
+        },3000)
+       
+
       }
     } catch (error) {
       console.error(error.message, "error message");

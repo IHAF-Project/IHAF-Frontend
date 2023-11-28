@@ -9,16 +9,16 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import profile1 from '../../Assets/Logout.svg'
 import profile2 from '../../Assets/Chat (2).png'
 import profile3 from '../../Assets/Exchange.png'
-import closeimg from "../../../src/Assets/+.png"
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
+
 
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
-const  [userData,setUserData] = useState(null)
+ const [userData,setUserData] = useState(null)
 
 
   const handleClickPop = () => {
@@ -32,10 +32,10 @@ const  [userData,setUserData] = useState(null)
  const { t, i18n } = useTranslation();
 
  function toggleLanguage() {
-    const currentLanguage = i18n.language; 
 
-    const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
-    i18n.changeLanguage(newLanguage);
+  const currentLanguage = i18n.language; 
+  const newLanguage = currentLanguage === 'ta' ? 'en' : 'ta';
+  i18n.changeLanguage(newLanguage);
    
  }
 
@@ -43,29 +43,29 @@ const  [userData,setUserData] = useState(null)
  const _id = storedData?.data?._id
  
 
- 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`);
-      const data = await response.json();
+useEffect (() =>{
 
-      if (data?.data?.isAdminApproved === true ) {
-       
-        // window.location.reload();
-        
-      }
-    };
-
-    fetchData();
-  }, [])
+  const fetchData = async () =>{
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const data = await response.json();
+    
+  if(data?.data?.isAdminApproved){
+    setUserData(data?.data)
+    console.log(userData,'api-successfully')
+  }else{
+    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+  }
+  }
+  fetchData()
+},[])
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
- const memberId =storedData?.data?.memberID ||userData?.memberID
-// const memberId= false
+ const memberId =userData?.memberID
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
+
  const textRef = useRef(null);
  const [copyMessage, setCopyMessage] = useState("");
 
@@ -99,7 +99,6 @@ const  [userData,setUserData] = useState(null)
       ): (
 ''
       )}
-     
         </div>
          </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
@@ -114,17 +113,17 @@ const  [userData,setUserData] = useState(null)
         <ul>
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
-          <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li>
-          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
+          {/* <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li> */}
+          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery.1')}</Link></li>
         </ul>
       </div>
       </div>
       <div className='navbarsocial-M'>
       <div className="navbar-social">
-      <a href="https://x.com/ihafindia?s=21" ><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://instagram.com/ihafindia?igshid=MzRlODBiNWFlZA==" ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></a>
-        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" ><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
+      <a href="https://x.com/ihafindia?s=21" target='_blank'><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://instagram.com/ihafindia?igshid=MzRlODBiNWFlZA==" target='_blank' ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" target='_blank' ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></a>
+        <a href="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" target='_blank'><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></a>
       </div>
       <div className='translate-btn-1'>
         <button>
@@ -169,60 +168,31 @@ const  [userData,setUserData] = useState(null)
       
       {isPop &&
        <div className='Popcontainer'>
-       
        <div className='Pop-page'>
-       {/* <div className='popup-image-close'>
-        X
-       </div> */}
        <div className='profile-icon'>
-  {memberId ? (
-    <Link to={`/profile/${memberId}`}>
-      <img
-        src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
-        alt='ProfileImage'
-        width="75px"
-        height="75px"
-      />
-    </Link>
-  ) : (
-    <>
-      <Link to={`/join/${memberId}`} style={{ textDecoration: 'underline',color: 'yellow' }}>Join in</Link>{" "}IHAF soon...
-    </>
-  )}
-</div>
+       {memberId ? (
+        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        </Link> ) : 'Not Approved Yet' } 
+       </div>
+       <div className='referal-code'>
 
+       <img src={profile3} alt='refetal-code'/>
 
-    {memberId && (
-  <div className='referal-code'>
-    <img src={profile3} alt='refetal-code'/>
     <div className="paste-button">
-      <button className="button">REFERALCODE &nbsp;▼</button>
-      <div className="dropdown-content">
-        <a
-          id="top"
-          onClick={handleCopyClick}
-          ref={textRef}
-          style={{ cursor: 'pointer'}}
-        >
-          {refferal}
-        </a>
-        <div style={{ backgroundColor: 'white', color: 'black', margin: '0.5rem', fontSize: '16px' }}>
-          {copyMessage}
-        </div>
-      </div>
-    </div>
+   <button className="button">REFERALCODE &nbsp;▼</button>
+   <div className="dropdown-content">
+    <a id="top"  onClick={handleCopyClick}  ref={textRef}
+          style={{ cursor: 'pointer'}}>{refferal}</a>
+    <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
   </div>
-)}
-
-{memberId && (
-  <div className='feedback-pop'>
-    <img src={profile2} alt='feedback' />
-    <Link to="/feedback">
+</div>
+       </div>
+       <div className='feedback-pop'>
+        <img src={profile2} alt='feedback' />
+        <Link to="/feedback">
       <p>FEEDBACK</p>
     </Link>
-  </div>
-)}
-
+       </div>
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>

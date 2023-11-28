@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import Stack from '@mui/material/Stack';
@@ -6,36 +7,28 @@ import Button from '@mui/material/Button';
 import Navbar from "../COMPONENTS/NAVBAR/Navbar";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
-
-
+ 
+ 
 function Login() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
-
+ 
   const [formData, setFormData] = useState({
     phoneNumber: '',
   });
   const [isInputValid, setIsInputValid] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [notificationData, setNotificationData] = useState({});
+  
   const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
+ 
 
-  const handleNotification = (message, type) => {
-    setNotificationData({ message, type });
-    setShowNotification(true);
-  };
-
-  const closeNotification = () => {
-    setShowNotification(false);
-  };
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const isValid = /^[0-9]{10}$/.test(value);
@@ -45,7 +38,7 @@ function Login() {
       [name]: value,
     });
   };
-
+ 
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -56,23 +49,23 @@ function Login() {
     setShowPopup(false);
    
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSentOTP(true);
-
+ 
     if (formData.phoneNumber.length === 10 && isInputValid) {
       try {
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
         });
-
+ 
         const check = { data: { success: true } };
-
+ 
         if (check.data.success) {
-
+ 
           setConfirmPopupData(formData.phoneNumber);
-
+ 
           // Show ConfirmPopup on successful OTP send
           toast.success('OTP sent successfully.', {
             position: toast.POSITION.TOP_CENTER,
@@ -82,12 +75,8 @@ function Login() {
               // For example, use react-router-dom history to push to another page
               navigate('/Otp');
             },
-          });
-
-          handleNotification('OTP Sent Successfully', 'success');
-        } else {
-          handleNotification('Failed to update data', 'error');
-        }
+          })
+        } 
         console.log(response);
       } catch (error) {
         console.error('Error:', error);
@@ -99,9 +88,9 @@ function Login() {
       toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_CENTER });
     }
   };
-
+ 
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
-
+ 
   return (
     <>
       <Navbar />
@@ -157,7 +146,7 @@ function Login() {
       </div>
       {/* Replace ToastContainer with your custom notification */}
       <ToastContainer />
-      
+     
       {/* Conditionally render ConfirmPopup */}
       {showPopup && (
         <ConfirmPopup
@@ -170,5 +159,5 @@ function Login() {
     </>
   );
 }
-
+ 
 export default Login;
