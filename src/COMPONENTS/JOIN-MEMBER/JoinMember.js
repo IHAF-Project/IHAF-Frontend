@@ -21,7 +21,8 @@ function JionMember() {
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
-
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const localid = storedData?.data?.memberID;
 
   const {_id}=useParams()
   const navigate =useNavigate()
@@ -157,6 +158,8 @@ const handleFormChange = (e) => {
 };
 
 const updateFormData = async (e) => {
+  if(!localid)
+  {
   
   const isValid = Object.entries(formData).every(([key, value]) => {
     if (key === "referredBy") {
@@ -190,14 +193,16 @@ const updateFormData = async (e) => {
       // });
      
     } else {
+ 
      
-      toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
+      toast.error('Failed to update data.', {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose:4000
+        autoClose:5000
       });
-      setTimeout(()=>{
-        navigate('/')
-      },4000)
+   
+      // setTimeout(()=>{
+      //   navigate('/')
+      // },8000)
       console.error('Failed to update data');
     }
   } catch (error) {
@@ -207,12 +212,22 @@ const updateFormData = async (e) => {
     });
     console.error('Error updating data:', error);
   }
-
+  }
 };
 
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
+  if(localid){
+    toast.error(`You are already a member, and your memberID is ${localid}.`, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose:3000
+    });
+    setTimeout(() => {
+      navigate('/')
+    }, 6000);
+   
+  }
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
@@ -221,7 +236,7 @@ const handleYesClick =async (e) => {
   
  if(popdata==='successfully'){
   setpopsuccess(false)
-    navigate('/')
+    // navigate('/')
  }
  else{
   setpopsuccess(false)
@@ -320,7 +335,7 @@ useScrollToTop();
 
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input type='text' id='name' name='name' value={formData.name} required onChange={handleFormChange}/> <br/>
+         <input type='text' id='name' name='name' value={formData.name}  onChange={handleFormChange}/> <br/>
          </div>
 
          <div className='JionFrom-content-inputs'>
@@ -328,7 +343,7 @@ useScrollToTop();
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
+         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
        
          </div>
 

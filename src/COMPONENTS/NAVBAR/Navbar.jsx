@@ -21,6 +21,7 @@ const Navbar = () => {
  const [userData,setUserData] = useState(null)
 
 
+
   const handleClickPop = () => {
     setIsPop(!isPop);
   };
@@ -61,6 +62,7 @@ useEffect (() =>{
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
  const memberId =userData?.memberID
+ const userprofile= userData?.profileURL
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
@@ -137,7 +139,7 @@ useEffect (() =>{
        
          {phoneNumber ? 
           (
-         <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
+         <img className='profile' src={userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
           ( 
            <button>
@@ -171,12 +173,12 @@ useEffect (() =>{
        <div className='Pop-page'>
        <div className='profile-icon'>
        {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        <Link to={`/profile/${memberId}`}> <img className='profile' src= {userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
         </Link> ) : 'Not Approved Yet' } 
        </div>
        <div className='referal-code'>
 
-       <img src={profile3} alt='refetal-code'/>
+       <img className='profile' src={profile3} alt='refetal-code'/>
 
     <div className="paste-button">
    <button className="button">REFERALCODE &nbsp;▼</button>

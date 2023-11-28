@@ -217,6 +217,9 @@ background: #356DFF;
   position: absolute;
   justify-content: flex-end;
 }
+.profile {
+  border-radius: 40vw;
+}
 .Pop-page{
   width: 239px;
   height: auto;
