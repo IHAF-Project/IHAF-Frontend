@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import Video from './Video';
 import Navbar from '../COMPONENTS/NAVBAR/Navbar';
+// import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
  
  
 function Gallery() {
@@ -94,6 +95,7 @@ function Gallery() {
  
       {open === 0 && (
         <div className='gallery-container'>
+          <div className='sub-main' >'
           <div className='gallery-head'>
             <p className='gallery-heading'>Gallery</p>
           </div>
@@ -108,26 +110,37 @@ function Gallery() {
               Favorites
             </p>
           </div>
-          <div className='gallery-images-container'>
-            {images.map((image, index) => (
-              <div key={index} className='image-container'>
-                <div className='favorite-icon' onClick={() => toggleFavorite(index, 'image')} style={{ fontSize: '24px', cursor: 'pointer' }}>
-                  {favorites[index] ? '❤️' : '🤍'}
-                </div>
-                <img
-                  src={image.imageUrl}
-                  alt={`${index + 1}`}
-                  className='images-gal'
-                  onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
-                />
-              </div>
-            ))}
           </div>
+          <div className='gallery-images-container'>
+  {images.length > 0 ? (
+    images.map((image, index) => (
+      <div key={index} className='image-container'>
+        <div
+          className='favorite-icon'
+          onClick={() => toggleFavorite(index, 'image')}
+          style={{ fontSize: '24px', cursor: 'pointer' }}
+        >
+          {favorites[index] ? '❤️' : '🤍'}
+        </div>
+        <img
+          src={image.imageUrl}
+          alt={`${index + 1}`}
+          className='images-gal'
+          onClick={() => setPopupContent(<img src={image.imageUrl} alt={`${index + 1}`} />)}
+        />
+      </div>
+    ))
+  ) : (
+    <div  className='no-data-message'>No images available</div>
+  )}
+</div>
+
         </div>
       )}
  
       {open === 1 && (
         <div className='gallery-container'>
+          <div className='sub-main'>
           <div className='gallery-head'>
             <p className='gallery-heading'>Gallery</p>
           </div>
@@ -141,6 +154,7 @@ function Gallery() {
             <p className={`${open === 2 ? 'image-text' : 'image-text-cont'}`} onClick={() => handleClick(2)}>
               Favorites
             </p>
+          </div>
           </div>
           <Video
             favorites={videoFavorites}
