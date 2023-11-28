@@ -114,7 +114,7 @@ const  [userData,setUserData] = useState(null)
         <ul>
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
-          <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li>
+          {/* <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li> */}
           <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
         </ul>
       </div>
@@ -201,7 +201,7 @@ const  [userData,setUserData] = useState(null)
         <a
           id="top"
           onClick={handleCopyClick}
-          ref={textRef}
+          href={textRef}
           style={{ cursor: 'pointer'}}
         >
           {refferal}

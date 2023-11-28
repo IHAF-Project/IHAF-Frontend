@@ -49,7 +49,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
   }, []);
 
   return (
@@ -59,7 +59,7 @@ const App = () => {
   <div className='kitna-container'>
   <div className= "kinetic"  >
   <div className= "kinetic1"  >  
-   <img src = {image2}  className='image-logo-loading'></img>
+   <img src = {image2} alt='load' className='image-logo-loading'></img>
    </div>
    </div>
 </div>
