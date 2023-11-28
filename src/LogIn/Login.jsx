@@ -6,11 +6,13 @@ import Button from '@mui/material/Button';
 import Navbar from "../COMPONENTS/NAVBAR/Navbar";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom'; 
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
 
 
 function Login() {
+  const navigate = useNavigate(); 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
 
@@ -21,6 +23,7 @@ function Login() {
   const [showPopup, setShowPopup] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationData, setNotificationData] = useState({});
+  const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
 
@@ -56,6 +59,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSentOTP(true);
 
     if (formData.phoneNumber.length === 10 && isInputValid) {
       try {
@@ -70,7 +74,15 @@ function Login() {
           setConfirmPopupData(formData.phoneNumber);
 
           // Show ConfirmPopup on successful OTP send
-          setShowPopup(true);
+          toast.success('OTP sent successfully.', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 1000,
+            onClose: () => {
+              // Your navigation logic here
+              // For example, use react-router-dom history to push to another page
+              navigate('/Otp');
+            },
+          });
 
           handleNotification('OTP Sent Successfully', 'success');
         } else {
@@ -83,6 +95,7 @@ function Login() {
       }
     } else {
       // Show input error notification
+      setSentOTP(false);
       toast.error('Invalid phone number. Please enter 10 digits.', { position: toast.POSITION.TOP_CENTER });
     }
   };
@@ -122,6 +135,8 @@ function Login() {
                 }}
               />
             </div>
+            {sentOTP&&
+            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully ! Please wait..</div>}
             <div className="login-btn">
               <Stack spacing={2} direction="row">
                 <Button

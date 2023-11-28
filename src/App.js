@@ -31,6 +31,7 @@ const App = () => {
         setShowScrollButton(true);
       } else {
         setShowScrollButton(false);
+        console.log("hi")
       }
     };
     window.addEventListener('scroll', handleScroll);
