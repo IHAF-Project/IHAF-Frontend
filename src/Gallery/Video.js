@@ -44,12 +44,7 @@ function Video({ favorites, toggleFavorite }) {
               <source src={video.videoUrl} type="video/mp4"  />
               Your browser does not support the video tag.
             </video>
-              {/* <img
-                src={image1}
-                alt={`video ${index + 1}`}
-                
-                onClick={() => openPopup(video)}
-              /> */}
+            
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
