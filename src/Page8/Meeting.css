@@ -171,12 +171,18 @@
     justify-content: center;
     gap: 4rem;
 }
+span.code-text {
+    font-size: 4vw;
+}
 
 
 
 @media screen and (max-width: 898px) {
     .meeting-cont-btn{
         width: auto;
+    }
+    span.code-text {
+        font-size: 4vw;
     }
  .meeting-events{
     width: 10rem;
