@@ -51,10 +51,10 @@ function Login() {
   };
  
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setSentOTP(true);
  
-    if (formData.phoneNumber.length === 10 && isInputValid) {
+    if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
       try {
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
@@ -94,6 +94,7 @@ function Login() {
   return (
     <>
       <Navbar />
+      <form onSubmit={handleSubmit}>
       <div className="login-container">
         <div className="login-content">
           <h1 className={` ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
@@ -102,7 +103,7 @@ function Login() {
           <p className={`${isTamilLanguage ? 'tamil18-font5' : ''}`}>
             {t('Login.2')}
           </p>
-          <form onSubmit={handleSubmit}>
+         
             <div className="form-login">
               <label className={`${isTamilLanguage ? 'tamil18-font5' : ''}`}>
                 {t('Login.3')}
@@ -110,6 +111,7 @@ function Login() {
               <span>+91</span>
               <input
                 type="tel"
+                max='10'
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
@@ -141,9 +143,10 @@ function Login() {
                 </Button>
               </Stack>
             </div>
-          </form>
+         
         </div>
       </div>
+      </form>
       {/* Replace ToastContainer with your custom notification */}
       <ToastContainer />
      

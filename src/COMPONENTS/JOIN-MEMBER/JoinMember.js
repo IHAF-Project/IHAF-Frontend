@@ -21,7 +21,8 @@ function JionMember() {
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
-
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const localid = storedData?.data?.memberID;
 
   const {_id}=useParams()
   const navigate =useNavigate()
@@ -44,6 +45,7 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
+  let selectedAdhar;
 
   const tamilNaduDistricts = [
     'Ariyalur',
@@ -134,6 +136,7 @@ function JionMember() {
   
   
   const [isInputValid, setIsInputValid] = useState(true);
+  let selectedprofile;
   
 const handleFormChange = (e) => {
   const { name, value } = e.target;
@@ -157,6 +160,8 @@ const handleFormChange = (e) => {
 };
 
 const updateFormData = async (e) => {
+  if(!localid)
+  {
   
   const isValid = Object.entries(formData).every(([key, value]) => {
     if (key === "referredBy") {
@@ -190,29 +195,40 @@ const updateFormData = async (e) => {
       // });
      
     } else {
+      const errorData = await response.json(); // Assuming the error response contains JSON data
+      console.error('Error:', errorData);
+ 
      
-      toast.error('Failed to update data.Your are already a member and your memberID is IHAF0010.', {
+      toast.error(`${errorData}`, {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose:4000
+        autoClose:5000
       });
-      setTimeout(()=>{
-        navigate('/')
-      },4000)
-      console.error('Failed to update data');
+   
+     
     }
   } catch (error) {
 
-    toast.error('Error updating data. Please try again later.', {
+    toast.error(`${error}`, {
       position: toast.POSITION.TOP_RIGHT,
     });
     console.error('Error updating data:', error);
   }
-
+  }
 };
 
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
+  if(localid){
+    toast.error(`You are already a member, and your memberID is ${localid}.`, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose:3000
+    });
+    setTimeout(() => {
+      navigate('/')
+    }, 6000);
+   
+  }
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
@@ -221,7 +237,7 @@ const handleYesClick =async (e) => {
   
  if(popdata==='successfully'){
   setpopsuccess(false)
-    navigate('/')
+    // navigate('/')
  }
  else{
   setpopsuccess(false)
@@ -239,6 +255,7 @@ const handleYesClick =async (e) => {
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
+    
     console.log(secureUrl, "upload");
     setAadharFile(secureUrl);
     setformData(prevData => ({
@@ -259,6 +276,7 @@ const handleProfileFileSelect = async (e) => {
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
+    selectedprofile=secureUrl
     console.log(secureUrl, "upload");
     setProfileFile(secureUrl);
     setformData(prevData => ({
@@ -320,7 +338,7 @@ useScrollToTop();
 
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input type='text' id='name' name='name' value={formData.name} required onChange={handleFormChange}/> <br/>
+         <input type='text' id='name' name='name' value={formData.name}  onChange={handleFormChange}/> <br/>
          </div>
 
          <div className='JionFrom-content-inputs'>
@@ -328,7 +346,7 @@ useScrollToTop();
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
+         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
        
          </div>
 
@@ -535,6 +553,9 @@ useScrollToTop();
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
+      <div className='preview'>
+        <img src={aadharFile} alt='preview'></img>
+      </div>
          </div>
 {/* uploadphoto */}
          <div className='Upload-content-inputs'>
@@ -557,6 +578,9 @@ useScrollToTop();
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')}</p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {profileFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
+      </div>
+      <div className='preview'>
+        <img src={profileFile} alt='preview'></img>
       </div>
          </div>
          <div className='JoinNow'>

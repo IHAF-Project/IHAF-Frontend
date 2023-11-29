@@ -244,6 +244,11 @@
     .zoom-meeting-cont {
         width: 64vw; 
         flex-direction: column;
+        span.code-text {
+    font-size: 4vw;
+}span.code-text {
+    font-size: 4vw;
+}
  
     }
     .zoom-meet-design{

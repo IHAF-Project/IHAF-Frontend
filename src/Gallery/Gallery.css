@@ -48,7 +48,7 @@
   border: 1px solid #b9f8c7;
 }
 .sub-main {
-  display: flex;flex-direction: column;height: 23vh;
+  display: flex;flex-direction: column;
 }
 .fav-text {
   color: #333;
@@ -106,7 +106,6 @@
   height: 5vh;
   border-radius: 0.5vw;
 }
-
 .videos-container{
     display: flex;
     gap: 2rem;
