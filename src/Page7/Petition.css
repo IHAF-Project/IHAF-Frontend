@@ -385,6 +385,10 @@ line-height: normal;
     .petition-submit-btn {
         width: 46vw;
     }
+    .success-popup {
+        width: 57wh;
+        height: 15vh;
+    }
     
 }
 /* Add this CSS to your stylesheet */
