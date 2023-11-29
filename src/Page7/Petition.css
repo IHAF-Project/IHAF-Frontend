@@ -339,6 +339,13 @@ line-height: normal;
     }
     
 }
+@media screen and (max-width: 1024px) {
+    .page7-input-container {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+}
 @media screen and (max-width:420px){
     .petition-7-btn {
         width: 53vw;
