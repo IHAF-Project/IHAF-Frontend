@@ -21,7 +21,7 @@ function Profile() {
         const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/${memberId}`);
         if (response.ok) {
           const getData = await response.json();
-          setMemberDetails(getData.data);
+          setMemberDetails(getData?.data);
           console.log(getData.data.memberProfile, "member profile");
         } else {
           console.error('Error fetching member profile');
@@ -87,6 +87,8 @@ function Profile() {
       });
   };
 
+  console.log(memberDetails, "memberDetails");
+
   return (
     <>
       <div className="profile-contain">
@@ -125,7 +127,7 @@ function Profile() {
                           name={memberDetails?.memberProfile?.name}
                           DateOfJoining={getDate}
                           MemberID={memberDetails?.memberProfile?.memberID}
-                          Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+                          Profile={memberDetails?.memberProfile?.profileURL}
                         />
                         <div className="member-card-button">
                           <p onClick={() => exportToPNG('.membar-card', 'MembershipCard')}>Download</p>

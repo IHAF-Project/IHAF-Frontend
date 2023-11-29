@@ -11,63 +11,46 @@ function Petition() {
 
 
 
-  useEffect(() => {
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.toggle('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    const hiddenElements = document.querySelectorAll('.hidden-13');
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    const hiddenElements1 = document.querySelectorAll('.hidden-14');
-    hiddenElements1.forEach((el) => observer.observe(el));
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-      hiddenElements1.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const _id = storedData?.data?._id
+  const _id = storedData?.data?._id;
 
-  useEffect (() =>{
-    const fetchData = async () =>{
-      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`);
       const data = await response.json();
-    if(data?.data?.isAdminApproved === true){
-      setUserData(data?.data)
-      console.log(userData,'api-successfully')
-    }else{
-      console.log(storedData?.data?.isAdminApproved,'local-successfully')
-    }
-    }
-    fetchData()
-  },[])
+      if (data?.data?.isAdminApproved === true) {
+        setUserData(data?.data);
+        console.log(userData, 'api-successfully');
+      } else {
+        console.log(storedData?.data?.isAdminApproved, 'local-successfully');
+      }
+    };
+    fetchData();
+  }, []);
 
-  console.log(userData?.memberID, 'api')
- const memberID = userData?.memberID
-
+  const memberID = userData?.memberID;
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
-
   const [data, setdata] = useState({
-    memberID:memberID ||"",
+    memberID: memberID || '',
     issues: '',
     imageURL: '',
   });
+  const [fileName, setFileName] = useState(''); // State for tracking selected file name
+  const [isLoading, setIsLoading] = useState(false); // State for tracking loading status
 
-const handleSuccess = () => {
-  setSuccessPopupOpen(true);
-};
+  const handleSuccess = () => {
+    setSuccessPopupOpen(true);
+    setTimeout(() => {
+      setdata((prevState) => ({ ...prevState, issues: '' }));
+      setFileName(''); // Clear the selected file name
+    }, 0);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setdata({
       ...data,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -80,29 +63,34 @@ const handleSuccess = () => {
   }, [memberID]);
 
   const handleFileChange = async (e) => {
- 
     const file = e.target.files[0];
+    setFileName(file.name); // Set the file name
+
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', 'ivs6otkx');
 
     try {
+      setIsLoading(true); // Set loading to true while uploading
+
       const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
       const secureUrl = response.data.secure_url;
-      console.log(secureUrl, "upload");
-      
+      console.log(secureUrl, 'upload');
+
       setdata({
         ...data,
         imageURL: secureUrl,
       });
     } catch (error) {
       console.log('Error uploading file:', error);
+    } finally {
+      setIsLoading(false); // Set loading back to false after upload completes or fails
     }
   };
-  const handlesubmit = async (e) => {
-   
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
- 
+
     try {
       const res = await fetch('https://ihaf-backend.vercel.app/new-petition', {
         method: 'POST',
@@ -111,7 +99,7 @@ const handleSuccess = () => {
         },
         body: JSON.stringify(data),
       });
- 
+
       if (res.ok) {
         const t1 = await res.json();
         console.log(t1, 'success');
@@ -126,17 +114,18 @@ const handleSuccess = () => {
     }
   };
 
-
   return (
-    <div className="page7-petition-container abc" id='Petition'>
+    <div className="page7-petition-container abc" id="Petition">
       <div className="page-7-image-text">
         <img src={image1} alt="" className="page4-image1 hidden-13"></img>
         <p className={`hidden-14 ${isTamilLanguage ? 'petition-7-btn-tamil' : 'petition-7-btn'}`}>
           {t('hello.3')}
         </p>
       </div>
-      <div className='page7-petition-text '>
-        <p className={`${isTamilLanguage ? 'page7-petition-tamil-p' : 'page7-petition-text-p'}`}>{t('hello.4')} </p>
+      <div className="page7-petition-text ">
+        <p className={`${isTamilLanguage ? 'page7-petition-tamil-p' : 'page7-petition-text-p'}`}>
+          {t('hello.4')}{' '}
+        </p>
       </div>
       <div className="page7-input-container">
         <div className="petition-inputs">
@@ -156,7 +145,7 @@ const handleSuccess = () => {
               disabled
             />
           </div>
-       
+
           <div className="petition-input-cont">
             <div className="petition-in-c">
               <div>
@@ -171,7 +160,7 @@ const handleSuccess = () => {
               onChange={handleChange}
             ></textarea>
           </div>
-      
+
           <div className="petition-input-cont">
             <div className="petition-in-c">
               <div>
@@ -184,28 +173,35 @@ const handleSuccess = () => {
                 <input
                   className="file-upload-petition"
                   id="file"
-                  name='imageURL'
+                  name="imageURL"
                   accept="*/*"
                   type="file"
                   onChange={handleFileChange}
                 />
-               
+            
+            {isLoading ? (
+        <p style={{color: 'red'}}>Please wait, uploading the image...</p>
+      ) : (
+        <p style={{color: 'white'}}>{fileName}</p>
+      )}
               </div>
             </div>
           </div>
           <div className="page7-submit">
-            <button className="petition-submit-btn" onClick={handlesubmit}>
+            <button className="petition-submit-btn" onClick={handleSubmit}>
               {t('hello.6')}
             </button>
           </div>
         </div>
       </div>
-     
+
       {isSuccessPopupOpen && (
         <div className="success-popup">
-          <p>You submitted your petition successful!</p>
-          <p>Our support team will contact you and solve your petition quickly as possible.</p>
-          <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>Close</button>
+          <p>You submitted your petition successfully!</p>
+          <p>Our support team will contact you and solve your petition as quickly as possible.</p>
+          <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>
+            Close
+          </button>
         </div>
       )}
     </div>
@@ -213,5 +209,3 @@ const handleSuccess = () => {
 }
 
 export default Petition;
-
-

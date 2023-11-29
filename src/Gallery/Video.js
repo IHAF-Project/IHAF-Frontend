@@ -1,12 +1,12 @@
 import React, { useState ,useEffect} from 'react'
 import image2 from "../Assets/Polygon 11.png";
 import close from "../Assets/+.png";
-
+ 
 function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videos, setVideos] = useState([]);
-
+ 
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -17,7 +17,7 @@ function Video({ favorites, toggleFavorite }) {
         console.error('Error fetching videos:', error);
       }
     };
-
+ 
     fetchVideos();
   }, []); 
 
@@ -25,12 +25,12 @@ function Video({ favorites, toggleFavorite }) {
     setSelectedVideo(videoUrl);
     setPopupOpen(true);
   };
-
+ 
   const closePopup = () => {
     setSelectedVideo(null);
     setPopupOpen(false);
   };
-
+ 
   return (
     <div className='gallery-images-container'>
       <div className='videos-container'>
@@ -44,7 +44,7 @@ function Video({ favorites, toggleFavorite }) {
               <source src={video.videoUrl} type="video/mp4"  />
               Your browser does not support the video tag.
             </video>
-            
+           
             </div>
             <div>
               <button className='play-btn' onClick={() => openPopup(video)}>
@@ -54,7 +54,7 @@ function Video({ favorites, toggleFavorite }) {
           </div>
         ))}
       </div>
-
+ 
       {popupOpen && selectedVideo && (
         <div className='popup'>
           <div className='popup-content-C'>
@@ -69,5 +69,5 @@ function Video({ favorites, toggleFavorite }) {
     </div>
   );
 }
-
+ 
 export default Video;

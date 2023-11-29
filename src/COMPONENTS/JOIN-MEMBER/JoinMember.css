@@ -364,7 +364,7 @@ border-radius: 0.38213rem;
 }
 .JoinNow button:not(:disabled){
   background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
-  width: 18vw;
+  width: 158px;
 }
 .uploaded-btn{
   display: flex;
@@ -424,13 +424,26 @@ img.jionMember-coverImg{
       flex-direction: column;
       align-items: center;
     }
+    .JionFrom-content-right {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
     .JionFrom-content-inputs{
       width: 75vw;
     }
     img.jionMember-coverImg {
       width: 100%;
-      height: 55vh;
+      height: 496px;
       object-fit: cover;
+  }
+  .jion-cont{
+    width: 24vw;
+
+  }
+  .JionFrom-content-inputs input {
+    width: 43vw;
   }
 
   }
@@ -440,6 +453,14 @@ img.jionMember-coverImg{
     gap:1em;
     align-items: flex-start;
   }
+  .ad-data {
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+}
+  .JionFrom-content-inputs input {
+    width: 64vw;
+}
   .JionFrom-content-left{
     width: 100%;
   }
@@ -462,4 +483,28 @@ img.jionMember-coverImg{
   .JoinNow p{
     margin: 0;
   }
+  
+}
+
+@media screen and (max-width: 290px) {
+  .jionMember-coverImg {
+    width: 228px !important;
+}
+.JionFrom-content-inputs textarea{
+  margin: 0;
+  width: 14rem;
+  height: 10em;
+}
+.JionFrom-content-inputs input {
+  width: 80vw;
+}
+.data5 select{
+  margin: 0;
+}
+.JionFrom-content-inputs {
+  width: 89vw;
+}
+.data5 select{
+  width: 85vw;
+}
 }

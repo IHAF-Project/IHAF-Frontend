@@ -14,15 +14,15 @@ import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import "./JoinMember.css"
 import useScrollToTop from '../Hooks/useScrollToTop'
-
-
+ 
+ 
 function JionMember() {
-
+ 
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
-
-
+ 
+ 
   const {_id}=useParams()
   const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
@@ -42,7 +42,7 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
-
+ 
   const tamilNaduDistricts = [
     'Ariyalur',
     'Chengalpattu',
@@ -82,7 +82,7 @@ function JionMember() {
     'Viluppuram',
     'Virudhunagar',
   ];
-
+ 
   const indianStates = [
     'Andaman and Nicobar Islands',
     'Andhra Pradesh',
@@ -126,24 +126,24 @@ function JionMember() {
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   const education = ['10th','12th','UG','PG','Other'];
   const religions = ['Hinduism', 'Christianity', 'Islam', 'Buddhism', 'Judaism', 'Sikhism', 'Other'];
-
-  
-
-  
-  
+ 
+ 
+ 
+ 
+ 
   const [isInputValid, setIsInputValid] = useState(true);
-  
+ 
 const handleFormChange = (e) => {
   const { name, value } = e.target;
   let isValid = true;
-
+ 
   if (name === "aadharCard") {
     isValid = /^[0-9]{12}$/.test(value);
   }
   if (name === 'DateOfBirth') {
     setformData({
       ...formData,
-      [name]: value 
+      [name]: value
     });
   } else {
     setIsInputValid(isValid);
@@ -153,23 +153,23 @@ const handleFormChange = (e) => {
     });
   }
 };
-
+ 
 const updateFormData = async (e) => {
-  
+ 
   const isValid = Object.entries(formData).every(([key, value]) => {
     if (key === "referredBy") {
       return true;
     }
     return value !== "" && value !== null;
   });
-  
+ 
   if (!isValid) {
     toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
       position: toast.POSITION.TOP_RIGHT,
     });
     return;
   }
-  
+ 
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
@@ -178,7 +178,7 @@ const updateFormData = async (e) => {
       },
       body: JSON.stringify(formData),
     });
-
+ 
     if (response.ok) {
       const data = await response.json();
       setformData(data);
@@ -200,30 +200,30 @@ const updateFormData = async (e) => {
       console.error('Failed to update data');
     }
   } catch (error) {
-
+ 
     toast.error('Error updating data. Please try again later.', {
       position: toast.POSITION.TOP_RIGHT,
     });
     console.error('Error updating data:', error);
   }
-
+ 
 };
-
-
+ 
+ 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
-
-
-
+ 
+ 
+ 
   const handleAadharFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
   const formData = new FormData();
   formData.append('file', selectedFile);
   formData.append('upload_preset', 'ivs6otkx');
-
+ 
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
@@ -237,13 +237,13 @@ const handleFormSumbit = async (e) => {
     console.log('Error uploading Aadhar file:', error);
   }
 };
-
+ 
 const handleProfileFileSelect = async (e) => {
   const selectedFile = e.target.files[0];
   const formData = new FormData();
   formData.append('file', selectedFile);
   formData.append('upload_preset', 'ivs6otkx');
-
+ 
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
@@ -257,14 +257,14 @@ const handleProfileFileSelect = async (e) => {
     console.log('Error uploading profile file:', error);
   }
 };
-
+ 
 const handleKeyDown = (e) => {
   e.preventDefault(); // Prevent the default form submission
   if (e.key === 'Enter') {
     handleFormSumbit(e);
   }
 };
-
+ 
 const handleDelete = (fileType) => {
   if (fileType === 'aadhar') {
     setAadharFile(null);
@@ -280,7 +280,7 @@ const handleDelete = (fileType) => {
     });
   }
 };
-
+ 
 useScrollToTop();
   return (
     <div className='JionMembership-contain'>
@@ -304,22 +304,22 @@ useScrollToTop();
               {currentLanguage === 'ta' ? t('JionMemberShip.3') : t('Name')}
               <span style={{ color: 'red', paddingLeft:'0' }}>*</span>
         </label>
-
-
+ 
+ 
          <p> <Fragment>:</Fragment></p>
          </div>
-         <input type='text' id='name' name='name' value={formData.name} required onChange={handleFormChange}/> <br/>
+         <input type='text' id='name' name='name' value={formData.name}  onChange={handleFormChange}/> <br/>
          </div>
-
+ 
          <div className='JionFrom-content-inputs'>
         <div className='jion-cont'>
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} required onChange={handleFormChange}/> <br/>
+         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard}  onChange={handleFormChange}/> <br/>
        
          </div>
-
+ 
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
          <label >{currentLanguage === 'ta' ? t('JionMemberShip.5') : t('Refferal code')}</label>
@@ -327,14 +327,14 @@ useScrollToTop();
          </div>
          <input placeholder='(Optional)' type='text' id='RefferalCode' name='referredBy'  value={formData.referredBy} onChange={handleFormChange}/> <br/>
          </div>
-
+ 
          <div className='JionFrom-content-inputs'>
          <div className='jion-cont'>
            <label>{currentLanguage === 'ta' ? t('JionMemberShip.4') : t('JionMemberShip.4')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
           <p> <Fragment>:</Fragment></p>
-          </div>   
+          </div>  
            <div className='data5'>
-            <select 
+            <select
               value={formData.gender}
               name='gender'
               onChange={handleFormChange}
@@ -349,14 +349,14 @@ useScrollToTop();
             </select>
         </div>
          </div>
-
+ 
          <div className='JionFrom-content-inputs'>
      <div className='jion-cont'>
      <label>{currentLanguage === 'ta' ? t('JionMemberShip.7') : t('Education')} <span style={{ color: 'red', paddingLeft:'0' }}>*</span></label>
   <p> <Fragment>:</Fragment></p>
      </div>
      <div className='data5'>
-            <select 
+            <select
               value={formData.education}
               name='education'
               onChange={handleFormChange}
@@ -386,10 +386,10 @@ useScrollToTop();
           showYearDropdown
           scrollableYearDropdown
           yearDropdownItemNumber={100}
-          
+         
         />
-
-
+ 
+ 
         </div>
          </div>
 {/* blood */}
@@ -399,7 +399,7 @@ useScrollToTop();
          <p> <Fragment>:</Fragment></p>
          </div>
          <div className='data5'>
-            <select 
+            <select
               value={formData.bloodGroup}
               name='bloodGroup'
               onChange={handleFormChange}
@@ -421,7 +421,7 @@ useScrollToTop();
          <p> <Fragment>:</Fragment></p>
          </div>
          <div className='data5'>
-            <select 
+            <select
               value={formData.religion}
               name='religion'
               onChange={handleFormChange}
@@ -473,14 +473,13 @@ useScrollToTop();
     </div>
     </div>
     </div>
-  {/* state */}
           <div  className='ad-data'>
           <div className='jion-cont'>
           <label>{currentLanguage === 'ta' ? t('Address.2') : t('State')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
           <p> <Fragment>:</Fragment></p>
           </div>
           <div className='data5'>
-            <select 
+            <select
               value={formData.state}
               name='state'
               onChange={handleFormChange}
@@ -496,11 +495,10 @@ useScrollToTop();
         </div>
           </div>
         </div>
-        
+       
          </div>
          </div>
          </div>
-{/* uploadadhar */}
          <div className='Upload-content-inputs'>
         <div className='jion-cont'>
         <div className='UploadAdharaCard'>
@@ -516,7 +514,7 @@ useScrollToTop();
         <input type="file" name='aadharCardURL'  onChange={handleAadharFileSelect} style={{ display: 'none' }} />
       </label>
      </div>
-     <div className='uploaded-btn'> 
+     <div className='uploaded-btn'>
       {aadharFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
         <img src={Check} alt='star'/>
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')} <span style={{ color: 'red', paddingLeft:'0'}}>*</span></p>
@@ -524,7 +522,6 @@ useScrollToTop();
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
          </div>
-{/* uploadphoto */}
          <div className='Upload-content-inputs'>
          <div className='jion-cont'>
      <div className='UploadAdharaCard'>
@@ -539,7 +536,7 @@ useScrollToTop();
         <input type="file" name='profileURL'  onChange={handleProfileFileSelect} style={{ display: 'none' }} />
       </label>
      </div>
-    <div className='uploaded-btn'> 
+    <div className='uploaded-btn'>
       {profileFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
         <img src={Check} alt='star'/>
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')}</p>
@@ -560,5 +557,5 @@ useScrollToTop();
     </div>
   )
 }
-
+ 
 export default  JionMember

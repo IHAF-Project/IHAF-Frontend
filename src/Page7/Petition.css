@@ -155,7 +155,7 @@
     text-align: center;
     color: #FFF;
     padding-block: 0.5rem;
-    width: 24vw;
+    width: 118px;
     font-family: Poppins;
     font-size: 18.582px;
     font-style: normal;
@@ -276,6 +276,7 @@ line-height: normal;
         align-items: center;
         justify-content: center;
     }
+  
     .page7-petition-text-p {
         color: #000;
         text-align: center;
@@ -370,7 +371,8 @@ line-height: normal;
         padding-top: 3vh;
     }
     .file-upload-petition{
-        padding-block: 0vh
+     
+     width: 20px;
     }
     .page7-input-container{
         padding-top: 2vh;

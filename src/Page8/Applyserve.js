@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 function Applyserve() {
+  
 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
@@ -45,6 +46,8 @@ function Applyserve() {
         toast.success('Application send Successfully',{
           position:'top-right'
         });
+        navigate('/')
+
         console.log(res, "Apply to serve datas");
       } else {
         const er = await Response.json();

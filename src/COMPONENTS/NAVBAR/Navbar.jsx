@@ -61,6 +61,8 @@ useEffect (() =>{
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
  const memberId =userData?.memberID
+ const profile =userData?.profileURL
+ console.log(profile,"profile url")
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
@@ -137,7 +139,7 @@ useEffect (() =>{
        
          {phoneNumber ? 
           (
-         <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
+         <img src={profile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} className='ProfileImage' alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
           ( 
            <button>
@@ -171,7 +173,7 @@ useEffect (() =>{
        <div className='Pop-page'>
        <div className='profile-icon'>
        {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        <Link to={`/profile/${memberId}`}> <img src={profile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} className='ProfileImage' alt='ProfileImage' width="75px" height="75px" />
         </Link> ) : 'Not Approved Yet' } 
        </div>
        <div className='referal-code'>
@@ -189,7 +191,10 @@ useEffect (() =>{
        </div>
        <div className='feedback-pop'>
         <img src={profile2} alt='feedback' />
-       <p>FEEDBACK</p>
+        <Link to="/feedback">
+        <p>FEEDBACK</p>
+        </Link>
+       
        </div>
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />

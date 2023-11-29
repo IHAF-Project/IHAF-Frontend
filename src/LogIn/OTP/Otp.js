@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
-
+ 
 function Otp() {
   const lastInputRef = useRef();
   const { t, i18n } = useTranslation();
@@ -18,7 +18,7 @@ function Otp() {
   const [otp, setOtp] = useState('');
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
   const navigate = useNavigate();
-
+ 
   const handleInputChange = (index, value, e) => {
     if (inputRefs[index] && inputRefs[index].current) {
       if (value !== '' && index < inputRefs.length - 1) {
@@ -28,7 +28,7 @@ function Otp() {
       }
     }
   };
-  
+ 
   const handleSubmit = async (e) => {
     try {
       const phoneNumber = localStorage.getItem('phoneNumber');
@@ -36,13 +36,13 @@ function Otp() {
         otp: otp,
         phoneNumber: phoneNumber,
       });
-
+ 
       const userData = response.data;
       localStorage.setItem('userData', JSON.stringify(userData));
-
+ 
       console.log(userData, 'UserData');
       const verifyResult = { data: { success: true } };
-
+ 
       if (verifyResult.data.success) {
         toast.success('Verify OTP success', {
           position: toast.POSITION.TOP_CENTER,
@@ -59,21 +59,21 @@ function Otp() {
       toast.error('Invalid OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
-
+ 
   const handleKeyDown = async (e) => {
-    e.preventDefault();
     if (e.key === 'Enter') {
+      e.preventDefault();
       await handleSubmit(e);
     }
   };
-
+ 
   const handleResendClick = async () => {
     try {
       const phoneNumber = localStorage.getItem('phoneNumber');
       const resendResponse = await axios.post('https://ihaf-backend.vercel.app/resend-otp', {
         phoneNumber: phoneNumber,
       });
-
+ 
       if (resendResponse.data.success) {
         toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER });
       } else {
@@ -84,7 +84,7 @@ function Otp() {
       toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
-
+ 
   const Register = async (memberID) => {
     try {
       const response = await axios.get(`https://ihaf-backend.vercel.app/get-member-profile/${memberID}`);
@@ -93,12 +93,12 @@ function Otp() {
       console.error('Error during member registration:', error);
     }
   };
-
+ 
   useEffect(() => {
     Register();
   }, []);
-
-
+ 
+ 
   return (
     <div className='otp-main'>
       <Navbar />
@@ -120,7 +120,7 @@ function Otp() {
       numInputs={4}
       className='otp-input'
       isInputNum
-    
+   
       renderInput={(props, index) => (
         <input
           {...props}
@@ -159,5 +159,5 @@ function Otp() {
     </div>
   );
 }
-
+ 
 export default Otp;
