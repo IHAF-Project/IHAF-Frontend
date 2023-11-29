@@ -45,6 +45,7 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null
   });
+  let selectedAdhar;
 
   const tamilNaduDistricts = [
     'Ariyalur',
@@ -135,6 +136,7 @@ function JionMember() {
   
   
   const [isInputValid, setIsInputValid] = useState(true);
+  let selectedprofile;
   
 const handleFormChange = (e) => {
   const { name, value } = e.target;
@@ -193,21 +195,20 @@ const updateFormData = async (e) => {
       // });
      
     } else {
+      const errorData = await response.json(); // Assuming the error response contains JSON data
+      console.error('Error:', errorData);
  
      
-      toast.error('Failed to update data.', {
+      toast.error(`${errorData}`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:5000
       });
    
-      // setTimeout(()=>{
-      //   navigate('/')
-      // },8000)
-      console.error('Failed to update data');
+     
     }
   } catch (error) {
 
-    toast.error('Error updating data. Please try again later.', {
+    toast.error(`${error}`, {
       position: toast.POSITION.TOP_RIGHT,
     });
     console.error('Error updating data:', error);
@@ -254,6 +255,7 @@ const handleYesClick =async (e) => {
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
+    
     console.log(secureUrl, "upload");
     setAadharFile(secureUrl);
     setformData(prevData => ({
@@ -274,6 +276,7 @@ const handleProfileFileSelect = async (e) => {
   try {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
+    selectedprofile=secureUrl
     console.log(secureUrl, "upload");
     setProfileFile(secureUrl);
     setformData(prevData => ({
@@ -550,6 +553,9 @@ useScrollToTop();
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
+      <div className='preview'>
+        <img src={aadharFile} alt='preview'></img>
+      </div>
          </div>
 {/* uploadphoto */}
          <div className='Upload-content-inputs'>
@@ -572,6 +578,9 @@ useScrollToTop();
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')}</p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {profileFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
+      </div>
+      <div className='preview'>
+        <img src={profileFile} alt='preview'></img>
       </div>
          </div>
          <div className='JoinNow'>

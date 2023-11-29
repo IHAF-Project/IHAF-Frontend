@@ -248,12 +248,16 @@ line-height: normal;
     flex-wrap: wrap;
 }
 .JionFrom-content-inputs textarea {
-  width: 18rem;
-  height: 8em;
-  margin-right: 5em;
-  resize: none;
-  border: 1px solid #000000;
-  
+
+    width: 18rem;
+    height: 8em;
+    margin-right: 5em;
+    resize: none;
+    border: 1px solid #000000;
+  }
+.preview img{
+  width: 4vw;
+  height: auto;
 }
 
 .required{

@@ -43,6 +43,7 @@ const Navbar = () => {
  const storedData = JSON.parse(localStorage.getItem('userData'));
  const _id = storedData?.data?._id
  
+ 
 
 useEffect (() =>{
 
@@ -62,7 +63,7 @@ useEffect (() =>{
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
  const memberId =userData?.memberID
- const userprofile= userData?.profileURL
+ const userprofile= userData?.profileURL || storedData?.data?.profileURL
  const refferal = storedData?.data?.referralCode || userData?.referralCode
 
  const currentLanguage = i18n.language;
