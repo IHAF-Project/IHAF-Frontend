@@ -278,6 +278,7 @@ height: 8em;
 margin-right: 5em;
 resize: none;
 border: 1px solid #000000;
+margin-left: 0vw;
 
 }
 
@@ -294,7 +295,7 @@ flex-direction: column;
   flex-direction: row;
   align-items: center;
   gap: 1em;
-  height: 19vh;
+  height: 11vh;
 }
 
 

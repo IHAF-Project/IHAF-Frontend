@@ -96,6 +96,20 @@ function Otp() {
  
   useEffect(() => {
     Register();
+
+    // Attach event listener when the component mounts
+    const handleGlobalKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleKeyDown(e);
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+
+    // Detach event listener when the component unmounts
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
   }, []);
  
  

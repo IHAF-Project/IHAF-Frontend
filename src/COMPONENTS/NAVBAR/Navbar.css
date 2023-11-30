@@ -384,6 +384,7 @@ height: 30px;
 }
 .Navbar-login-ta {
   padding-right: 1rem;
+  cursor: pointer;
 }
 input:checked + .slider {
   background-color: #2196f3;
@@ -429,6 +430,7 @@ input:checked + .slider:after {
 }
 :is(.navbar-login ,.translate-btn-1 ,.navbar-content){
   padding-inline-end: 1em;
+  cursor: pointer;
 }
 }
 
@@ -531,6 +533,7 @@ width: 1.3em !important;
 }
 :is(.navbar-login button ,.Navbar-login-ta button){
 padding: 1rem 2rem;
+cursor: pointer;
 }
 .navbar-donation.active {
 display: flex;
