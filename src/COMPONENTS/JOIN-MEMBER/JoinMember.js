@@ -494,7 +494,7 @@ useScrollToTop();
           <label>{currentLanguage === 'ta' ? t('Address.3') : t('District')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
           <p> <Fragment>:</Fragment></p>
           </div>
-          <div className='data5'>
+          <div className='data5 dist'>
         <select
           value={formData.district}
           name='district'
@@ -517,7 +517,7 @@ useScrollToTop();
           <label>{currentLanguage === 'ta' ? t('Address.2') : t('State')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
           <p> <Fragment>:</Fragment></p>
           </div>
-          <div className='data5'>
+          <div className='data5 dist'>
             <select 
               value={formData.state}
               name='state'

@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+import { useEffect } from "react";
  
  
 function Login() {
@@ -90,7 +91,21 @@ function Login() {
   };
  
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
- 
+  useEffect(() => {
+    // Attach event listener when the component mounts
+    const handleGlobalKeyDown = (e) => {
+      if (e.key === "Enter") {
+        handleSubmit(e);
+      }
+    };
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+
+    // Detach event listener when the component unmounts
+    return () => {
+      window.removeEventListener("keydown", handleGlobalKeyDown);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
   return (
     <>
       <Navbar />
