@@ -11,6 +11,9 @@
   padding-inline:2em;
   padding-block-end: 4em;
 }
+.dist{
+  margin-left: -1vw;
+}
 .loads{
   color: #11e92d;
 }
@@ -308,7 +311,7 @@ gap:1em;
 display: flex;
 flex-direction: column;
 gap:0.5em;
-width: 165px;
+width: 15vw;
 align-items: flex-start;
 }
 .text-area-address {
