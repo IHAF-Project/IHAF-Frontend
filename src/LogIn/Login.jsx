@@ -91,21 +91,21 @@ function Login() {
   };
  
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
-  useEffect(() => {
-    // Attach event listener when the component mounts
-    const handleGlobalKeyDown = (e) => {
-      if (e.key === "Enter") {
-        handleSubmit(e);
-      }
-    };
+  // useEffect(() => {
+  //   // Attach event listener when the component mounts
+  //   const handleGlobalKeyDown = (e) => {
+  //     if (e.key === "Enter") {
+  //       handleSubmit(e);
+  //     }
+  //   };
 
-    window.addEventListener("keydown", handleGlobalKeyDown);
+  //   window.addEventListener("keydown", handleGlobalKeyDown);
 
-    // Detach event listener when the component unmounts
-    return () => {
-      window.removeEventListener("keydown", handleGlobalKeyDown);
-    };
-  }, []); // Empty dependency array ensures the effect runs only once
+  //   // Detach event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener("keydown", handleGlobalKeyDown);
+  //   };
+  // }, []); // Empty dependency array ensures the effect runs only once
   return (
     <>
       <Navbar />
