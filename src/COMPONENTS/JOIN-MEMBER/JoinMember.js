@@ -202,7 +202,7 @@ const updateFormData = async (e) => {
       console.error('Error:', errorData);
  
      
-      toast.error(`${errorData}`, {
+      toast.error(`${errorData.message}`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:5000
       });
