@@ -114,8 +114,9 @@ const handleSuccess = () => {
  
       if (res.ok) {
         const t1 = await res.json();
-        console.log(t1, 'success');
-        setdata(t1);
+        console.log(t1, 'succe}ss');
+        setdata( {issues:"",imageURL:""});
+        
         handleSuccess();
       } else {
         const errorResponse = await res.json();

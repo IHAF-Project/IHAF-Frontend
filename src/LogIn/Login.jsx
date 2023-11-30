@@ -51,7 +51,7 @@ function Login() {
   };
  
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setSentOTP(true);
  
     if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
