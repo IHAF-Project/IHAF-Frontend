@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import "./JoinMember.css"
 import useScrollToTop from '../Hooks/useScrollToTop'
+import { color } from '@cloudinary/url-gen/qualifiers/background'
 
 
 function JionMember() {
@@ -25,6 +26,8 @@ function JionMember() {
   const localid = storedData?.data?.memberID;
 
   const {_id}=useParams()
+  const [showload, setshowload] = useState(false);
+  const [showload1, setshowload1] = useState(false);
   const navigate =useNavigate()
   const [aadharFile, setAadharFile] = useState(null);
   const [popsuccess, setpopsuccess] = useState(false);
@@ -247,6 +250,7 @@ const handleYesClick =async (e) => {
 }
 
   const handleAadharFileSelect = async (e) => {
+    setshowload1(true)
   const selectedFile = e.target.files[0];
   const formData = new FormData();
   formData.append('file', selectedFile);
@@ -262,12 +266,14 @@ const handleYesClick =async (e) => {
       ...prevData,
       aadharCardURL: secureUrl,
     }));
+    setshowload1(false)
   } catch (error) {
     console.log('Error uploading Aadhar file:', error);
   }
 };
 
 const handleProfileFileSelect = async (e) => {
+  setshowload(true)
   const selectedFile = e.target.files[0];
   const formData = new FormData();
   formData.append('file', selectedFile);
@@ -278,11 +284,13 @@ const handleProfileFileSelect = async (e) => {
     const secureUrl = response.data.secure_url;
     selectedprofile=secureUrl
     console.log(secureUrl, "upload");
+    
     setProfileFile(secureUrl);
     setformData(prevData => ({
       ...prevData,
       profileURL: secureUrl,
     }));
+    setshowload(false)
   } catch (error) {
     console.log('Error uploading profile file:', error);
   }
@@ -532,13 +540,17 @@ useScrollToTop();
          </div>
 {/* uploadadhar */}
          <div className='Upload-content-inputs'>
+         
         <div className='jion-cont'>
+        <div className='join-sub'>
         <div className='UploadAdharaCard'>
          <p>{currentLanguage === 'ta' ? t('Aadhaar.2') : t('Upload Adhara card')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></p>
          <span>{currentLanguage === 'ta' ? t('Aadhaar.3') : t('(FRONT SIDE OF ADHAR ONLY REQUIRED)')}</span>
          </div>
          <p> <Fragment>:</Fragment></p>
         </div>
+        <div className='sub-2'>
+        <div className='sub-3'>
      
                    <div className='Upload-adhar-btn'>
                    <label className="upload-btn">
@@ -549,22 +561,32 @@ useScrollToTop();
      <div className='uploaded-btn'> 
       {aadharFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
         <img src={Check} alt='star'/>
-        <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')} <span style={{ color: 'red', paddingLeft:'0'}}>*</span></p>
+        <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')} <span style={{ color: 'red', paddingLeft:'0'}}></span></p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
       <div className='preview'>
         <img src={aadharFile} alt='preview'></img>
       </div>
+      </div>
+      <div>
+      {showload1 &&<div className='loads'> Adharphoto uploading Please wait...</div>}
+      </div>
+      </div>
+      </div>
          </div>
 {/* uploadphoto */}
          <div className='Upload-content-inputs'>
+          
          <div className='jion-cont'>
+         <div className='join-sub'>
      <div className='UploadAdharaCard'>
          <p>{currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload your photo')} <span style={{ color: 'red', paddingLeft:'0'}}>*</span></p>
          </div>
          <p> <Fragment>:</Fragment></p>
          </div>
+         <div className='sub-2'>
+        <div className='sub-3'>
  
          <div className='Upload-adhar-btn'>
          <label className="upload-btn">
@@ -581,6 +603,13 @@ useScrollToTop();
       </div>
       <div className='preview'>
         <img src={profileFile} alt='preview'></img>
+      </div>
+      </div>
+      
+      <div>
+      {showload &&<div className='loads'> Profile uploading Please wait...</div>}
+      </div>
+      </div>
       </div>
          </div>
          <div className='JoinNow'>

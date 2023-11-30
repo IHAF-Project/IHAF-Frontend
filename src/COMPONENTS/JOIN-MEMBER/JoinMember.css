@@ -11,7 +11,32 @@
   padding-inline:2em;
   padding-block-end: 4em;
 }
-
+.loads{
+  color: #11e92d;
+}
+.sub-3 {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+  width: 31vw;
+}
+.sub-2 {
+  display: flex;
+  gap: 1vw;
+  flex-direction: column;
+  font-size: 12px;
+  /* width: 18vw; */
+}
+.join-sub {
+  display: flex;
+  align-items: center;
+  margin-top: -4vh;
+}
+.preview img {
+  width: 4vw;
+  height: auto;
+}
 .jion-cont {
 display: flex;
 align-items: center;
@@ -268,7 +293,8 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1vw;
+  gap: 1em;
+  height: 19vh;
 }
 
 
@@ -453,6 +479,10 @@ img.jionMember-coverImg{
   gap:1em;
   align-items: flex-start;
 }
+.preview img {
+  width: 21vw;
+  height: auto;
+}
 .ad-data {
   flex-direction: column;
   gap: 1em;
@@ -494,6 +524,10 @@ img.jionMember-coverImg{
 margin: 0;
 width: 14rem;
 height: 10em;
+}
+.preview img {
+  width: 21vw;
+  height: auto;
 }
 .JionFrom-content-inputs input {
 width: 80vw;
