@@ -27,6 +27,7 @@ function Login() {
   const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
+  const [resp, setresp] = useState(false);
  
 
  
@@ -53,7 +54,7 @@ function Login() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSentOTP(true);
+  
  
     if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
       try {
@@ -63,9 +64,9 @@ function Login() {
 
         });
  
-        const check = { data: { success: true } };
+        // const check = { data: { success: true } };
  
-        if (check.data.success) {
+        if (response.data.success) {
  
           setConfirmPopupData(formData.phoneNumber);
  
@@ -80,7 +81,17 @@ function Login() {
             },
           })
         } 
-        console.log(response);
+        else{
+          if(response.data.status){
+          setSentOTP(true)
+          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER });
+        }
+        else{
+          setresp(true)
+
+        }
+        
+      }
       } catch (error) {
         console.error('Error:', error);
         window.alert("You are suspended for 6 months");
@@ -143,8 +154,10 @@ function Login() {
                 }}
               />
             </div>
+            {resp&&
+            <div style={{color:'red',textAlign:'center'}}>Sorry! We unable to send OTP.</div>}
             {sentOTP&&
-            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully ! Please wait..</div>}
+            <div style={{color:'green',textAlign:'center'}}> ! Please wait..</div>}
             <div className="login-btn">
               <Stack spacing={2} direction="row">
                 <Button

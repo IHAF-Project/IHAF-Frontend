@@ -410,6 +410,7 @@ font-weight: 400;
 line-height: normal;
 text-transform: capitalize;
 }
+
 .uploaded-btn span{
 color: #0066AF;
 font-family: Poppins;
@@ -419,6 +420,84 @@ font-weight: 400;
 line-height: normal;
 text-transform: uppercase;
 }
+/* popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.gallery-popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  animation: myAnim 2s ease 0s 1 normal forwards;
+  width: 37vw;
+  height: 34vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: 57px;
+}
+.gallery-popup p {
+  font-size: 22px;
+}
+.p2{
+  font-size: 14px;
+    color: #051ea9;
+}
+
+.popup-yes {
+  background: #4caf50;
+  color: #fff;
+  padding: 20px 60px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.popup-yes:hover {
+  background: #45a049;
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+}
+/* popup-end */
 img.jionMember-coverImg{
 width: 100%;
 }
