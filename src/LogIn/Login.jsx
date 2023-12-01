@@ -64,9 +64,10 @@ function Login() {
 
         });
  
-        // const check = { data: { success: true } };
- 
-        if (response.data.success) {
+        console.log(response.data.status)
+        
+        if (response.data.data.status==="AWAITED-DLR") {
+          setSentOTP(true)
  
           setConfirmPopupData(formData.phoneNumber);
  
@@ -74,22 +75,18 @@ function Login() {
           toast.success('OTP sent successfully.', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 1000,
-            onClose: () => {
-              // Your navigation logic here
-              // For example, use react-router-dom history to push to another page
-              navigate('/Otp');
-            },
+            
           })
+          setTimeout(() => {
+            navigate('/Otp');
+          }, 2000);
         } 
         else{
-          if(response.data.status){
+          
           setSentOTP(true)
           toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER });
-        }
-        else{
-          setresp(true)
-
-        }
+        
+      
         
       }
       } catch (error) {
@@ -155,9 +152,9 @@ function Login() {
               />
             </div>
             {resp&&
-            <div style={{color:'red',textAlign:'center'}}>Sorry! We unable to send OTP.</div>}
+            <div style={{color:'red',textAlign:'center'}}>Error sending OTP!</div>}
             {sentOTP&&
-            <div style={{color:'green',textAlign:'center'}}> ! Please wait..</div>}
+            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully !</div>}
             <div className="login-btn">
               <Stack spacing={2} direction="row">
                 <Button
