@@ -15,6 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./JoinMember.css"
 import useScrollToTop from '../Hooks/useScrollToTop'
 import { color } from '@cloudinary/url-gen/qualifiers/background'
+import aadhar from '../../../public/images/aadhar card.JPG'
+import profile from '../../../public/images/profile.jpg'
 
 
 function JionMember() {
@@ -563,7 +565,7 @@ useScrollToTop();
         <img src={Check} alt='star'/>
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')} <span style={{ color: 'red', paddingLeft:'0'}}></span></p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
-      {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
+      {aadharFile  && <img src={aadhar} width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
       <div className='preview'>
         <img src={aadharFile} alt='preview'></img>
@@ -599,7 +601,7 @@ useScrollToTop();
         <img src={Check} alt='star'/>
         <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')}</p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
-      {profileFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
+      {profileFile  && <img src={profile} width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
       </div>
       <div className='preview'>
         <img src={profileFile} alt='preview'></img>
