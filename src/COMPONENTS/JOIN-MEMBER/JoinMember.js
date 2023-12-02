@@ -27,6 +27,8 @@ function JionMember() {
   const tamilLanguage =i18n.language === 'ta'
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const localid = storedData?.data?.memberID;
+  const localuid=storedData?.data?._id;
+
 
   const {_id}=useParams()
   const [showload, setshowload] = useState(false);
@@ -235,44 +237,48 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   const [appliedpop, setappliedpop] = useState(false);
   let selectedprofile;
   
+  
 
   
 
   
   
   const [isInputValid, setIsInputValid] = useState(true);
-  
+  let member;
  
   
   useEffect(() => {
     const check = async () => {
       try {
-        const response1 = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-  
-        const result = await response1.json(); // Assuming response is in JSON format
-         
-        // Use setApplied to update the state
-        setapplied(result.message);
-        console.log(`abc${result.message}`)
-  
-        // Check the condition after setting the state
+        // Fetch data from the API
+        const response = await fetch('https://ihaf-backend.vercel.app/get-all-new-members')
+        const result =await response.json();
+        const data = result.data
       
-        if (result.message ==="member already registed but not yet approved") {
-          setappliedpop(true);
-          console.log("use1")
-          // Your logic here
+          // Use setApplied to update the state
+          setapplied(result.data.message);
+          for (let i = 0; i < data.length; i++) {
+            const object = data[i];
+            
+            if(object._id === localuid){
+              member= object;
+              // Check if the name property is a non-empty string
+                const hasNonEmptyName = typeof member.name === 'string' && member.name.trim() !== '';
+              if(hasNonEmptyName ===true){
+                
+                setappliedpop(true);
+              }
+            }
+            
+            // console.log(`Object ${i + 1}:`, object);
+            // Perform additional actions with each object
         }
       
-      } catch (error) {
-        console.error('Error updating member:', error);
-      }
-    };
+        } catch (error) {
+          console.error('Error updating member:', error);
+        }
+      };
+    
   
     check();
   
@@ -292,16 +298,31 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   }, []);
   
   const handleFormChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
     let isValid = true;
   
     if (name === "aadharCard") {
-      isValid = /^[0-9]{12}$/.test(value);
+      // Remove any non-numeric characters
+      const numericValue = value.replace(/\D/g, '');
+  
+      // Limit the value to 12 characters
+      const trimmedValue = numericValue.slice(0, 12);
+      
+  
+      // Add a space after every four digits
+      const formattedValue = trimmedValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+  
+      // Update the input value
+      value = formattedValue;
+  
+      isValid = /^\d{12}$/.test(numericValue);
     }
+   
+  
     if (name === 'DateOfBirth') {
       setformData({
         ...formData,
-        [name]: value 
+        [name]: value
       });
     } else {
       setIsInputValid(isValid);
@@ -312,17 +333,41 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
     }
   };
   
+  
 const updateFormData = async () => {
- 
+  let isValidAdharNumber
   const isValid = Object.entries(formData).every(([key, value]) => {
+   
     if (key === "referredBy") {
       return true;
     }
-    return value !== "" && value !== null;
+    if(key=== "aadharCard"){
+      // Additional validation for adharnumber
+      const removespaceadhar=formData.aadharCard = formData.aadharCard.replace(/\s/g, '');
+       isValidAdharNumber = /^\d{12}$/.test(removespaceadhar);
+      console.log(formData.aadharCard)
+      console.log(isValidAdharNumber)
+      }
+    
+    return value !== "" && value !== null && isInputValid === true;
   });
-  
+ 
+  if (!isValid && !isValidAdharNumber) {
+    toast.error('All fields except Referred By are required. Please fill in all the required fields and ensure Adhar Number is 12 digits.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+
   if (!isValid) {
     toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+
+  if (!isValidAdharNumber) {
+    toast.error('Please ensure Adhar Number is 12 digits.', {
       position: toast.POSITION.TOP_RIGHT,
     });
     return;
@@ -380,16 +425,16 @@ const updateFormData = async () => {
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
-  if(localid){
-    toast.error(`You are already a member, and your memberID is ${localid}.`, {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose:3000
-    });
-    setTimeout(() => {
-      navigate('/')
-    }, 6000);
+  // if(localid){
+  //   toast.error(`You are already a member, and your memberID is ${localid}.`, {
+  //     position: toast.POSITION.TOP_RIGHT,
+  //     autoClose:3000
+  //   });
+  //   setTimeout(() => {
+  //     navigate('/')
+  //   }, 6000);
    
-  }
+  // }
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
@@ -518,7 +563,7 @@ useScrollToTop();
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input placeholder='0000-0000-0000'maxlength="12"  type="text" id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
+         <input placeholder='0000 0000 0000'maxLength="14"  type="text" id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
        
          </div>
 
