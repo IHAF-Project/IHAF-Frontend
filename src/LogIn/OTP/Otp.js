@@ -18,6 +18,7 @@ function Otp() {
   const [otp, setOtp] = useState('');
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
   const navigate = useNavigate();
+  const [resendTimer, setResendTimer] = useState(30);
  
   const handleInputChange = (index, value, e) => {
     if (inputRefs[index] && inputRefs[index].current) {
@@ -66,6 +67,7 @@ function Otp() {
       await handleSubmit(e);
     }
   };
+
  
   const handleResendClick = async () => {
     try {
@@ -76,6 +78,7 @@ function Otp() {
  
       if (resendResponse.data.success) {
         toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER });
+        setResendTimer(30);
       } else {
         toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
       }
@@ -96,21 +99,22 @@ function Otp() {
  
   useEffect(() => {
     Register();
-
-    // // Attach event listener when the component mounts
-    // const handleGlobalKeyDown = (e) => {
-    //   if (e.key === 'Enter') {
-    //     handleKeyDown(e);
-    //   }
-    // };
-
-    // window.addEventListener('keydown', handleGlobalKeyDown);
-
-    // // Detach event listener when the component unmounts
-    // return () => {
-    //   window.removeEventListener('keydown', handleGlobalKeyDown);
-    // };
+    const timer = setInterval(() => {
+      setResendTimer((prevTimer) => prevTimer - 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
+  useEffect(() => {
+    if (resendTimer === 0) {
+      clearInterval();
+    }
+    
+  }, [resendTimer]);
+
+    
+ 
  
  
   return (
@@ -160,13 +164,23 @@ function Otp() {
               </Button>
             </Stack>
           </div>
-          <div className='resent-otp' onClick={handleResendClick}>
+          {resendTimer > 0 ? (
+<div className='otp-countdown'>
+                      OTP will expire in {resendTimer} seconds
+</div>
+                  ) : (
+<div className='resent-otp'>
+<div className='resent'>I didn’t get OTP !</div>
+<div className='sen-again' onClick={handleResendClick}>Send again</div>
+</div>
+                  )}
+          {/* <div className='resent-otp' onClick={handleResendClick}>
             <p >I didn’t receive a OTP resend OTP !</p>
             <div className='resend'>
               <span>{t('Otp.5')}</span>
               <img src={refresh} alt='refresh' width='16px' height='16px' />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <ToastContainer />

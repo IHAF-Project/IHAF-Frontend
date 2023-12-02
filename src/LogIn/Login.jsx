@@ -27,6 +27,7 @@ function Login() {
   const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
+  const [resp, setresp] = useState(false);
  
 
  
@@ -53,17 +54,20 @@ function Login() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSentOTP(true);
+  
  
     if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
       try {
+       
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
+
         });
  
-        const check = { data: { success: true } };
- 
-        if (check.data.success) {
+        console.log(response.data.status)
+        
+        if (response.data.data.status==="AWAITED-DLR") {
+          setSentOTP(true)
  
           setConfirmPopupData(formData.phoneNumber);
  
@@ -71,14 +75,20 @@ function Login() {
           toast.success('OTP sent successfully.', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 1000,
-            onClose: () => {
-              // Your navigation logic here
-              // For example, use react-router-dom history to push to another page
-              navigate('/Otp');
-            },
+            
           })
+          setTimeout(() => {
+            navigate('/Otp');
+          }, 2000);
         } 
-        console.log(response);
+        else{
+          
+          setSentOTP(true)
+          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER });
+        
+      
+        
+      }
       } catch (error) {
         console.error('Error:', error);
         window.alert("You are suspended for 6 months");
@@ -141,8 +151,10 @@ function Login() {
                 }}
               />
             </div>
+            {resp&&
+            <div style={{color:'red',textAlign:'center'}}>Error sending OTP!</div>}
             {sentOTP&&
-            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully ! Please wait..</div>}
+            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully !</div>}
             <div className="login-btn">
               <Stack spacing={2} direction="row">
                 <Button

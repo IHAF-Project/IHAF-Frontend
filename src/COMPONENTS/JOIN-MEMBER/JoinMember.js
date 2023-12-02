@@ -15,6 +15,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./JoinMember.css"
 import useScrollToTop from '../Hooks/useScrollToTop'
 import { color } from '@cloudinary/url-gen/qualifiers/background'
+import profile from '../../Assets/profile.jpg'
+import aadhar from '../../Assets/aadhar card.JPG'
+import { useEffect } from 'react'
 
 
 function JionMember() {
@@ -24,6 +27,8 @@ function JionMember() {
   const tamilLanguage =i18n.language === 'ta'
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const localid = storedData?.data?.memberID;
+  const localuid=storedData?.data?._id;
+
 
   const {_id}=useParams()
   const [showload, setshowload] = useState(false);
@@ -89,6 +94,49 @@ function JionMember() {
     'Viluppuram',
     'Virudhunagar',
   ];
+  const tamilNaduDistrictsInTamil = [
+    'அரியலூர்',
+    'செங்கல்பட்டு',
+    'சென்னை',
+    'கோயம்புத்தூர்',
+    'கடலூர்',
+    'தருமபுரி',
+    'திண்டுக்கல்',
+    'ஈரோடு',
+    'கள்ளக்குறிச்சி',
+    'காஞ்சிபுரம்',
+    'கன்னியாகுமரி',
+    'கரூர்',
+    'கிருஷ்ணகிரி',
+    'மதுரை',
+    'நாகபட்டினம்',
+    'நாமக்கல்',
+    'நீலகிரி',
+    'பெரம்பலூர்',
+    'புதுக்கோட்டை',
+    'ராமநாதபுரம்',
+    'ராணிப்பேடு',
+    'சேலம்',
+    'சிவகங்கை',
+    'தென்காசி',
+    'தஞ்சாவூர்',
+    'தேனி',
+    'தூத்துக்குடி',
+    'திருச்சிராப்பள்ளி',
+    'திருநெல்வேலி',
+    'திருபத்தூர்',
+    'திருபூர்',
+    'திருவள்ளூர்',
+    'திருவண்ணாமலை',
+    'திருவாரூர்',
+    'வேலூர்',
+    'விழுப்புரம்',
+    'விருதுநகர்',
+  ];
+  
+  
+ 
+  
 
   const indianStates = [
     'Andaman and Nicobar Islands',
@@ -129,52 +177,197 @@ function JionMember() {
     'Uttarakhand',
     'West Bengal',
   ];
-  const gender = ['Male','Female','Other'];
+  const indianStatesInTamil = [
+    'அந்தமான் மற்றும் நிகோபார் தீவுகள்',
+    'ஆந்திரா பிரதேசம்',
+    'அருணாசலபிரதேசம்',
+    'அசாம்',
+    'பீகார்',
+    'சண்டக் கர்',
+    'சத்தீஸ்கரம்',
+    'தாத்ரா மற்றும் நாகர் ஹவெலி',
+    'தமான் மற்றும் டியூ',
+    'தில்லி',
+    'கோவா',
+    'குஜராத்',
+    'ஹரியானா',
+    'ஹிமாசல பிரதேசம்',
+    'ஜம்மு மற்றும் காஷ்மீர்',
+    'ஜார்கண்ட்',
+    'கர்நாடகா',
+    'கேரளா',
+    'லடாக்',
+    'லக்ஷத்வீப்',
+    'மத்திய பிரதேசம்',
+    'மஹாராஷ்டிரா',
+    'மணிப்பூர்',
+    'மேகாலயா',
+    'மிசாரம்',
+    'நாகாலாண்ட்',
+    'ஒரிசா',
+    'புதுச்சேரி',
+    'பஞ்சாப்',
+    'ராஜஸ்தான்',
+    'சிக்கிம்',
+    'தமிழ்நாடு',
+    'தெலங்கானா',
+    'திரிபுரா',
+    'உத்தரப்பிரதேசம்',
+    'உத்தராஞ்சலம்',
+    'பங்காளம்',
+  ];
+  
+  
+  
+  const genderE = ['Male','Female','Other'];
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
-  const education = ['10th','12th','UG','PG','Other'];
-  const religions = ['Hinduism', 'Christianity', 'Islam', 'Buddhism', 'Judaism', 'Sikhism', 'Other'];
+  const educationE = ['10th','12th','UG','PG','Other'];
+  const religionsE = ['Hinduism', 'Christianity', 'Islam', 'Buddhism', 'Judaism', 'Sikhism', 'Other'];
+  const gendersInTamil = ['ஆண்', 'பெண்', 'மற்றவை'];
+
+const educationInTamil = ['10ஆம்', '12ஆம்', 'மற்றவை'];
+const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்தவம்', 'இஸ்லாம்', 'பௌத்தமம்', 'யூதாயம்', 'சீக்கியம்', 'மற்றவை'];
+  const [Districts, setDistricts] = useState(tamilNaduDistricts);
+  const [states, setstates] = useState(indianStates);
+  const [gender, setgender] = useState(genderE);
+ 
+  const [religions, setreligions] = useState(religionsE);
+  const [education, seteducation] = useState(educationE);
+  const [applied, setapplied] = useState('');
+  const [appliedpop, setappliedpop] = useState(false);
+  let selectedprofile;
+  
+  
 
   
 
   
   
   const [isInputValid, setIsInputValid] = useState(true);
-  let selectedprofile;
+  let member;
+ 
   
-const handleFormChange = (e) => {
-  const { name, value } = e.target;
-  let isValid = true;
-
-  if (name === "aadharCard") {
-    isValid = /^[0-9]{12}$/.test(value);
-  }
-  if (name === 'DateOfBirth') {
-    setformData({
-      ...formData,
-      [name]: value 
-    });
-  } else {
-    setIsInputValid(isValid);
-    setformData({
-      ...formData,
-      [name]: value
-    });
-  }
-};
-
-const updateFormData = async (e) => {
-  if(!localid)
-  {
+  useEffect(() => {
+    const check = async () => {
+      try {
+        // Fetch data from the API
+        const response = await fetch('https://ihaf-backend.vercel.app/get-all-new-members')
+        const result =await response.json();
+        const data = result.data
+      
+          // Use setApplied to update the state
+          setapplied(result.data.message);
+          for (let i = 0; i < data.length; i++) {
+            const object = data[i];
+            
+            if(object._id === localuid){
+              member= object;
+              // Check if the name property is a non-empty string
+                const hasNonEmptyName = typeof member.name === 'string' && member.name.trim() !== '';
+              if(hasNonEmptyName ===true){
+                
+                setappliedpop(true);
+              }
+            }
+            
+            // console.log(`Object ${i + 1}:`, object);
+            // Perform additional actions with each object
+        }
+      
+        } catch (error) {
+          console.error('Error updating member:', error);
+        }
+      };
+    
   
+    check();
+  
+    if (tamilLanguage) {
+      setDistricts(tamilNaduDistrictsInTamil);
+      setstates(indianStatesInTamil);
+      setgender(gendersInTamil);
+      setreligions(religionsInTamil);
+      seteducation(educationInTamil);
+    } else {
+      setDistricts(tamilNaduDistricts);
+      setstates(indianStates);
+      setgender(genderE);
+      setreligions(religionsE);
+      seteducation(educationE);
+    }
+  }, []);
+  
+  const handleFormChange = (e) => {
+    let { name, value } = e.target;
+    let isValid = true;
+  
+    if (name === "aadharCard") {
+      // Remove any non-numeric characters
+      const numericValue = value.replace(/\D/g, '');
+  
+      // Limit the value to 12 characters
+      const trimmedValue = numericValue.slice(0, 12);
+      
+  
+      // Add a space after every four digits
+      const formattedValue = trimmedValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+  
+      // Update the input value
+      value = formattedValue;
+  
+      isValid = /^\d{12}$/.test(numericValue);
+    }
+   
+  
+    if (name === 'DateOfBirth') {
+      setformData({
+        ...formData,
+        [name]: value
+      });
+    } else {
+      setIsInputValid(isValid);
+      setformData({
+        ...formData,
+        [name]: value
+      });
+    }
+  };
+  
+  
+const updateFormData = async () => {
+  let isValidAdharNumber
   const isValid = Object.entries(formData).every(([key, value]) => {
+   
     if (key === "referredBy") {
       return true;
     }
-    return value !== "" && value !== null;
+    if(key=== "aadharCard"){
+      // Additional validation for adharnumber
+      const removespaceadhar=formData.aadharCard = formData.aadharCard.replace(/\s/g, '');
+       isValidAdharNumber = /^\d{12}$/.test(removespaceadhar);
+      console.log(formData.aadharCard)
+      console.log(isValidAdharNumber)
+      }
+    
+    return value !== "" && value !== null && isInputValid === true;
   });
-  
+ 
+  if (!isValid && !isValidAdharNumber) {
+    toast.error('All fields except Referred By are required. Please fill in all the required fields and ensure Adhar Number is 12 digits.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+
   if (!isValid) {
     toast.error('All fields except Referred By are required. Please fill in all the required fields.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
+
+  if (!isValidAdharNumber) {
+    toast.error('Please ensure Adhar Number is 12 digits.', {
       position: toast.POSITION.TOP_RIGHT,
     });
     return;
@@ -192,55 +385,70 @@ const updateFormData = async (e) => {
     if (response.ok) {
       const data = await response.json();
       setformData(data);
-      setpopdata('successfully')
+      setpopsuccess(true)
+      // Show success notification if data is updated
       // toast.success('Data updated successfully!', {
       //   position: toast.POSITION.TOP_RIGHT,
       // });
-     
+      setTimeout(()=>{
+        navigate('/')
+      },5000)
     } else {
-      const errorData = await response.json(); // Assuming the error response contains JSON data
-      console.error('Error:', errorData);
- 
-     
-      toast.error(`${errorData.message}`, {
+      // Show error notification if data update fails
+      if(localid){
+      toast.error(`Failed to update data.Your are already a member and your memberID is ${localid}.`, {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose:5000
+        autoClose:2000
       });
-   
-     
+      setTimeout(()=>{
+        navigate('/')
+      },3000)
+    }
+    else{
+      const data1 = await response.json();
+      toast.error(`${data1.message}`, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose:2000
+      });
+    }
+      console.error('Failed to update data');
     }
   } catch (error) {
-
-    toast.error(`${error}`, {
+    // Show error notification if an error occurs during update
+    toast.error('Error updating data. Please try again later.', {
       position: toast.POSITION.TOP_RIGHT,
     });
     console.error('Error updating data:', error);
-  }
   }
 };
 
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
-  if(localid){
-    toast.error(`You are already a member, and your memberID is ${localid}.`, {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose:3000
-    });
-    setTimeout(() => {
-      navigate('/')
-    }, 6000);
+  // if(localid){
+  //   toast.error(`You are already a member, and your memberID is ${localid}.`, {
+  //     position: toast.POSITION.TOP_RIGHT,
+  //     autoClose:3000
+  //   });
+  //   setTimeout(() => {
+  //     navigate('/')
+  //   }, 6000);
    
-  }
+  // }
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
 
 const handleYesClick =async (e) => {
+  if(appliedpop){
+    setappliedpop(false)
+    navigate('/')
   
+  
+  }
  if(popdata==='successfully'){
   setpopsuccess(false)
-    // navigate('/')
+    
  }
  else{
   setpopsuccess(false)
@@ -260,7 +468,7 @@ const handleYesClick =async (e) => {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
     
-    console.log(secureUrl, "upload");
+   
     setAadharFile(secureUrl);
     setformData(prevData => ({
       ...prevData,
@@ -283,7 +491,7 @@ const handleProfileFileSelect = async (e) => {
     const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
     const secureUrl = response.data.secure_url;
     selectedprofile=secureUrl
-    console.log(secureUrl, "upload");
+   
     
     setProfileFile(secureUrl);
     setformData(prevData => ({
@@ -348,13 +556,14 @@ useScrollToTop();
          </div>
          <input type='text' id='name' name='name' value={formData.name}  onChange={handleFormChange}/> <br/>
          </div>
+ {/* aadhar */}
 
          <div className='JionFrom-content-inputs'>
         <div className='jion-cont'>
         <label> {currentLanguage === 'ta' ? t('Aadhaar.1') : t('Aadhaar Number')}<span style={{ color: 'red', paddingLeft:'0' }}>*</span> </label>
          <p> <Fragment>:</Fragment></p>
         </div>
-         <input placeholder='Enter 12 digit adhaarnumber' type='text' id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
+         <input placeholder='0000 0000 0000'maxLength="14"  type="text" id='AadhaarNumber' name='aadharCard' value={formData.aadharCard} onChange={handleFormChange}/> <br/>
        
          </div>
 
@@ -378,7 +587,7 @@ useScrollToTop();
               onChange={handleFormChange}
               className='text-area-address' // Add your CSS class here
             >
-              <option value="">Select your Gender</option>
+              <option value="">{t('JionMemberShip.16')}</option>
               {gender.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -400,7 +609,7 @@ useScrollToTop();
               onChange={handleFormChange}
               className='text-area-address' // Add your CSS class here
             >
-              <option value="">Select your education</option>
+              <option value="">{t('JionMemberShip.16')}</option>
               {education.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -443,7 +652,7 @@ useScrollToTop();
               onChange={handleFormChange}
               className='text-area-address' // Add your CSS class here
             >
-              <option value="">Select your Blood group</option>
+              <option value="">{t('JionMemberShip.16')}</option>
               {bloodGroups.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -465,7 +674,7 @@ useScrollToTop();
               onChange={handleFormChange}
               className='text-area-address' // Add your CSS class here
             >
-              <option value="">Select your Religion</option>
+              <option value="">{t('JionMemberShip.16')}</option>
               {religions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -501,8 +710,8 @@ useScrollToTop();
           onChange={handleFormChange}
           className='text-area-address' // Add your CSS class here
         >
-          <option value="">Select your district</option>
-          {tamilNaduDistricts.map((option) => (
+          <option value="">{t('JionMemberShip.16')}</option>
+          {Districts.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
@@ -524,8 +733,8 @@ useScrollToTop();
               onChange={handleFormChange}
               className='text-area-address' // Add your CSS class here
             >
-              <option value="">Select your state</option>
-              {indianStates.map((option) => (
+              <option value="">{t('JionMemberShip.16')}</option>
+              {states.map((option) => (
                 <option key={option} value={option}>
                   {option}
                 </option>
@@ -566,7 +775,7 @@ useScrollToTop();
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
       <div className='preview'>
-        <img src={aadharFile} alt='preview'></img>
+        <img src={aadharFile || aadhar} alt='preview'></img>
       </div>
       </div>
       <div>
@@ -602,7 +811,7 @@ useScrollToTop();
       {profileFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
       </div>
       <div className='preview'>
-        <img src={profileFile} alt='preview'></img>
+        <img src={profileFile || profile} alt='preview'></img>
       </div>
       </div>
       
@@ -625,7 +834,21 @@ useScrollToTop();
 {popsuccess && (
   <div className='popup-overlay'>
     <div className='gallery-popup'>
-      <p>Items uploaded {popdata}!</p>
+      <p>You successfully completed 100% of membship form!</p>
+      <div className='p2'>IHAF administrator will make you member after validating your data</div>
+      <div>
+        <button onClick={handleYesClick} className='popup-yes'>
+          Okey
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+{appliedpop && (
+  <div className='popup-overlay'>
+    <div className='gallery-popup'>
+      <p>You already applied for membership!</p>
+      <div className='p2'>Administrator will verify your application soon...</div>
       <div>
         <button onClick={handleYesClick} className='popup-yes'>
           Okey

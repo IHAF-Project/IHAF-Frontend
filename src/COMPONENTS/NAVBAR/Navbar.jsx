@@ -97,7 +97,7 @@ useEffect (() =>{
         <img src= {logo} alt="Logo" />
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
-      { _id ? (
+      { _id && !memberId? (
   <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
       ): (
 ''
@@ -175,8 +175,9 @@ useEffect (() =>{
        <div className='profile-icon'>
        {memberId ? (
         <Link to={`/profile/${memberId}`}> <img className='profile' src= {userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
-        </Link> ) : 'Not Approved Yet' } 
+        </Link> ) : 'Not a member of IHAF' } 
        </div>
+       {memberId ? (<>
        <div className='referal-code'>
 
        <img className='profile' src={profile3} alt='refetal-code'/>
@@ -184,7 +185,7 @@ useEffect (() =>{
     <div className="paste-button">
    <button className="button">REFERALCODE &nbsp;▼</button>
    <div className="dropdown-content">
-    <a id="top"  onClick={handleCopyClick}  ref={textRef}
+    <a id="top"  onClick={handleCopyClick}  href={textRef}
           style={{ cursor: 'pointer'}}>{refferal}</a>
     <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
   </div>
@@ -196,6 +197,8 @@ useEffect (() =>{
       <p>FEEDBACK</p>
     </Link>
        </div>
+      </>) : '' }
+       
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>
