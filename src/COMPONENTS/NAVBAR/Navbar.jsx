@@ -49,7 +49,7 @@ useEffect (() =>{
     const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
     const data = await response.json();
     
-  if(data?.data?.isAdminApproved){
+  if(data?.data?.isAdminApproved === true){
     setUserData(data?.data)
     console.log(userData,'api-successfully')
   }else{
