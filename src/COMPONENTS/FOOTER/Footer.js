@@ -9,7 +9,7 @@ function Footer() {
     const isTamilLanguage = i18n.language === 'ta';
 
     const storedData = JSON.parse(localStorage.getItem('userData'));
-    const _id = storedData?.data?._id
+    const _id = storedData?.data?._id || storedData?._id
   return (
     <div className='Footer-container'>
     <div className='Footer-container-main'>

@@ -52,6 +52,10 @@
     font-size: 3vw;
    
 }
+a {
+  text-decoration: none;
+  color: #07e70e;
+}
 .main-details6{
     font-size: 1.5vw;
     margin-bottom: 4vh;
@@ -225,6 +229,11 @@ justify-content: center;
     width: 150px;
     height: 150px;
   }
+  .wrapper .card6 {
+    
+    height: 20vh;
+    
+}
 }
 @media screen and (max-width: 915px) {
   .main6{
@@ -232,6 +241,11 @@ justify-content: center;
     justify-content: start;
     height: 100vh;
   }
+  .wrapper .card6 {
+    
+    height: 15vh;
+    
+}
 
   /* .container-5 {
     height: 70vh;

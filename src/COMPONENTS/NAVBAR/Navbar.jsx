@@ -21,6 +21,7 @@ const Navbar = () => {
  const [userData,setUserData] = useState(null)
 
 
+
   const handleClickPop = () => {
     setIsPop(!isPop);
   };
@@ -40,7 +41,8 @@ const Navbar = () => {
  }
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
- const _id = storedData?.data?._id
+ const _id = storedData?.data?._id || storedData?._id
+ 
  
 
 useEffect (() =>{
@@ -49,19 +51,20 @@ useEffect (() =>{
     const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
     const data = await response.json();
     
-  if(data?.data?.isAdminApproved === true){
+  if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
     setUserData(data?.data)
     console.log(userData,'api-successfully')
   }else{
-    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+    console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
   }
   }
   fetchData()
 },[])
 
- const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
- const memberId =userData?.memberID
- const refferal = storedData?.data?.referralCode || userData?.referralCode
+ const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
+ const memberId =userData?.memberID || storedData?.memberID
+ const userprofile= storedData?.data?.profileURL || userData?.profileURL || storedData?.profileURL
+ const refferal = storedData?.data?.referralCode || userData?.referralCode || storedData?.referralCode
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
@@ -94,7 +97,7 @@ useEffect (() =>{
         <img src= {logo} alt="Logo" />
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
-      { _id ? (
+      { _id && !memberId? (
   <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
       ): (
 ''
@@ -114,7 +117,7 @@ useEffect (() =>{
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
           {/* <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li> */}
-          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
+          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery.1')}</Link></li>
         </ul>
       </div>
       </div>
@@ -137,7 +140,7 @@ useEffect (() =>{
        
          {phoneNumber ? 
           (
-         <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
+         <img className='profile' src={userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
          ) :
           ( 
            <button>
@@ -171,17 +174,18 @@ useEffect (() =>{
        <div className='Pop-page'>
        <div className='profile-icon'>
        {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img src={localStorage.getItem("profileURL") || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
-        </Link> ) : 'Not Approved Yet' } 
+        <Link to={`/profile/${memberId}`}> <img className='profile' src= {userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        </Link> ) : 'Not a member of IHAF' } 
        </div>
+       {memberId ? (<>
        <div className='referal-code'>
 
-       <img src={profile3} alt='refetal-code'/>
+       <img className='profile' src={profile3} alt='refetal-code'/>
 
     <div className="paste-button">
    <button className="button">REFERALCODE &nbsp;▼</button>
    <div className="dropdown-content">
-    <a id="top"  onClick={handleCopyClick}  ref={textRef}
+    <a id="top"  onClick={handleCopyClick}  href={textRef}
           style={{ cursor: 'pointer'}}>{refferal}</a>
     <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
   </div>
@@ -193,6 +197,8 @@ useEffect (() =>{
       <p>FEEDBACK</p>
     </Link>
        </div>
+      </>) : '' }
+       
        <div className='logout-pop' onClick={logoutUser} style={{cursor:'pointer'}}>
         <img src={profile1} alt='logout' />
         <p>LOGOUT</p>

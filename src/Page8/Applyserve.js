@@ -16,11 +16,11 @@ function Applyserve() {
   ];
   
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const memberID=storedData?.data?.memberID
+  const memberID=storedData?.data?.memberID || storedData?.memberID
 
   const navigate = useNavigate()
 
-  const [serve, setServe] = useState({
+  let [serve, setServe] = useState({
     memberID: memberID || "",
     postingLocation: "",
     postingName: "",
@@ -49,10 +49,15 @@ function Applyserve() {
       } else {
         const er = await Response.json();
         console.error(er, "error getting");
-        toast.error('You are banned from LeaderShip and cannot apply for a leader posting',{
+        toast.success(`You are ${er.message}.`,{
           position:'top-right'
         });
-       
+        setServe({
+          memberID: "",
+          postingLocation: "",
+          postingName: "",
+          qualification: "",
+        });
       }
     } catch (error) {
       console.error("error", error);

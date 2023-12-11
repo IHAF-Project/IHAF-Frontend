@@ -33,24 +33,24 @@ function Petition() {
     };
   }, []);
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const _id = storedData?.data?._id
+  const _id = storedData?.data?._id || storedData?._id
 
   useEffect (() =>{
     const fetchData = async () =>{
       const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
       const data = await response.json();
-    if(data?.data?.isAdminApproved === true){
+    if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
       setUserData(data?.data)
       console.log(userData,'api-successfully')
     }else{
-      console.log(storedData?.data?.isAdminApproved,'local-successfully')
+      console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
     }
     }
     fetchData()
   },[])
 
   console.log(userData?.memberID, 'api')
- const memberID = userData?.memberID
+ const memberID = userData?.memberID || storedData?.memberID
 
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
 
@@ -114,8 +114,9 @@ const handleSuccess = () => {
  
       if (res.ok) {
         const t1 = await res.json();
-        console.log(t1, 'success');
-        setdata(t1);
+        console.log(t1, 'succe}ss');
+        setdata( {issues:"",imageURL:""});
+        
         handleSuccess();
       } else {
         const errorResponse = await res.json();
