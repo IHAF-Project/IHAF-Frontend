@@ -406,7 +406,8 @@ const updateFormData = async () => {
     }
     else{
       const data1 = await response.json();
-      toast.error(`${data1.message}`, {
+      console.log("hiiiii",data1.error)
+      toast.error(`${data1.error}`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:2000
       });

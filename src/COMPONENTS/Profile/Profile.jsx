@@ -7,6 +7,7 @@ import LeadershipCard from "./LeadershipCard";
 import html2canvas from "html2canvas"; 
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Background } from "@cloudinary/url-gen/qualifiers";
 
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,6 +135,7 @@ function Profile() {
                     </div>
                   )}
                 </div>
+                {memberDetails?.memberProfile?.leaderID?
                 <div className="leadership-card" style={{ cursor: 'pointer' }}>
                   <p onClick={leadershipClick}>Leadership card</p>
                   <East sx={{ color: '#04419D' }} />
@@ -161,7 +163,7 @@ function Profile() {
                       </div>
                     </div>
                   )}
-                </div>
+                </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>} 
                 <div className="donation-history" style={{ cursor: 'pointer' }}>
                   <p onClick={handleClick}>Donation history</p>
                   <East sx={{ color: '#04419D' }} />
