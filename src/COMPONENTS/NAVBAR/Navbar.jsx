@@ -41,7 +41,7 @@ const Navbar = () => {
  }
 
  const storedData = JSON.parse(localStorage.getItem('userData'));
- const _id = storedData?.data?._id
+ const _id = storedData?.data?._id || storedData?._id
  
  
 
@@ -51,20 +51,20 @@ useEffect (() =>{
     const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
     const data = await response.json();
     
-  if(data?.data?.isAdminApproved){
+  if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
     setUserData(data?.data)
     console.log(userData,'api-successfully')
   }else{
-    console.log(storedData?.data?.isAdminApproved,'local-successfully')
+    console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
   }
   }
   fetchData()
 },[])
 
- const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber
- const memberId =userData?.memberID
- const userprofile= userData?.profileURL || storedData?.data?.profileURL
- const refferal = storedData?.data?.referralCode || userData?.referralCode
+ const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
+ const memberId =userData?.memberID || storedData?.memberID
+ const userprofile= storedData?.data?.profileURL || userData?.profileURL || storedData?.profileURL
+ const refferal = storedData?.data?.referralCode || userData?.referralCode || storedData?.referralCode
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'

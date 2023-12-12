@@ -41,23 +41,23 @@ const Join = () => {
     const [userData, setUserData] = useState(null);
 
     const storedData = JSON.parse(localStorage.getItem('userData'));
-    const _id = storedData?.data?._id
+    const _id = storedData?.data?._id || storedData?._id
     
     useEffect (() =>{
       const fetchData = async () =>{
         const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
         const data = await response.json();
-      if(data?.data?.isAdminApproved === true){
+      if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
         setUserData(data?.data)
         console.log(userData,'api-successfully')
       }else{
-        console.log(storedData?.data?.isAdminApproved,'local-successfully')
+        console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
       }
       }
       fetchData()
     },[])
 
-    const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber
+    const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
     
 
     return (

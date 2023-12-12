@@ -26,8 +26,8 @@ function JionMember() {
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const localid = storedData?.data?.memberID;
-  const localuid=storedData?.data?._id;
+  const localid = storedData?.data?.memberID || storedData?.memberID
+  const localuid=storedData?.data?._id || storedData?._id
 
 
   const {_id}=useParams()

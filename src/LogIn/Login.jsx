@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
-import { useEffect } from "react";
+
  
  
 function Login() {
@@ -84,11 +84,7 @@ function Login() {
         else{
           
           setSentOTP(true)
-          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER });
-        
-      
-        
-      }
+          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
         window.alert("You are suspended for 6 months");
@@ -101,6 +97,8 @@ function Login() {
   };
  
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
+
+  
   // useEffect(() => {
   //   // Attach event listener when the component mounts
   //   const handleGlobalKeyDown = (e) => {
