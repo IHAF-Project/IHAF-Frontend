@@ -158,9 +158,9 @@ function Profile() {
             <p>User is deactivated.</p>
             ) : (
               <Fragment>
-              <Button variant="outlined" onClick={handleClickOpen}>
-               <h3 style={{color:'white',zIndex:'3' ,padding:'0',margin:'0'}}> Deactivate User</h3>
-              </Button>
+              <button  onClick={handleClickOpen} style={{backgroundColor:'red',cursor:'pointer',border:'none',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px'}}>
+               <h3 style={{color:'white',padding:'0',margin:'0',fontFamily:'Poppins',fontWeight:'500'}}> Deactivate User</h3>
+              </button>
               <Dialog
                 open={open}
                 onClose={handleClose}
@@ -177,11 +177,11 @@ function Profile() {
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleClose}>
+                  <div onClick={handleClose} style={{backgroundColor:'green',cursor:'pointer',color:'white',borderRadius:'4px',paddingBlock:'6px',paddingInline:'1em',fontWeight:'500'}}>
                    Cancel
-                  </Button>
+                  </div>
                   <Button onClick={handleClose} autoFocus>
-                  <div onClick={handleDeactivateClick}>Deactivate</div>
+                  <div onClick={handleDeactivateClick} style={{backgroundColor:'red',color:'white',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px',fontWeight:'600'}}>Deactivate User</div>
                   </Button>
                 </DialogActions>
               </Dialog>

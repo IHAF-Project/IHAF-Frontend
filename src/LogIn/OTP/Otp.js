@@ -20,7 +20,7 @@ function Otp() {
   const [otp, setOtp] = useState('');
   
   const navigate = useNavigate();
-  const [resendTimer, setResendTimer] = useState(30);
+  const [resendTimer, setResendTimer] = useState(120);
  
 
  
@@ -50,6 +50,18 @@ function Otp() {
         console.log('old_id: ' + old_id);
         const isDeleted = storedData?.data?.isDeleted || storedData?.isDeleted;
       
+       
+        let isConfirmationShown = false;
+        
+        window.addEventListener('unload', (event) => {
+          if (isConfirmationShown) {
+            // Display a custom message if the confirmation is already shown
+            const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave?';
+            event.returnValue = confirmationMessage; // Standard for most browsers
+            return confirmationMessage; // For some older browsers
+          }
+        });
+        
         if (isDeleted === true) {
           confirmAlert({
             title: 'Reactivate account!',
@@ -67,24 +79,25 @@ function Otp() {
                           'Content-Type': 'application/json',
                         },
                       });
-      
+        
                       if (activateResponse.status === 200) {
                         const newData = await activateResponse.json();
                         const getResponse = newData?.data?.regularMember[0];
                         console.log(getResponse, 'activate');
-      
+        
                         // Update local storage with new data
                         localStorage.setItem('userData', JSON.stringify(getResponse));
-                        navigate('/')
+                        navigate('/');
                       }
                     } catch (error) {
                       console.log(error.message);
                     }
                   };
-      
+        
                   // Call the reactivation function
                   activateAccount();
-                 
+        
+                  isConfirmationShown = false; // Set the flag when the confirmation is closed
                 },
               },
               {
@@ -94,11 +107,16 @@ function Otp() {
                   setTimeout(() => {
                     navigate('/login'); // Navigate to login page
                   }, 0);
+        
+                  isConfirmationShown = false; // Set the flag when the confirmation is closed
                 },
               },
             ],
           });
+        
+          isConfirmationShown = true; // Set the flag when the confirmation is shown
         }
+        
       
         // Navigate to home page after 4 seconds
         setTimeout(() => {

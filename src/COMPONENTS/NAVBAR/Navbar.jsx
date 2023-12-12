@@ -65,6 +65,7 @@ useEffect (() =>{
  const memberId =userData?.memberID || storedData?.memberID
  const userprofile= storedData?.data?.profileURL || userData?.profileURL || storedData?.profileURL
  const refferal = storedData?.data?.referralCode || userData?.referralCode || storedData?.referralCode
+ const isDeleted = storedData?.isDeleted
 
  const currentLanguage = i18n.language;
  const tamilLanguage =i18n.language === 'ta'
@@ -94,7 +95,7 @@ useEffect (() =>{
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src= {logo} alt="Logo" />
+      <Link to='/' style={{textDecoration:'none'}}><img src= {logo} alt="Logo" /></Link>  
         <div className='nav-don'>
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
       { _id && !memberId? (
@@ -138,20 +139,19 @@ useEffect (() =>{
       </div>
       <div className={`${tamilLanguage ? 'Navbar-login-ta' : 'navbar-login'}`}>
        
-         {phoneNumber ? 
-          (
-         <img className='profile' src={userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
-         ) :
-          ( 
-           <button>
-          <p className={`${tamilLanguage ? 'Navbar-login-tamil' : 'Navbar-login-english'}`}>
-          <Link to='/login' style={{textDecoration:'none' ,color:'white'}}>{currentLanguage === 'ta' ?  t('Navbar.4'): t('Log In')}
-         </Link>
-         </p>
-         </button>
-         )}
-
-      
+       
+        {phoneNumber ? 
+        (
+       <img className='profile' src={userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="50px" height="50px" onClick={handleClickPop}/>
+       ) :
+        ( 
+         <button>
+        <p className={`${tamilLanguage ? 'Navbar-login-tamil' : 'Navbar-login-english'}`}>
+        <Link to='/login' style={{textDecoration:'none' ,color:'white'}}>{currentLanguage === 'ta' ?  t('Navbar.4'): t('Log In')}
+       </Link>
+       </p>
+       </button>
+       )}   
       </div>
       </div>
       </div>
@@ -185,8 +185,8 @@ useEffect (() =>{
     <div className="paste-button">
    <button className="button">REFERALCODE &nbsp;▼</button>
    <div className="dropdown-content">
-    <a id="top"  onClick={handleCopyClick}  href={textRef}
-          style={{ cursor: 'pointer'}}>{refferal}</a>
+    <p id="top"  onClick={handleCopyClick}  
+          style={{ cursor: 'pointer'}}>{refferal}</p>
     <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
   </div>
 </div>
