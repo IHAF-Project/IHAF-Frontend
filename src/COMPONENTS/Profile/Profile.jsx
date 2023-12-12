@@ -156,9 +156,9 @@ function Profile() {
             <p>User is deactivated.</p>
             ) : (
               <Fragment>
-              <Button variant="outlined" onClick={handleClickOpen}>
-               <h3 style={{color:'white',zIndex:'3' ,padding:'0',margin:'0'}}> Deactivate User</h3>
-              </Button>
+              <button  onClick={handleClickOpen} style={{backgroundColor:'red',border:'none',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px'}}>
+               <h3 style={{color:'white',padding:'0',margin:'0',fontFamily:'Poppins',fontWeight:'500'}}> Deactivate User</h3>
+              </button>
               <Dialog
                 open={open}
                 onClose={handleClose}
@@ -166,20 +166,20 @@ function Profile() {
                 aria-describedby="alert-dialog-description"
               >
                 <DialogTitle id="alert-dialog-title">
-                  {"Use Google's location service?"}
+                  {"Deactivation Warning!"}
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-description">
-                    Let Google help apps determine location. This means sending anonymous
-                    location data to Google, even when no apps are running.
+                    If you deactivate your account you will need be Delete from the LeaderShip and the petition you posted will be permenantly deleted.And the Feedback you posted will be permenantly deleted.And if you have applied for Leadership Application will automatically cleared.<br/><br/>
+                    <b style={{fontVariantCaps:'all-petite-caps',fontSize:'21px',textAlign:'center'}}>Are You sure!  You want to Delete your Account</b> 
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleClose}>
+                  <div onClick={handleClose} style={{backgroundColor:'green',color:'white',borderRadius:'4px',paddingBlock:'6px',paddingInline:'1em',fontWeight:'500'}}>
                    Cancel
-                  </Button>
+                  </div>
                   <Button onClick={handleClose} autoFocus>
-                  <div onClick={handleDeactivateClick}>Deactivate User</div>
+                  <div onClick={handleDeactivateClick} style={{backgroundColor:'red',color:'white',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px',fontWeight:'600'}}>Deactivate User</div>
                   </Button>
                 </DialogActions>
               </Dialog>
