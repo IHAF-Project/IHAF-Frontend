@@ -6,7 +6,16 @@ import MembershipCard from "./MembershipCard";
 import LeadershipCard from "./LeadershipCard";
 import html2canvas from "html2canvas"; 
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+
+import { Background } from "@cloudinary/url-gen/qualifiers";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Link, useParams,useNavigate } from "react-router-dom";
+import React,{Fragment} from "react";
 
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +23,16 @@ function Profile() {
   const [leadershipCardOpen, setLeadershipCardOpen] = useState(false);
   const { memberId } = useParams();
   const [memberDetails, setMemberDetails] = useState(null);
+  const navigate =useNavigate()
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+     setOpen(true);
+   };
+ 
+  const handleClose = () => {
+     setOpen(false);
+   };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +40,7 @@ function Profile() {
         const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/${memberId}`);
         if (response.ok) {
           const getData = await response.json();
-          setMemberDetails(getData.data);
+          setMemberDetails(getData?.data);
           console.log(getData.data.memberProfile, "member profile");
         } else {
           console.error('Error fetching member profile');
@@ -47,6 +66,9 @@ function Profile() {
   const paymentData = [
     { id: 1, method: 'Credit Card', transactionId: '12345', amount: 100 },
     { id: 2, method: 'PayPal', transactionId: '67890', amount: 50 },
+    { id: 3, method: 'Credit Card', transactionId: '12345', amount: 100 },
+    { id: 4, method: 'PayPal', transactionId: '67890', amount: 50 }, 
+    { id: 5, method: 'PayPal', transactionId: '67890', amount: 50 },
   ];
 
   const exportToPNG = (elementSelector, fileName) => {
@@ -72,7 +94,7 @@ function Profile() {
     exportToPNG('.leader-card', 'LeadershipCard');
   };
 
-  const originalDate = memberDetails?.memberProfile?.createdAt;
+  const originalDate = memberDetails?.memberProfile?.createdAt ;
   const formatedate = new Date(originalDate);
   const getDate = formatedate.toLocaleDateString();
   console.log(originalDate, "originalDate");
@@ -87,6 +109,37 @@ function Profile() {
       });
   };
 
+
+  const getId = JSON.parse(localStorage.getItem('userData'));
+  const id = getId?._id || getId?.data?._id
+
+  const [isAccountDeactivated, setIsAccountDeactivated] = useState(false);
+
+  const deactivateUser = async () => {
+    try {
+      const response = await fetch(`https://ihaf-backend.vercel.app/deactivate-account/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ isDeleted: true }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        setIsAccountDeactivated(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDeactivateClick = () => {
+    deactivateUser();
+    localStorage.clear();
+    navigate('/')
+  };
   return (
     <>
       <div className="profile-contain">
@@ -100,6 +153,41 @@ function Profile() {
           <div className="profile-contain-bt">
             <div className="profile-bt-left">
               <img src={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='user-profile' />
+            <div>
+            {isAccountDeactivated ? (
+            <p>User is deactivated.</p>
+            ) : (
+              <Fragment>
+              <button  onClick={handleClickOpen} style={{backgroundColor:'red',cursor:'pointer',border:'none',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px'}}>
+               <h3 style={{color:'white',padding:'0',margin:'0',fontFamily:'Poppins',fontWeight:'500'}}> Deactivate User</h3>
+              </button>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"Attention !"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                   <p style={{color:'red'}}> Deactivating this account will erase all datas related to this account permanently!</p>
+                    <p >Are you sure want to deactivate this account ?</p>
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <div onClick={handleClose} style={{backgroundColor:'green',cursor:'pointer',color:'white',borderRadius:'4px',paddingBlock:'6px',paddingInline:'1em',fontWeight:'500'}}>
+                   Cancel
+                  </div>
+                  <Button onClick={handleClose} autoFocus>
+                  <div onClick={handleDeactivateClick} style={{backgroundColor:'red',color:'white',borderRadius:'4px',paddingBlock:'4px',paddingInline:'8px',fontWeight:'600'}}>Deactivate User</div>
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </Fragment>
+               )}
+            </div>
             </div>
             <div className="profile-bt-right">
               <div className="user-profile-details">
@@ -109,8 +197,8 @@ function Profile() {
                 <span>Total number of referral: {memberDetails?.refferalCount > 0 ? memberDetails.refferalCount : 0}</span>
               </div>
               <div className="user-profile-cards">
-                <div className="membership-card-1" style={{ cursor: 'pointer' }}>
-                  <p onClick={memberShipClick}>Membership card</p>
+                <div className="membership-card-1" style={{ cursor: 'pointer' }} onClick={memberShipClick}>
+                  <p>Membership card</p>
                   <East sx={{ color: '#04419D' }} />
                   {membershipCardOpen && (
                     <div className="membership-card">
@@ -134,6 +222,7 @@ function Profile() {
                     </div>
                   )}
                 </div>
+                {memberDetails?.memberProfile?.leaderID?
                 <div className="leadership-card" style={{ cursor: 'pointer' }}>
                   <p onClick={leadershipClick}>Leadership card</p>
                   <East sx={{ color: '#04419D' }} />
@@ -161,7 +250,7 @@ function Profile() {
                       </div>
                     </div>
                   )}
-                </div>
+                </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>} 
                 <div className="donation-history" style={{ cursor: 'pointer' }}>
                   <p onClick={handleClick}>Donation history</p>
                   <East sx={{ color: '#04419D' }} />

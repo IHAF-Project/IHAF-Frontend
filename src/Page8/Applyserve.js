@@ -16,7 +16,7 @@ function Applyserve() {
   ];
   
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const memberID=storedData?.data?.memberID
+  const memberID=storedData?.data?.memberID || storedData?.memberID
 
   const navigate = useNavigate()
 
