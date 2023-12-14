@@ -90,7 +90,7 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 22.108px;
+    font-size: 17.108px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -242,7 +242,7 @@
         align-items: center;
     }
     .zoom-meeting-cont {
-        width: 64vw; 
+        width: auto; 
         flex-direction: column;
  
     }
