@@ -1,33 +1,28 @@
 import { useTranslation } from 'react-i18next';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Otp.css';
 import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
 import { useNavigate } from 'react-router-dom';
-import refresh from "../../images/Refresh.svg";
 import OtpInput from 'react-otp-input';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import { confirmAlert } from 'react-confirm-alert'; // Import the library
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the styles
+
 import 'react-toastify/dist/ReactToastify.css';
  
 function Otp() {
-  const lastInputRef = useRef();
+
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [otp, setOtp] = useState('');
-  const inputRefs = [useRef(), useRef(), useRef(), useRef()];
+  
   const navigate = useNavigate();
+  const [resendTimer, setResendTimer] = useState(120);
  
-  const handleInputChange = (index, value, e) => {
-    if (inputRefs[index] && inputRefs[index].current) {
-      if (value !== '' && index < inputRefs.length - 1) {
-        inputRefs[index + 1].current.focus();
-      } else if (value === '' && index > 0 && (e.key === 'Backspace' || e.key === 'Delete')) {
-        inputRefs[index - 1].current.focus();
-      }
-    }
-  };
+
  
   const handleSubmit = async (e) => {
     try {
@@ -36,22 +31,99 @@ function Otp() {
         otp: otp,
         phoneNumber: phoneNumber,
       });
- 
-      const userData = response.data;
+
+      const userData = response?.data;
       localStorage.setItem('userData', JSON.stringify(userData));
- 
+
       console.log(userData, 'UserData');
       const verifyResult = { data: { success: true } };
- 
+
       if (verifyResult.data.success) {
         toast.success('Verify OTP success', {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
         });
+      
+        // Extracting old_id from localStorage
+        const storedData = JSON.parse(localStorage.getItem('userData'));
+        const old_id = storedData?.data?._id || storedData?._id;
+        console.log('old_id: ' + old_id);
+        const isDeleted = storedData?.data?.isDeleted || storedData?.isDeleted;
+      
+       
+        let isConfirmationShown = false;
+        
+        window.addEventListener('unload', (event) => {
+          if (isConfirmationShown) {
+            // Display a custom message if the confirmation is already shown
+            const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave?';
+            event.returnValue = confirmationMessage; // Standard for most browsers
+            return confirmationMessage; // For some older browsers
+          }
+        });
+        
+        if (isDeleted === true) {
+          confirmAlert({
+            title: 'Reactivate account!',
+            message: 'Do you want to reactivate the account?',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: async () => {
+                  // Reactivate account
+                  const activateAccount = async () => {
+                    try {
+                      const activateResponse = await fetch(`https://ihaf-backend.vercel.app/reactivate-account/${old_id}`, {
+                        method: 'PUT',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                      });
+        
+                      if (activateResponse.status === 200) {
+                        const newData = await activateResponse.json();
+                        const getResponse = newData?.data?.regularMember[0];
+                        console.log(getResponse, 'activate');
+        
+                        // Update local storage with new data
+                        localStorage.setItem('userData', JSON.stringify(getResponse));
+                        navigate('/');
+                      }
+                    } catch (error) {
+                      console.log(error.message);
+                    }
+                  };
+        
+                  // Call the reactivation function
+                  activateAccount();
+        
+                  isConfirmationShown = false; // Set the flag when the confirmation is closed
+                },
+              },
+              {
+                label: 'No',
+                onClick: () => {
+                  console.log('Member reactivation canceled');
+                  setTimeout(() => {
+                    navigate('/login'); // Navigate to login page
+                  }, 0);
+        
+                  isConfirmationShown = false; // Set the flag when the confirmation is closed
+                },
+              },
+            ],
+          });
+        
+          isConfirmationShown = true; // Set the flag when the confirmation is shown
+        }
+        
+      
+        // Navigate to home page after 4 seconds
         setTimeout(() => {
           navigate('/');
-        }, 0);
-      } else {
+        }, 4000);
+      }
+       else {
         toast.error('Invalid OTP', { position: toast.POSITION.TOP_CENTER });
       }
     } catch (error) {
@@ -59,6 +131,7 @@ function Otp() {
       toast.error('Invalid OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
+
  
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
@@ -66,6 +139,7 @@ function Otp() {
       await handleSubmit(e);
     }
   };
+
  
   const handleResendClick = async () => {
     try {
@@ -76,6 +150,7 @@ function Otp() {
  
       if (resendResponse.data.success) {
         toast.info('OTP resent successfully', { position: toast.POSITION.TOP_CENTER });
+        setResendTimer(30);
       } else {
         toast.error('Failed to resend OTP', { position: toast.POSITION.TOP_CENTER });
       }
@@ -96,9 +171,25 @@ function Otp() {
  
   useEffect(() => {
     Register();
+    const timer = setInterval(() => {
+      setResendTimer((prevTimer) => prevTimer - 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
- 
- 
+
+  useEffect(() => {
+    if (resendTimer === 0) {
+      clearInterval();
+    }
+    
+  }, [resendTimer]);
+
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  const new_id = storedData?.data?._id || storedData?._id
+  console.log('new_id: ' + new_id);
+
   return (
     <div className='otp-main'>
       <Navbar />
@@ -146,13 +237,23 @@ function Otp() {
               </Button>
             </Stack>
           </div>
-          <div className='resent-otp' onClick={handleResendClick}>
+          {resendTimer > 0 ? (
+<div className='otp-countdown'>
+                      OTP will expire in {resendTimer} seconds
+</div>
+                  ) : (
+<div className='resent-otp'>
+<div className='resent'>I didn’t get OTP !</div>
+<div className='sen-again' onClick={handleResendClick}>Send again</div>
+</div>
+                  )}
+          {/* <div className='resent-otp' onClick={handleResendClick}>
             <p >I didn’t receive a OTP resend OTP !</p>
             <div className='resend'>
               <span>{t('Otp.5')}</span>
               <img src={refresh} alt='refresh' width='16px' height='16px' />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <ToastContainer />

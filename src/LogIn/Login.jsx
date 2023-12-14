@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+
  
  
 function Login() {
@@ -26,6 +27,7 @@ function Login() {
   const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
+  const [resp, setresp] = useState(false);
  
 
  
@@ -52,17 +54,20 @@ function Login() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSentOTP(true);
+  
  
-    if (formData.phoneNumber.length === 10 && isInputValid) {
+    if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
       try {
+       
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
+
         });
  
-        const check = { data: { success: true } };
- 
-        if (check.data.success) {
+        console.log(response.data.status)
+        
+        if (response.data.data.status==="AWAITED-DLR") {
+          setSentOTP(true)
  
           setConfirmPopupData(formData.phoneNumber);
  
@@ -70,14 +75,16 @@ function Login() {
           toast.success('OTP sent successfully.', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 1000,
-            onClose: () => {
-              // Your navigation logic here
-              // For example, use react-router-dom history to push to another page
-              navigate('/Otp');
-            },
+            
           })
+          setTimeout(() => {
+            navigate('/Otp');
+          }, 2000);
         } 
-        console.log(response);
+        else{
+          
+          setSentOTP(true)
+          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
         window.alert("You are suspended for 6 months");
@@ -90,10 +97,27 @@ function Login() {
   };
  
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
- 
+
+  
+  // useEffect(() => {
+  //   // Attach event listener when the component mounts
+  //   const handleGlobalKeyDown = (e) => {
+  //     if (e.key === "Enter") {
+  //       handleSubmit(e);
+  //     }
+  //   };
+
+  //   window.addEventListener("keydown", handleGlobalKeyDown);
+
+  //   // Detach event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener("keydown", handleGlobalKeyDown);
+  //   };
+  // }, []); // Empty dependency array ensures the effect runs only once
   return (
     <>
       <Navbar />
+      <form onSubmit={handleSubmit}>
       <div className="login-container">
         <div className="login-content">
           <h1 className={` ${isTamilLanguage ? 'tamil18-font5' : ''}`}>
@@ -102,7 +126,7 @@ function Login() {
           <p className={`${isTamilLanguage ? 'tamil18-font5' : ''}`}>
             {t('Login.2')}
           </p>
-          <form onSubmit={handleSubmit}>
+         
             <div className="form-login">
               <label className={`${isTamilLanguage ? 'tamil18-font5' : ''}`}>
                 {t('Login.3')}
@@ -110,6 +134,7 @@ function Login() {
               <span>+91</span>
               <input
                 type="tel"
+                max='10'
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
@@ -124,8 +149,10 @@ function Login() {
                 }}
               />
             </div>
+            {resp&&
+            <div style={{color:'red',textAlign:'center'}}>Error sending OTP!</div>}
             {sentOTP&&
-            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully ! Please wait..</div>}
+            <div style={{color:'green',textAlign:'center'}}>OTP sent successfully !</div>}
             <div className="login-btn">
               <Stack spacing={2} direction="row">
                 <Button
@@ -141,9 +168,10 @@ function Login() {
                 </Button>
               </Stack>
             </div>
-          </form>
+         
         </div>
       </div>
+      </form>
       {/* Replace ToastContainer with your custom notification */}
       <ToastContainer />
      
