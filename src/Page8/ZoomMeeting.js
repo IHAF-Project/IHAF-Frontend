@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ZoomMeeting() {
   const [isCodeCopied, setIsCodeCopied] = useState(false);
@@ -19,21 +20,22 @@ function ZoomMeeting() {
       .catch((error) => console.error(error));
       console.log(meet, "photos===")
   }, []);
+  console.log (selectedMeetUrl, "link===")
 
-  const handleCopyCodeClick = () => {
-    const tempInput = document.createElement('input');
-    document.body.appendChild(tempInput);
-    tempInput.value = selectedMeetUrl;
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
+  // const handleCopyCodeClick = () => {
+  //   const tempInput = document.createElement('input');
+  //   document.body.appendChild(tempInput);
+  //   tempInput.value = selectedMeetUrl;
+  //   tempInput.select();
+  //   document.execCommand('copy');
+  //   document.body.removeChild(tempInput);
 
-    setIsCodeCopied(true);
+  //   setIsCodeCopied(true);
 
-    setTimeout(() => {
-      setIsCodeCopied(false);
-    }, 1000);
-  };
+  //   setTimeout(() => {
+  //     setIsCodeCopied(false);
+  //   }, 1000);
+  // };
 
   return (
     <div className='Meeting-con-main'>
@@ -50,10 +52,10 @@ function ZoomMeeting() {
         <p className='zoom-meet-code'>
           Zoom meeting code :
           <span
-            className={`code-text ${isCodeCopied ? 'copied' : ''}`}
-            onClick={handleCopyCodeClick}
+            className={`code-text }`}
+            
           >
-           <a href='{selectedMeetUrl}'> {selectedMeetUrl}</a> 
+           <Link to={selectedMeetUrl} target='_blank'> {selectedMeetUrl}</Link> 
           </span>
         </p>
        

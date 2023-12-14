@@ -64,7 +64,7 @@
     line-height: normal;
 }
 .code-text{
-    padding-left: 2vw;
+    /* padding-left: 2vw; */
     cursor: pointer;
 }
 
@@ -87,32 +87,40 @@
     flex-direction: row;
 }
 .zoom-meet-code {
-    color: #FFF;
+    /* color: #FFF;
     text-align: center;
     font-family: Poppins;
     font-size: 17.108px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: normal; */
+    font-size: 20.108px;
+    margin: 0;
 }
 .zoom-link {
-    color: #FFF;
+    /* color: #FFF;
     text-align: center;
     font-family: Poppins;
     font-size: 14.738px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: normal; */
 }
 .zoom-meeting-cont {
-    display: flex;
+    /* display: flex;
     width: 66vw;
     align-items: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     border: 1px solid white;
     margin-top: 2rem;
-    justify-content: space-around;
+    justify-content: space-around; */
+    border: 1px solid white;
+    padding: 19px 71px;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: #FFF;
 }
 .selected-tab {
     background-color: white;
@@ -121,11 +129,10 @@
   img.zoom-meet-design {
     /* width: 60vw; */
     background-size: cover;
-    object-fit: cover;
+    object-fit: contain;
     background-position: center;
     width: 50vw;
-    background-position: center;
-    height: auto;
+    height: 50vh;
 }
 .event-photos img {
     width: 30vw;
@@ -172,7 +179,7 @@
     gap: 4rem;
 }
 span.code-text {
-    font-size: 4vw;
+    /* font-size: 4vw; */
 }
 
 
@@ -253,7 +260,7 @@ span.code-text {
         span.code-text {
     font-size: 4vw;
 }span.code-text {
-    font-size: 4vw;
+    font-size: 3vw;
 }
  
     }
