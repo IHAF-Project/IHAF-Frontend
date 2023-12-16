@@ -34,15 +34,15 @@ function Footer() {
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} >{t('hello.20')}</p>
                  </Link>
              
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</a></p>
+                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</Link></p>
                 
               </div>
               <div className='foot-bt-content-2'>
                
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</a></p>
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</Link></p>
              
               
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Leaders' style={{textDecoration:'none',color:'white'}}>{t('hello.23')}</a></p>
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Leaders' style={{textDecoration:'none',color:'white'}}>{t('hello.23')}</Link></p>
                
               
                <Link to='Feedback'><p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p></Link> 

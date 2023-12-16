@@ -8,7 +8,7 @@ import Footer from './COMPONENTS/FOOTER/Footer.js';
 import Meeting from './Page8/Meeting';
 import Home from './AMBEDKAR-FED/Page2.js';
 import Join from './JOIN/Join.js';
-import Cards from './Page6/Cards';
+import Cards from './cards/Cards.js';
 import useScrollToTop from './COMPONENTS/Hooks/useScrollToTop.js';
 function Tree() {
   useScrollToTop();

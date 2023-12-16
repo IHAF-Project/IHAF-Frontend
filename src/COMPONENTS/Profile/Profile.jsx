@@ -25,16 +25,26 @@ function Profile() {
   const [memberDetails, setMemberDetails] = useState(null);
   const navigate =useNavigate()
   const [open, setOpen] = useState(false);
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+ const _id = storedData?.data?._id || storedData?._id
 
   const handleClickOpen = () => {
      setOpen(true);
    };
- 
+   const logoutUser = () =>{
+    
+    localStorage.clear();
+    window.location.href ="/";
+  }
+  
   const handleClose = () => {
      setOpen(false);
    };
 
   useEffect(() => {
+    if(!(_id)){
+      logoutUser()
+    }
     const fetchData = async () => {
       try {
         const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/${memberId}`);

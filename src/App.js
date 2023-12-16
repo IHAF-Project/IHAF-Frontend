@@ -15,7 +15,7 @@ import Applyserve from './Page8/Applyserve';
 import Footer from './COMPONENTS/FOOTER/Footer.js';
 import Page1 from './INTRO-PAGE/Page1.jsx';
 import Petition from './Page7/Petition';
-import Cards from './Page6/Cards';
+import Cards from './cards/Cards';
 import Page4 from './FEEDBACK-SCROLL/Feedback-scroll.js';
 import EventDetails from "./Page8/GetEventDetails/EventDetails.js"
 import Page3 from './SOCIAL-MEDIA/Social.jsx';

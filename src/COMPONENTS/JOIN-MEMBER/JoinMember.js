@@ -28,6 +28,7 @@ function JionMember() {
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const localid = storedData?.data?.memberID || storedData?.memberID
   const localuid=storedData?.data?._id || storedData?._id
+  const localmemberid=storedData?.data?.memberID || storedData?.memberID || false
 
 
   const {_id}=useParams()
@@ -260,14 +261,18 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
           for (let i = 0; i < data.length; i++) {
             const object = data[i];
             
-            if(object._id === localuid){
-              member= object;
-              // Check if the name property is a non-empty string
-                const hasNonEmptyName = typeof member.name === 'string' && member.name.trim() !== '';
-              if(hasNonEmptyName ===true){
+            if(object._id === localuid || localmemberid){
+              // member= object;
+              // // Check if the name property is a non-empty string
+              // console.log("hi",member.name)
+              //   const hasNonEmptyName = typeof member.name === 'string' && member.name.trim() !== '';
+              // if(hasNonEmptyName ===true){
                 
                 setappliedpop(true);
-              }
+              
+            }
+            else{
+              console.log("nooooo")
             }
             
             // console.log(`Object ${i + 1}:`, object);

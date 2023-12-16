@@ -53,6 +53,7 @@ function Petition() {
  const memberID = userData?.memberID || storedData?.memberID
 
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
+  const [isErrorPopupOpen, setErrorPopupOpen] = useState(false);
 
   const [data, setdata] = useState({
     memberID:memberID ||"",
@@ -114,13 +115,19 @@ const handleSuccess = () => {
  
       if (res.ok) {
         const t1 = await res.json();
-        console.log(t1, 'succe}ss');
+      
+        handleSuccess();
         setdata( {issues:"",imageURL:""});
         
-        handleSuccess();
+       
       } else {
         const errorResponse = await res.json();
         console.error('Error Response:', errorResponse);
+        if (errorResponse) {
+          // Show your popup or perform any action you want
+          setErrorPopupOpen(true);
+          
+        }
       }
     } catch (error) {
       console.error('Error', error);
@@ -144,7 +151,7 @@ const handleSuccess = () => {
           <div className="petition-input-cont">
             <div className="petition-in-c">
               <div>
-                <p className={`${isTamilLanguage ? 'petition-in-tamil' : 'petition-in'}`}>{t('hello.5')} </p>
+                <p className={`${isTamilLanguage ? 'petition-in-tamil' : 'petition-in'}`}>{t('hello.5')}</p>
               </div>
               <div className="equal">:</div>
             </div>
@@ -161,7 +168,7 @@ const handleSuccess = () => {
           <div className="petition-input-cont">
             <div className="petition-in-c">
               <div>
-                <p className={`${isTamilLanguage ? 'petition-in-tamil' : 'petition-in'}`}>{t('hello.8')} </p>
+                <p className={`${isTamilLanguage ? 'petition-in-tamil' : 'petition-in'}`}>{t('hello.8')} *</p>
               </div>
               <div className="equal">:</div>
             </div>
@@ -207,6 +214,13 @@ const handleSuccess = () => {
           <p>You submitted your petition successful!</p>
           <p>Our support team will contact you and solve your petition quickly as possible.</p>
           <button className="close-button" onClick={() => setSuccessPopupOpen(false)}>Close</button>
+        </div>
+      )},
+       {isErrorPopupOpen && (
+        <div className="success-popup">
+          <p>Incomplete form submission !</p>
+          
+          <button className="close-button" onClick={() => setErrorPopupOpen(false)}>Close</button>
         </div>
       )}
     </div>

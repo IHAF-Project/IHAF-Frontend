@@ -87,7 +87,7 @@ function Login() {
           toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
-        window.alert("You are suspended for 6 months");
+        window.alert(error.response.data.message);
       }
     } else {
       // Show input error notification

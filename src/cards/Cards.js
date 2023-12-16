@@ -12,19 +12,22 @@ const Cards = () => {
 
     const storedData = JSON.parse(localStorage.getItem('userData'));
     const _id = storedData?.data?._id || storedData?._id
+    const adminok = storedData?.data?.isAdminApproved || storedData?.isAdminApproved
     
     useEffect (() =>{
-      const fetchData = async () =>{
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
-        const data = await response.json();
-      if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
+      // const fetchData = async () =>{
+      //   const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+      //   const data = await response.json();
+
+      if( adminok === true){
+        const data= storedData
         setUserData(data?.data)
         console.log(userData,'api-successfully')
       }else{
         console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
       }
-      }
-      fetchData()
+      // }
+      // fetchData()
     },[])
 
     const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
