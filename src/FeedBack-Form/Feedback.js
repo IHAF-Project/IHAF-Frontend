@@ -6,6 +6,7 @@ import useScrollToTop from '../component/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../component/NavBar/Navbar.jsx';
 
 function Feedback() {
   const navigate = useNavigate()
@@ -94,6 +95,7 @@ useEffect (() =>{
 useScrollToTop();
   return (
     <div className='feedback-container abc'>
+      <Navbar></Navbar>
       <div className='feedback-container-main'>
         <p className={`${isTamilLanguage ? 'Feedback-heading-tamil' : 'Feedback-heading'}`}>{t('hello.10')}</p>
         <p className={`${isTamilLanguage ? 'Feedback-text-tamil' : 'Feedback-text'}`}>{t('hello.11')}</p>

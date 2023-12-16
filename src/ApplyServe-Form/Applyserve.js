@@ -5,6 +5,7 @@ import useScrollToTop from '../component/Hooks/useScrollToTop';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../component/NavBar/Navbar';
 
 function Applyserve() {
 
@@ -24,11 +25,20 @@ function Applyserve() {
     memberID: memberID || "",
     postingLocation: "",
     postingName: "",
-    qualification: "",
+   
   });
 
   const handlesubmit = async (e) => {
+  
     e.preventDefault();
+    if(serve.postingLocation ==="" || serve.postingName ===""){
+      toast.success('Incomplete form submission',{
+        position:'top-right'
+        
+      });
+      return
+
+    }
 
     try {
       const Response = await fetch("https://ihaf-backend.vercel.app/new-application", {
@@ -45,6 +55,12 @@ function Applyserve() {
         toast.success('Application send Successfully',{
           position:'top-right'
         });
+        setServe({
+         
+          postingLocation: "",
+          postingName: "",
+          
+        });
         console.log(res, "Apply to serve datas");
       } else {
         const er = await Response.json();
@@ -52,12 +68,7 @@ function Applyserve() {
         toast.success(`You are ${er.message}.`,{
           position:'top-right'
         });
-        setServe({
-          memberID: "",
-          postingLocation: "",
-          postingName: "",
-          qualification: "",
-        });
+        
       }
     } catch (error) {
       console.error("error", error);
@@ -68,6 +79,8 @@ function Applyserve() {
   }
 useScrollToTop();
   return (
+    <div>
+      <Navbar></Navbar>
     <div className='Applyserve-container'>
       
       <p className={`${isTamilLanguage ? 'apply-toserve-head-tamil' : 'apply-toserve-head'}`}>{t("hello.31")}</p>
@@ -137,6 +150,7 @@ useScrollToTop();
         </div>
       </div>
       <ToastContainer/>
+    </div>
     </div>
   )
 }

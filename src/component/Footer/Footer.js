@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom';
 function Footer() {
     const {t, i18n} = useTranslation ();
-    
+   
     const isTamilLanguage = i18n.language === 'ta';
-
+ 
     const storedData = JSON.parse(localStorage.getItem('userData'));
     const _id = storedData?.data?._id || storedData?._id
   return (
@@ -15,7 +15,7 @@ function Footer() {
     <div className='Footer-container-main'>
       <div className='footer-logo'>
          <img src={image1} alt='' className='footer-image1'></img>
-        </div> 
+        </div>
       <div className='footer-copy-rights'>
          <p className={`${isTamilLanguage ? 'Footer-integral-tamil' : 'Footer-integral'} `} >{t('hello.17')}</p>
          <div className='footer-social'>
@@ -26,7 +26,7 @@ function Footer() {
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
                  </Link>
                ):(
-                
+               
                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
                
                )}
@@ -34,23 +34,23 @@ function Footer() {
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`} >{t('hello.20')}</p>
                  </Link>
              
-                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</Link></p>
-                
+                 <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Social' style={{textDecoration:'none',color:'white'}}>{t('hello.21')}</a></p>
+               
               </div>
               <div className='foot-bt-content-2'>
                
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</Link></p>
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Petition' style={{textDecoration:'none',color:'white'}}>{t('hello.22')}</a></p>
              
-              
-                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><Link href='#Leaders' style={{textDecoration:'none',color:'white'}}>{t('hello.23')}</Link></p>
+             
+                <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}><a href='#Leaders' style={{textDecoration:'none',color:'white'}}>{t('hello.23')}</a></p>
                
-              
-               <Link to='Feedback'><p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p></Link> 
+             
+               <Link to='Feedback'><p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'}`}>{t('hello.24')}</p></Link>
                
               </div>
-            </div> 
+            </div>
             <div className='footer-text-address-container'>
-               <p className='footer-text-Addtress-head'>{t('hello.25')}</p> 
+               <p className='footer-text-Addtress-head'>{t('hello.25')}</p>
                <p className={`${isTamilLanguage ? 'footer-text-Addtress-tamil' : 'footer-text-Addtress'}`}>{t('hello.26')}</p>
             </div>
          </div>
@@ -61,5 +61,5 @@ function Footer() {
     </div>
   )
 }
-
+ 
 export default Footer
