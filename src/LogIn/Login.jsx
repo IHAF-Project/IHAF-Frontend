@@ -4,12 +4,12 @@ import axios from "axios";
 import Stack from '@mui/material/Stack';
 import "./Login.css"
 import Button from '@mui/material/Button';
-import Navbar from "../COMPONENTS/NAVBAR/Navbar";
+import Navbar from "../component/NavBar/Navbar";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+import ConfirmPopup from "../component/ConfirmPopup/ConfirmPopup";
 
  
  
@@ -61,7 +61,7 @@ function Login() {
        
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
-
+          
         });
  
         console.log(response.data.status)
@@ -87,7 +87,7 @@ function Login() {
           toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
-        window.alert(error.response.data.message);
+        toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER })
       }
     } else {
       // Show input error notification

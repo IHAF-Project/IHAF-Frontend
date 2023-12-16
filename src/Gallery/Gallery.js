@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Gallery.css';
 import Video from './Video';
-import Navbar from '../COMPONENTS/NAVBAR/Navbar';
+import Navbar from '../component/NavBar/Navbar';
 import { useTranslation } from 'react-i18next';
 // import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
  

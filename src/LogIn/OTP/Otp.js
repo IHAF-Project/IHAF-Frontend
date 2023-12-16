@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
 import './Otp.css';
-import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
+import Navbar from '../../component/NavBar/Navbar';
 import { useNavigate } from 'react-router-dom';
 import OtpInput from 'react-otp-input';
 import Stack from '@mui/material/Stack';

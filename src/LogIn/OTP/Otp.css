@@ -129,5 +129,8 @@ line-height: normal;
         width: auto;
         padding: 1rem;
     }
+    .resent-otp {
+      flex-direction: column;
+    }
     
   }

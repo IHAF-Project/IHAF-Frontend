@@ -107,15 +107,20 @@
   border-radius: 0.5vw;
 }
 .videos-container{
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .video-item{
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 2rem;
 
 }
