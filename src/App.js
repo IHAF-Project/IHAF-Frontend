@@ -16,7 +16,7 @@ import Footer from './component/Footer/Footer.js';
 import Page1 from './Home/Home.jsx';
 import Petition from './Petition/Petition';
 import Cards from './ApplyServe-Slider/Slider.js';
-import Page4 from './FeedBack-Scroll/Feedback-scroll.js';
+import Page4 from './FeedBack-Scrolls/Feedback-scroll.js';
 import EventDetails from "./Meeting&Events/Events/GetEventDetails/EventDetails"
 import Page3 from './SocialMedia/Social.jsx';
 import Gallery from './Gallery/Gallery.js';
