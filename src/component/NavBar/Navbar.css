@@ -215,7 +215,7 @@ cursor: pointer;
   right: 0;
   width: 100%;
   display: flex;
-  top:12vh;
+  top:10vh;
   position: absolute;
   justify-content: flex-end;
 }
@@ -247,7 +247,7 @@ cursor: pointer;
   height: 10vh;
   gap:1.5rem;
   align-items: center;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 }
 :is(.referal-code p,.feedback-pop p,.logout-pop p){
   color: white;
