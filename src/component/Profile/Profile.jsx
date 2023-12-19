@@ -261,7 +261,7 @@ function Profile() {
                     </div>
                   )}
                 </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>} 
-                <div className="donation-history" style={{ cursor: 'pointer' }}>
+                {/* <div className="donation-history" style={{ cursor: 'pointer' }}>
                   <p onClick={handleClick}>Donation history</p>
                   <East sx={{ color: '#04419D' }} />
                   {isOpen && (
@@ -298,7 +298,7 @@ function Profile() {
                       </div>
                     </div>
                   )}
-                </div>
+                </div> */}
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
                   <span className="ref-span"

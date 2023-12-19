@@ -103,6 +103,9 @@ const handleSuccess = () => {
   const handlesubmit = async (e) => {
    
     e.preventDefault();
+    if(data.issues ===""){
+      setErrorPopupOpen(true);
+    }
  
     try {
       const res = await fetch('https://ihaf-backend.vercel.app/new-petition', {
