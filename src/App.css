@@ -42,52 +42,52 @@ section {
    opacity: 0;
    filter: blur(5px);
    transform: translateX(-100%);
-   transition: all 1s ease 0.5s  ;
+   transition: all 1s ease 0.2s  ;
  }
  .hidden-1{
   opacity: 0;
   filter: blur(5px);
   transform: translateY(100px);
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.5s ease 0.2s  ;
 }
 .hidden-11{
   opacity: 0;
   filter: blur(5px);
   transform: translateY(100px);
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.5s ease 0.2s  ;
 }
 .hidden-12{
   opacity: 0;
   filter: blur(5px);
   transform: translateY(100px);
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.5s ease 0.2s  ;
 }
 .hidden-10{
   opacity: 0;
   filter: blur(5px);
   transform: translateX(100%);
   overflow: hidden;
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.5s ease 0.2s  ;
 }
 .hidden-2 {
   opacity: 0;
   filter: blur(5px);
   transform: translateX(100%);
   overflow: hidden;
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.8s ease 0.2s  ;
 }
 
 .hidden-3 {
   transform: translateY(10px);
-  transition: all 1s ease 1s  ;
+  transition: all 0.7s ease 1s  ;
 }
 .hidden-4{
   transform: translateY(10px);
-  transition: all 1s ease 1.5s  ;
+  transition: all 0.7s ease 1.5s  ;
 }
 .hidden-5{
   transform: translateY(10px);
-  transition: all 1s ease 2s  ;
+  transition: all 0.7s ease 2s  ;
 }
 
 .hidden-6{
@@ -95,7 +95,7 @@ section {
   filter: blur(5px);
   transform: translateX(-100%);
   overflow: hidden;
-  transition: all 1s ease 0.5s  ;
+  transition: all 0.7s ease 0.2s  ;
 }
 
 .hidden-7{
@@ -103,29 +103,29 @@ section {
   filter: blur(5px);
   transform: translateX(-100%);
   overflow: hidden;
-  transition: all 1s ease 1s  ;
+  transition: all 0.7s ease 1s  ;
 }
 .hidden-13{
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
   overflow: hidden;
-  transition: all 1s ease 1s  ;
+  transition: all 0.5s ease 0.2s  ;
 }
 .hidden-14{
   opacity: 0;
   filter: blur(5px);
-  transition: all 1s ease 1.2s  ;
+  transition: all 0.7s ease 1.2s  ;
 }
 .hidden-8{
   opacity: 0;
   filter: blur(5px);
-  transition: all 1s ease 1.2s  ;
+  transition: all 0.7s ease 1.2s  ;
 }
 .hidden-9{
   opacity: 0;
   filter: blur(5px);
-  transition: all 1s ease 1.2s  ;
+  transition: all 0.7s ease 1.2s  ;
 }
  .show {
    filter: blur(0);

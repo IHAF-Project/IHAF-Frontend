@@ -26,7 +26,7 @@ function JionMember() {
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
   const storedData = JSON.parse(localStorage.getItem('userData'));
-  const localid = storedData?.data?.memberID || storedData?.memberID
+  const localmid = storedData?.data?.memberID || storedData?.memberID
   const localuid=storedData?.data?._id || storedData?._id
 
 
@@ -235,6 +235,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   const [education, seteducation] = useState(educationE);
   const [applied, setapplied] = useState('');
   const [appliedpop, setappliedpop] = useState(false);
+  const [appliedpop1, setappliedpop1] = useState(false);
   let selectedprofile;
   
   
@@ -248,6 +249,13 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
  
   
   useEffect(() => {
+    
+    
+    if(localmid){
+      
+      setappliedpop1(true)
+
+    }
     const check = async () => {
       try {
         // Fetch data from the API
@@ -264,7 +272,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
               member= object;
               // Check if the name property is a non-empty string
                 const hasNonEmptyName = typeof member.name === 'string' && member.name.trim() !== '';
-              if(hasNonEmptyName ===true){
+              if(hasNonEmptyName ===true ){
                 
                 setappliedpop(true);
               }
@@ -395,8 +403,8 @@ const updateFormData = async () => {
       },5000)
     } else {
       // Show error notification if data update fails
-      if(localid){
-      toast.error(`Failed to update data.Your are already a member and your memberID is ${localid}.`, {
+      if(localmid){
+      toast.error(`Failed to update data.Your are already a member and your memberID is ${localmid}.`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose:2000
       });
@@ -426,23 +434,15 @@ const updateFormData = async () => {
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
-  // if(localid){
-  //   toast.error(`You are already a member, and your memberID is ${localid}.`, {
-  //     position: toast.POSITION.TOP_RIGHT,
-  //     autoClose:3000
-  //   });
-  //   setTimeout(() => {
-  //     navigate('/')
-  //   }, 6000);
-   
-  // }
+  
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
 
 const handleYesClick =async (e) => {
-  if(appliedpop){
+  if(appliedpop || appliedpop1){
     setappliedpop(false)
+    setappliedpop1(false)
     navigate('/')
   
   
@@ -724,7 +724,7 @@ useScrollToTop();
   {/* state */}
           <div  className='ad-data'>
           <div className='jion-cont'>
-          <label>{currentLanguage === 'ta' ? t('Address.2') : t('State')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
+          <label> {t('Address.2')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></label>
           <p> <Fragment>:</Fragment></p>
           </div>
           <div className='data5 dist'>
@@ -755,7 +755,7 @@ useScrollToTop();
         <div className='join-sub'>
         <div className='UploadAdharaCard'>
          <p>{currentLanguage === 'ta' ? t('Aadhaar.2') : t('Upload Adhara card')} <span style={{ color: 'red' , paddingLeft:'0'}}>*</span></p>
-         <span>{currentLanguage === 'ta' ? t('Aadhaar.3') : t('(FRONT SIDE OF ADHAR ONLY REQUIRED)')}</span>
+         <span> {t('Aadhaar.3')}</span>
          </div>
          <p> <Fragment>:</Fragment></p>
         </div>
@@ -764,14 +764,14 @@ useScrollToTop();
      
                    <div className='Upload-adhar-btn'>
                    <label className="upload-btn">
-        {currentLanguage === 'ta' ? t('Aadhaar.5') : t('Upload Aadhar')}
+                   {t('Aadhaar.4')}
         <input type="file" name='aadharCardURL'  onChange={handleAadharFileSelect} style={{ display: 'none' }} />
       </label>
      </div>
      <div className='uploaded-btn'> 
       {aadharFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
         <img src={Check} alt='star'/>
-        <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')} <span style={{ color: 'red', paddingLeft:'0'}}></span></p>
+        <p> {t('Address.5')} <span style={{ color: 'red', paddingLeft:'0'}}></span></p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {aadharFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('aadhar')} />}
       </div>
@@ -791,7 +791,7 @@ useScrollToTop();
          <div className='jion-cont'>
          <div className='join-sub'>
      <div className='UploadAdharaCard'>
-         <p>{currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload your photo')} <span style={{ color: 'red', paddingLeft:'0'}}>*</span></p>
+         <p>{t('JionMemberShip.14')} <span style={{ color: 'red', paddingLeft:'0'}}>*</span></p>
          </div>
          <p> <Fragment>:</Fragment></p>
          </div>
@@ -800,14 +800,14 @@ useScrollToTop();
  
          <div className='Upload-adhar-btn'>
          <label className="upload-btn">
-        {currentLanguage === 'ta' ? t('JionMemberShip.14') : t('Upload Profile')}
+         {t('JionMemberShip.14')}
         <input type="file" name='profileURL'  onChange={handleProfileFileSelect} style={{ display: 'none' }} />
       </label>
      </div>
     <div className='uploaded-btn'> 
       {profileFile ? <div style={{display:'flex',alignItems:'center',gap:'0.3em'}}>
         <img src={Check} alt='star'/>
-        <p>{currentLanguage === 'ta' ? t('Address.5') : t('Uploaded')}</p>
+        <p>{t('Address.5')}</p>
       </div> : <span>{currentLanguage === 'ta' ? t('Address.4') : t('Not Upload')}</span>}
       {profileFile  && <img src='https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png' width="25px" height="25px" alt='Delete' onClick={() => handleDelete('profile')} />}
       </div>
@@ -850,6 +850,19 @@ useScrollToTop();
     <div className='gallery-popup'>
       <p>You already applied for membership!</p>
       <div className='p2'>Administrator will verify your application soon...</div>
+      <div>
+        <button onClick={handleYesClick} className='popup-yes'>
+          Okey
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+{appliedpop1 && (
+  <div className='popup-overlay'>
+    <div className='gallery-popup'>
+      <p>You are already a member of IHAF!</p>
+      <div className='p2'>Your member ID is {localmid}</div>
       <div>
         <button onClick={handleYesClick} className='popup-yes'>
           Okey
