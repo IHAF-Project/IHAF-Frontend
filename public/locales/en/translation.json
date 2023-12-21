@@ -155,7 +155,7 @@
   "1":"Aadhaar Number",
   "2":"Upload Adhara card",
   "3":"FRONT SIDE OF ADHAR ONLY REQUIRED",
-  "4":"Upload adhar"
+  "4":"Upload aadhaar"
 },
 "Religion":{
   "1":"Christianity",
@@ -184,14 +184,7 @@
   "5": "Resend",
   "6": "Verify"
 },
-"Gallery" : {
-  "1": "நுழைமாடம்",
-  "2": "உங்கள் தொலைபேசி எண்ணை சரிபார்க்க நாங்கள் உங்களுக்கு ஒரு ஓடிபி அனுப்புகிறோம்",
-  "3": "உங்கள் ஓடிபியை இங்கே உள்ளிடவும்",
-  "4": "எனக்கு ஓடிபி வரவில்லை !",
-  "5": "மீண்டும் அனுப்பு!",
-  "6": "சரிப்பார்க்க"
-},
+
 "Gallery" : {
   "1": "Gallery",
   "2": "Image",

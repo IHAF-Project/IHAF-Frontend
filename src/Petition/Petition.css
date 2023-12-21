@@ -179,7 +179,7 @@
 }
 .petition-7-btn-tamil {
     display: flex;
-    width: 22.1vw;
+    width: 27.1vw;
     padding: 10px;
     height: auto;
     justify-content: center;
@@ -188,7 +188,8 @@
     border-radius: 2px;
     font-size: 1.2vw;
     background: linear-gradient(4deg, #820000 2.88%, #E66060 70.04%, #AE0707 96.06%), #E6E6E6;
-    margin-inline-start: 2vw;
+    margin-inline-start: 1vw;
+    margin-inline-end: 1vw;
 }
 .petition-type{
     color: #FFF;
