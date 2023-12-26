@@ -96,7 +96,7 @@ useScrollToTop();
               className='serve-name'
               name='MemberID'
               value={serve.memberID}
-              disabled
+              
               onChange={(e) => setServe({ ...serve, name: e.target.value })}
             />
           </div>

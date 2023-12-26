@@ -3,7 +3,10 @@ import Ambeth from "../../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
 import axios from 'axios'
 import polygon from "../../Assets/Polygon 6.svg"
-import DatePicker from 'react-datepicker';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslation } from 'react-i18next'
 import Check from "../../Assets/Check (2).svg"
@@ -138,84 +141,84 @@ function JionMember() {
  
   
 
-  const indianStates = [
-    'Andaman and Nicobar Islands',
-    'Andhra Pradesh',
-    'Arunachal Pradesh',
-    'Assam',
-    'Bihar',
-    'Chandigarh',
-    'Chhattisgarh',
-    'Dadra and Nagar Haveli',
-    'Daman and Diu',
-    'Delhi',
-    'Goa',
-    'Gujarat',
-    'Haryana',
-    'Himachal Pradesh',
-    'Jammu and Kashmir',
-    'Jharkhand',
-    'Karnataka',
-    'Kerala',
-    'Ladakh',
-    'Lakshadweep',
-    'Madhya Pradesh',
-    'Maharashtra',
-    'Manipur',
-    'Meghalaya',
-    'Mizoram',
-    'Nagaland',
-    'Odisha',
-    'Puducherry',
-    'Punjab',
-    'Rajasthan',
-    'Sikkim',
-    'Tamil Nadu',
-    'Telangana',
-    'Tripura',
-    'Uttar Pradesh',
-    'Uttarakhand',
-    'West Bengal',
-  ];
-  const indianStatesInTamil = [
-    'அந்தமான் மற்றும் நிகோபார் தீவுகள்',
-    'ஆந்திரா பிரதேசம்',
-    'அருணாசலபிரதேசம்',
-    'அசாம்',
-    'பீகார்',
-    'சண்டக் கர்',
-    'சத்தீஸ்கரம்',
-    'தாத்ரா மற்றும் நாகர் ஹவெலி',
-    'தமான் மற்றும் டியூ',
-    'தில்லி',
-    'கோவா',
-    'குஜராத்',
-    'ஹரியானா',
-    'ஹிமாசல பிரதேசம்',
-    'ஜம்மு மற்றும் காஷ்மீர்',
-    'ஜார்கண்ட்',
-    'கர்நாடகா',
-    'கேரளா',
-    'லடாக்',
-    'லக்ஷத்வீப்',
-    'மத்திய பிரதேசம்',
-    'மஹாராஷ்டிரா',
-    'மணிப்பூர்',
-    'மேகாலயா',
-    'மிசாரம்',
-    'நாகாலாண்ட்',
-    'ஒரிசா',
-    'புதுச்சேரி',
-    'பஞ்சாப்',
-    'ராஜஸ்தான்',
-    'சிக்கிம்',
-    'தமிழ்நாடு',
-    'தெலங்கானா',
-    'திரிபுரா',
-    'உத்தரப்பிரதேசம்',
-    'உத்தராஞ்சலம்',
-    'பங்காளம்',
-  ];
+  // const indianStates = [
+  //   'Andaman and Nicobar Islands',
+  //   'Andhra Pradesh',
+  //   'Arunachal Pradesh',
+  //   'Assam',
+  //   'Bihar',
+  //   'Chandigarh',
+  //   'Chhattisgarh',
+  //   'Dadra and Nagar Haveli',
+  //   'Daman and Diu',
+  //   'Delhi',
+  //   'Goa',
+  //   'Gujarat',
+  //   'Haryana',
+  //   'Himachal Pradesh',
+  //   'Jammu and Kashmir',
+  //   'Jharkhand',
+  //   'Karnataka',
+  //   'Kerala',
+  //   'Ladakh',
+  //   'Lakshadweep',
+  //   'Madhya Pradesh',
+  //   'Maharashtra',
+  //   'Manipur',
+  //   'Meghalaya',
+  //   'Mizoram',
+  //   'Nagaland',
+  //   'Odisha',
+  //   'Puducherry',
+  //   'Punjab',
+  //   'Rajasthan',
+  //   'Sikkim',
+  //   'Tamil Nadu',
+  //   'Telangana',
+  //   'Tripura',
+  //   'Uttar Pradesh',
+  //   'Uttarakhand',
+  //   'West Bengal',
+  // ];
+  // const indianStatesInTamil = [
+  //   'அந்தமான் மற்றும் நிகோபார் தீவுகள்',
+  //   'ஆந்திரா பிரதேசம்',
+  //   'அருணாசலபிரதேசம்',
+  //   'அசாம்',
+  //   'பீகார்',
+  //   'சண்டக் கர்',
+  //   'சத்தீஸ்கரம்',
+  //   'தாத்ரா மற்றும் நாகர் ஹவெலி',
+  //   'தமான் மற்றும் டியூ',
+  //   'தில்லி',
+  //   'கோவா',
+  //   'குஜராத்',
+  //   'ஹரியானா',
+  //   'ஹிமாசல பிரதேசம்',
+  //   'ஜம்மு மற்றும் காஷ்மீர்',
+  //   'ஜார்கண்ட்',
+  //   'கர்நாடகா',
+  //   'கேரளா',
+  //   'லடாக்',
+  //   'லக்ஷத்வீப்',
+  //   'மத்திய பிரதேசம்',
+  //   'மஹாராஷ்டிரா',
+  //   'மணிப்பூர்',
+  //   'மேகாலயா',
+  //   'மிசாரம்',
+  //   'நாகாலாண்ட்',
+  //   'ஒரிசா',
+  //   'புதுச்சேரி',
+  //   'பஞ்சாப்',
+  //   'ராஜஸ்தான்',
+  //   'சிக்கிம்',
+  //   'தமிழ்நாடு',
+  //   'தெலங்கானா',
+  //   'திரிபுரா',
+  //   'உத்தரப்பிரதேசம்',
+  //   'உத்தராஞ்சலம்',
+  //   'பங்காளம்',
+  // ];
   
   
   
@@ -228,7 +231,7 @@ function JionMember() {
 const educationInTamil = ['10ஆம்', '12ஆம்', 'மற்றவை'];
 const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்தவம்', 'இஸ்லாம்', 'பௌத்தமம்', 'யூதாயம்', 'சீக்கியம்', 'மற்றவை'];
   const [Districts, setDistricts] = useState(tamilNaduDistricts);
-  const [states, setstates] = useState(indianStates);
+  // const [states, setstates] = useState(indianStates);
   const [gender, setgender] = useState(genderE);
  
   const [religions, setreligions] = useState(religionsE);
@@ -253,7 +256,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
     
     if(localmid){
       
-      setappliedpop1(true)
+      // setappliedpop1(true)
 
     }
     const check = async () => {
@@ -292,13 +295,13 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   
     if (tamilLanguage) {
       setDistricts(tamilNaduDistrictsInTamil);
-      setstates(indianStatesInTamil);
+      // setstates(indianStatesInTamil);
       setgender(gendersInTamil);
       setreligions(religionsInTamil);
       seteducation(educationInTamil);
     } else {
       setDistricts(tamilNaduDistricts);
-      setstates(indianStates);
+      // setstates(indianStates);
       setgender(genderE);
       setreligions(religionsE);
       seteducation(educationE);
@@ -307,7 +310,9 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   
   const handleFormChange = (e) => {
     let { name, value } = e.target;
+    console.log(name, value);
     let isValid = true;
+    console.log(e)
   
     if (name === "aadharCard") {
       // Remove any non-numeric characters
@@ -339,6 +344,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
         [name]: value
       });
     }
+    console.log("formdata",formData)
   };
   
   
@@ -620,25 +626,20 @@ useScrollToTop();
         </div>
          </div>
 {/* dob */}
-         <div className='JionFrom-content-inputs'>
+         <div className='JionFrom-content-date'>
          <div className='jion-cont'>
          <label>{currentLanguage === 'ta' ? t('JionMemberShip.8') : t('Date of Birth')} <span style={{ color: 'red', paddingLeft:'0' }}>*</span></label>
          <p> <Fragment>:</Fragment></p>
          </div>
-        <div>
-        <DatePicker
-          name="dateOfBirth" // Add the name attribute for the DatePicker input
-          selected={formData?.dateOfBirth}
-          onChange={(date) => handleFormChange({ target: { name: 'dateOfBirth', value: date } })}
-          dateFormat="dd/MM/yyyy"
-          showYearDropdown
-          scrollableYearDropdown
-          yearDropdownItemNumber={100}
-          
-        />
+       
+        <LocalizationProvider  dateAdapter={AdapterDayjs}>
+      <DemoContainer sx={{marginLeft:'18px'}} components={['DatePicker']}>
+        <DatePicker    onChange={(date) => handleFormChange({ target: { name: 'dateOfBirth', value: date } })} label="Date of birth"/>
+      </DemoContainer>
+    </LocalizationProvider>
 
 
-        </div>
+        
          </div>
 {/* blood */}
          <div className='JionFrom-content-inputs'>
@@ -728,19 +729,7 @@ useScrollToTop();
           <p> <Fragment>:</Fragment></p>
           </div>
           <div className='data5 dist'>
-            <select 
-              value={formData.state}
-              name='state'
-              onChange={handleFormChange}
-              className='text-area-address' // Add your CSS class here
-            >
-              <option value="">{t('JionMemberShip.16')}</option>
-              {states.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+            <input name='state' onChange={handleFormChange} value={t('JionMemberShip.17')}></input>
         </div>
           </div>
         </div>
