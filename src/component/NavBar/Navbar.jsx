@@ -62,7 +62,7 @@ useEffect (() =>{
 },[])
 
  const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
- const memberId =userData?.memberID || storedData?.memberID
+ const memberId =userData?.memberID || storedData?.memberID || storedData?.data?.memberID
  const userprofile= storedData?.data?.profileURL || userData?.profileURL || storedData?.profileURL
  const refferal = storedData?.data?.referralCode || userData?.referralCode || storedData?.referralCode
  const isDeleted = storedData?.isDeleted
@@ -127,7 +127,7 @@ useEffect (() =>{
       <Link to="https://x.com/ihafindia?s=21" target='_blank'><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></Link>
         <Link to="https://instagram.com/ihafindia?igshid=MzRlODBiNWFlZA==" target='_blank' ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></Link>
         <Link to="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" target='_blank' ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></Link>
-        <Link to="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" target='_blank'><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></Link>
+        <Link to="https://www.youtube.com/watch?v=I5gZZfvoTDU" target='_blank'><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></Link>
       </div>
       <div className='translate-btn-1'>
         <button>

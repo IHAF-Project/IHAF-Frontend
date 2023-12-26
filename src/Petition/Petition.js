@@ -43,7 +43,7 @@ function Petition() {
       setUserData(data?.data)
       console.log(userData,'api-successfully')
     }else{
-      console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
+     
     }
     }
     fetchData()
@@ -164,7 +164,7 @@ const handleSuccess = () => {
               name="memberID"
               value={data.memberID}
               onChange={handleChange}
-              disabled
+              // disabled
             />
           </div>
        

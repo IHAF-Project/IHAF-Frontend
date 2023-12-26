@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
 }
+.JionFrom-content-date {
+  display: flex;
+}
 .JionFrom-contain{
   display: flex;
   flex-direction: column;

@@ -139,6 +139,7 @@ function Profile() {
         const data = await response.json();
         console.log(data);
         setIsAccountDeactivated(true);
+        localStorage.clear();
       }
     } catch (err) {
       console.log(err);
