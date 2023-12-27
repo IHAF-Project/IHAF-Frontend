@@ -16,6 +16,15 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Link, useParams,useNavigate } from "react-router-dom";
 import React,{Fragment} from "react";
+//mui
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { green } from "@mui/material/colors";
 
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +36,11 @@ function Profile() {
   const [open, setOpen] = useState(false);
   const storedData = JSON.parse(localStorage.getItem('userData'));
  const _id = storedData?.data?._id || storedData?._id
+ const refferal = storedData?.data?.referralCode || storedData?.referralCode
+ const [copyMessage, setCopyMessage] = useState("");
+ const [isPopupOpen, setPopupOpen] = useState(false);
+  const [selectedReferralCode, setSelectedReferralCode] = useState('');
+  const [popupUserData, setPopupUserData] = useState([]);
 
   const handleClickOpen = () => {
      setOpen(true);
@@ -65,6 +79,14 @@ function Profile() {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+  const openPopup = (referralCode) => {
+    setSelectedReferralCode(referralCode);
+    setPopupOpen(true);
+
+    // Fetch user data using the referral code and set it in the state
+    fetchUserData(referralCode);
+  };
+
 
   const memberShipClick = () => {
     setMembershipCardOpen(!membershipCardOpen);
@@ -110,13 +132,16 @@ function Profile() {
   console.log(originalDate, "originalDate");
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        alert('Referral code copied to clipboard!');
-      })
-      .catch((err) => {
-        console.error('Unable to copy to clipboard', err);
-      });
+    const textArea = document.createElement("textarea");
+    textArea.value = refferal;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    setCopyMessage("Copied");
+    setTimeout(() => {
+      setCopyMessage("");
+    }, 2000);
   };
 
 
@@ -144,6 +169,23 @@ function Profile() {
     } catch (err) {
       console.log(err);
     }
+  };
+  const fetchUserData = (referralCode) => {
+    fetch(`https://ihaf-backend.vercel.app/get-referral-details/${referralCode}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPopupUserData(data?.data);
+       
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        setPopupUserData([]);
+        
+      });
+  };
+  const closePopup = () => {
+    setPopupOpen(false);
+    setSelectedReferralCode('');
   };
 
   const handleDeactivateClick = () => {
@@ -225,6 +267,7 @@ function Profile() {
                           DateOfJoining={getDate}
                           MemberID={memberDetails?.memberProfile?.memberID}
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
+                          Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
                         />
                         <div className="member-card-button">
                           <p onClick={() => exportToPNG('.membar-card', 'MembershipCard')}>Download</p>
@@ -303,15 +346,80 @@ function Profile() {
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
                   <span className="ref-span"
-        onClick={() => copyToClipboard(memberDetails?.memberProfile?.referralCode)}
+        onClick={() => copyToClipboard()}
       >
         {memberDetails?.memberProfile?.referralCode}
       </span>
+      <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
                 </div>
+                <button className='view' onClick={() => openPopup(memberDetails?.memberProfile?.referralCode)}>Refferal history</button>
               </div>
             </div>
           </div>
         )}
+        {isPopupOpen && (
+        <div className="popup-profile">
+          <div className="popup-profile-refferal">
+            <div className="pop-profile-close">
+            <h2>Refferal History</h2>
+            <div className="close1" onClick={closePopup}>Close</div>
+            
+            </div>
+            {popupUserData.length > 0 ? (
+              // <div>
+                
+              //   <table className="user-data-table">
+              //     <thead className="thead9">
+              //       <tr className='title'>
+              //         <th>S.NO</th>
+              //         <th>Name</th>
+              //         <th>Member ID</th>
+              //         <th>Referral code</th>
+              //       </tr>
+              //     </thead>
+              //     <tbody>
+              //       {popupUserData.map((item, index) => (
+              //         <tr key={index}>
+              //           <td>{index + 1}</td>
+              //           <td>{item.name}</td>
+              //           <td>{item.memberID}</td>
+              //           <td>{item.referralCode}</td>
+              //         </tr>
+              //       ))}
+              //     </tbody>
+              //   </table>
+              // </div>
+              <TableContainer sx={{ width:"90%"}} component={Paper}>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead sx={{ background:"#cfe1fc" }}>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">MemberID</TableCell>
+            <TableCell align="right">Refferal code</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {popupUserData.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">{row.name}</TableCell>
+              <TableCell align="right">{row.memberID}</TableCell>
+              <TableCell align="right">{row.referralCode}</TableCell>
+             
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+            ) : (
+              <p>You reffered no one !</p>
+            )}
+          </div>
+        </div>
+      )}
       </div>
     </>
   );

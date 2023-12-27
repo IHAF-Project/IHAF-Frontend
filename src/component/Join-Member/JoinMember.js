@@ -2,7 +2,9 @@ import React, { Fragment ,useState} from 'react'
 import Ambeth from "../../Assets/MicrosoftTeams-image (19).png"
 import Navbar from '../NavBar/Navbar'
 import axios from 'axios'
-import polygon from "../../Assets/Polygon 6.svg"
+import Box from '@mui/material/Box';
+import { DataGrid } from '@mui/x-data-grid';
+
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -40,6 +42,7 @@ function JionMember() {
   const [aadharFile, setAadharFile] = useState(null);
   const [popsuccess, setpopsuccess] = useState(false);
   const [popdata, setpopdata] = useState('');
+  const [previewdone, setpreviewdone] = useState(false);
   const [profileFile, setProfileFile] = useState(null);
   const [formData, setformData] = useState({
     name: "",
@@ -57,7 +60,37 @@ function JionMember() {
     profileURL: null
   });
   let selectedAdhar;
-
+  
+  const rows = [
+    { id: 1,  firstName: 'Name', data: formData.name },
+    { id: 2, firstName: 'Gender', data: formData.gender },
+    { id: 3,  firstName: 'Refferal code', data:formData.referredBy||"" },
+    { id: 4,  firstName: 'Adhare Number', data: formData.aadharCard },
+    { id: 5,  firstName: 'Education', data: formData.education },
+    { id: 6,firstName:"Date of Birth", data: formData.dateOfBirth },
+    { id: 7,  firstName: 'Blood Group', data: formData.bloodGroup },
+    { id: 8, firstName: 'Religion', data: formData.religion },
+    { id: 9, firstName: 'Address', data: formData.address },
+    { id: 10, firstName: 'State', data: formData.state },
+  ];
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 90 },
+    {
+      field: 'firstName',
+      headerName: 'Feilds',
+      width: 150,
+      editable: true,
+    },
+    
+    {
+      field: 'data',
+      headerName: 'User data',
+      type: 'number',
+      width: 400,
+      editable: true,
+    },
+    
+  ];
   const tamilNaduDistricts = [
     'Ariyalur',
     'Chengalpattu',
@@ -239,9 +272,9 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   const [applied, setapplied] = useState('');
   const [appliedpop, setappliedpop] = useState(false);
   const [appliedpop1, setappliedpop1] = useState(false);
+  const [dataPreview,setDataPreview]= useState(false)
+  
   let selectedprofile;
-  
-  
 
   
 
@@ -307,13 +340,22 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
       seteducation(educationE);
     }
   }, []);
-  
+  const handlepreviewback= () => {
+    setDataPreview(false)
+
+  }
+  const handlefinalsubmit= async() => {
+    await setpreviewdone(true)
+    updateFormDataf()
+  }
   const handleFormChange = (e) => {
     let { name, value } = e.target;
     console.log(name, value);
     let isValid = true;
     console.log(e)
-  
+    setformData({
+      ...formData,
+      state:"Tamilnadu"})
     if (name === "aadharCard") {
       // Remove any non-numeric characters
       const numericValue = value.replace(/\D/g, '');
@@ -330,7 +372,12 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   
       isValid = /^\d{12}$/.test(numericValue);
     }
-   
+    if(name==="state"){
+      setformData({
+        ...formData,
+        [name]:value
+      });
+    }
   
     if (name === 'DateOfBirth') {
       setformData({
@@ -349,9 +396,10 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   
   
 const updateFormData = async () => {
+ 
   let isValidAdharNumber
   const isValid = Object.entries(formData).every(([key, value]) => {
-   
+ 
     if (key === "referredBy") {
       return true;
     }
@@ -386,7 +434,13 @@ const updateFormData = async () => {
     });
     return;
   }
-  
+  setDataPreview(true)
+ 
+}
+const updateFormDataf = async () => {
+  setDataPreview(false)
+  if(previewdone)
+  {
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
@@ -435,6 +489,7 @@ const updateFormData = async () => {
     });
     console.error('Error updating data:', error);
   }
+}
 };
 
 
@@ -729,7 +784,7 @@ useScrollToTop();
           <p> <Fragment>:</Fragment></p>
           </div>
           <div className='data5 dist'>
-            <input name='state' onChange={handleFormChange} value={t('JionMemberShip.17')}></input>
+            <input name='state' onChange={handleFormChange} value="TamilNadu"></input>
         </div>
           </div>
         </div>
@@ -812,7 +867,7 @@ useScrollToTop();
       </div>
          </div>
          <div className='JoinNow'>
-         <button type="submit" onKeyDown={handleKeyDown}>
+         <button type="submit" onKeyDown={handleFormSumbit}>
     {currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>
@@ -857,6 +912,32 @@ useScrollToTop();
           Okey
         </button>
       </div>
+    </div>
+  </div>
+)}
+{dataPreview && (
+  <div className='popup-overlay1'>
+     <div className='gallery-popup'>
+   <h1>Preview before submission</h1>
+     <Box sx={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        // initialState={{
+        //   pagination: {
+        //     paginationModel: {
+        //       pageSize: 10,
+        //     },
+        //   },
+        // }}
+        pageSizeOptions={[5]}
+       
+      />
+    </Box>
+    <div className='join-preview-btns'>
+    <button className='preview-back' onClick={handlepreviewback}>Back</button>
+    <button className='preview-submit' onClick={handlefinalsubmit}>Submit</button>
+    </div>
     </div>
   </div>
 )}

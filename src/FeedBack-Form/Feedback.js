@@ -105,7 +105,7 @@ useScrollToTop();
             <input
               type='text'
               className='feedback-input-name'
-              value={feeditems.memberID}
+              value={feeditems.memberID ||"Not a member"}
               disabled
               onChange={(e) => setFeedItems({ ...feeditems, memberID: e.target.value })}
             />
