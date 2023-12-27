@@ -3,7 +3,7 @@ import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
+function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
 
   const cardRef = useRef(null);
 
@@ -34,6 +34,10 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile}) {
       <div className="member-card-bt-details-name"> <p>Date of joining </p>
       <>:</>
       <span>{DateOfJoining}</span>
+      </div>
+      <div className="member-card-bt-details-name"> <p>Blood Group </p>
+      <>:</>
+      <span>{Bloodgroup}</span>
       </div>
      </div>
      </div>

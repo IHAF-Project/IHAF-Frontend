@@ -458,9 +458,41 @@ padding: 0.25em 1em;
     flex-direction: column;
     background-color: white;
 }
+.close1 {
+    display: flex;
+    width: 100px;
+    height: 4vh;
+    background: yellow;
+    margin: 1vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+   
+}
+.popup-profile-refferal {
+    width: 58vw;
+    height: 40vh;
+    background: #fff9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+button.view {
+    height: 5vh;
+    background: #ffff6b;
+    border: none;
+}
+.pop-profile-close {
+    display: flex;
+    width: 94%;
+    justify-content: space-between;
+    padding-left: 2vw;
+    /* padding-right: 2vw; */
+}
 .membar-card{
     width: 34.5625rem;
-    height: 40vh;
+    height: 42vh;
     background: #04419D;
     color: #ffffff;
     border-radius: 10px;
