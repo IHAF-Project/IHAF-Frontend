@@ -358,7 +358,7 @@ function Profile() {
           </div>
         )}
         {isPopupOpen && (
-        <div className="popup">
+        <div className="popup-profile">
           <div className="popup-profile-refferal">
             <div className="pop-profile-close">
             <h2>Refferal History</h2>
@@ -391,7 +391,7 @@ function Profile() {
               // </div>
               <TableContainer sx={{ width:"90%"}} component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead sx={{ background:"#fff" }}>
+        <TableHead sx={{ background:"#cfe1fc" }}>
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell align="right">MemberID</TableCell>
