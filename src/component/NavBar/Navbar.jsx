@@ -100,9 +100,8 @@ useEffect (() =>{
         {/* <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p> */}
       { _id && !memberId? (
   <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
-      ): (
-''
-      )}
+      ): ('')
+      }
         </div>
          </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>

@@ -6,7 +6,7 @@ function ZoomMeeting() {
 
   const [selectedMeetUrl, setSelectedMeetUrl] = useState('');
   const [selectedMeetCardUrl, setSelectedMeetCardUrl] = useState('');
-
+  const isValidUrl = /^https?:\/\/\S+$/.test(selectedMeetUrl);
   useEffect((meet) => {
     // Fetch data from the API when the component mounts
     fetch('https://ihaf-backend.vercel.app/get-meet')
@@ -55,7 +55,13 @@ function ZoomMeeting() {
             className={`code-text }`}
             
           >
-           <Link to={selectedMeetUrl} target='_blank'> {selectedMeetUrl}</Link> 
+            {isValidUrl ? (
+        <Link to={selectedMeetUrl} target='_blank'>
+          {selectedMeetUrl}
+        </Link>
+      ) : (
+        <p>No meeting !</p>
+      )}
           </span>
         </p>
        

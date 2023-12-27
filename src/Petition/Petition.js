@@ -8,6 +8,7 @@ function Petition() {
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [userData, setUserData] = useState(null);
+  const [showload1, setshowload1] = useState(false);
 
 
 
@@ -79,10 +80,10 @@ const handleSuccess = () => {
       memberID: memberID || '',
     }));
   }, [memberID]);
-
+  let file 
   const handleFileChange = async (e) => {
- 
-    const file = e.target.files[0];
+    setshowload1(true)
+     file = e.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', 'ivs6otkx');
@@ -96,6 +97,7 @@ const handleSuccess = () => {
         ...data,
         imageURL: secureUrl,
       });
+      setshowload1(false)
     } catch (error) {
       console.log('Error uploading file:', error);
     }
@@ -121,6 +123,7 @@ const handleSuccess = () => {
       
         handleSuccess();
         setdata( {issues:"",imageURL:""});
+        file="";
         
        
       } else {
@@ -162,7 +165,7 @@ const handleSuccess = () => {
               className="input-name-petition"
               type="text"
               name="memberID"
-              value={data.memberID}
+              value={data.memberID||"Login / Not a member"}
               onChange={handleChange}
               // disabled
             />
@@ -192,14 +195,16 @@ const handleSuccess = () => {
             </div>
             <div className="input-audio-petition">
               <div>
-                <input
-                  className="file-upload-petition"
-                  id="file"
-                  name='imageURL'
-                  accept="*/*"
-                  type="file"
-                  onChange={handleFileChange}
-                />
+              <input
+                className="file-upload-petition"
+                id="file"
+                name="mediaFile"
+                accept="image/*, video/*, audio/*"
+                type="file"
+                capture="environment"  // Use "environment" for rear camera on mobile devices
+                onChange={handleFileChange}
+              />
+               {showload1 &&<div className='loads'>File uploading Please wait...</div>}
                
               </div>
             </div>

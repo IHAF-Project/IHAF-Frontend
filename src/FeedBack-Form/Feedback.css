@@ -133,7 +133,7 @@ line-height: normal;
     border-radius: 6.013px;
     background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
     font-style: normal;
-    
+    text-transform: uppercase;
     cursor: pointer;
     border: none;
     height: 3rem;
@@ -219,7 +219,7 @@ line-height: normal;
         height: 33.822px;
     }
     .feedback-container {
-    height: 100vh;
+    /* height: 100vh; */
       align-items: normal;
     }
     .feedback-textarea {
@@ -254,7 +254,7 @@ line-height: normal;
         height: 2rem;
         width: 9rem;
         line-height: normal;
-        text-transform: lowercase;
+        text-transform: uppercase;
     }
     .Feedback-text{
         width: auto;

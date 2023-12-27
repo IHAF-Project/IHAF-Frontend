@@ -27,6 +27,8 @@ function Profile() {
   const [open, setOpen] = useState(false);
   const storedData = JSON.parse(localStorage.getItem('userData'));
  const _id = storedData?.data?._id || storedData?._id
+ const refferal = storedData?.data?.referralCode || storedData?.referralCode
+ const [copyMessage, setCopyMessage] = useState("");
 
   const handleClickOpen = () => {
      setOpen(true);
@@ -110,13 +112,16 @@ function Profile() {
   console.log(originalDate, "originalDate");
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        alert('Referral code copied to clipboard!');
-      })
-      .catch((err) => {
-        console.error('Unable to copy to clipboard', err);
-      });
+    const textArea = document.createElement("textarea");
+    textArea.value = refferal;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    setCopyMessage("Copied");
+    setTimeout(() => {
+      setCopyMessage("");
+    }, 2000);
   };
 
 
@@ -303,10 +308,11 @@ function Profile() {
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
                   <span className="ref-span"
-        onClick={() => copyToClipboard(memberDetails?.memberProfile?.referralCode)}
+        onClick={() => copyToClipboard()}
       >
         {memberDetails?.memberProfile?.referralCode}
       </span>
+      <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
                 </div>
               </div>
             </div>
