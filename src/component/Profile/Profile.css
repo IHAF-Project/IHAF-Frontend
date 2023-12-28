@@ -17,6 +17,60 @@
     box-shadow: 0 0 3px rgba(0,0,0,0.2);
     animation: fade458 1s linear infinite;
   }
+  /* membercard-back */
+  .membar-card-back{
+    width: 34.5625rem;
+    height: 42vh;
+    background: #04419D;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+p.member-card-back-address-details {
+    color: white;
+    font-size: 10px;
+}
+  p.member-card-back-address-details {
+    color: white;
+    font-size: 12px;
+    width: 28.6vw;
+}
+.member-card-back-title {
+    padding: 9px;
+    font-size: 22px;
+    width: 21vw;
+}
+.member-card-bt-back {
+    padding: 26px;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 16vw;
+}
+.member-card-back-list {
+    width: 29vw;
+    font-size: 10px;
+}
+p.member-card-back-address-details {
+    color: white !important;
+    font-size: 12px !important;
+}
+img.member-card-back-img {
+    width: inherit;
+    height: inherit;
+    /* z-index: 1000; */
+    object-position: center;
+    object-fit: cover;
+}
+.member-card-back-div-img {
+    width: 16vw;
+    height: 31vh;
+    margin-top: 88px;
+}
+
   
   @keyframes fade458 {
     from {
@@ -492,10 +546,12 @@ padding: 0.25em 1em;
     flex-direction: column;
     border-radius: 5px;
 }
+
 button.view {
     height: 5vh;
     background: #ffff6b;
     border: none;
+    cursor: pointer;
 }
 .pop-profile-close {
     display: flex;
