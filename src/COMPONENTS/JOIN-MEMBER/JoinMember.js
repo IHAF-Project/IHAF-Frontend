@@ -504,10 +504,11 @@ const handleProfileFileSelect = async (e) => {
   }
 };
 
-const handleKeyDown = (e) => {
-  e.preventDefault(); // Prevent the default form submission
+const handleKeyDown = async(e) => {
+ // Prevent the default form submission
   if (e.key === 'Enter') {
-    handleFormSumbit(e);
+    e.preventDefault(); 
+    await handleFormSumbit(e);
   }
 };
 
