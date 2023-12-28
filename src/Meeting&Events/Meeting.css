@@ -1,0 +1,303 @@
+.Meeting-container {
+    background: var(--button, linear-gradient(180deg, #697CAD 0%, #143589 100%));
+    height: auto;
+}
+.Meeting-con-M {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    /* height: 12vh; */
+    flex-direction: row;
+    padding: 38px 0px 0px 0px;
+}
+.meeting-tab2-cont {
+    border: 11px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.meeting-tab2-cont:hover {
+    border: 8px solid rgba(255, 255, 255, 0.764);
+    border-radius: 3px; /* Change to the desired hover color */
+    transform: scale(1.1);
+}
+
+.events-main {
+    padding: 3rem;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    /* height: 100%; */
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-items: center;
+    /* align-items: center; */
+    justify-content: center;
+    /* align-content: center; */
+}
+.meeting-eve{
+    background-color: #FFF;
+    color: #000;
+    justify-content: center;
+    height: 6vh;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Poppins;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    width: 14rem;
+}
+.meeting-events {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    background: var(--SOCIAL, linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6);
+    font-size: 1rem;
+    border: none;
+    display: flex;
+    height: 6vh;
+    width: 14rem;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+  
+}
+.zoom-meet-design {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 36.846px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.code-text{
+    /* padding-left: 2vw; */
+    cursor: pointer;
+}
+
+.Meeting-con-main {
+    display: flex;
+    padding: 4rem;
+    align-items: center;
+    flex-direction: column;
+}
+.meeting-cont-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.meeting-cont-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 42vw;
+    padding: 2rem;
+    flex-direction: row;
+}
+.zoom-meet-code {
+    /* color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 17.108px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; */
+    font-size: 14.108px;
+    margin: 0;
+}
+.zoom-link {
+    /* color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14.738px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; */
+}
+.zoom-meeting-cont {
+    border: 1px solid white;
+    /* padding: 0px 125px; */
+    display: flex;
+    justify-content: space-around;
+    border-radius: 3px;
+    background-color: #FFF;
+    display: flex;
+    width: 48vw;
+    align-items: center;
+    height: 9vh;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+.selected-tab {
+    background-color: white;
+    color: black; 
+  }
+  img.zoom-meet-design {
+    /* width: 60vw; */
+    background-size: cover;
+    object-fit: contain;
+    background-position: center;
+    width: 50vw;
+    height: 50vh;
+}
+.event-photos img {
+    width: 30vw;
+    background-position: center;
+    object-fit: cover;
+    max-width: 100%;
+    height: 30vh;
+}
+.event-photos {
+    display: flex;
+    grid-template-columns: repeat(0fr, 0fr);
+    gap: 60px;
+    justify-content: center;
+    /* justify-items: center; */
+    /* align-items: center; */
+    /* padding: 10px; */
+    /* margin: 10px; */
+    /* box-sizing: border-box; */
+    flex-wrap: wrap;
+}
+  
+
+
+  .tab2-cont {
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    justify-content: center;
+    height: 33vh;
+    text-align: center;
+    display: flex;
+    font-style: normal;
+    width: 33vw;
+    align-items: center;
+    font-weight: 400;
+    border-radius: 8px;
+    background: #FFF;
+    line-height: normal;
+}
+.metting-tab2-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+span.code-text {
+    font-size: 2vw;
+}
+
+
+
+@media screen and (max-width: 898px) {
+    .meeting-cont-btn{
+        width: auto;
+    }
+    span.code-text {
+        font-size: 4vw;
+    }
+ .meeting-events{
+    width: 10rem;
+ }
+ .Meeting-container{
+    height: 80vh;
+ }
+    .zoom-meet-design-cont {
+        display: flex;
+        width: 75vw;
+        height: 40vh;
+        border-radius: 4px;
+        background: #FFF;
+        justify-content: center;
+        align-items: center;
+    }
+    .zoom-meeting-cont {
+        width: 64vw; 
+        flex-direction: column;
+ 
+    }
+    img.zoom-meet-design{
+        width: 75vw;
+        height: 40vh;
+    }
+    .zoom-meet-design{
+        font-size: 1.5rem;
+    }
+ .meeting-eve{
+   width: 10rem;
+ }
+ .Meeting-container {
+    height: auto;
+ }
+ 
+ 
+
+}
+
+
+
+@media screen and (max-width: 496px) {
+    .meeting-cont-btn{
+        width: auto;
+    }
+    .meeting-eve{
+        width: 10rem;
+      }
+    .meeting-events{
+        width: 10rem;
+     }
+     .Meeting-con-main{
+        padding: 1em;
+     }
+    .zoom-meet-design-cont {
+        display: flex;
+        width: 75vw;
+        height: 40vh;
+        border-radius: 4px;
+        padding: 0.5rem;
+        background:none;
+        justify-content: center;
+        align-items: center;
+    }
+    .zoom-meeting-cont {
+        width: 78vw;
+        flex-direction: column;
+        height: 11vh;
+        span.code-text {
+    font-size: 4vw;
+}span.code-text {
+    font-size: 3vw;
+}
+ 
+    }
+    .zoom-meet-design{
+        font-size: 1.5rem;
+    }
+    .metting-tab2-cont {
+        flex-direction: column;
+        padding: 0rem 1rem 0rem 1rem;
+        gap: 0vh;
+    }
+    .tab2-cont {
+        width: 100%;
+    }
+    .Meeting-container {
+        height: auto;
+     }
+     .event-photos img {
+        width: auto;
+        height: 18vh;
+     }
+     .events-main {
+        gap: 1rem;
+     }
+
+
+}
+
+
+  

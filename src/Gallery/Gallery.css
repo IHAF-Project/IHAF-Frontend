@@ -16,7 +16,7 @@
     justify-content: center;
 }
 .gallery-head {
-    height: 21vh;
+    height: 12vh;
         justify-content: center;
     align-items: center;
     display: flex;
@@ -55,7 +55,7 @@
   font-family: Poppins;
   font-size: 15px;
   background-color: #ffffff;
-  border: 1px #045f18  solid;
+  border: 1px #ffffff  solid;
   font-style: normal;
   font-weight: 400;
   width: 12vw;
@@ -107,15 +107,20 @@
   border-radius: 0.5vw;
 }
 .videos-container{
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .video-item{
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 2rem;
 
 }

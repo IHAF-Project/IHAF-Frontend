@@ -1,25 +1,26 @@
 
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Feedback from './Page7/Feedback';
+// import Feedback from './FeedBack/Feedback';
 import Login from "./LogIn/Login.jsx"
-import Profile from "./COMPONENTS/Profile/Profile.jsx"
-import About from './Page8/About';
-import JoinMember from "./COMPONENTS/JOIN-MEMBER/JoinMember.js"
+import Profile from "./component/Profile/Profile.jsx"
+import About from './AboutPage/About.js';
+import JoinMember from "./component/Join-Member/JoinMember.js"
 import { Route, Routes } from 'react-router-dom';
 import arrow from '../src/images/top.png'
 import image2 from "./images/logo1.png"
 import Tree from './Tree';
 import Otp from './LogIn/OTP/Otp';
-import Applyserve from './Page8/Applyserve';
-import Footer from './COMPONENTS/FOOTER/Footer.js';
-import Page1 from './INTRO-PAGE/Page1.jsx';
-import Petition from './Page7/Petition';
-import Cards from './Page6/Cards';
-import Page4 from './FEEDBACK-SCROLL/Feedback-scroll.js';
-import EventDetails from "./Page8/GetEventDetails/EventDetails.js"
-import Page3 from './SOCIAL-MEDIA/Social.jsx';
+import Applyserve from './ApplyServe-Form/Applyserve.js';
+import Footer from './component/Footer/Footer.js';
+import Page1 from './Home/Home.jsx';
+import Petition from './Petition/Petition';
+import Cards from './ApplyServe-Slider/Slider.js';
+import Page4 from './FeedBack-Scrolls/Feedback-scroll.js';
+import EventDetails from "./Meeting&Events/Events/GetEventDetails/EventDetails"
+import Page3 from './SocialMedia/Social.jsx';
 import Gallery from './Gallery/Gallery.js';
+import Feedback from "./FeedBack-Form/Feedback.js";
 
 const App = () => {
 

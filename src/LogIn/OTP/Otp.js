@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
 import './Otp.css';
-import Navbar from '../../COMPONENTS/NAVBAR/Navbar';
+import Navbar from '../../component/NavBar/Navbar';
 import { useNavigate } from 'react-router-dom';
 import OtpInput from 'react-otp-input';
 import Stack from '@mui/material/Stack';
@@ -20,7 +20,7 @@ function Otp() {
   const [otp, setOtp] = useState('');
   
   const navigate = useNavigate();
-  const [resendTimer, setResendTimer] = useState(30);
+  const [resendTimer, setResendTimer] = useState(120);
  
 
  
@@ -64,8 +64,8 @@ function Otp() {
         
         if (isDeleted === true) {
           confirmAlert({
-            title: 'Reactivate Member',
-            message: 'Do you want to reactivate the member?',
+            title: 'Reactivate account!',
+            message: 'Do you want to reactivate the account?',
             buttons: [
               {
                 label: 'Yes',
