@@ -305,54 +305,18 @@ function Profile() {
                     </div>
                   )}
                 </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>} 
-                {/* <div className="donation-history" style={{ cursor: 'pointer' }}>
-                  <p onClick={handleClick}>Donation history</p>
-                  <East sx={{ color: '#04419D' }} />
-                  {isOpen && (
-                    <div className="donion-history">
-                      <div className="donion-history-popup">
-                        <div className="donion-history-tp">
-                          <div className="donion-history-title">
-                            <h1>Donation History</h1>
-                            <img src={close} alt='Close' onClick={handleClick} />
-                          </div>
-                        </div>
-                        <div className="donation-history-table">
-                          <table>
-                            <thead>
-                              <tr>
-                                <th>S.No</th>
-                                <th>Method of Payment</th>
-                                <th>Transaction ID</th>
-                                <th>Amount</th>
-                              </tr>
-                            </thead>
-                            <tbody className="tbody">
-                              {paymentData.map((payment, index) => (
-                                <tr key={payment.id}>
-                                  <td className="serial-Num">{index + 1}</td>
-                                  <td className="serial-Id-1">{payment.method}</td>
-                                  <td className="serial-Id-2">{payment.transactionId}</td>
-                                  <td className="serial-Num">{payment.amount}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div> */}
+                <button className='view' onClick={() => openPopup(memberDetails?.memberProfile?.referralCode)}>Refferal history</button>
+
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
+
                   <span className="ref-span"
         onClick={() => copyToClipboard()}
       >
         {memberDetails?.memberProfile?.referralCode}
       </span>
-      <div style={{backgroundColor:'white',color:'black' ,margin:'0.5rem',fontSize:'16px'}}>{copyMessage}</div>
+      <div className="copy" style={{backgroundColor:'#04419d',color:'white' ,margin:'0.5rem',fontSize:'16px',padding:'10px'}}>{copyMessage}</div>
                 </div>
-                <button className='view' onClick={() => openPopup(memberDetails?.memberProfile?.referralCode)}>Refferal history</button>
               </div>
             </div>
           </div>
@@ -366,29 +330,7 @@ function Profile() {
             
             </div>
             {popupUserData.length > 0 ? (
-              // <div>
-                
-              //   <table className="user-data-table">
-              //     <thead className="thead9">
-              //       <tr className='title'>
-              //         <th>S.NO</th>
-              //         <th>Name</th>
-              //         <th>Member ID</th>
-              //         <th>Referral code</th>
-              //       </tr>
-              //     </thead>
-              //     <tbody>
-              //       {popupUserData.map((item, index) => (
-              //         <tr key={index}>
-              //           <td>{index + 1}</td>
-              //           <td>{item.name}</td>
-              //           <td>{item.memberID}</td>
-              //           <td>{item.referralCode}</td>
-              //         </tr>
-              //       ))}
-              //     </tbody>
-              //   </table>
-              // </div>
+              
               <TableContainer sx={{ width:"90%"}} component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead sx={{ background:"#cfe1fc" }}>
