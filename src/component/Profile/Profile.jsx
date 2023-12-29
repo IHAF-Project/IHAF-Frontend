@@ -247,7 +247,7 @@ function Profile() {
                 <h3>{memberDetails?.memberProfile?.name}</h3>
                 <h4>{memberDetails?.memberProfile?.district}</h4>
                 <p>Date of joining : {getDate}</p>
-                <span>Total number of referral: {memberDetails?.refferalCount > 0 ? memberDetails.refferalCount : 0}</span>
+                <span>Total number of referral: {memberDetails?.referralCount > 0 ? memberDetails.referralCount : 0}</span>
               </div>
               <div className="user-profile-cards">
                 <div className="membership-card-1" style={{ cursor: 'pointer' }} onClick={memberShipClick}>
@@ -326,7 +326,7 @@ function Profile() {
           <div className="popup-profile-refferal">
             <div className="pop-profile-close">
             <h2>Refferal History</h2>
-            <div className="close1" onClick={closePopup}>Close</div>
+            <div className="close1" onClick={closePopup}><img src={close} alt="X"></img></div>
             
             </div>
             {popupUserData.length > 0 ? (

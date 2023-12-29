@@ -495,8 +495,8 @@ const updateFormDataf = async () => {
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
-  
   await updateFormData(e);
+  
   console.log(formData, 'updated data');
 };
 
@@ -566,12 +566,13 @@ const handleProfileFileSelect = async (e) => {
   }
 };
 
-const handleKeyDown = (e) => {
-  e.preventDefault(); // Prevent the default form submission
-  if (e.key === 'Enter') {
-    handleFormSumbit(e);
-  }
-};
+const handleKeyDown = async(e) => {
+  // Prevent the default form submission
+   if (e.key === 'Enter') {
+     e.preventDefault();
+     await handleFormSumbit(e);
+   }
+ };
 
 const handleDelete = (fileType) => {
   if (fileType === 'aadhar') {
@@ -867,7 +868,7 @@ useScrollToTop();
       </div>
          </div>
          <div className='JoinNow'>
-         <button type="submit" onKeyDown={handleFormSumbit}>
+         <button type="submit" onKeyDown={handleKeyDown}>
     {currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>
