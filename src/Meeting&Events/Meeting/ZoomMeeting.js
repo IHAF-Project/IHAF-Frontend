@@ -49,21 +49,16 @@ function ZoomMeeting() {
         )}
       </div>
       <div className='zoom-meeting-cont'>
-        <p className='zoom-meet-code'>
-          Zoom meeting code :
-          <span
-            className={`code-text }`}
-            
-          >
+          <div className='zoom-meet-code'>
+            Zoom meeting code :
+          </div>
+          <div className={`code-text }`} >
+
             {isValidUrl ? (
-        <Link to={selectedMeetUrl} target='_blank'>
-          {selectedMeetUrl}
-        </Link>
-      ) : (
-        <p>No meeting !</p>
-      )}
-          </span>
-        </p>
+            <Link to={selectedMeetUrl} target='_blank'>{selectedMeetUrl}</Link> ) : (<p>No meeting !</p>)
+            }
+          
+          </div>
        
       </div>
     </div>

@@ -79,7 +79,7 @@
     "18" : "@copy rights reserved",
     "19" : "Join us",
     "20" : "Home",
-    "21" : "Social",
+    "21" : "Social media",
     "22" : "Petition",
     "23" : "Leaders",
     "24" : "Feedback",
@@ -186,7 +186,6 @@
   "5": "Resend",
   "6": "Verify"
 },
-
 "Gallery" : {
   "1": "Gallery",
   "2": "Image",

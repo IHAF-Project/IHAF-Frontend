@@ -206,6 +206,7 @@ cursor: pointer;
 }
 :is(.navbar-login ,.translate-btn-1 ,.navbar-content) {
   padding-inline-end: 2rem;
+  cursor: pointer;
 }
 .translate-btn{
   display: none;
@@ -441,6 +442,7 @@ input:checked + .slider:after {
 @media screen and (max-width:1024px) {
   :is(.navbar-login ,.translate-btn-1 ,.navbar-content){
       padding-inline-end: 0;
+      cursor: pointer;
   }
   .navbar-logo img{
     width: 60px;
@@ -502,6 +504,7 @@ input:checked + .slider:after {
 :is(.navbar-login button ,.Navbar-login-ta button){
   padding: 2rem;
   margin-left: 20px;
+  cursor: pointer;
 }
 .css-1shopag-MuiSvgIcon-root{
   height: 2em !important;
@@ -518,6 +521,7 @@ input:checked + .slider:after {
   }
   :is(.navbar-login ,.navbar-social){
       padding-inline-start: 20px;
+      cursor: pointer;
   }
 }
 @media screen and (max-width:600px) {
