@@ -270,7 +270,7 @@ function Profile() {
                           Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
                         />
                         <div className="member-card-button">
-                          <p onClick={() => exportToPNG('.membar-card', 'MembershipCard')}>Download</p>
+                          <p onClick={() => exportToPNG('.card-section-main', 'MembershipCard')}>Download</p>
                         </div>
                       </div>
                     </div>

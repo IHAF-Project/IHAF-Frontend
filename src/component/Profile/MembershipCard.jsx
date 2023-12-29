@@ -54,8 +54,8 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
               <div className='member-card-back-list'>
               <li>Terms condition based on rules and regulations in the website</li>
               <li>Terms condition based on rules </li>
-              <li>Terms condition based on rules and regulations in the website regulations in the website</li>
-              
+              <li>Terms condition based on rules </li>
+              <li>Terms condition based on rules </li>
               </div>
               </div>
               <div className='member-card-back-address'>
