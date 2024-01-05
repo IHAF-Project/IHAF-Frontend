@@ -83,7 +83,7 @@ function Login() {
         } 
         else{
           
-          setSentOTP(true)
+          setSentOTP(false)
           toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
