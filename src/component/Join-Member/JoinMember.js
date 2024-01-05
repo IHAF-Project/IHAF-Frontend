@@ -442,7 +442,7 @@ const updateFormDataf = async () => {
   if(previewdone)
   {
   try {
-    const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/658164ad7b45eb149d241651`, {
+    const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

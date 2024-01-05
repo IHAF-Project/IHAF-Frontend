@@ -4,9 +4,9 @@ import close from "../../Assets/+.png";
 import { useState } from "react";
 import MembershipCard from "./MembershipCard";
 import LeadershipCard from "./LeadershipCard";
-import html2canvas from "html2canvas"; 
+import html2canvas from "html2canvas";
 import { useEffect } from "react";
-
+ 
 // import { Background } from "@cloudinary/url-gen/qualifiers";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -25,12 +25,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { green } from "@mui/material/colors";
-
+ 
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
   const [membershipCardOpen, setMembershipCardOpen] = useState(false);
   const [leadershipCardOpen, setLeadershipCardOpen] = useState(false);
-
+  const { memberId } = useParams();
   const [memberDetails, setMemberDetails] = useState(null);
   const navigate =useNavigate()
   const [open, setOpen] = useState(false);
@@ -41,25 +41,27 @@ function Profile() {
  const [isPopupOpen, setPopupOpen] = useState(false);
   const [selectedReferralCode, setSelectedReferralCode] = useState('');
   const [popupUserData, setPopupUserData] = useState([]);
-
+ 
   const handleClickOpen = () => {
      setOpen(true);
    };
-  //  const logoutUser = () =>{
-    
-  //   localStorage.clear();
-  //   window.location.href ="/";
-  // }
-  
+   const logoutUser = () =>{
+   
+    localStorage.clear();
+    window.location.href ="/";
+  }
+ 
   const handleClose = () => {
      setOpen(false);
    };
-
+ 
   useEffect(() => {
-
+    if(!(_id)){
+      logoutUser()
+    }
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/IHAF0001`);
+        const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/${memberId}`);
         if (response.ok) {
           const getData = await response.json();
           setMemberDetails(getData?.data);
@@ -72,43 +74,43 @@ function Profile() {
       }
     };
     fetchData();
-  }, ['IHAF0001']);
-
+  }, [memberId]);
+ 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
   const openPopup = (referralCode) => {
     setSelectedReferralCode(referralCode);
     setPopupOpen(true);
-
+ 
     // Fetch user data using the referral code and set it in the state
     fetchUserData(referralCode);
   };
-
-
+ 
+ 
   const memberShipClick = () => {
     setMembershipCardOpen(!membershipCardOpen);
   };
   const leadershipClick = () => {
     setLeadershipCardOpen(!leadershipCardOpen);
   };
-
+ 
   const paymentData = [
     { id: 1, method: 'Credit Card', transactionId: '12345', amount: 100 },
     { id: 2, method: 'PayPal', transactionId: '67890', amount: 50 },
     { id: 3, method: 'Credit Card', transactionId: '12345', amount: 100 },
-    { id: 4, method: 'PayPal', transactionId: '67890', amount: 50 }, 
+    { id: 4, method: 'PayPal', transactionId: '67890', amount: 50 },
     { id: 5, method: 'PayPal', transactionId: '67890', amount: 50 },
   ];
-
+ 
   const exportToPNG = (elementSelector, fileName) => {
     const elementToCapture = document.querySelector(elementSelector);
-  
+ 
     if (!elementToCapture) {
       console.error('Element not found for capture');
       return;
     }
-  
+ 
     html2canvas(elementToCapture, { useCORS: true }).then((canvas) => {
       const url = canvas.toDataURL();
       const a = document.createElement('a');
@@ -119,16 +121,16 @@ function Profile() {
       document.body.removeChild(a);
     });
   };
-  
+ 
   const LeaderhandleDownload = () => {
     exportToPNG('.leader-card', 'LeadershipCard');
   };
-
+ 
   const originalDate = memberDetails?.memberProfile?.createdAt ;
   const formatedate = new Date(originalDate);
   const getDate = formatedate.toLocaleDateString();
   console.log(originalDate, "originalDate");
-
+ 
   const copyToClipboard = (text) => {
     const textArea = document.createElement("textarea");
     textArea.value = refferal;
@@ -141,23 +143,23 @@ function Profile() {
       setCopyMessage("");
     }, 2000);
   };
-
-
+ 
+ 
   const getId = JSON.parse(localStorage.getItem('userData'));
   const id = getId?._id || getId?.data?._id
-
+ 
   const [isAccountDeactivated, setIsAccountDeactivated] = useState(false);
-
+ 
   const deactivateUser = async () => {
     try {
-      const response = await fetch(`https://ihaf-backend.vercel.app/deactivate-account/658164ad7b45eb149d241651`, {
+      const response = await fetch(`https://ihaf-backend.vercel.app/deactivate-account/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ isDeleted: true }),
         headers: {
           'Content-Type': 'application/json'
         }
       });
-
+ 
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -178,23 +180,19 @@ function Profile() {
       .catch((error) => {
         console.error('Error fetching user data:', error);
         setPopupUserData([]);
-        
+       
       });
   };
   const closePopup = () => {
     setPopupOpen(false);
     setSelectedReferralCode('');
   };
-
+ 
   const handleDeactivateClick = () => {
     deactivateUser();
     localStorage.clear();
     navigate('/')
   };
-
-
-
-
   return (
     <>
       <div className="profile-contain">
@@ -267,7 +265,7 @@ function Profile() {
                         <MembershipCard
                           name={memberDetails?.memberProfile?.name}
                           DateOfJoining={getDate}
-                           MemberID='IHAF0001'
+                          MemberID={memberDetails?.memberProfile?.memberID}
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
                         />
@@ -294,7 +292,7 @@ function Profile() {
                         <LeadershipCard
                           name={memberDetails?.memberProfile?.name}
                           DateOfJoining={getDate}
-                          MemberID='IHAF0001'
+                          MemberID={memberDetails?.memberProfile?.memberID}
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           LeaderID={memberDetails?.memberProfile?.leaderID}
                           Location={memberDetails?.memberProfile?.postingLocation}
@@ -306,12 +304,12 @@ function Profile() {
                       </div>
                     </div>
                   )}
-                </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>} 
+                </div>:<div className="leadership-card" style={{Background:'grey'}}> <p >No leadership</p></div>}
                 <button className='view' onClick={() => openPopup(memberDetails?.memberProfile?.referralCode)}>Refferal history</button>
-
+ 
                 <div className="ref-code">
                   <p className="referral">Your referral code</p>
-
+ 
                   <span className="ref-span"
         onClick={() => copyToClipboard()}
       >
@@ -329,18 +327,18 @@ function Profile() {
             <div className="pop-profile-close">
             <h2>Refferal History</h2>
             <div className="close1" onClick={closePopup}><img src={close} alt="X"></img></div>
-            
+           
             </div>
             {popupUserData.length > 0 ? (
-              
+             
               <TableContainer sx={{ width:"90%"}} component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead sx={{ background:"#cfe1fc" }}>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">'IHAF0001'</TableCell>
+            <TableCell align="right">MemberID</TableCell>
             <TableCell align="right">Refferal code</TableCell>
-            
+           
           </TableRow>
         </TableHead>
         <TableBody>
@@ -350,7 +348,7 @@ function Profile() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">{row.name}</TableCell>
-              <TableCell align="right">IHAF0001</TableCell>
+              <TableCell align="right">{row.memberID}</TableCell>
               <TableCell align="right">{row.referralCode}</TableCell>
              
             </TableRow>
@@ -368,5 +366,5 @@ function Profile() {
     </>
   );
 }
-
+ 
 export default Profile;
