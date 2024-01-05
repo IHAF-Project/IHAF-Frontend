@@ -11,13 +11,13 @@
     flex-direction: row;
     padding: 38px 0px 0px 0px;
 }
-.meeting-tab2-cont {
+.event-photos {
     border: 11px solid transparent;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.meeting-tab2-cont:hover {
-    border: 8px solid rgba(255, 255, 255, 0.764);
+.event-photos:hover {
+    border: 4px solid rgba(255, 255, 255, 0.764);
     border-radius: 3px; /* Change to the desired hover color */
     transform: scale(1.1);
 }
