@@ -45,7 +45,7 @@ const Join = () => {
     
     useEffect (() =>{
       const fetchData = async () =>{
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+        const response =  await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
         const data = await response.json();
       if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
         setUserData(data?.data)

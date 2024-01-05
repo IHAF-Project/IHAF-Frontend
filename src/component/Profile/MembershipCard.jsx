@@ -9,6 +9,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
   const cardRef = useRef(null);
 
   return (
+
    <div className='card-section-main'>
     {/* card frontside */}
     <div className="membar-card" ref={cardRef}>
@@ -45,6 +46,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
             </div>
             </div>
              {/* card backside */}
+             
             <div className="membar-card-back" ref={cardRef}>
             <div>
              

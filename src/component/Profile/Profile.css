@@ -19,17 +19,27 @@
   }
   /* membercard-back */
   .membar-card-back{
-    width: 100%;
-    height: 42vh;
+    width: 500px;
+    height: 280px;
     background: #04419D;
     overflow: hidden;
     gap: 21px;
-    padding: 10px;
     color: #ffffff;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     
+}
+.leader-card-back {
+    width: 500px;
+    height: 280px;
+    background: #000205;
+    overflow: hidden;
+    gap: 21px;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .card-section-main {
     display: flex;
@@ -585,8 +595,8 @@ button.view {
     /* padding-right: 2vw; */
 }
 .membar-card{
-    width: auto;
-    height: auto;
+    width: 500px;
+    height: 280px;
     background: #04419D;
     color: #ffffff;
     border-radius: 10px;
@@ -683,14 +693,21 @@ line-height: normal;
 }
 
 
-.leader-card {
+.leadership-card-container {
     background: #000205;
     color: #fff;
     display: flex;
+    width: 500px;
+    height: 280px;
     border-radius: 10px;
     flex-direction: column;
-    height: auto;
-    width: 34.5625rem;
+    /* height: auto; */
+}
+.leader-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
 }
 .leader-card-top{
    
@@ -753,7 +770,7 @@ padding:0.5em 2em;
     font-size: 1rem;
 }
 .leader-card-bt span{
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 .leader-card-bt img{
     width: 115px;
@@ -922,6 +939,9 @@ font-size: 1.3em;
     .profile-contain{
         height: auto;
     }
+    .leader-card {
+        flex-direction: column;
+    }
     .profile-contain-tp p{
         font-size: 1.5em;
     }
@@ -988,12 +1008,19 @@ font-size: 1.3em;
     .member-card-border{
         width: 20.5625rem;
     }
+    .leader-card {
+        flex-direction: column;
+    }
     :is(.leader-card,.membar-card){
         width: 100%;
     }
-           .membar-card-back {
+           .membar-card-back, .leader-card-back {
         width: 100%;
         height: auto;
+
+    }
+    .leadership-card-container {
+        width: 100%;
     }
     .card-section-main {
         width: 100%;
@@ -1063,7 +1090,7 @@ font-size: 1.3em;
 @media screen and (max-width: 990px) {
 
   /* ... (other responsive styles) ... */
-  .membar-card-back {
+  .membar-card-back, .leader-card-back {
     height: auto;
     padding: 0;
   }
@@ -1071,6 +1098,9 @@ font-size: 1.3em;
   
     font-size: 20px;
     width: 65vw;
+}
+.leader-card {
+    flex-direction: column;
 }
 .member-card-back-list {
     width: 54vw;
