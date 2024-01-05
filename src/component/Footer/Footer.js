@@ -22,7 +22,7 @@ function Footer() {
            <div className='footer-join-us'>
               <div className='foot-bt-content-1'>
                {_id ? (
-                 <Link to={`/member/${_id}`}>
+                 <Link to={`/member/658164ad7b45eb149d241651`}>
                  <p className={`${isTamilLanguage ? 'footer-home-tamil': 'footer-home'} `}>{t('hello.19')}</p>
                  </Link>
                ):(

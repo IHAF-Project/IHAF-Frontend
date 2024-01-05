@@ -48,7 +48,7 @@ const Navbar = () => {
 useEffect (() =>{
 
   const fetchData = async () =>{
-    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+    const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/658164ad7b45eb149d241651`)
     const data = await response.json();
     
   if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
@@ -61,8 +61,8 @@ useEffect (() =>{
   fetchData()
 },[])
 
- const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber
- const memberId =userData?.memberID || storedData?.memberID || storedData?.data?.memberID
+ const phoneNumber = storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber || '9994321692'
+ const memberId =userData?.memberID || storedData?.memberID || storedData?.data?.memberID || 'IHAF0001'
  const userprofile= storedData?.data?.profileURL || userData?.profileURL || storedData?.profileURL
  const refferal = storedData?.data?.referralCode || userData?.referralCode || storedData?.referralCode
  const isDeleted = storedData?.isDeleted
@@ -99,7 +99,7 @@ useEffect (() =>{
         <div className='nav-don'>
         {/* <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p> */}
       { _id && !memberId? (
-  <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
+  <Link className='hovjoin' to={`/member/658164ad7b45eb149d241651`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
       ): ('')
       }
         </div>
@@ -108,7 +108,7 @@ useEffect (() =>{
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
         <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
-       {_id ? ( <Link to={`/member/${_id}`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
+       {_id ? ( <Link to={`/member/658164ad7b45eb149d241651`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
          <span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span>
        </Link>) : ('')}
       </div>
@@ -173,7 +173,7 @@ useEffect (() =>{
        <div className='Pop-page'>
        <div className='profile-icon'>
        {memberId ? (
-        <Link to={`/profile/${memberId}`}> <img className='profile' src= {userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
+        <Link to={`/profile/IHAF0001`}> <img className='profile' src= {userprofile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='ProfileImage' width="75px" height="75px" />
         </Link> ) : 'Not a member of IHAF' } 
        </div>
        {memberId ? (<>

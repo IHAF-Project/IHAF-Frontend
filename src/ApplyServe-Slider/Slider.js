@@ -17,7 +17,7 @@ const Cards = () => {
     
     useEffect (() =>{
       // const fetchData = async () =>{
-      //   const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+      //   const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/658164ad7b45eb149d241651`)
       //   const data = await response.json();
 
       if( adminok === true){
@@ -48,7 +48,7 @@ const Cards = () => {
       <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
     </Link>
   ) : (
-    <Link to={`/member/${_id}`}>
+    <Link to={`/member/658164ad7b45eb149d241651`}>
       <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
     </Link>
   )

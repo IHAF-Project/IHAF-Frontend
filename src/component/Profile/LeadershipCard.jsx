@@ -1,7 +1,7 @@
 import {useRef } from 'react';
 import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
-
+import surya from '../../images/bg-modi 1 (2).png'
 
 function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingName}) {
 
@@ -10,6 +10,7 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
   return (
    
     <div className="leader-card" ref={cardRef}>
+      <div className='leadership-card-container'>
     <div className="leader-card-top">
     <div className="leader-card-border">
     <img src={logo} alt='logo' />
@@ -45,6 +46,34 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
       </div>
      </div>
      </div>
+     </div>
+     <div className="leader-card-back" ref={cardRef}>
+            <div>
+             
+            <div className="member-card-bt-back">
+            <div className="member-card-back-terms">
+              <div className="member-card-back-title">Tearms and condition</div>
+              <div className='member-card-back-list'>
+              <li>Terms condition based on rules and regulations in the website</li>
+              <li>Terms condition based on rules </li>
+              <li>Terms condition based on rules </li>
+              <li>Terms condition based on rules </li>
+              </div>
+              </div>
+              <div className='member-card-back-address'>
+                
+                <div className='member-card-back-address-title'>Address</div>
+                <p className='member-card-back-address-details'>INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Nagar,Nedugunram,Chenglepet-600048</p>
+                </div>
+                
+
+              </div>
+    
+            </div>
+            <div className='member-card-back-div-img' >
+            <img className='member-card-back-img' src={surya} alt='surya'></img>
+            </div>
+            </div>
      </div>
      
   )

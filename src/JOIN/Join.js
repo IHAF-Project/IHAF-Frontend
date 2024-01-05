@@ -45,7 +45,7 @@ const Join = () => {
     
     useEffect (() =>{
       const fetchData = async () =>{
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+        const response =  await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/658164ad7b45eb149d241651`)
         const data = await response.json();
       if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
         setUserData(data?.data)
@@ -80,7 +80,7 @@ const Join = () => {
                         </p>
                        
                         {phoneNumber ? (
-    <Link to={`/member/${_id}`}>
+    <Link to={`/member/658164ad7b45eb149d241651`}>
      <button className={`button-5 ${isTamilLanguage ? 'tamil20-font5' : 'english20-font5'}`}> {t('Page5.3')}</button>
     </Link>
   

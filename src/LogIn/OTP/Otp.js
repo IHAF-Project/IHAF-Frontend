@@ -160,9 +160,9 @@ function Otp() {
     }
   };
  
-  const Register = async (memberID) => {
+  const Register = async () => {
     try {
-      const response = await axios.get(`https://ihaf-backend.vercel.app/get-member-profile/${memberID}`);
+      const response = await axios.get(`https://ihaf-backend.vercel.app/get-member-profile/IHAF0001`);
       console.log(response.data, 'member');
     } catch (error) {
       console.error('Error during member registration:', error);

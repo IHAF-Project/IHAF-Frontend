@@ -35,7 +35,7 @@ function JionMember() {
   const localuid=storedData?.data?._id || storedData?._id
 
 
-  const {_id}=useParams()
+
   const [showload, setshowload] = useState(false);
   const [showload1, setshowload1] = useState(false);
   const navigate =useNavigate()
@@ -442,7 +442,7 @@ const updateFormDataf = async () => {
   if(previewdone)
   {
   try {
-    const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
+    const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/658164ad7b45eb149d241651`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

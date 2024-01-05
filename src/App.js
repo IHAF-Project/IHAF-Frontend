@@ -72,7 +72,7 @@ const App = () => {
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/Login" element={<Login/>} />
         <Route path='/Otp' element={<Otp/>} />
-        <Route path='/profile/:memberId' element={<Profile />} />
+        <Route path='/profile/IHAF0001' element={<Profile />} />
         <Route path="/Login" element={<Profile/>} />
         <Route path="/applyserve" element={<Applyserve/>} />
         <Route path="/footer" element={<Footer/>} />

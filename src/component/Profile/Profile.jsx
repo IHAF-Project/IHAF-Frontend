@@ -30,7 +30,7 @@ function Profile() {
   const [isOpen, setIsOpen] = useState(false);
   const [membershipCardOpen, setMembershipCardOpen] = useState(false);
   const [leadershipCardOpen, setLeadershipCardOpen] = useState(false);
-  const { memberId } = useParams();
+
   const [memberDetails, setMemberDetails] = useState(null);
   const navigate =useNavigate()
   const [open, setOpen] = useState(false);
@@ -45,23 +45,21 @@ function Profile() {
   const handleClickOpen = () => {
      setOpen(true);
    };
-   const logoutUser = () =>{
+  //  const logoutUser = () =>{
     
-    localStorage.clear();
-    window.location.href ="/";
-  }
+  //   localStorage.clear();
+  //   window.location.href ="/";
+  // }
   
   const handleClose = () => {
      setOpen(false);
    };
 
   useEffect(() => {
-    if(!(_id)){
-      logoutUser()
-    }
+
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/${memberId}`);
+        const response = await fetch(`https://ihaf-backend.vercel.app/get-member-profile/IHAF0001`);
         if (response.ok) {
           const getData = await response.json();
           setMemberDetails(getData?.data);
@@ -74,7 +72,7 @@ function Profile() {
       }
     };
     fetchData();
-  }, [memberId]);
+  }, ['IHAF0001']);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -152,7 +150,7 @@ function Profile() {
 
   const deactivateUser = async () => {
     try {
-      const response = await fetch(`https://ihaf-backend.vercel.app/deactivate-account/${id}`, {
+      const response = await fetch(`https://ihaf-backend.vercel.app/deactivate-account/658164ad7b45eb149d241651`, {
         method: 'PUT',
         body: JSON.stringify({ isDeleted: true }),
         headers: {
@@ -193,6 +191,10 @@ function Profile() {
     localStorage.clear();
     navigate('/')
   };
+
+
+
+
   return (
     <>
       <div className="profile-contain">
@@ -265,7 +267,7 @@ function Profile() {
                         <MembershipCard
                           name={memberDetails?.memberProfile?.name}
                           DateOfJoining={getDate}
-                          MemberID={memberDetails?.memberProfile?.memberID}
+                           MemberID='IHAF0001'
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
                         />
@@ -292,7 +294,7 @@ function Profile() {
                         <LeadershipCard
                           name={memberDetails?.memberProfile?.name}
                           DateOfJoining={getDate}
-                          MemberID={memberDetails?.memberProfile?.memberID}
+                          MemberID='IHAF0001'
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           LeaderID={memberDetails?.memberProfile?.leaderID}
                           Location={memberDetails?.memberProfile?.postingLocation}
@@ -336,7 +338,7 @@ function Profile() {
         <TableHead sx={{ background:"#cfe1fc" }}>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">MemberID</TableCell>
+            <TableCell align="right">'IHAF0001'</TableCell>
             <TableCell align="right">Refferal code</TableCell>
             
           </TableRow>
@@ -348,7 +350,7 @@ function Profile() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">{row.name}</TableCell>
-              <TableCell align="right">{row.memberID}</TableCell>
+              <TableCell align="right">IHAF0001</TableCell>
               <TableCell align="right">{row.referralCode}</TableCell>
              
             </TableRow>

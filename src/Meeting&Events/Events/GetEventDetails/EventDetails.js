@@ -13,7 +13,7 @@ function EventDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://ihaf-backend.vercel.app/get-event-by-id/${_id}`);
+        const response = await fetch(`https://ihaf-backend.vercel.app/get-event-by-id/658164ad7b45eb149d241651`);
         if (response.ok) {
           const data = await response.json();
           setEventData(data.data); // Set the fetched data in state

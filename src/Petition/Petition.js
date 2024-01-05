@@ -38,7 +38,7 @@ function Petition() {
 
   useEffect (() =>{
     const fetchData = async () =>{
-      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
+      const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/658164ad7b45eb149d241651`)
       const data = await response.json();
     if(data?.data?.isAdminApproved || data?.isAdminApproved === true){
       setUserData(data?.data)
