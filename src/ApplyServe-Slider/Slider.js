@@ -3,6 +3,10 @@ import './Slider.css';
 import { useTranslation } from 'react-i18next';
 import ar from '../images/tri.png'
 import surya from '../images/bg-modi 1 (2).png'
+import law1 from '../images/law1.jpg'
+import law2 from '../images/law2.jpg'
+import law3 from '../images/law3.jpg'
+import law4 from '../images/law4.jpg'
 // import logo from '../images/logo.png'
 import { Link } from 'react-router-dom';
 const Cards = () => {
@@ -100,7 +104,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.16')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt=""/></div>
+  <div className="img6"><img src= {law1} alt=""/></div>
   </div>
 </div>
 
@@ -113,7 +117,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.17')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="elon"/></div>
+  <div className="img6"><img src= {law2} alt="elon"/></div>
   </div>
 </div>
 
@@ -126,22 +130,22 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.18')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law3} alt="bill"/></div>
   </div>
 </div>
 </div>
 <div className="card6" style={{ '--delay': '-2' }}>
 <div className="content6">
 <div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.19')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.20')})</p>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.21')}</p>
+    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.22')}</span>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.23')})</p>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.24')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law4} alt="bill"/></div>
   </div>
 </div>
-</div> 
+</div>
 <div className="card6" style={{ '--delay': '-1' }}>
 <div className="content6">
 <div className="left6">
@@ -162,7 +166,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.27')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law3} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -174,7 +178,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.30')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law2} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -186,7 +190,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.33')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law4} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -198,7 +202,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.36')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law1} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -210,7 +214,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.39')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law2} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -222,7 +226,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.42')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law2} alt="bill"/></div>
   </div>
 </div>
 </div>
@@ -234,7 +238,7 @@ const Cards = () => {
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.45')}</p>
   </div>
   <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
+  <div className="img6"><img src= {law3} alt="bill"/></div>
   </div>
 </div>
 </div>

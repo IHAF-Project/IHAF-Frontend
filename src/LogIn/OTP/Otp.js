@@ -10,19 +10,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'; // Import the library
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the styles
-
+ 
 import 'react-toastify/dist/ReactToastify.css';
  
 function Otp() {
-
+ 
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const [otp, setOtp] = useState('');
-  
+ 
   const navigate = useNavigate();
   const [resendTimer, setResendTimer] = useState(120);
  
-
+ 
  
   const handleSubmit = async (e) => {
     try {
@@ -31,28 +31,28 @@ function Otp() {
         otp: otp,
         phoneNumber: phoneNumber,
       });
-
+ 
       const userData = response?.data;
       localStorage.setItem('userData', JSON.stringify(userData));
-
+ 
       console.log(userData, 'UserData');
       const verifyResult = { data: { success: true } };
-
+ 
       if (verifyResult.data.success) {
         toast.success('Verify OTP success', {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
         });
-      
+     
         // Extracting old_id from localStorage
         const storedData = JSON.parse(localStorage.getItem('userData'));
         const old_id = storedData?.data?._id || storedData?._id;
         console.log('old_id: ' + old_id);
         const isDeleted = storedData?.data?.isDeleted || storedData?.isDeleted;
-      
+     
        
         let isConfirmationShown = false;
-        
+       
         window.addEventListener('unload', (event) => {
           if (isConfirmationShown) {
             // Display a custom message if the confirmation is already shown
@@ -61,7 +61,7 @@ function Otp() {
             return confirmationMessage; // For some older browsers
           }
         });
-        
+       
         if (isDeleted === true) {
           confirmAlert({
             title: 'Reactivate account!',
@@ -79,12 +79,12 @@ function Otp() {
                           'Content-Type': 'application/json',
                         },
                       });
-        
+       
                       if (activateResponse.status === 200) {
                         const newData = await activateResponse.json();
                         const getResponse = newData?.data?.regularMember[0];
                         console.log(getResponse, 'activate');
-        
+       
                         // Update local storage with new data
                         localStorage.setItem('userData', JSON.stringify(getResponse));
                         navigate('/');
@@ -93,10 +93,10 @@ function Otp() {
                       console.log(error.message);
                     }
                   };
-        
+       
                   // Call the reactivation function
                   activateAccount();
-        
+       
                   isConfirmationShown = false; // Set the flag when the confirmation is closed
                 },
               },
@@ -107,17 +107,17 @@ function Otp() {
                   setTimeout(() => {
                     navigate('/login'); // Navigate to login page
                   }, 0);
-        
+       
                   isConfirmationShown = false; // Set the flag when the confirmation is closed
                 },
               },
             ],
           });
-        
+       
           isConfirmationShown = true; // Set the flag when the confirmation is shown
         }
-        
-      
+       
+     
         // Navigate to home page after 4 seconds
         setTimeout(() => {
           navigate('/');
@@ -131,7 +131,7 @@ function Otp() {
       toast.error('Invalid OTP', { position: toast.POSITION.TOP_CENTER });
     }
   };
-
+ 
  
   const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
@@ -139,7 +139,7 @@ function Otp() {
       await handleSubmit(e);
     }
   };
-
+ 
  
   const handleResendClick = async () => {
     try {
@@ -178,18 +178,18 @@ function Otp() {
       clearInterval(timer);
     };
   }, []);
-
+ 
   useEffect(() => {
     if (resendTimer === 0) {
       clearInterval();
     }
-    
+   
   }, [resendTimer]);
-
+ 
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const new_id = storedData?.data?._id || storedData?._id
   console.log('new_id: ' + new_id);
-
+ 
   return (
     <div className='otp-main'>
       <Navbar />
@@ -262,4 +262,3 @@ function Otp() {
 }
  
 export default Otp;
- 

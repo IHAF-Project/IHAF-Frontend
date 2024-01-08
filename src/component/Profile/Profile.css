@@ -19,14 +19,33 @@
   }
   /* membercard-back */
   .membar-card-back{
-    width: 34.5625rem;
-    height: 42vh;
+    width: 500px;
+    height: 280px;
     background: #04419D;
+    overflow: hidden;
+    gap: 21px;
     color: #ffffff;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    
+}
+.leader-card-back {
+    width: 500px;
+    height: 280px;
+    background: #000205;
+    overflow: hidden;
+    gap: 21px;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.card-section-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
 }
 p.member-card-back-address-details {
     color: white;
@@ -56,8 +75,11 @@ span.ref-span :hover {
 }
 .member-card-back-list {
     width: 29vw;
-    font-size: 10px;
+    font-size: 12px;
 }
+/* .member-card-back-address {
+    border: solid 1px black;
+} */
 p.member-card-back-address-details {
     color: white !important;
     font-size: 12px !important;
@@ -70,9 +92,12 @@ img.member-card-back-img {
     object-fit: cover;
 }
 .member-card-back-div-img {
-    width: 16vw;
-    height: 31vh;
-    margin-top: 88px;
+    width: 15vw;
+    height: 28vh;
+    /* margin-top: 88px; */
+    position: relative;
+    top: 115px;
+    right: -23px;
 }
 
   
@@ -509,7 +534,7 @@ line-height: normal;
 padding: 0.25em 1em;
 }
 .membership-card-container{
-    width: 40.5rem;
+    width: 100%;
     height: auto;
     display: flex;
     align-items: center;
@@ -570,8 +595,8 @@ button.view {
     /* padding-right: 2vw; */
 }
 .membar-card{
-    width: 34.5625rem;
-    height: 42vh;
+    width: 500px;
+    height: 280px;
     background: #04419D;
     color: #ffffff;
     border-radius: 10px;
@@ -668,14 +693,21 @@ line-height: normal;
 }
 
 
-.leader-card {
+.leadership-card-container {
     background: #000205;
     color: #fff;
     display: flex;
+    width: 500px;
+    height: 280px;
     border-radius: 10px;
     flex-direction: column;
-    height: auto;
-    width: 34.5625rem;
+    /* height: auto; */
+}
+.leader-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
 }
 .leader-card-top{
    
@@ -738,7 +770,7 @@ padding:0.5em 2em;
     font-size: 1rem;
 }
 .leader-card-bt span{
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 .leader-card-bt img{
     width: 115px;
@@ -897,7 +929,7 @@ font-size: 1.3em;
         height: 2.5rem;
     }
     .membership-card-container{
-        height: 55vh;
+        height: auto;
     }
     .membar-card{
         height: 35vh;
@@ -906,6 +938,9 @@ font-size: 1.3em;
 @media screen and (max-width: 600px) {
     .profile-contain{
         height: auto;
+    }
+    .leader-card {
+        flex-direction: column;
     }
     .profile-contain-tp p{
         font-size: 1.5em;
@@ -946,9 +981,9 @@ font-size: 1.3em;
         padding:2rem;
         gap:2rem;
     }
-    :is(.membership-card ,.leadership-card ,.donation-history ){
+    /* :is(.membership-card ,.leadership-card ,.donation-history ){
         width: 20rem;
-    }
+    } */
     .user-profile-cards{
         align-items: center;
     }
@@ -973,11 +1008,45 @@ font-size: 1.3em;
     .member-card-border{
         width: 20.5625rem;
     }
+    .leader-card {
+        flex-direction: column;
+    }
     :is(.leader-card,.membar-card){
-        width: 95%;
+        width: 100%;
+    }
+           .membar-card-back, .leader-card-back {
+        width: 100%;
+        height: auto;
+
+    }
+    .leadership-card-container {
+        width: 100%;
+    }
+    .card-section-main {
+        width: 100%;
     }
     :is(.member-card-top-details p ,.member-card-top-details span,.member-card-bt p,.leader-card-top-details p ,.leader-card-top-details span){
         font-size: 0.8em;
+    }
+    .member-card-back-div-img {
+        width: 48vw;
+        height: 20vh;
+        /* margin-top: 88px; */
+        position: relative;
+        top: 169px;
+        right: -60px;
+    }
+    .member-card-back-list {
+        width: 71vw;
+        font-size: 10px;
+    }
+    .member-card-back-title {
+        padding: 9px;
+        font-size: 23px;
+        width: 67vw;
+    }
+    p.member-card-back-address-details {
+        width: 59.6vw;
     }
     :is(.leader-card-bt img,.member-card-bt img ){
         width: 80px;
@@ -1014,4 +1083,51 @@ font-size: 1.3em;
     .edit-photo-submit {
         width: 22rem;
     }
+}
+  /* ... (other responsive styles) ... */
+
+
+@media screen and (max-width: 990px) {
+
+  /* ... (other responsive styles) ... */
+  .membar-card-back, .leader-card-back {
+    height: auto;
+    padding: 0;
+  }
+  .member-card-back-title {
+  
+    font-size: 20px;
+    width: 65vw;
+}
+.leader-card {
+    flex-direction: column;
+}
+.member-card-back-list {
+    width: 54vw;
+    font-size: 12px;
+}
+.member-card-bt-back {
+    height: auto;
+}
+.member-card-back-div-img {
+    width: 23vw;
+    height: 20vh;
+    /* margin-top: 88px; */
+    position: relative;
+    top: 115px;
+    right: -4px;
+}
+.member-card-bt-back {
+
+
+    padding-left: 3rem;
+    padding-top: 10px;
+}
+.card-section-main {
+    flex-direction: column;
+}
+}
+
+@media screen and (max-width: 431px) {
+  /* ... (additional responsive styles) ... */
 }
