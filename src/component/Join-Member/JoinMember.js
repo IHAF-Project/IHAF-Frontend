@@ -26,7 +26,7 @@ import { useEffect } from 'react'
 
 
 function JionMember() {
-
+const _id= useParams()
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
