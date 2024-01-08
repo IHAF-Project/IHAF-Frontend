@@ -123,8 +123,8 @@ const Cards = () => {
 <div className="card6" style={{ '--delay': '-1' }}>
 <div className="content6">
 <div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.22')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.23')})</p>
+    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.25')}</span>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.26')})</p>
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.24')}</p>
   </div>
   <div className='right6'>
@@ -147,8 +147,8 @@ const Cards = () => {
 <div className="card6" style={{ '--delay': '1' }}>
 <div className="content6">
 <div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.28')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.29')})</p>
+    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.25')}</span>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.26')})</p>
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.30')}</p>
   </div>
   <div className='right6'>
@@ -159,8 +159,8 @@ const Cards = () => {
 <div className="card6" style={{ '--delay': '2' }}>
 <div className="content6">
 <div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.31')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.32')})</p>
+    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.22')}</span>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.23')})</p>
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.33')}</p>
   </div>
   <div className='right6'>
@@ -183,8 +183,8 @@ const Cards = () => {
 <div className="card6" style={{ '--delay': '4' }}>
 <div className="content6">
 <div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.37')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.38')})</p>
+    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.10')}</span>
+    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.11')})</p>
     <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.39')}</p>
   </div>
   <div className='right6'>
