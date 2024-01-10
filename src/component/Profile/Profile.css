@@ -20,14 +20,14 @@
   /* membercard-back */
   .membar-card-back{
     width: 34.5625rem;
-    height: 42vh;
+    height: 320px;
     background: #04419D;
     overflow: hidden;
     color: #ffffff;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+  
 }
 p.member-card-back-address-details {
     color: white;
@@ -313,7 +313,19 @@ background-color: #FFF;
 text-align: center;
 
 }
-:is(.membership-card-1 ,.leadership-card ,.donation-history ){
+.view{
+    width: 250px;
+    height: 8vh;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    margin: 0.5em;
+    color: #04419D
+}
+:is(.membership-card-1 ,.leadership-card ,.donation-history ,.view){
     display: flex;
     gap:0.5em;
     padding:0.5em;
@@ -509,8 +521,8 @@ line-height: normal;
 padding: 0.25em 1em;
 }
 .membership-card-container{
-    width: 40.5rem;
-    height: auto;
+    width: 100%;
+    height: 75dvh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -551,12 +563,6 @@ padding: 0.25em 1em;
     border-radius: 5px;
 }
 
-button.view {
-    height: 5vh;
-    background: #ffff6b;
-    border: none;
-    cursor: pointer;
-}
 .pop-profile-close {
     display: flex;
     width: 94%;
@@ -566,7 +572,7 @@ button.view {
 }
 .membar-card{
     width: 34.5625rem;
-    height: 42vh;
+    height: 320px;
     background: #04419D;
     color: #ffffff;
     border-radius: 10px;
@@ -746,7 +752,12 @@ padding:0.5em 2em;
     gap:0.5em;
 }
 
-
+.card-section-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
 
 @media screen and (min-width:1536px) {
     .profile-contain-tp p{

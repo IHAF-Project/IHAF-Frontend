@@ -495,7 +495,6 @@ const updateFormDataf = async () => {
 
 const handleFormSumbit = async (e) => {
   e.preventDefault();
-  
   await updateFormData(e);
   console.log(formData, 'updated data');
 };
@@ -868,7 +867,7 @@ useScrollToTop();
       </div>
          </div>
          <div className='JoinNow'>
-         <button type="submit" onKeyDown={handleFormSumbit}>
+         <button type="submit" onKeyDown={handleKeyDown}>
     {currentLanguage === 'ta' ? t('Aadhaar.6') : t('Join Now')}</button>
          </div>
      </form>

@@ -7,7 +7,7 @@ import Page8 from './Donation/Donation.js';
 import Footer from './component/Footer/Footer.js';
 import Meeting from './Meeting&Events/Meeting/Meeting.js';
 import Home from './Federation-About/Federation.js';
-import Join from './Join/Join.js';
+import Join from './JOIN/Join';
 import Cards from './ApplyServe-Slider/Slider.js';
 import useScrollToTop from './component/Hooks/useScrollToTop.js';
 function Tree() {
