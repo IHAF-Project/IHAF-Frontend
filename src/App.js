@@ -21,6 +21,7 @@ import EventDetails from "./Meeting&Events/Events/GetEventDetails/EventDetails"
 import Page3 from './SocialMedia/Social.jsx';
 import Gallery from './Gallery/Gallery.js';
 import Feedback from "./FeedBack-Form/Feedback.js";
+import Donation from './component/Donation/Donation.js';
 
 const App = () => {
 
@@ -85,6 +86,7 @@ const App = () => {
         <Route path='/member/:_id' element={<JoinMember/>}></Route>
         <Route path='/events/:_id' element={<EventDetails/>}></Route>
         <Route path='/join/:_id' element={<JoinMember/>}></Route>
+        <Route path='/Donation' element={<Donation/>}></Route>
       </Routes>
  
       {showScrollButton && (

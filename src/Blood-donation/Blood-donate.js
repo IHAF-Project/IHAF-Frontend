@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
-import "./Donation.css"
+import "./Blood-donate"
 function Page8() {
     const { t } = useTranslation();
 

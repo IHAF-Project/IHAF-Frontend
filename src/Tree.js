@@ -3,7 +3,7 @@ import Page1 from './Home/Home.jsx';
 import Page3 from './SocialMedia/Social.jsx';
 import Page4 from './FeedBack-Scrolls/Feedback-scroll.js';
 import Petition from './Petition/Petition';
-import Page8 from './Donation/Donation.js';
+import Page8 from './Blood-donation/Blood-donate.js';
 import Footer from './component/Footer/Footer.js';
 import Meeting from './Meeting&Events/Meeting/Meeting.js';
 import Home from './Federation-About/Federation.js';
