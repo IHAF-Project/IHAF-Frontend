@@ -156,12 +156,13 @@ useEffect (() =>{
       </div>
       </div>
       </div>
-      <div className='translate-btn'>
-        <button onClick={toggleLanguage}>
+      
+ <div className='translate-btn'>
+        <button>
         <div className="toggle-container">
-        <input type="checkbox" className='toggle'/>
+        <input type="checkbox" className='toggle'  onClick={toggleLanguage}/>
         <div className="slider round"></div>
-    </div>
+     </div>
         </button>
       </div>
       <div className="navbar-toggle">
