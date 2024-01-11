@@ -26,7 +26,7 @@ import { useEffect } from 'react'
 
 
 function JionMember() {
-
+const _id= useParams()
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
@@ -35,7 +35,7 @@ function JionMember() {
   const localuid=storedData?.data?._id || storedData?._id
 
 
-  const {_id}=useParams()
+
   const [showload, setshowload] = useState(false);
   const [showload1, setshowload1] = useState(false);
   const navigate =useNavigate()
@@ -496,6 +496,7 @@ const updateFormDataf = async () => {
 const handleFormSumbit = async (e) => {
   e.preventDefault();
   await updateFormData(e);
+  
   console.log(formData, 'updated data');
 };
 
@@ -566,12 +567,12 @@ const handleProfileFileSelect = async (e) => {
 };
 
 const handleKeyDown = async(e) => {
- // Prevent the default form submission
-  if (e.key === 'Enter') {
-    e.preventDefault(); 
-    await handleFormSumbit(e);
-  }
-};
+  // Prevent the default form submission
+   if (e.key === 'Enter') {
+     e.preventDefault();
+     await handleFormSumbit(e);
+   }
+ };
 
 const handleDelete = (fileType) => {
   if (fileType === 'aadhar') {

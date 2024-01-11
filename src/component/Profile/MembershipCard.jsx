@@ -9,6 +9,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
   const cardRef = useRef(null);
 
   return (
+
    <div className='card-section-main'>
     {/* card frontside */}
     <div className="membar-card" ref={cardRef}>
@@ -45,6 +46,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
             </div>
             </div>
              {/* card backside */}
+             
             <div className="membar-card-back" ref={cardRef}>
             <div>
              
@@ -54,8 +56,8 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
               <div className='member-card-back-list'>
               <li>Terms condition based on rules and regulations in the website</li>
               <li>Terms condition based on rules </li>
-              <li>Terms condition based on rules and regulations in the website regulations in the website</li>
-              
+              <li>Terms condition based on rules </li>
+              <li>Terms condition based on rules </li>
               </div>
               </div>
               <div className='member-card-back-address'>
