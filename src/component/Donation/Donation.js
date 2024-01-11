@@ -29,8 +29,8 @@ const Donation = () => {
    
   
   return (
-    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto'>
-        <div className=' w-1/2 h-full flex flex-col items-center m-7  max-sm:p-0   max-2xl:w-1/2 gap-3 '>
+    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto scro'>
+        <div className=' w-1/2 h-full flex flex-col items-center m-7  max-sm:p-0   max-2xl:w-1/2 gap-3 pe-3 ps-3  '>
           <div className=' flex items-center justify-center flex-col w-10/12 h-auto text-lg my-2  max-sm:p-0 '>
             <h1 className='py-2'>Donation process</h1>
             <p className='text-xs'>Information about donation process The error message you provided is quite generic, and it doesn't point to a specific issue in your CSS code. However, I noticed that there might be an issue with the font-size property in your CSS. Specifically, the value in the </p>
@@ -97,7 +97,7 @@ const Donation = () => {
             </div>
         </div>
         {/* Right side */}
-        <div className=' bg-blue-200 w-1/2 bg-cover bg-center h-full items-center flex flex-col gap-6 overflow-y-auto max-2xl:w-1/2'>
+        <div className=' bg-blue-200 w-1/2 bg-cover bg-center h-full items-center flex flex-col gap-6 overflow-y-auto max-2xl:w-1/2 ps-3 pe-3'>
             <div className='text-xl p-3'>
               <p>Lorem Ipsum Dolor Sit Amet</p>
             </div>
