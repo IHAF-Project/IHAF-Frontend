@@ -1,5 +1,5 @@
 .tamil20-font6{
-  font-size: 20;
+  font-size: 20px;
 }
 .abc{
   color:#001854;
@@ -312,7 +312,7 @@ justify-content: center;
     height: 120px;
 }
 .tamil20-font6{
-  font-size: 0.5em !important;
+  font-size: 12px !important;
 }
 }
 

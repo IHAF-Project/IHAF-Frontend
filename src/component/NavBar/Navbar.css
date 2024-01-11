@@ -1,5 +1,4 @@
-
-
+ 
 .navbar{
   width: 100%;
   height: 12vh;
@@ -31,14 +30,14 @@ align-items: center;
   font-weight: 400;
   width: 7.5em;
 }
-
+ 
 .navbar-logo span{
  
   font-weight: 500;
   background: linear-gradient(89deg, #820000 0.53%, #FF0505 99.5%), #E6E6E6;
-  -webkit-background-clip: text; 
+  -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; 
+  color: transparent;
 }
 .navbar-logo img{
   width: 80px;
@@ -62,7 +61,7 @@ justify-content: space-evenly;
  list-style: none;
  gap:2rem;
  align-items: center;
-} 
+}
 :is(.Navbar-link-tamil ,.Navbar-link-english){
 color: #FFF;
 font-family: Poppins;
@@ -72,8 +71,8 @@ line-height: normal;
 text-decoration: none;
 text-transform: uppercase;
 background: right / 0% 100% no-repeat linear-gradient(#2a2a2a, #2a2a2a);
-position: relative; 
-
+position: relative;
+ 
 }
 .Navbar-link-tamil{
   font-size: 15.045px;
@@ -87,7 +86,7 @@ position: relative;
 .Navbar-link-english:hover{
   font-size: 21.045px;
 }
-
+ 
 .navbar-links ul li a::after {
   content: "";
   position: absolute;
@@ -102,8 +101,8 @@ position: relative;
   width: 100%;
   font-size: 24.045px;
 }
-
-
+ 
+ 
 .icons{
   color: #FFF;
 }
@@ -136,59 +135,60 @@ background: #356DFF;
 cursor: pointer;
 }
 .hovdon{
-
-  cursor: pointer;
-
-  transition: background-color 0.3s ease;
-
-}
-
-.hovdon:hover{
-
-  color: #ffffff;
-
-  background-color: #e5a603;
-
-}
-
-.hovjoin{
-
-  transition: background-color 0.3s ease;
-
-  text-decoration:none ;
-
  
-
+  cursor: pointer;
+ color:white;
+  transition: background-color 0.3s ease;
+ 
+}
+ 
+.hovdon:hover{
+ 
+  color: #ffffff;
+ padding: 8px;
+  background-color: #e5a603;
+  border-radius: 5px;
+ 
+}
+ 
+.hovjoin{
+ 
+  transition: background-color 0.3s ease;
+ 
+  text-decoration:none ;
+ 
+ 
+ 
   padding:0.5em;
-
+ 
   background:10rem;
-
+ 
   background-color:white;
-
+ 
   text-align:center;
-
+ 
   margin:'0';
-
+ 
   border-radius: 2rem;
-
+ 
 }
 .toggle{
   cursor: pointer;
 }
 .hovjoin:hover{
-
-  color: #ffffff;
-
-  background-color: #df0505;
-
-}
-
-.hov:hover{
-
  
-
+  color: #ffffff;
+ 
+  background-color: #df0505;
+ 
+}
+ 
+.hov:hover{
+ 
+ 
+ 
   background-color: #4e970a;
-
+ 
 }
 :is(.Navbar-login-tamil ,.Navbar-login-english){
   color: #FFF;
@@ -272,7 +272,7 @@ height: 30px;
   display: block;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+ 
 .button {
   background-color: #ffffff;
   color: #212121;
@@ -291,7 +291,7 @@ height: 30px;
   text-align: center;
   border: 2px solid white;
 }
-
+ 
 .dropdown-content {
   display: none;
   width: 150px;
@@ -310,7 +310,7 @@ height: 30px;
   display: flex;
   justify-content: end;
 }
-
+ 
 .dropdown-content a {
   color: #ffffff;
   padding: 8px 10px;
@@ -318,15 +318,15 @@ height: 30px;
   display: block;
   transition: 0.1s;
 }
-
-
-
+ 
+ 
+ 
 .dropdown-content a:focus {
   background-color: #212121;
   color: #ffffff;
 }
-
-
+ 
+ 
 .paste-button:hover .dropdown-content {
   display: block;
 }
@@ -334,10 +334,10 @@ height: 30px;
   background-color: transparent;
   border: none;
 }
-
+ 
 .toggle-container {
   position: relative;
-
+ 
   width: 85px;
   text-align: center;
   padding-block: 0.5rem;
@@ -345,14 +345,14 @@ height: 30px;
   user-select: none;
   display: inline-block;
 }
-
+ 
 .toggle-container input {
   opacity: 0;
   width: 100%;
   height: 100%;
   pointer-events: all;
 }
-
+ 
 .slider {
   position: absolute;
   cursor: pointer;
@@ -364,7 +364,7 @@ height: 30px;
   transition: 0.4s;
   pointer-events: none;
 }
-
+ 
 .slider::before {
   position: absolute;
   content: "";
@@ -394,21 +394,21 @@ height: 30px;
 input:checked + .slider {
   background-color: #2196f3;
 }
-
+ 
 input:checked + .slider:before {
   transform: translateX(40px);
 }
-
+ 
 input:checked + .slider:after {
   content: "தமிழ்";
   left: 8px;
   bottom: 4px;
 }
-
+ 
 .slider.round {
   border-radius: 34px;
 }
-
+ 
 .slider.round:before {
   border-radius: 50%;
 }
@@ -438,7 +438,7 @@ input:checked + .slider:after {
   cursor: pointer;
 }
 }
-
+ 
 @media screen and (max-width:1024px) {
   :is(.navbar-login ,.translate-btn-1 ,.navbar-content){
       padding-inline-end: 0;
@@ -456,7 +456,7 @@ input:checked + .slider:after {
     font-size: 0.7em;
   }
 }
-
+ 
 @media screen and (max-width:998px) {
   .navbar-toggle button{
       display: flex;
