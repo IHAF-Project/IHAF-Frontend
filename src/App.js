@@ -66,7 +66,7 @@ const App = () => {
    </div>
 </div>
 ) : (
-  <div className="container" >
+  <div className="container-main" >
       <Routes>
        <Route path="/" element={<Tree />} />
         <Route path="/About" element={<About />} />

@@ -1,9 +1,10 @@
 
 /* Style for the Scroll to Top button */
-.container{
+.container-main{
   overflow: hidden;
   font-family: 'Crimson Text', serif;
   font-family: 'Noto Serif', serif;
+  
  
 }
   .scroll-to-top-btn img {
