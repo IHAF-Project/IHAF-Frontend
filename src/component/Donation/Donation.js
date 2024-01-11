@@ -29,8 +29,8 @@ const Donation = () => {
    
   
   return (
-    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center overflow-y-auto max-2xl:w-screen'>
-        <div className=' w-1/2 h-auto flex flex-col items-center m-7 border-2 max-sm:p-0  border-black max-2xl:w-1/2 gap-3'>
+    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center max-sm:overflow-y-auto max-2xl:w-screen'>
+        <div className=' w-1/2 h-auto flex flex-col items-center m-7  max-sm:p-0   max-2xl:w-1/2 gap-3'>
           <div className=' flex items-center justify-center flex-col w-10/12 h-auto text-lg my-2  max-sm:p-0 '>
             <h1 className='py-2'>Donation process</h1>
             <p className='text-xs'>Information about donation process The error message you provided is quite generic, and it doesn't point to a specific issue in your CSS code. However, I noticed that there might be an issue with the font-size property in your CSS. Specifically, the value in the </p>
@@ -44,7 +44,7 @@ const Donation = () => {
              
             </div>
               <div className=' w-full flex items-center justify-center flex-col'>
-                <div className=' h-auto p-4 flex flex-col items-center justify-center gap-3 w-4/5 bg-amber-100'>
+                <div className=' h-auto p-4 flex flex-col items-center justify-center gap-3 w-full bg-amber-100 max-sm:px-1'>
                 <input className='w-22 text-lg flex text-center justify-center max-sm:w-14 max-sm:p-3 border-2 border-yellow-600 p-3 '
                     type='text'
                     value={Amount}
@@ -53,8 +53,8 @@ const Donation = () => {
                     pattern='[0-9]*'
                     readOnly={!Amount && Amount !== ''}
                     />
-                     <div  className='flex flex-col gap-2 items-center justify-center'>
-                      <p className=' text-blue-800'>Please upload your payment screenshot for verification *</p>
+                     <div  className='flex flex-col gap-2 items-center justify-center '>
+                      <p className=' text-blue-800 max-sm:w-9/12'>Please upload your payment screenshot for verification *</p>
                       <div className='flex flex-col max-sm:w-4/5 '>
                         {/* <label htmlFor="imageUpload">Choose an image:</label> */}
                         <input
@@ -97,7 +97,7 @@ const Donation = () => {
             </div>
         </div>
         {/* Right side */}
-        <div className=' bg-blue-200 w-1/2 bg-cover bg-center h-screen items-center gap-3 flex flex-col overflow-y-auto max-2xl:w-1/2'>
+        <div className=' bg-blue-200 w-1/2 bg-cover bg-center h-screen items-center flex flex-col gap-6 overflow-y-auto max-2xl:w-1/2'>
             <div className='text-xl p-3'>
               <p>Lorem Ipsum Dolor Sit Amet</p>
             </div>
