@@ -377,9 +377,7 @@ color: #ffffff;
     }
 }
 @media screen and (max-width:420px){
-    .translate-btn {
-        padding-inline-start: 5em;
-    }
+
     .navbar-logo img {
         width: auto;
         height: 60px;

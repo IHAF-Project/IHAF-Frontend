@@ -383,7 +383,7 @@ height: 30px;
   height: 24px;
   width: 14px;
   right: 30px;
-  bottom: 6px;
+  bottom: 7.5px;
   transition: 0.2s;
   color: #fff;
   pointer-events: none;
@@ -480,6 +480,7 @@ input:checked + .slider:after {
   }
   .translate-btn{
       display: block;
+      margin-left: 25rem;
   }
   .navbar-logo img{
     width: 80px;
@@ -579,7 +580,7 @@ display: none;
 }
 .translate-btn{
 display: block;
-padding-inline-start: 12.5rem;
+margin-left: 16rem;
 }
 .Popcontainer{
   left: -13px;
@@ -588,7 +589,7 @@ padding-inline-start: 12.5rem;
 @media screen and (max-width:420px){
   .translate-btn{
     display: block;
-    padding-inline-start: 8.5rem;
+    margin-left: 8.5rem;
     }
     .navbarsocial-M{
       flex-direction: column;

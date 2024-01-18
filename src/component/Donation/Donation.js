@@ -54,7 +54,7 @@ const Donation = () => {
     const enteredValue = e.target.value;
   
     // Check if entered value already includes '$'
-    if (!enteredValue.includes('$')) {
+    if (!enteredValue.includes('₹')) {
       setFormData({
         ...formData,
         amount: enteredValue,
@@ -107,12 +107,12 @@ const Donation = () => {
  <div>
   <Navbar/>
   <div className='bg-black-500 w-screen h-auto flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto scro'>
-        <div className=' w-1/2 h-full flex flex-col items-center m-7  max-sm:p-0   max-2xl:w-1/2 gap-3 pe-3 ps-3  '>
+        <div className=' w-4/5 max-sm:w-full ph:w-full h-full flex flex-col items-center m-7  max-sm:p-0  gap-3 pe-3 ps-3  '>
           <div className=' flex items-center justify-center flex-col w-10/12 h-auto text-lg my-2  max-sm:p-0 '>
-            <h1 className={`font-Poppins  font-medium py-4 ${tamilLanguage ? 'text-xl' : 'text-2xl'}`}>
+            <h1 className={`font-Poppins  font-medium py-4 ph:text-base ph:font-semibold ${tamilLanguage ? 'text-xl' : 'text-2xl'}`}>
               {t("Donation.1")}
               </h1>
-            <p className='font-Poppins text-base text-center font-medium'>
+            <p className='font-Poppins text-base text-center font-medium ph:text-sm'>
             {t("Donation.2")}
              </p>
           </div>
@@ -126,23 +126,23 @@ const Donation = () => {
             </div>
               <div className=' w-full flex items-center justify-center flex-col border-2 bg-slate-100 p-4 rounded-lg'>
                 <div className=' h-auto p-4 flex flex-col items-center justify-center gap-3 w-full  bg-blue-400 rounded-lg max-sm:px-1'>
-                <input className='w-22 text-lg flex text-center justify-center max-sm:w-14 max-sm:p-3 border-2 border-slate-950 p-3 '
+                <input className='w-22 text-lg flex text-center justify-center max-sm:w-22 max-sm:p-3 border-2 border-slate-950 p-3 '
                   type="text"
-                  value={formData.amount !== '' ? `$${formData.amount}` : formData.amount}
+                  value={formData.amount !== '' ? `₹${formData.amount}` : formData.amount}
                   onChange={handleInputChange}
                   placeholder={t("Donation.7")}
                   inputMode='numeric'
                   pattern='[0-9]*'
                   readOnly={!formData.amount && formData.amount !== ''}
                     />
-                     <input className='w-22 text-lg flex text-center justify-center max-sm:w-14 max-sm:p-3 border-2 border-slate-950 p-3 '
+                     <input className='w-22 text-lg flex text-center justify-center max-sm:w-22 max-sm:p-3 border-2 border-slate-950 p-3 '
         type="text"
         value={formData.transactionId}
         placeholder={t("Donation.11")}
         onChange={(e) => handleTransaction(e.target.value)}
       />
                      <div className='flex flex-col gap-2 items-center justify-center '>
-                      <p className=' text-white max-sm:w-9/12 font-Poppins text-base font-medium text-center'>{t("Donation.8")}*</p>
+                      <p className=' text-white max-sm:w-9/12 font-Poppins text-base font-medium text-center'>*{t("Donation.8")}*</p>
                       <div className='flex flex-col max-sm:w-4/5 '>
                         {/* <label htmlFor="imageUpload">Choose an image:</label> */}
                         <input
@@ -168,20 +168,20 @@ const Donation = () => {
 
                 </div>
                 <div className='flex items-center justify-center py-6 w-11/12'>
-                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-0 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
-                    <button className='border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('10')}>$10</button>
-                    <button className='border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('20')}>$20</button>
-                    <button className='border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('50')}>$50</button>
-                    <button className='border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white  hover:text-black font-Poppins text-base font-medium' onClick={() => handleButtonClick('100')}>$100</button>
-                    <button className='border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('200')}>$200</button>
-                    <button className={`border-2 rounded-lg  w-full max-sm:w-20 max-sm:p-2 bg-blue-400 hover:border-blue-900   hover:bg-white text-white hover:text-black  font-Poppins  font-medium ${tamilLanguage ? 'text-sm p-6' :'text-base p-8'}`} onClick={() => handleButtonClick(true)}>{t("Donation.10")}</button>
+                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-4 ph:gap-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+                    <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('10')}>₹10</button>
+                    <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('20')}>₹20</button>
+                    <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('50')}>₹50</button>
+                    <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white  hover:text-black font-Poppins text-base font-medium' onClick={() => handleButtonClick('100')}>₹100</button>
+                    <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('200')}>₹200</button>
+                    <button className={`border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-4 ph:w-24  bg-blue-400 hover:border-blue-900   hover:bg-white text-white hover:text-black  font-Poppins  font-medium ${tamilLanguage ? 'text-sm p-6 ph:p-2' :'text-base p-8 ph:p-4'}`} onClick={() => handleButtonClick(true)}>{t("Donation.10")}</button>
 
                   </div>
                 </div>
 
             </div>
             <div className='w-full flex items-center justify-center h-auto p-4'>
-              <button className='b-5 bg-btnColor w-36 p-3  font-Poppins text-base font-medium text-white rounded-lg' onClick={handleSubmit}>{t("Donation.9")}</button>
+              <button className='b-5 bg-btnColor w-36 p-3 font-Poppins text-base font-medium text-white rounded-lg active:translate-y-1.5' onClick={handleSubmit}>{t("Donation.9")}</button>
             </div>
         </div>
         {/* Right side */}
@@ -201,8 +201,6 @@ const Donation = () => {
             <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
             </div>
         </div> */}
-       
-        <div></div>
     </div>
  </div>
 
