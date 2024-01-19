@@ -70,16 +70,7 @@ border-radius: 2px;
     font-weight: 500;
     padding-inline: inherit;
 }
-.page4-image2 {
-  width: 140px;
-  border-radius: 50%;
-  height: 24.5vh;
-  object-fit: cover;
-  height: 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .page4-main-C{
     display: flex;
     width: 400px;
@@ -190,12 +181,6 @@ border-radius: 2px;
     height: 172px;
     width: 356px;
 }
-.page4-image2 {
-  
-  height: 120px;
-  width: 120px;
-}
-
 }
 
 .scroller {
@@ -240,11 +225,6 @@ border-radius: 2px;
 }
 
 
-@media screen and (max-width:210px) {
-  .page4-image2{
-    width: 84%;
-  }
-}
 
 
 

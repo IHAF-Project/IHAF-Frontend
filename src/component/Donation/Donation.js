@@ -6,7 +6,7 @@ const Donation = () => {
 
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const initialUserID = storedData?.data?.memberID || storedData?.memberID;
-  
+  const [showload1, setshowload1] = useState(false);
   const [formData, setFormData] = useState({
     amount: '',
     attachment: '',
@@ -21,26 +21,29 @@ const Donation = () => {
       // Handle this error case appropriately, e.g., redirect the user, show an error message, etc.
     }
   }, [initialUserID]);
-
+  let file;
   const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-
+    setshowload1(true);
+    file = e.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', 'ivs6otkx');
-
+  
     try {
       const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
       const secureUrl = response.data.secure_url;
-
+  
       setFormData((prevData) => ({
         ...prevData,
         attachment: secureUrl,
       }));
+      setshowload1(false); // Set showload to false on successful upload
     } catch (error) {
       console.log('Error uploading file:', error);
+      setshowload1(true); // Set showload to true if there's an error
     }
   };
+  
 
   const handleButtonClick = (value) => {
     setFormData((prevData) => ({
@@ -59,6 +62,7 @@ const Donation = () => {
         ...formData,
         amount: enteredValue,
       });
+      
     } else {
       // If '$' is present, update formData.amount without '$'
       setFormData({
@@ -96,7 +100,7 @@ const Donation = () => {
       
       const data = await responseData.json();
       console.log('API Response:', data);
-  
+     
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -151,6 +155,7 @@ const Donation = () => {
                           accept="image/*"
                           onChange={handleImageUpload}
                         />
+                        {showload1 &&<div className='loads'>File uploading Please wait...</div>}
                         </div>
 
                         {/* Display the selected image (optional) */}

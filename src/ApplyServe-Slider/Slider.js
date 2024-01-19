@@ -132,18 +132,6 @@ const Cards = () => {
   </div>
 </div>
 </div>
-<div className="card6" style={{ '--delay': '0' }}>
-<div className="content6">
-<div className="left6">
-    <span className={`name6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>{t('Page6.25')}</span>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`}>({t('Page6.26')})</p>
-    <p className={`details6 ${isTamilLanguage ? 'tamil20-font6' : ''}`} style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.27')}</p>
-  </div>
-  <div className='right6'>
-  <div className="img6"><img src= {surya} alt="bill"/></div>
-  </div>
-</div>
-</div>
 <div className="card6" style={{ '--delay': '1' }}>
 <div className="content6">
 <div className="left6">

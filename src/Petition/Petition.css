@@ -347,7 +347,7 @@ line-height: normal;
     }
 
 }
-@media screen and (max-width:420px){
+@media screen and (max-width:450px){
     .petition-7-btn {
         width: 53vw;
     }
@@ -364,7 +364,7 @@ line-height: normal;
         width: 67vw;
     }
     .petition-inputs{
-        width: 77vw;
+    width: 95vw;
     height: auto;
     }
     .petition-in-c{

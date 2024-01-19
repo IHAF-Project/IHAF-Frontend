@@ -109,7 +109,7 @@ useEffect (() =>{
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
-        <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('DONATION')}</p>
+        <Link to='/Donation'><p>{currentLanguage === 'ta' ? t('Navbar.6') : t('DONATION')}</p></Link>
        {_id ? ( <Link to={`/member/${_id}`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
          <span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span>
        </Link>) : ('')}
