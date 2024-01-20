@@ -29,7 +29,7 @@ const Donation = () => {
    
   
   return (
-    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto scro'>
+    <div className='bg-black-500 w-screen h-screen flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto'>
         <div className=' w-1/2 h-full flex flex-col items-center m-7  max-sm:p-0   max-2xl:w-1/2 gap-3 pe-3 ps-3  '>
           <div className=' flex items-center justify-center flex-col w-10/12 h-auto text-lg my-2  max-sm:p-0 '>
             <h1 className='py-2'>Donation process</h1>
@@ -44,7 +44,7 @@ const Donation = () => {
              
             </div>
               <div className=' w-full flex items-center justify-center flex-col'>
-                <div className=' h-auto p-4 flex flex-col items-center justify-center gap-3 w-full bg-amber-100 max-sm:px-1'>
+                <div className=' h-auto p-4 flex flex-col items-center justify-center gap-2 w-full bg-amber-100 max-sm:px-1'>
                 <input className='w-22 text-lg flex text-center justify-center max-sm:w-14 max-sm:p-3 border-2 border-yellow-600 p-3 '
                     type='text'
                     value={Amount}
@@ -80,7 +80,7 @@ const Donation = () => {
 
                 </div>
                 <div className='flex items-center justify-center py-6 w-11/12'>
-                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-0 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-0 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                     <button className='border-2 rounded-lg border-yellow-600 w-full max-sm:w-20 max-sm:p-2 bg-violet-200 p-8 hover:border-yellow-300 hover:bg-green-600 hover:text-white' onClick={() => handleButtonClick('120')}>120</button>
                     <button className='border-2 rounded-lg border-yellow-600 w-full max-sm:w-20 max-sm:p-2 bg-violet-200 p-8 hover:border-yellow-300 hover:bg-green-600 hover:text-white' onClick={() => handleButtonClick('100')}>100</button>
                     <button className='border-2 rounded-lg border-yellow-600 w-full max-sm:w-20 max-sm:p-2 bg-violet-200 p-8 hover:border-yellow-300 hover:bg-green-600 hover:text-white ' onClick={() => handleButtonClick('220')}>220</button>
