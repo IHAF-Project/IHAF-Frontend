@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-top: 12px;
 }
 .social-page-tp {
     display: flex;
@@ -135,6 +136,7 @@ text-transform: capitalize;
     font-weight: 500;
     line-height: normal;
     box-shadow: 0px 2.99008px 2.99008px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 12px;
 }
 .Tab-content1-bt {
     height: auto;
@@ -270,5 +272,6 @@ text-transform: capitalize;
         align-items: center;
         justify-content: center;
         height: 50vh;
+        gap: 12px;
     }
 }

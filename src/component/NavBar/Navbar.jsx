@@ -97,9 +97,9 @@ useEffect (() =>{
       <div className="navbar-logo">
       <Link to='/' style={{textDecoration:'none'}}><img src= {logo} alt="Logo" /></Link>  
         <div className='nav-don'>
-        {/* <Link className='hovdon' href=''>
-          {currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }
-         </Link> */}
+        <Link className='hovdon' to='/Donation'>
+          {currentLanguage === 'ta' ? t('Navbar.6') : t('DONATION') }
+         </Link>
       { _id && !memberId? (
   <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
       ): ('')
@@ -109,7 +109,7 @@ useEffect (() =>{
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <div>
         <div  className={`navbar-donation ${isOpen ? 'active' : ''}`}>
-        <p>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate')}</p>
+        <Link to='/Donation'><p>{currentLanguage === 'ta' ? t('Navbar.6') : t('DONATION')}</p></Link>
        {_id ? ( <Link to={`/member/${_id}`} style={{textDecoration:'none' ,color:'white',padding:'0.5em',borderRadius:'10rem',backgroundColor:'white',textAlign:'center',margin:'0'}}>
          <span>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span>
        </Link>) : ('')}
@@ -156,12 +156,13 @@ useEffect (() =>{
       </div>
       </div>
       </div>
-      <div className='translate-btn'>
-        <button onClick={toggleLanguage}>
+      
+ <div className='translate-btn'>
+        <button>
         <div className="toggle-container">
-        <input type="checkbox" className='toggle'/>
+        <input type="checkbox" className='toggle'  onClick={toggleLanguage}/>
         <div className="slider round"></div>
-    </div>
+     </div>
         </button>
       </div>
       <div className="navbar-toggle">

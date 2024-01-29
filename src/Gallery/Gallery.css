@@ -48,7 +48,8 @@
   border: 1px solid #b9f8c7;
 }
 .sub-main {
-  display: flex;flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .fav-text {
   color: #333;
