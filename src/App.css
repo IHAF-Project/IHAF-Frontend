@@ -10,7 +10,7 @@
   .scroll-to-top-btn img {
     display: none;
     height: auto;
-    width: 2.6vw;
+    width:60px;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -144,15 +144,8 @@ section {
    transition: none;
   }
  }
- @media screen and (max-width:820px){
-  .scroll-to-top-btn img{
-    width: 6.5vw;
-  }
- }
+
 @media screen and (max-width:420px) {
-  .scroll-to-top-btn img{
-    width: 10vw;
-  }
   .embeddedurl{
     flex-direction: column !important;
   }

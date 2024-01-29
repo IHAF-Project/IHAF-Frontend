@@ -14,7 +14,7 @@
   font-size: 12px;
 }
 .main-left6{
-    width: 40vw;
+    width: 56vw;
     height: 100vh;
     display: flex;
     flex: 1;
@@ -42,6 +42,7 @@
     justify-content: space-around;
     transition: background-color 0.3s ease;
     cursor: pointer;
+   
 }
    .main6-btn:hover {
     /* Define your hover styles here */
@@ -75,7 +76,7 @@ justify-content: center;
 }
 .main6{
     width: 100%;
-  height: 100vh;
+  height: 108vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,7 +240,7 @@ justify-content: center;
   .main6{
     flex-direction: column;
     justify-content: start;
-    height: 100vh;
+   
   }
   .wrapper .card6 {
     
@@ -277,12 +278,12 @@ justify-content: center;
   }
   .main-right6{
     width: 100vw;
-    height: 75vh;
+    height: 88vh;
    
   }
   .wrapper .card6{
     width: 80vw;
-    height:26vh;
+    height:32vh;
     border-radius: 1vh 10vh 10vh 1vh;
   }
   .left6 p {
@@ -307,10 +308,7 @@ justify-content: center;
 }
 }
 @media screen and (max-width: 540px){
-  .wrapper .card6 .img6 {
-    width: 120px;
-    height: 120px;
-}
+
 .tamil20-font6{
   font-size: 12px !important;
 }
@@ -320,7 +318,7 @@ justify-content: center;
   .main6{
     flex-direction: column;
     justify-content: start;
-    height: auto;
+    height: 200dvh;
   }
   .main-left6 {
     width: 100%;
@@ -350,13 +348,17 @@ justify-content: center;
 }
   .main-right6{
     width: 100vw;
-    height: 80vh;
+    height: 200vh;
    
+  }
+  .card6 .content6{
+    flex-direction: column;
+    gap:2em;
   }
   .wrapper .card6{
     width: 90vw;
-    height:25vh;
-    border-radius: 1vh 10vh 10vh 1vh;
+    height:60vh;
+    border-radius: 5vh;
   }
   .left6 p {
     font-size: 3vw;
@@ -364,8 +366,8 @@ justify-content: center;
     
 }
 .card6 .left6 .details6 {
-  font-size: 2.2vw;
-  width: 48vw;
+  font-size: 14px !important;
+  width: 75vw;
 
 }
 
@@ -374,7 +376,7 @@ justify-content: center;
   font-size: 5vw;
 }
 .left6{
-  width: 52vw;
+  width: 75vw;
   justify-content: center;
 }
 .main6-btn img {

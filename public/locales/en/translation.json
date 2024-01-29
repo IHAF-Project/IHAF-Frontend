@@ -112,7 +112,7 @@
     "3":"people",
     "4":"Login",
     "5":"Jion us",
-    "6":"Donate",
+    "6":"DONATION",
     "7":"Gallery"
 },
 "pageOne":{
@@ -145,8 +145,14 @@
   "15":"Upload adhar",
   "16":"Select",
   "17":"Tamil Nadu",
-  "18":"Other"
-  
+  "18":"Other",
+  "19":"Date of joining",
+  "20":"Membership Card",
+  "21":"பகுதி",
+  "22":"பதவி",
+  "23":"தலைவர் ஐடி",
+  "24":"தலைமைத்துவ அட்டை"
+ 
 },
 "Gender":{
   "1":"Male",
@@ -193,5 +199,18 @@
   "4": "Favourites!",
   "5": "மீண்டும் அனுப்பு!",
   "6": "சரிப்பார்க்க"
+},
+"Donation":{
+  "1":"Supporting Our Community",
+  "2":"Your donation helps our community recover by providing essential support for food, education, and alleviating poverty.",
+  "3":"Account Name",
+  "4":"Account Number",
+  "5":"IFSC Code",
+  "6":"Integral Humanism Ambedkar Federation",
+  "7":"Custom Amount",
+  "8":"Please provide your transaction ID and upload a screenshot of your payment for verification purposes",
+  "9":"submit",
+  "10":"Custom",
+  "11":"Enter the Transaction_Id"
 }
 }

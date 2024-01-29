@@ -97,6 +97,7 @@
     font-weight: 500;
     line-height: normal; 
     width: 91vw;
+    margin-bottom: 12px;
 }
 
 .petition-input-cont {
@@ -267,7 +268,7 @@ line-height: normal;
         padding-top: 2rem;
         justify-content: space-evenly;
         padding-right: 0rem;
-        width: 68vw;
+        width: 72vw;
         height: auto;
     }
     .page7-submit {
@@ -347,7 +348,7 @@ line-height: normal;
     }
 
 }
-@media screen and (max-width:420px){
+@media screen and (max-width:450px){
     .petition-7-btn {
         width: 53vw;
     }
@@ -360,11 +361,11 @@ line-height: normal;
         align-items: flex-start;
     }
     .input-name-petition{
-        height: 1.5rem;
+        height: 43px;
         width: 67vw;
     }
     .petition-inputs{
-        width: 77vw;
+    width: 86vw;
     height: auto;
     }
     .petition-in-c{

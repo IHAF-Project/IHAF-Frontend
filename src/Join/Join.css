@@ -141,7 +141,7 @@
         align-items: center;
         padding-bottom: 2rem;
         flex-direction: column;
-        height: 90vh;
+        height: 100vh;
     }
     .right-5 {
         height: 20vh;
@@ -186,12 +186,12 @@
     }
     .right-5{
         width: 70vw;
-        height: 44vh;
+        height: 60vh;
         border-radius: 0.4705rem 0.4705rem 4.9785rem 0.4705rem;
     }
 
     .right-5 p{
-        font-size: 3vw;
+        font-size: 14px;
     }
     .right-5 button{
         width: auto;
@@ -216,18 +216,18 @@
        
     }
     .right-5 {
-        width: 62vw;
-        height: 35vh;
-    
+        width: 80vw;
+        height: 50vh;
         border-radius: 0.4705rem 0.4705rem 3.9785rem 0.4705rem
     }
     .right-5 p{
-        font-size: 3vw;
+        font-size: 1rem;
+        width: 80vw;
     }
     .right-5 button {
-        width: 46vw;
+        width: 65vw;
         height: 5vh;
-        font-size: 3.4vw;
+        font-size: 1rem;
     }
     .right-5 img{
         width: 5.5vw;
