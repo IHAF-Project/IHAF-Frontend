@@ -54,7 +54,7 @@ const _id= useParams()
     bloodGroup: "",
     religion: "",
     address: "",
-    state: "",
+    state: "Tamil Nadu",
     district: "",
     aadharCardURL: null,
     profileURL: null
@@ -353,9 +353,17 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
     console.log(name, value);
     let isValid = true;
     console.log(e)
-    setformData({
-      ...formData,
-      state:"Tamilnadu"})
+    if (name === "state") {
+      // Ensure that the value being set is "Tamil Nadu"
+      if (value === "Tamil Nadu") {
+        setformData({
+          ...formData,
+          [name]: value
+        });
+      }
+    }
+    
+    
     if (name === "aadharCard") {
       // Remove any non-numeric characters
       const numericValue = value.replace(/\D/g, '');
