@@ -46,7 +46,10 @@ function Applyserve() {
         toast.success('Application send Successfully',{
           position:'top-right'
         });
-        navigate('/')
+     setTimeout (() => {
+      navigate('/')
+     },
+     3000)
 
         console.log(res, "Apply to serve datas");
       } else {
