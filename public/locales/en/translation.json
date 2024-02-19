@@ -17,11 +17,11 @@
       "4":"SURYA",
       "5":"(President Of IHAF)",
       "6":"SHANKAR",
-      "7":"(Vice President)",
-      "8":"ALEXIS SUDHAKAR",
+      "7":"(Vice Leader)",
+      "8":"D.Alex's Sudhakar",
       "9":"(Secretary)",
-      "10":"PANNEERSELVAM",
-      "11":"(Asst.Secretary)",
+      "10":"D.Alex's Sudhakar",
+      "11":"(Secretary)",
       "12":"RAJATHIKKANNAN",
       "13":"(Executive Commitee Member)",
       "14":"He is one of reson ihad standing in ground for poor and rich in funding and all providingd as a memeber and a client",
@@ -32,11 +32,11 @@
       "19":"S.Manikandan",
       "20":"Executive Commitee Member",
       "21":"IHAF embraces innovative solutions to address complex societal challenges.",
-      "22":"Mohammed Rafee",
-      "23":"Executive Commitee Member",
+      "22":"Panner Selvam",
+      "23":"Additional Secretary",
       "24":"An informed society is a powerful society. IHAF is committed to raising awareness and educating people about the importance of social justice and equality, and how we can collectively make a difference.",
-      "25":"K.Sudhakar",
-      "26":"Executive Commitee Member",
+      "25":"Shankar",
+      "26":"Vice President",
       "27":"The strongest people are not those who show strength in front of us but those who win battles we know nothing about.",
       "28":"Sathya",
       "29":"Executive Commitee Member",
@@ -79,12 +79,12 @@
     "18" : "@copy rights reserved",
     "19" : "Join us",
     "20" : "Home",
-    "21" : "Social",
+    "21" : "Social media",
     "22" : "Petition",
     "23" : "Leaders",
     "24" : "Feedback",
     "25" : "Address",
-    "26" : "INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Nagar,Nedugunram,Chenglepet-600048",
+    "26" : "INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Road,Nedugunram,Chenglepet-600048",
     "27" : "Add attachments",
     "28" : "Upload",
     "29" : "Events",
@@ -112,7 +112,7 @@
     "3":"people",
     "4":"Login",
     "5":"Jion us",
-    "6":"Donate",
+    "6":"DONATION",
     "7":"Gallery"
 },
 "pageOne":{
@@ -143,8 +143,16 @@
   "13":"Front side of Adhar only required",
   "14":"Upload your photo",
   "15":"Upload adhar",
-  "16":"Profile photo",
-  "17":"Join Now"
+  "16":"Select",
+  "17":"Tamil Nadu",
+  "18":"Other",
+  "19":"Date of joining",
+  "20":"Membership Card",
+  "21":"பகுதி",
+  "22":"பதவி",
+  "23":"தலைவர் ஐடி",
+  "24":"தலைமைத்துவ அட்டை"
+ 
 },
 "Gender":{
   "1":"Male",
@@ -155,7 +163,7 @@
   "1":"Aadhaar Number",
   "2":"Upload Adhara card",
   "3":"FRONT SIDE OF ADHAR ONLY REQUIRED",
-  "4":"Upload adhar"
+  "4":"Upload aadhaar"
 },
 "Religion":{
   "1":"Christianity",
@@ -183,5 +191,26 @@
   "4": "I didn't receive a OTP resend OTP !",
   "5": "Resend",
   "6": "Verify"
+},
+"Gallery" : {
+  "1": "Gallery",
+  "2": "Image",
+  "3": "Video",
+  "4": "Favourites!",
+  "5": "மீண்டும் அனுப்பு!",
+  "6": "சரிப்பார்க்க"
+},
+"Donation":{
+  "1":"Supporting Our Community",
+  "2":"Your donation helps our community recover by providing essential support for food, education, and alleviating poverty.",
+  "3":"Account Name",
+  "4":"Account Number",
+  "5":"IFSC Code",
+  "6":"Integral Humanism Ambedkar Federation",
+  "7":"Custom Amount",
+  "8":"Please provide your transaction ID and upload a screenshot of your payment for verification purposes",
+  "9":"submit",
+  "10":"Custom",
+  "11":"Enter the Transaction_Id"
 }
 }

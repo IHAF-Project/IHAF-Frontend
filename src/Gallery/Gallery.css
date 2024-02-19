@@ -16,48 +16,52 @@
     justify-content: center;
 }
 .gallery-head {
-    height: 21vh;
+    height: 12vh;
         justify-content: center;
     align-items: center;
     display: flex;
 }
 .gallery-body {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 3.0625rem;
-    border: 1px solid #000;
-    background: #4B4B4B;
-    width: 54vw;
-    height: 10vh;
-    align-items: center
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  /* border: 1px solid #000; */
+  background: #8cacd5;
+  width: 54vw;
+  height: 9vh;
+  align-items: center;
 }
 .image-text {
-  color: #000;
+  color: #274926;
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
-  
   font-weight: 400;
   width: 11vw;
-  height: 6vh;
-  background-color: #DFA5A5;
+  height: 4vh;
+  background-color: #ffffff;
   text-align: center;
-  border-radius: 2vw;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #b9f8c7;
+}
+.sub-main {
+  display: flex;
+  flex-direction: column;
 }
 .fav-text {
-  color: #FFF;
+  color: #333;
   font-family: Poppins;
-  font-size: 19px;
-  background-color: #4b4b4b;
-  border: none;
+  font-size: 15px;
+  background-color: #ffffff;
+  border: 1px #ffffff  solid;
   font-style: normal;
   font-weight: 400;
   width: 12vw;
   height: 5vh;
-  border-radius: 1.5vw;
+  
 }
 
 .images-gal {
@@ -87,16 +91,15 @@
   color: #fff;
   font-family: Poppins;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 16px;
   /* font-style: normal; */
   font-weight: 400;
 }
 .fav-text-C {
-  color: #FFF;
+  color: #424242;
   font-family: Poppins;
-  font-size: 20px;
-  
-  background-color: #DFA5A5;
+  font-size: 15px;
+  background-color: #d1e2f7;
   border: none;
   font-style: normal;
   font-weight: 400;
@@ -104,19 +107,21 @@
   height: 5vh;
   border-radius: 0.5vw;
 }
-.video-image{
-    width: 633px;
-}
 .videos-container{
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .video-item{
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 2rem;
 
 }
@@ -146,12 +151,14 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
   }
-  .gallery-fav-cont{
+  .gallery-fav-cont {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .popup-content-C {
+    height: 23vh;
+    justify-content: space-evenly;
+}
+  .popup-content {
     text-align: center;
   }
   
@@ -182,9 +189,9 @@
     display: flex;
     align-items: center;
     gap: -1rem;
-    border-radius: 6.5vh;
-    background: #DFA5A5;
-    height: 9vh;
+    border-radius: 2px;
+    background: #d1e2f7;
+    height: 7vh;
     justify-content: space-around;
 }
 .fav-main {
@@ -199,21 +206,22 @@
     width: 320px;
     height: 200px;
   }
-  .sdfghjkk{
+  /* .sdfghjkk{
    
+    
       color: #FFF;
       font-family: Poppins;
-      font-size: 20px;
-      background-color: #DFA5A5;
-      border: none;
+      font-size: 19px;
+      background-color: #4b4b4b;
+      border: 2px;
       font-style: normal;
       font-weight: 400;
       width: 12vw;
       height: 5vh;
-      border-radius: 0.5vw;
+      border-radius: 1.5vw;
   
    
-  }
+  } */
   .favorate-image-container{
     display: flex;
   }
@@ -228,4 +236,67 @@
     .video-image{
        width: 83vw;
     }
+    .gallery-body{
+      border-radius: 1.0625rem;
+      width: 85vw;
+      height: 8vh;
+    }
+    .image-text{
+      width: 18vw;
+      height: 5vh;
+    }
+    .favorate-image-C{
+      width: 48vw;
+      border-radius: 1.0625rem;
+      height: 8vh;
+    }
+    .fav-text{
+      width: 16vw;
+    }
+  }
+  @media screen and (max-width:540px){
+    .gallery-body {
+      width: 90vw;
+      height: 10vh;
+  }
+  .image-text {
+    width: 21vw;
+    padding: 0.25em;
+}
+.favorate-image-C{
+  width: 64vw;
+}
+.fav-text {
+  width: 21vw;
+}
+.video-control {
+  width: 500px;
+  position: relative;
+  background-color: black;
+  height: 400px;
+}
+.close-btn{
+  border: 3px solid #9a1212;
+  margin-top: 18px;
+}
+  }
+  @media screen and (max-width:450px){
+    .gallery-body{
+     flex-direction: column;
+     height: auto;
+    }
+    .image-text {
+      width: 48vw;
+  }
+  .favorate-image-C{
+    width: 90vw;
+  }
+  .fav-text {
+    width: 32vw;
+}
+.video-control {
+  width: 385px;
+  height: 400px;
+}
+
   }

@@ -1,3 +1,12 @@
+/* src/index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add your additional styles here */
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +20,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.page4-image2 {
+  max-width: 140px !important;
+  border-radius: 50%;
+  height: 24.5vh;
+  object-fit: cover;
+  height: 140px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 915px){
+  .left-5 img {
+    max-width: 75vw !important;
+    height: auto;
+}}
+@media screen and (max-width:550px) {
+  .page4-image2 {
+    height: 120px !important;
+   max-width: 120px !important;
+  }}
+@media screen and (max-width: 476px){
+  .left-5 img {
+    max-width: 90vw !important;
+}}

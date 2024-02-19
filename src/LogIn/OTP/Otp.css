@@ -2,6 +2,13 @@
     width: 100%;
     height: 100vh;
 }
+
+.react-confirm-alert-overlay {
+  background-color: red; /* Replace with your desired background color */
+}
+
+
+
 .otp-container {
     width: 100%;
     height: 80vh;
@@ -80,6 +87,40 @@ line-height: normal;
   .otp-p p {
     margin-top: 0;
   }
+  .resent{
+    font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11.4783px;
+  line-height: 17px;
+  text-align: center;
+  color: rgba(25, 21, 21, 0.95);
+  }
+  .resent-otp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:1rem
+  }
+  .otp-countdown{
+    color: #3551ef;
+  }
+  .sen-again {
+    font-family: 'Poppins';
+    font-style: normal;
+    /* font-weight: 600; */
+    font-size: 9.38599px;
+    line-height: 11px;
+    /* border: 0.618184px solid #FFFFFF; */
+    border-radius: 3.23137px;
+    text-align: center;
+    width: 69.28px;
+    padding: 7px;
+    color: #ffffff;
+    BACKGROUND-COLOR: #ffd004;
+    cursor: pointer;
+}
+
   @media screen and (max-width: 420px) {
     .otp-box-contain {
         width: 100%;
@@ -87,6 +128,9 @@ line-height: normal;
     .otp-container {
         width: auto;
         padding: 1rem;
+    }
+    .resent-otp {
+      flex-direction: column;
     }
     
   }

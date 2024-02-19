@@ -19,8 +19,8 @@ function Video({ favorites, toggleFavorite }) {
     };
  
     fetchVideos();
-  }, []); 
-
+  }, []);
+ 
   const openPopup = (videoUrl) => {
     setSelectedVideo(videoUrl);
     setPopupOpen(true);
@@ -37,9 +37,9 @@ function Video({ favorites, toggleFavorite }) {
         {videos.map((video, index) => (
           <div key={index} className='video-item'>
             <div>
-              <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' ,zIndex:3}}>
+              {/* <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' ,zIndex:3}}>
                 {favorites[index] ? '❤️' : '🤍'}
-              </div>
+              </div> */}
               <video controls className='video-image'  onClick={() => openPopup(video)}  poster='https://th.bing.com/th/id/OIP.UydJkzJIHUXPqXpYl0IU-gAAAA?rs=1&pid=ImgDetMain' >
               <source src={video.videoUrl} type="video/mp4"  />
               Your browser does not support the video tag.
