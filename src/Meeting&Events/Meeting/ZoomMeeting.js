@@ -40,13 +40,18 @@ function ZoomMeeting() {
   return (
     <div className='Meeting-con-main'>
       <div className='zoom-meet-design-cont'>
-        {selectedMeetCardUrl && (
+        {/* {selectedMeetCardUrl && (
           <img
             className='zoom-meet-design'
             alt='Meeting Card'
             src={image1}
           />
-        )}
+        )} */}
+        <img
+            className='zoom-meet-design'
+            alt='Meeting Card'
+            src={image1}
+          />
       </div>
       <div className='zoom-meeting-cont'>
           <div className='zoom-meet-code'>
