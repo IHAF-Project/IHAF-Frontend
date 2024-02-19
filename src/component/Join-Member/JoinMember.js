@@ -54,7 +54,7 @@ const _id= useParams()
     bloodGroup: "",
     religion: "",
     address: "",
-    state: "",
+    state: "Tamil Nadu",
     district: "",
     aadharCardURL: null,
     profileURL: null
