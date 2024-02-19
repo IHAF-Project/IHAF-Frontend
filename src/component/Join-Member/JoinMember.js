@@ -353,9 +353,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
     console.log(name, value);
     let isValid = true;
     console.log(e)
-    setformData({
-      ...formData,
-      state:"Tamilnadu"})
+    
     if (name === "aadharCard") {
       // Remove any non-numeric characters
       const numericValue = value.replace(/\D/g, '');
@@ -785,7 +783,7 @@ useScrollToTop();
           <p> <Fragment>:</Fragment></p>
           </div>
           <div className='data5 dist'>
-            <input name='state' onChange={handleFormChange} value="TamilNadu"></input>
+            <input name='state'  value="TamilNadu"></input>
         </div>
           </div>
         </div>
