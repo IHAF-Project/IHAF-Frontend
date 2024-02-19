@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import image1 from '../../images/back.png';
 function ZoomMeeting() {
   const [isCodeCopied, setIsCodeCopied] = useState(false);
 
@@ -44,7 +44,7 @@ function ZoomMeeting() {
           <img
             className='zoom-meet-design'
             alt='Meeting Card'
-            src={selectedMeetCardUrl}
+            src={image1}
           />
         )}
       </div>
