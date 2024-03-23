@@ -5,9 +5,10 @@ import ar from '../images/tri.png'
 import surya from '../images/bg-modi 1 (2).png'
 import law1 from '../images/law1.jpg'
 import law2 from '../images/law2.jpg'
-import law3 from '../images/law3.jpg'
+
 import law4 from '../images/law4.jpg'
-// import logo from '../images/logo.png'
+import law3 from "../images/MicrosoftTeams-image (23).png"
+
 import { Link } from 'react-router-dom';
 const Cards = () => {
     const { t, i18n } = useTranslation();
@@ -20,9 +21,7 @@ const Cards = () => {
     const adminok = storedData?.data?.isAdminApproved || storedData?.isAdminApproved
     
     useEffect (() =>{
-      // const fetchData = async () =>{
-      //   const response = await fetch(`https://ihaf-backend.vercel.app/get-new-memberById/${_id}`)
-      //   const data = await response.json();
+   
 
       if( adminok === true){
         const data= storedData
@@ -31,8 +30,7 @@ const Cards = () => {
       }else{
         console.log(storedData?.data?.isAdminApproved || storedData?.isAdminApproved,'local-successfully')
       }
-      // }
-      // fetchData()
+
     },[])
 
     const phoneNumber =storedData?.data?.phoneNumber || userData?.phoneNumber || storedData?.phoneNumber

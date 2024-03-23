@@ -173,7 +173,7 @@ const Donation = () => {
 
                 </div>
                 <div className='flex items-center justify-center py-6 w-11/12'>
-                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-4 ph:gap-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+                  <div className='grid grid-cols-2 w-auto items-center justify-center max-sm:grid-cols-2 max-sm:gap-4 ph:gap-2 lg:grid-cols-3  gap-8'>
                     <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('10')}>₹10</button>
                     <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('20')}>₹20</button>
                     <button className='border-2 rounded-lg  w-full max-sm:w-40 max-sm:p-6 ph:w-24 ph:p-4 bg-blue-400 p-8 hover:border-blue-900 hover:bg-white text-white hover:text-black  font-Poppins text-base font-medium' onClick={() => handleButtonClick('50')}>₹50</button>
