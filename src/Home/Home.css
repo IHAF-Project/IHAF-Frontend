@@ -379,7 +379,7 @@ color: #ffffff;
 @media screen and (max-width:420px){
 
     .navbar-logo img {
-        width: auto;
+        object-fit: contain;
         height: 60px;
 }
 .intro-slide-content-quates span {
