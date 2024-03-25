@@ -1,7 +1,8 @@
 import React, { useState ,useEffect} from 'react'
 import image2 from "../Assets/Polygon 11.png";
 import close from "../Assets/+.png";
- 
+import poster from "../images/deks2.png"
+
 function Video({ favorites, toggleFavorite }) {
   const [popupOpen, setPopupOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -40,7 +41,7 @@ function Video({ favorites, toggleFavorite }) {
               {/* <div className='favorite-icon' onClick={() => toggleFavorite(index, 'video')} style={{ fontSize: '24px', cursor: 'pointer' ,zIndex:3}}>
                 {favorites[index] ? '❤️' : '🤍'}
               </div> */}
-              <video controls className='video-image'  onClick={() => openPopup(video)}  poster='https://th.bing.com/th/id/OIP.UydJkzJIHUXPqXpYl0IU-gAAAA?rs=1&pid=ImgDetMain' >
+              <video controls className='video-image'  onClick={() => openPopup(video)}  poster={poster} width='450px' height='200px' >
               <source src={video.videoUrl} type="video/mp4"  />
               Your browser does not support the video tag.
             </video>

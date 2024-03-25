@@ -163,11 +163,12 @@
   }
   
   .close-btn {
-     width: 30px;
-     height: 30px;
-     border-radius: 50%;
-     right: 9px;
-     border: 3px solid #FF1F1F;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    right: 20px;
+    top: 45px;
+    border: 3px solid #FF1F1F;
     margin-top: 10px;
     position: absolute;
     cursor: pointer;
