@@ -376,7 +376,7 @@ color: #ffffff;
       width: 87vw;
     }
 }
-@media screen and (max-width:420px){
+@media screen and (max-width:480px){
 
     .navbar-logo img {
         object-fit: contain;
