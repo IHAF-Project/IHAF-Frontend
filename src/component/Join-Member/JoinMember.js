@@ -26,7 +26,7 @@ import { useEffect } from 'react'
 
 
 function JionMember() {
-  const {_id}= useParams()
+const {_id}= useParams()
   const {t , i18n} =useTranslation()
   const currentLanguage =i18n.language
   const tamilLanguage =i18n.language === 'ta'
@@ -171,90 +171,6 @@ function JionMember() {
   ];
   
   
- 
-  
-
-  // const indianStates = [
-  //   'Andaman and Nicobar Islands',
-  //   'Andhra Pradesh',
-  //   'Arunachal Pradesh',
-  //   'Assam',
-  //   'Bihar',
-  //   'Chandigarh',
-  //   'Chhattisgarh',
-  //   'Dadra and Nagar Haveli',
-  //   'Daman and Diu',
-  //   'Delhi',
-  //   'Goa',
-  //   'Gujarat',
-  //   'Haryana',
-  //   'Himachal Pradesh',
-  //   'Jammu and Kashmir',
-  //   'Jharkhand',
-  //   'Karnataka',
-  //   'Kerala',
-  //   'Ladakh',
-  //   'Lakshadweep',
-  //   'Madhya Pradesh',
-  //   'Maharashtra',
-  //   'Manipur',
-  //   'Meghalaya',
-  //   'Mizoram',
-  //   'Nagaland',
-  //   'Odisha',
-  //   'Puducherry',
-  //   'Punjab',
-  //   'Rajasthan',
-  //   'Sikkim',
-  //   'Tamil Nadu',
-  //   'Telangana',
-  //   'Tripura',
-  //   'Uttar Pradesh',
-  //   'Uttarakhand',
-  //   'West Bengal',
-  // ];
-  // const indianStatesInTamil = [
-  //   'அந்தமான் மற்றும் நிகோபார் தீவுகள்',
-  //   'ஆந்திரா பிரதேசம்',
-  //   'அருணாசலபிரதேசம்',
-  //   'அசாம்',
-  //   'பீகார்',
-  //   'சண்டக் கர்',
-  //   'சத்தீஸ்கரம்',
-  //   'தாத்ரா மற்றும் நாகர் ஹவெலி',
-  //   'தமான் மற்றும் டியூ',
-  //   'தில்லி',
-  //   'கோவா',
-  //   'குஜராத்',
-  //   'ஹரியானா',
-  //   'ஹிமாசல பிரதேசம்',
-  //   'ஜம்மு மற்றும் காஷ்மீர்',
-  //   'ஜார்கண்ட்',
-  //   'கர்நாடகா',
-  //   'கேரளா',
-  //   'லடாக்',
-  //   'லக்ஷத்வீப்',
-  //   'மத்திய பிரதேசம்',
-  //   'மஹாராஷ்டிரா',
-  //   'மணிப்பூர்',
-  //   'மேகாலயா',
-  //   'மிசாரம்',
-  //   'நாகாலாண்ட்',
-  //   'ஒரிசா',
-  //   'புதுச்சேரி',
-  //   'பஞ்சாப்',
-  //   'ராஜஸ்தான்',
-  //   'சிக்கிம்',
-  //   'தமிழ்நாடு',
-  //   'தெலங்கானா',
-  //   'திரிபுரா',
-  //   'உத்தரப்பிரதேசம்',
-  //   'உத்தராஞ்சலம்',
-  //   'பங்காளம்',
-  // ];
-  
-  
-  
   const genderE = ['Male','Female','Other'];
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   const educationE = ['10th','12th','UG','PG','Other'];
@@ -276,10 +192,7 @@ const religionsInTamil = ['இந்துதமம்', 'கிறிஸ்த�
   
   let selectedprofile;
 
-  
 
-  
-  
   const [isInputValid, setIsInputValid] = useState(true);
   let member;
  
@@ -447,8 +360,7 @@ const updateFormData = async () => {
 }
 const updateFormDataf = async () => {
   setDataPreview(false)
-  if(previewdone)
-  {
+ 
   try {
     const response = await fetch(`https://ihaf-backend.vercel.app/update-joinus-member/${_id}`, {
       method: 'PUT',
@@ -462,10 +374,7 @@ const updateFormDataf = async () => {
       const data = await response.json();
       setformData(data);
       setpopsuccess(true)
-      // Show success notification if data is updated
-      // toast.success('Data updated successfully!', {
-      //   position: toast.POSITION.TOP_RIGHT,
-      // });
+     
       setTimeout(()=>{
         navigate('/')
       },5000)
@@ -497,7 +406,7 @@ const updateFormDataf = async () => {
     });
     console.error('Error updating data:', error);
   }
-}
+
 };
 
 
