@@ -217,9 +217,12 @@ span.code-text {
         align-items: center;
     }
     .zoom-meeting-cont {
-        width: 64vw; 
+        width: 64vw;
         flex-direction: column;
- 
+        flex-wrap: nowrap;
+        padding-left: 5px;
+        height: auto;
+        gap: 8px;
     }
     img.zoom-meet-design{
         width: 75vw;

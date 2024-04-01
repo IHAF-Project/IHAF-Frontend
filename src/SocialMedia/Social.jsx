@@ -65,8 +65,8 @@ useEffect(() => {
      </div>
      <div className='social-page-btm-con'>
      <div className='social-page-btm'>
-      <div className="tabs">
-          <div   className={`tab  ${activeTab === 0 ? 'Tabactive ' : ''}`}  onClick={() => handleTabClick(0)}> 
+      <div className="tabs"  >
+          <div   className={`tab  ${activeTab === 0 ? 'Tabactive ' : ''}`} style={{padding:'5px'}} onClick={() => handleTabClick(0)}> 
           <div className='youtube-box '>
          <p>{currentLanguage === 'ta' ? t('pageThree.4') : t('Youtube')}</p>
          <img src={youtube} alt='youtube' />
@@ -75,6 +75,7 @@ useEffect(() => {
          <div 
           className={`tab ${activeTab === 1 ? 'Tabactive' : ''}`}
           onClick={() => handleTabClick(1)}
+          style={{padding:'5px'}}
         >
        <div className='facebook-box'>
       <p> {currentLanguage === 'ta' ? t('pageThree.3') : t('Instagram')}</p>
@@ -84,6 +85,7 @@ useEffect(() => {
          <div
           className={`tab ${activeTab === 2 ? 'Tabactive' : ''} `  }
           onClick={() => handleTabClick(2)}
+          style={{padding:'5px'}}
         >
           <div className='twitter-box '>
     <p>{currentLanguage === 'ta' ? t('pageThree.5') : t('Twitter')}</p>

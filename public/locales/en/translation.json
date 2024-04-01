@@ -145,8 +145,14 @@
   "15":"Upload adhar",
   "16":"Select",
   "17":"Tamil Nadu",
-  "18":"Other"
-  
+  "18":"Other",
+  "19":"Date of joining",
+  "20":"Membership Card",
+  "21":"பகுதி",
+  "22":"பதவி",
+  "23":"தலைவர் ஐடி",
+  "24":"தலைமைத்துவ அட்டை"
+ 
 },
 "Gender":{
   "1":"Male",

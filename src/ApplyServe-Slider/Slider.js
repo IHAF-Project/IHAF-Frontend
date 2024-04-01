@@ -46,8 +46,8 @@ const Cards = () => {
       
         {phoneNumber ? (
   memberId ? (
-    <Link to='/applyserve'>
-      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '1vw' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
+    <Link to='/applyserve' className='w-auto h-auto '>
+      <button className='main6-btn' style={{ fontSize: isTamilLanguage ? '12px' : '' }}>{t('Page6.3')} <img src={ar} alt='icon' /></button>
     </Link>
   ) : (
     <Link to={`/member/${_id}`}>
