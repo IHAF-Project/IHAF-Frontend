@@ -8,7 +8,7 @@ import back from '../../images/back.png'
 
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
+function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,district}) {
   const { t, i18n } = useTranslation();
 
   const cardRef = useRef(null);
@@ -17,9 +17,10 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
 
    <div className='card-section-main'>
     {/* card frontside */}
-    <div className="h-[188px] w-[340px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
+    <div className="h-[270px] w-[450px] ph:w-[400px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
+    <p className=' text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2'>{t('JionMemberShip.26')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.27')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.28')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.29')}</p>
     <div className="mb-1 flex items-center w-full h-2/6 text-[12px] justify-evenly">
-     
+    
       <div className='h-full w-[20%] flex justify-center items-center p-2'>
       <img className=' object-cover' src={logo} alt='logo' />
       </div>
@@ -52,38 +53,18 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
       <>:</>
       <span>{Bloodgroup}</span>
       </div>
+      <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins"> <p>{t('JionMemberShip.25')} </p>
+      <>:</>
+      <span>{district}</span>
+      </div>
             </div>
             </div>
             </div>
              {/* card backside */}
              
-            <div className=" w-[340px] h-[188px]" ref={cardRef}>
-              <img className=' object-cover' src={back} alt='card'></img>
-            {/* <div>
-             
-            <div className="member-card-bt-back">
-            <div className="member-card-back-terms">
-              <div className="member-card-back-title">Tearms and condition</div>
-              <div className='member-card-back-list'>
-              <li>Terms condition based on rules and regulations in the website</li>
-              <li>Terms condition based on rules </li>
-              <li>Terms condition based on rules </li>
-              <li>Terms condition based on rules </li>
-              </div>
-              </div>
-              <div className='member-card-back-address'>
-                
-                <div className='member-card-back-address-title'>Address</div>
-                <p className='member-card-back-address-details'>INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Nagar,Nedugunram,Chenglepet-600048</p>
-                </div>
-                
-
-              </div>
-    
-            </div>
-            <div className='member-card-back-div-img' >
-            <img className='member-card-back-img' src={surya} alt='surya'></img>
-            </div> */}
+            <div className=" w-[450px] h-[270px] ph:w-[400px]" ref={cardRef}>
+              <img className=' object-cover h-[270px] ph:w-[400px] ph:object-contain' src={back} alt='card' ></img>
+            
             </div>
  </div>
      

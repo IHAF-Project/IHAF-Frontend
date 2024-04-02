@@ -148,10 +148,15 @@
   "18":"Other",
   "19":"Date of joining",
   "20":"Membership Card",
-  "21":"பகுதி",
-  "22":"பதவி",
-  "23":"தலைவர் ஐடி",
-  "24":"தலைமைத்துவ அட்டை"
+  "21":"Area",
+  "22":"Status",
+  "23":"Leader ID",
+  "24":"Leadership Card",
+  "25":"District",
+  "26":"Virtue",
+  "27":"Pleasure",
+  "28":"Wealth",
+  "29":"Moksha"
  
 },
 "Gender":{

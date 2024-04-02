@@ -13,21 +13,21 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
     
    <div className='leader-card'>
    {/* card frontside */}
-   <div className="h-[188px] w-[340px] text-white flex flex-col items-center text-[12px]" style={{background: 'linear-gradient(74deg, rgba(39,39,39,1) 36%, rgba(49,49,49,1) 53%, rgba(80,79,79,1) 77%, rgba(116,113,113,1) 93%, rgba(131,129,129,1) 98%)'}} ref={cardRef}>
-   <div className=" flex items-center w-full h-[20%] text-[12px] my-1">
-    
+   <div className="h-[270px] w-[450px]  ph:w-[400px] text-white flex flex-col items-center text-[12px]" style={{background: 'linear-gradient(74deg, rgba(39,39,39,1) 36%, rgba(49,49,49,1) 53%, rgba(80,79,79,1) 77%, rgba(116,113,113,1) 93%, rgba(131,129,129,1) 98%)'}} ref={cardRef}>
+   <p className=' text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2'>{t('JionMemberShip.26')} <img src='https://clipground.com/images/black-dot-png-1.png' width='10px' height='10px' /> {t('JionMemberShip.27')} <img src='https://clipground.com/images/black-dot-png-1.png' width='10px' height='10px' /> {t('JionMemberShip.28')} <img src='https://clipground.com/images/black-dot-png-1.png' width='10px' height='10px' /> {t('JionMemberShip.29')}</p>
+    <div className=" flex items-center w-full h-[20%] text-[12px] my-1">
    <div className='h-[90%] w-[18%] flex justify-center items-center p-2'>
       <img className=' object-cover w-auto h-[50px] py-1' src={logo} alt='logo' />
       </div>
      
-     <div className=" w-[80%] text-[9px] text-white flex flex-col items-center justify-evenly">
-       <p className='text-white text-[9px] items-center text-center my-2'>{t('pageOne.1')}</p>
+     <div className=" w-[60%] text-[9px] text-white flex flex-col items-center justify-evenly">
+       <p className='text-white text-[11px] items-center text-center my-2'>{t('pageOne.1')}</p>
        <span className=' text-[10px]'>{t('JionMemberShip.24')}</span>
      </div>
      
      </div>
     <div className="flex items-center justify-around p-2 gap-3 border-2 rounded-lg m-2 h-[72%] ">
-    <div className='w-[20%] h-[90%] flex items-center justify-center'>
+    <div className='w-[40%] h-[90%] flex items-center justify-center'>
     <img className=' object-cover' src={Profile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='logo' />       
     </div>
     <div className="w-[80%] h-[100%]">
@@ -57,8 +57,8 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
            </div>
             {/* card backside */}
             
-           <div className=" w-[340px] h-[188px]" ref={cardRef}>
-             <img className=' object-cover' src={back} alt='card'></img>
+           <div className=" w-[450px] h-[270px]  ph:w-[400px]" ref={cardRef}>
+             <img className=' object-cover h-[270px] ph:w-[400px] ph:object-contain' src={back} alt='card'></img>
            {/* <div>
             
            <div className="member-card-bt-back">

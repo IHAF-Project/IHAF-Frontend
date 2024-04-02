@@ -25,7 +25,7 @@ module.exports = {
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
-      'ph': { 'max': '450px' }, // Mobile screens up to 450px
+      'ph': { 'max': '480px' }, // Mobile screens up to 450px
       'sm-max': { 'max': '639px' }, // Screens up to 639px
       'md-max': { 'max': '767px' }, // Screens up to 767px
       'lg-max': { 'max': '1023px' }, // Screens up to 1023px
