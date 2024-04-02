@@ -24,7 +24,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { green } from "@mui/material/colors";
+
  
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,13 +95,7 @@ function Profile() {
     setLeadershipCardOpen(!leadershipCardOpen);
   };
  
-  const paymentData = [
-    { id: 1, method: 'Credit Card', transactionId: '12345', amount: 100 },
-    { id: 2, method: 'PayPal', transactionId: '67890', amount: 50 },
-    { id: 3, method: 'Credit Card', transactionId: '12345', amount: 100 },
-    { id: 4, method: 'PayPal', transactionId: '67890', amount: 50 },
-    { id: 5, method: 'PayPal', transactionId: '67890', amount: 50 },
-  ];
+
  
   const exportToPNG = (elementSelector, fileName) => {
     const elementToCapture = document.querySelector(elementSelector);
@@ -268,6 +262,7 @@ function Profile() {
                           MemberID={memberDetails?.memberProfile?.memberID}
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
+                          district={memberDetails?.memberProfile?.district}
                         />
                         <div className="member-card-button">
                           <p onClick={() => exportToPNG('.card-section-main', 'MembershipCard')}>Download</p>
