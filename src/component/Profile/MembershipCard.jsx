@@ -1,16 +1,15 @@
 import {useRef } from 'react';
 import logo from '../../images/logo.png'
 import { PropTypes } from 'prop-types';
-import surya from '../../images/bg-modi 1 (2).png'
 import { useTranslation } from 'react-i18next';
-import back from '../../images/back.png'
-
+import back from '../../images/MicrosoftTeams-image (26).png'
+import signature from '../../images/MicrosoftTeams-image (27).png'
 
 
 
 function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,district}) {
-  const { t, i18n } = useTranslation();
 
+  const { t } = useTranslation();
   const cardRef = useRef(null);
 
   return (
@@ -18,7 +17,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,distric
    <div className='card-section-main'>
     {/* card frontside */}
     <div className="h-[270px] w-[450px] ph:w-[400px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
-    <p className=' text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2'>{t('JionMemberShip.26')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.27')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.28')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.29')}</p>
+    <p className=' text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2'>{t('JionMemberShip.26')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.28')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.27')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.29')}</p>
     <div className="mb-1 flex items-center w-full h-2/6 text-[12px] justify-evenly">
     
       <div className='h-full w-[20%] flex justify-center items-center p-2'>
@@ -31,7 +30,9 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,distric
       </div>
       
       </div>
+      <img src={signature} alt='sign' className='signature'/>
      <div className="flex items-center justify-around p-3 gap-3 border-2 rounded-lg m-2 text-[12px] font-Poppins ">
+
      <div className='w-[20%] h-[90%] flex items-center justify-center'>
      <img className=' object-cover' src={Profile || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'} alt='logo' />       
      </div>
@@ -63,7 +64,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,distric
              {/* card backside */}
              
             <div className=" w-[450px] h-[270px] ph:w-[400px]" ref={cardRef}>
-              <img className=' object-cover h-[270px] ph:w-[400px] ph:object-contain' src={back} alt='card' ></img>
+              <img className=' object-fill h-[270px] ph:w-[400px] ph:object-contain' src={back} alt='card' ></img>
             
             </div>
  </div>
