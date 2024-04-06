@@ -69,12 +69,25 @@
     justify-content: center;
 }
 .signature {
-    width: 100px;
-    height: 100px;
+   
     object-fit: contain;
-    margin-top: 180px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.25rem;
+    margin-top: 145px;
     margin-left: 325px;
     position: absolute;
+    width: 135px;
+}
+.signature p{
+    position: absolute;
+    color: black;
+    font-size: 14px;
+
+}
+.signature img{
+    width: 100px;
+    height: 100px;
 }
 p.member-card-back-address-details {
     color: white;

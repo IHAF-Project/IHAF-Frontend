@@ -27,7 +27,10 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
      </div>
      
      </div>
-     <img src={signature} alt='sign' className='signature'/>
+     <div className='signature'>
+      <img src={signature} alt='sign' />
+      <p>(President Sign)</p>
+      </div>
     <div className="flex items-center justify-around p-2 gap-3 border-2 rounded-lg m-2 h-[72%] ">
 
     <div className='w-[40%] h-[90%] flex items-center justify-center'>
