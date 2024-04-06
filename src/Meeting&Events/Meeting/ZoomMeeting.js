@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import image1 from '../../images/back.png';
+import image1 from '../../images/MicrosoftTeams-image (25).png';
 function ZoomMeeting() {
   const [isCodeCopied, setIsCodeCopied] = useState(false);
 

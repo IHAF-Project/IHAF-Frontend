@@ -68,6 +68,14 @@
     gap: 1rem;
     justify-content: center;
 }
+.signature {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 180px;
+    margin-left: 325px;
+    position: absolute;
+}
 p.member-card-back-address-details {
     color: white;
     font-size: 10px;
