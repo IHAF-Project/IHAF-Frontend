@@ -69,12 +69,11 @@
     justify-content: center;
 }
 .signature {
-   
     object-fit: contain;
     display: flex;
     flex-direction: column-reverse;
     gap: 0.25rem;
-    margin-top: 145px;
+    margin-top: 170px;
     margin-left: 325px;
     position: absolute;
     width: 135px;
@@ -83,7 +82,7 @@
     position: absolute;
     color: black;
     font-size: 14px;
-
+    top:65px;
 }
 .signature img{
     width: 100px;
@@ -1007,6 +1006,10 @@ font-size: 1.3em;
     }
 }
 @media screen and (max-width: 600px) {
+    .signature {
+        margin-top: 175px;
+        margin-left: 340px;
+    }
     .profile-contain{
         height: auto;
     }
@@ -1068,7 +1071,7 @@ font-size: 1.3em;
         height: max(90vh ,165vh);
     }
 }
-@media screen and (max-width: 431px){
+@media screen and (max-width: 450px){
     .member-card-bt {
         
         padding: 1px;
@@ -1158,6 +1161,9 @@ font-size: 1.3em;
     .edit-photo-submit {
         width: 22rem;
     }
+    .signature {
+        margin-left: 280px;
+    }
 }
   /* ... (other responsive styles) ... */
 
@@ -1201,8 +1207,6 @@ font-size: 1.3em;
 .card-section-main {
     flex-direction: column;
 }
+
 }
 
-@media screen and (max-width: 431px) {
-  /* ... (additional responsive styles) ... */
-}
