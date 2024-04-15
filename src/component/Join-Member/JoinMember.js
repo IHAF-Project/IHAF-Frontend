@@ -55,6 +55,7 @@ const {_id}= useParams()
     religion: "",
     address: "",
     state: "Tamil Nadu",
+    constituency:'',
     district: "",
     aadharCardURL: null,
     profileURL: null
@@ -72,6 +73,8 @@ const {_id}= useParams()
     { id: 8, firstName: 'Religion', data: formData.religion },
     { id: 9, firstName: 'Address', data: formData.address },
     { id: 10, firstName: 'State', data: formData.state },
+    { id: 11, firstName: 'Constituency', data: formData.constituency },
+
   ];
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -659,7 +662,7 @@ useScrollToTop();
         </div>
          </div>
 {/* address */}
-         <div className='JionFrom-content-inputs'>
+         <div className='JionFrom-content-inputs' >
         <div className='Address-join'>
         <div className='ad-main'>
          
@@ -670,6 +673,20 @@ useScrollToTop();
           </div>
           <textarea className='JionFrom-content-inputs' id='Address'name='address' value={formData.address} onChange={handleFormChange}></textarea>
           </div>
+              {/*constituency  */}
+    <div className='JionFrom-content-inputs'>
+         <div className='jion-cont'>
+         <label>
+               
+              {currentLanguage === 'ta' ? t('தொகுதி') : t('Constituency')}
+              <span style={{ color: 'red', paddingLeft:'0' }}>*</span>
+        </label>
+
+
+         <p> <Fragment>:</Fragment></p>
+         </div>
+         <input type='text' id='name' name='constituency' value={formData.constituency}  onChange={handleFormChange}/> <br/>
+         </div>
 {/* district */}
           <div className='ad-sub'>
           <div className='Address'>
@@ -695,6 +712,7 @@ useScrollToTop();
     </div>
     </div>
     </div>
+
   {/* state */}
           <div  className='ad-data'>
           <div className='jion-cont'>

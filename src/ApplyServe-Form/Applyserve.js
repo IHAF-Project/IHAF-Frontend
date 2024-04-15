@@ -15,7 +15,7 @@ function Applyserve() {
   
   const tamilNaduDistricts = [ 'Ariyalur', 'Chennai', 'Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kanchipuram','Kanyakumari','Karur', 'Krishnagiri', 'Madurai', 'Nagapattinam','Namakkal', 'Perambalur', 'Pudukkottai','Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur','Theni','Thiruvallur','Thiruvarur','Thoothukudi (Tuticorin)','Tiruchirappalli', 'Tirunelveli','Tiruppur','Tiruvannamalai','Vellore','Viluppuram','Virudhunagar','Tenkasi','Chengalpattu','Ranipet','Tirupathur','Kallakurichi','Mayiladuthurai','Dindigul',
   ];
-  
+  const constituencyList =['Ariyalur'];
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const memberID=storedData?.data?.memberID || storedData?.memberID
 
@@ -59,6 +59,7 @@ function Applyserve() {
          
           postingLocation: "",
           postingName: "",
+          constituency:"",
           
         });
         console.log(res, "Apply to serve datas");
@@ -101,28 +102,7 @@ useScrollToTop();
             />
           </div>
         </div>
-        <div className='apply-serve-cont'>
-          <div className='apply-serve-name'>
-            <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('hello.34')}</p> <p className='equalen'>:</p>
-          </div>
-          <div>
-            <div className='data5'>
-              <select
-                value={serve.postingLocation}
-                name='postingLocation'
-                onChange={(e) => setServe({ ...serve, postingLocation: e.target.value })}
-                className='serve-name-P'
-              >
-                <option value="">Posting Location</option>
-                {tamilNaduDistricts.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
+        
         <div className='apply-serve-cont'>
           <div className='apply-serve-name'>
             <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('hello.35')}</p> <p className='equalen'>:</p>
@@ -137,6 +117,50 @@ useScrollToTop();
               >
                 <option value="">Posting Name</option>
                 {posting.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className='apply-serve-cont'>
+          <div className='apply-serve-name'>
+            <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('JionMemberShip.30')}</p> <p className='equalen'>:</p>
+          </div>
+          <div>
+            <div className='data5'>
+              <select
+                value={serve.constituency}
+                name='posting constituency'
+                onChange={(e) => setServe({ ...serve, constituency: e.target.value })}
+                className='serve-name-P'
+              >
+                <option value="">Posting Of Constituency</option>
+                {constituencyList.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className='apply-serve-cont'>
+          <div className='apply-serve-name'>
+            <p className={`${isTamilLanguage ? 'text-serve-tamil' : 'text-serve'}`}>{t('JionMemberShip.25')}</p> <p className='equalen'>:</p>
+          </div>
+          <div>
+            <div className='data5'>
+              <select
+                value={serve.postingLocation}
+                name='posting Districts'
+                onChange={(e) => setServe({ ...serve, postingLocation: e.target.value })}
+                className='serve-name-P'
+              >
+                <option value="">Posting Location</option>
+                {tamilNaduDistricts.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>

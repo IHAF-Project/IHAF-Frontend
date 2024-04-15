@@ -263,6 +263,7 @@ function Profile() {
                           Profile={memberDetails?.memberProfile?.profileURL || 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png'}
                           Bloodgroup={memberDetails?.memberProfile?.bloodGroup}
                           district={memberDetails?.memberProfile?.district}
+                          constituency={memberDetails?.memberProfile?.constituency || ''}
                         />
                         <div className="member-card-button">
                           <p onClick={() => exportToPNG('.card-section-main', 'MembershipCard')}>Download</p>
@@ -292,6 +293,7 @@ function Profile() {
                           LeaderID={memberDetails?.memberProfile?.leaderID}
                           Location={memberDetails?.memberProfile?.postingLocation}
                           PostingName={memberDetails?.memberProfile?.postingName}
+                          constituency={memberDetails?.memberProfile?.constituency || ''}
                         />
                         <div className="member-card-button">
                           <p onClick={LeaderhandleDownload}>Download</p>

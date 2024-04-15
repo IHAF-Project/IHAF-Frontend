@@ -7,7 +7,7 @@ import signature from '../../images/MicrosoftTeams-image (27).png'
 
 
 
-function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,district}) {
+function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,district,constituency}) {
 
   const { t } = useTranslation();
   const cardRef = useRef(null);
@@ -57,6 +57,10 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,distric
       <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins"> <p>{t('JionMemberShip.9')} </p>
       <>:</>
       <span>{Bloodgroup}</span>
+      </div>
+      <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins"> <p>{t('JionMemberShip.30')} </p>
+      <>:</>
+      <span>{constituency}</span>
       </div>
       <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins"> <p>{t('JionMemberShip.25')} </p>
       <>:</>
