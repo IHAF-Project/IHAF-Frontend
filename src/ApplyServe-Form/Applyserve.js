@@ -25,7 +25,7 @@ function Applyserve() {
     memberID: memberID || "",
     postingLocation: "",
     postingName: "",
-   
+    constituency:"",
   });
 
   const handlesubmit = async (e) => {
