@@ -2,6 +2,8 @@ import React, { useState ,useEffect} from 'react'
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Navbar from "../../component/NavBar/Navbar.jsx"
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Donation = () => {
 
   const storedData = JSON.parse(localStorage.getItem('userData'));
@@ -100,6 +102,25 @@ const Donation = () => {
       
       const data = await responseData.json();
       console.log('API Response:', data);
+      toast('Payment Successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+       icon:<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M6.21745 24.9675C6.21745 14.6121 14.6121 6.21745 24.9675 6.21745C35.3228 6.21745 43.7175 14.6121 43.7175 24.9675C43.7175 35.3228 35.3228 43.7175 24.9675 43.7175C14.6121 43.7175 6.21745 35.3228 6.21745 24.9675ZM24.9675 3.61328C13.1739 3.61328 3.61328 13.1739 3.61328 24.9675C3.61328 36.761 13.1739 46.3216 24.9675 46.3216C36.761 46.3216 46.3216 36.761 46.3216 24.9675C46.3216 13.1739 36.761 3.61328 24.9675 3.61328ZM36.0444 20.4194C36.5529 19.9109 36.5529 19.0865 36.0444 18.578C35.5359 18.0695 34.7115 18.0695 34.203 18.578L22.9157 29.8653C22.6108 30.1702 22.1159 30.1703 21.8106 29.8651L16.7736 24.828C16.2651 24.3195 15.4406 24.3195 14.9321 24.828C14.4236 25.3365 14.4236 26.1609 14.9321 26.6694L19.9692 31.7065C21.2911 33.0284 23.4349 33.029 24.7571 31.7067L36.0444 20.4194Z" fill="url(#paint0_linear_2012_11366)"/>
+       <defs>
+         <linearGradient id="paint0_linear_2012_11366" x1="24.9675" y1="3.61328" x2="24.9675" y2="46.3216" gradientUnits="userSpaceOnUse">
+           <stop stop-color="#041034"/>
+           <stop offset="1" stop-color="#516EC4"/>
+         </linearGradient>
+       </defs>
+     </svg>
+        });
      
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -110,6 +131,7 @@ const Donation = () => {
   return (
  <div>
   <Navbar/>
+<ToastContainer />
   <div className='bg-black-500 w-screen h-auto flex text-xs items-center justify-center  max-2xl:w-screen overflow-y-auto scro'>
         <div className=' w-4/5 max-sm:w-full ph:w-full h-full flex flex-col items-center m-7  max-sm:p-0  gap-3 pe-3 ps-3  '>
           <div className=' flex items-center justify-center flex-col w-10/12 h-auto text-lg my-2  max-sm:p-0 '>

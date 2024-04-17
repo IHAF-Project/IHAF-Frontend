@@ -260,7 +260,7 @@ height: 32px;
 
 .JionFrom-content-inputs textarea {
   width: 18rem;
-  height: 8em;
+  height: auto;
   margin-right:5em;
   resize: none;
   margin-left: 1rem;
@@ -280,7 +280,7 @@ height: 32px;
 }
 .JionFrom-content-inputs textarea {
 width: 18rem;
-height: 8em;
+height: auto;
 margin-right: 5em;
 resize: none;
 border: 1px solid #000000;
@@ -638,7 +638,7 @@ img.jionMember-coverImg{
 .JionFrom-content-inputs textarea{
 margin: 0;
 width: 14rem;
-height: 10em;
+height: auto;
 }
 .preview img {
   width: 21vw;
