@@ -9,9 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import ConfirmPopup from "../ConfirmPopup/ConfirmPopup";
+import ConfirmPopup from "../component/ConfirmPopup/ConfirmPopup";
 
-
+ 
+ 
 function Login() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -26,16 +27,10 @@ function Login() {
   const [sentOTP, setSentOTP] = useState(false);
   // New state variable to hold data for ConfirmPopup
   const [confirmPopupData, setConfirmPopupData] = useState(null);
+  const [resp, setresp] = useState(false);
+ 
 
-  const handleNotification = (message, type) => {
-    setNotificationData({ message, type });
-    setShowNotification(true);
-  };
-
-  const closeNotification = () => {
-    setShowNotification(false);
-  };
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const isValid = /^[0-9]{10}$/.test(value);
@@ -59,35 +54,37 @@ function Login() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSentOTP(true);
-
-    if (formData.phoneNumber.length === 10 && isInputValid) {
+  
+ 
+    if (formData.phoneNumber.length === 10 && isInputValid && formData.phoneNumber.length !== 0) {
       try {
        
         const response = await axios.post("https://ihaf-backend.vercel.app/send-otp", {
           phoneNumber: formData.phoneNumber,
           
         });
-
-        const check = { data: { success: true } };
-
-        if (check.data.success) {
-
+ 
+        console.log(response.data.status)
+        
+        if (response.data.data.status==="AWAITED-DLR") {
+          setSentOTP(true)
+ 
           setConfirmPopupData(formData.phoneNumber);
  
+          // Show ConfirmPopup on successful OTP send
           toast.success('OTP sent successfully.', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 1000,
-            onClose: () => {
-              navigate('/Otp');
-            },
-          });
-
-          handleNotification('OTP Sent Successfully', 'success');
-        } else {
-          handleNotification('Failed to update data', 'error');
-        }
-        console.log(response);
+            
+          })
+          setTimeout(() => {
+            navigate('/Otp');
+          }, 2000);
+        } 
+        else{
+          
+          setSentOTP(false)
+          toast.error('Error! Try again sometime', { position: toast.POSITION.TOP_CENTER })}
       } catch (error) {
         console.error('Error:', error);
         toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER })
@@ -101,6 +98,22 @@ function Login() {
  
   const phoneNumber = localStorage.setItem('phoneNumber', formData.phoneNumber);
 
+  
+  // useEffect(() => {
+  //   // Attach event listener when the component mounts
+  //   const handleGlobalKeyDown = (e) => {
+  //     if (e.key === "Enter") {
+  //       handleSubmit(e);
+  //     }
+  //   };
+
+  //   window.addEventListener("keydown", handleGlobalKeyDown);
+
+  //   // Detach event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener("keydown", handleGlobalKeyDown);
+  //   };
+  // }, []); // Empty dependency array ensures the effect runs only once
   return (
     <>
       <Navbar />

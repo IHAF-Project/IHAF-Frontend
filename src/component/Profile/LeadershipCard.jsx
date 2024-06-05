@@ -10,9 +10,8 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
 
   return (
    
-    
    <div className='leader-card'>
-   {/* card frontside */}
+
    <div className="h-[188px] w-[340px] text-white flex flex-col items-center text-[12px]" style={{background: 'linear-gradient(74deg, rgba(39,39,39,1) 36%, rgba(49,49,49,1) 53%, rgba(80,79,79,1) 77%, rgba(116,113,113,1) 93%, rgba(131,129,129,1) 98%)'}} ref={cardRef}>
    <div className=" flex items-center w-full h-[20%] text-[12px] my-1">
     
@@ -55,8 +54,7 @@ function LeadershipCard({ name,LeaderID,DateOfJoining,Profile,Location,PostingNa
            </div>
            </div>
            </div>
-            {/* card backside */}
-            
+      
            <div className=" w-[340px] h-[188px]" ref={cardRef}>
              <img className=' object-cover' src={back} alt='card'></img>
            {/* <div>

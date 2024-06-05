@@ -9,14 +9,13 @@ import Navbar from '../component/NavBar/Navbar';
 
 function Applyserve() {
   
-
   const { t, i18n } = useTranslation();
   const isTamilLanguage = i18n.language === 'ta';
   const posting = [ 'Secretary','cief','sub']
   
   const tamilNaduDistricts = [ 'Ariyalur', 'Chennai', 'Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kanchipuram','Kanyakumari','Karur', 'Krishnagiri', 'Madurai', 'Nagapattinam','Namakkal', 'Perambalur', 'Pudukkottai','Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur','Theni','Thiruvallur','Thiruvarur','Thoothukudi (Tuticorin)','Tiruchirappalli', 'Tirunelveli','Tiruppur','Tiruvannamalai','Vellore','Viluppuram','Virudhunagar','Tenkasi','Chengalpattu','Ranipet','Tirupathur','Kallakurichi','Mayiladuthurai','Dindigul',
   ];
-  
+    
   const storedData = JSON.parse(localStorage.getItem('userData'));
   const memberID=storedData?.data?.memberID || storedData?.memberID
 
@@ -26,11 +25,10 @@ function Applyserve() {
     memberID: memberID || "",
     postingLocation: "",
     postingName: "",
-   
   });
 
   const handlesubmit = async (e) => {
-  
+
     e.preventDefault();
     if(serve.postingLocation ==="" || serve.postingName ===""){
       toast.success('Incomplete form submission',{
@@ -38,7 +36,6 @@ function Applyserve() {
         
       });
       return
-
     }
 
     try {
@@ -57,7 +54,6 @@ function Applyserve() {
           position:'top-right'
         });
         setServe({
-         
           postingLocation: "",
           postingName: "",
           
@@ -69,7 +65,6 @@ function Applyserve() {
         toast.success(`You are ${er.message}.`,{
           position:'top-right'
         });
-        
       }
     } catch (error) {
       console.error("error", error);

@@ -16,7 +16,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
   return (
 
    <div className='card-section-main'>
-    {/* card frontside */}
+
     <div className="h-[188px] w-[340px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
     <div className="mb-1 flex items-center w-full h-2/6 text-[12px] justify-evenly">
      
@@ -55,7 +55,6 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup}) {
             </div>
             </div>
             </div>
-             {/* card backside */}
              
             <div className=" w-[340px] h-[188px]" ref={cardRef}>
               <img className=' object-cover' src={back} alt='card'></img>

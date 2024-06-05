@@ -130,6 +130,7 @@ height:30.648px;
 padding: 1rem;
 justify-content: center;
 align-items: center;
+width: 86px;
 border: none;
 border-radius: 5.282px;
 background: #356DFF;
@@ -144,44 +145,29 @@ cursor: pointer;
 }
  
 .hovdon:hover{
- 
   color: #ffffff;
  padding: 8px;
   background-color: #e5a603;
   border-radius: 5px;
- 
 }
  
 .hovjoin{
  
   transition: background-color 0.3s ease;
- 
   text-decoration:none ;
- 
- 
- 
   padding:0.5em;
- 
   background:10rem;
- 
   background-color:white;
- 
   text-align:center;
- 
   margin:'0';
- 
   border-radius: 2rem;
- 
 }
 .toggle{
   cursor: pointer;
 }
 .hovjoin:hover{
- 
   color: #ffffff;
- 
   background-color: #df0505;
- 
 }
  
 .hov:hover{

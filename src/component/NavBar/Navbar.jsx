@@ -13,13 +13,11 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
 
-
 const Navbar = () => {
   
  const [isOpen ,setClose] =useState(false)
  const [isPop, setIsPop] = useState(false);
  const [userData,setUserData] = useState(null)
-
 
   const handleClickPop = () => {
     setIsPop(!isPop);
@@ -82,7 +80,6 @@ useEffect (() =>{
    }, 2000);
  };
  
-
   const logoutUser = () =>{
     localStorage.clear();
     window.location.href ="/";
@@ -96,8 +93,7 @@ useEffect (() =>{
         <p className='hovdon'>{currentLanguage === 'ta' ? t('Navbar.6') : t('Donate') }</p>
       { _id ? (
   <Link className='hovjoin' to={`/member/${_id}`} ><span className='hovjoin'>{currentLanguage === 'ta' ? t('Navbar.5') : t('JOIN US')}</span></Link>
-      ): (
-''
+      ): (''
       )}
         </div>
          </div>
@@ -114,7 +110,7 @@ useEffect (() =>{
           <li><a href="/" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ? t('Navbar.1') : t('Home')}</a></li>
           <li><Link to="/About" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.2'):  t('Party')}</Link></li>
           <li><a href="" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.3'): t('People')}</a></li>
-          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Navbar.7'):  t('Gallery')}</Link></li>
+          <li><Link to="/gallery" className={`${tamilLanguage ? 'Navbar-link-tamil' : 'Navbar-link-english'}`}>{currentLanguage === 'ta' ?  t('Gallery.1'): 'Gallery'}</Link></li>
         </ul>
       </div>
       </div>
@@ -147,8 +143,7 @@ useEffect (() =>{
          </p>
          </button>
          )}
-
-      
+          
       </div>
       </div>
       </div>

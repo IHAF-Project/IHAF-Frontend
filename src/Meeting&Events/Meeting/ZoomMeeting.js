@@ -15,12 +15,14 @@ function ZoomMeeting() {
         if (data.data.length > 0) {
           setSelectedMeetUrl(data.data[0].meetUrl);
           setSelectedMeetCardUrl(data.data[0].meetCardUrl);
+          console.log (meet , "meet")
         }
       })
       .catch((error) => console.error(error));
-      console.log(meet, "photos===")
+      console.log(selectedMeetCardUrl, "photos===")
+      console.log (meet , "meet")
   }, []);
-  console.log (selectedMeetUrl, "link===")
+ 
 
   // const handleCopyCodeClick = () => {
   //   const tempInput = document.createElement('input');

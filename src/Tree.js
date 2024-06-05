@@ -7,11 +7,12 @@ import Page8 from './Blood-donation/Blood-donate.js';
 import Footer from './component/Footer/Footer.js';
 import Meeting from './Meeting&Events/Meeting/Meeting.js';
 import Home from './Federation-About/Federation.js';
-import Join from './Join/Join.js';
+import Join from '../src/JOIN/Join.js';
 import Cards from './ApplyServe-Slider/Slider.js';
 import useScrollToTop from './component/Hooks/useScrollToTop.js';
 function Tree() {
-  useScrollToTop();
+   useScrollToTop()
+   
   return (
     <div>
       <Page1 />
