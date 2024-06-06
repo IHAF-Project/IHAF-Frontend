@@ -16,7 +16,7 @@ function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,distric
 
    <div className='card-section-main'>
     {/* card frontside */}
-    <div className="h-[270px] w-[450px] ph:w-[400px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
+    <div className="h-auto w-[450px] ph:w-[400px] text-white flex flex-col justify-evenly items-center " style={{background: 'radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) '}} ref={cardRef}>
     <p className=' text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2'>{t('JionMemberShip.26')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.28')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.27')} <img src='https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png' width='8px' height='8px' /> {t('JionMemberShip.29')}</p>
     <div className="mb-1 flex items-center w-full h-2/6 text-[12px] justify-evenly">
     
