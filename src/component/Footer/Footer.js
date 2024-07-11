@@ -1,6 +1,7 @@
 import React from 'react'
 import image1 from "../../images/MicrosoftTeams-image 1.png"
 import "./Footer.css"
+import copy from "../../Assets/copy.png"
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom';
 function Footer() {
@@ -54,7 +55,11 @@ function Footer() {
                <p className={`${isTamilLanguage ? 'footer-text-Addtress-tamil' : 'footer-text-Addtress'}`}>{t('hello.26')}</p>
             </div>
          </div>
+         <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "5px"}}>
+          <p  style={{fontSize: "20px", color: "white"}}>©</p>
          <p className='Footer-copy-text'>{t('hello.18')}</p>
+         </div>
+         
          
       </div>
     </div>

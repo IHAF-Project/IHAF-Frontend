@@ -64,7 +64,7 @@ useScrollToTop();
         </div>
       </div>
       <div className='about-main-cont'>
-        <p className={`${isTamilLanguage ? 'founting-price-tamil' : 'founting-price'}`}>{t('hello.44')}<br/> <br/>{t('hello.46')}</p>
+        <p className={`${isTamilLanguage ? 'founting-price-tamil' : 'founting-price'}`}>{t('hello.44')}<br/> <br/><span>{t('hello.46')}</span></p>
         <p className={`${isTamilLanguage ? 'founding-content-tamil' : 'founding-content'}`}>{t('hello.41')}</p>
       </div>
    

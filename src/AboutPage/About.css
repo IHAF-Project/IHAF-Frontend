@@ -26,11 +26,17 @@
 }
 .content-why-tamil{
     font-size: 1rem;
+    text-align: justify;
     width: 59vw;
 }
 .founting-price-tamil{
     font-size: 1rem;
+    text-align: justify;
+
     width: 53vw;
+}
+.founting-price-tamil span {
+    display:none ;
 }
 .providing-text-tamil {
     width: 58vw;
