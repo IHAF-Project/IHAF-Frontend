@@ -50,7 +50,7 @@ line-height: normal;
     font-size: 0.8rem;
     font-style: normal;
     text-align: start;
-    width: 36vh;
+    /* width: 36vh; */
     font-weight: 400;
     line-height: normal;
 }
@@ -99,7 +99,7 @@ text-transform: uppercase;
     flex-direction: row;
 }
 .footer-text-address-container{
-    width: 28vw;
+    width: 33vw;
     padding: 1em;
     height: auto;
     background: rgba(255, 255, 255, 0.21);
@@ -171,11 +171,12 @@ text-transform: uppercase;
         flex-direction: row;
     }
     .footer-text-address-container {
-        width: 33vw;
-        padding-left: 2rem;
-        padding-right: 1rem;
+        width: 38vw;
+        /* padding-left: 2rem; */
+        font-size: 10px;
+        /* padding-right: 1rem; */
         height: auto;
-        background: rgba(255, 255, 255, 0.21);
+        background: rgba(255, 255, 255, 0.21);  
     }
     .footer-text-Addtress {
         color: #FFF;
