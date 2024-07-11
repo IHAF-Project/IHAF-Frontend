@@ -51,7 +51,7 @@ useScrollToTop();
           <p className={`${isTamilLanguage ? 'heading-about-tamil' : 'heading-about'}`} ref={textRef}>
             {t('hello.37')}
           </p>
-          <p className='about-text-cont'>INTRAGRATED INFGFHF FEDRATION FOR AMBEDKAR</p>
+          <p className='about-text-cont'>INTEGRAL HUMANISM AMBEDKAR FEDERATION</p>
         </div>
       </div>
       <div className='about-main2-cont'>
@@ -64,13 +64,10 @@ useScrollToTop();
         </div>
       </div>
       <div className='about-main-cont'>
-        <p className={`${isTamilLanguage ? 'founting-price-tamil' : 'founting-price'}`}>{t('hello.44')}</p>
+        <p className={`${isTamilLanguage ? 'founting-price-tamil' : 'founting-price'}`}>{t('hello.44')}<br/> <br/>{t('hello.46')}</p>
         <p className={`${isTamilLanguage ? 'founding-content-tamil' : 'founding-content'}`}>{t('hello.41')}</p>
       </div>
-      <div className='about-main2-cont'>
-        <p className={`${isTamilLanguage ? 'achiving-head-tamil' : 'achiving-head'}`}>{t('hello.42')}</p>
-        <p className={`${isTamilLanguage ? 'providing-text-tamil' : 'providing-text'}`}>{t('hello.43')}</p>
-      </div>
+   
      <Footer/>
     </div>
   );

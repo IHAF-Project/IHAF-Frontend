@@ -76,7 +76,7 @@
     "15" : "Emergency for blood donor ?",
     "16" : " Contact our 24/7  people support team from IHAF",
     "17" : "Integral Humanism Ambedkar Federation",
-    "18" : "@copy rights reserved",
+    "18" : "@copy rights reserved IHAF",
     "19" : "Join us",
     "20" : "Home",
     "21" : "Social media",
@@ -84,7 +84,7 @@
     "23" : "Leaders",
     "24" : "Feedback",
     "25" : "Address",
-    "26" : "INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Road,Nedugunram,Chenglepet-600048",
+    "26" : "INTEGRAL HUMANISAM AMBEDKAR FEDERATION,No.139/3,Gandhi Road,Nedugundram,Chenglepet-600048",
     "27" : "Add attachments",
     "28" : "Upload",
     "29" : "Events",
@@ -102,8 +102,9 @@
     "41" : "Founding Principles",
     "42" : "Wherever the injustices are rampant and the rights of the people are being deprived, it is my best duty to uphold justice with my voice and knowledge!!!",
     "43" : "Providing quality education to the underprivileged students in the poor and downtrodden communities, providing special training for night schools in every village and examinations like UPSC SCTC NPSC NEET, setting up of hostels for women working in cities, setting up of counselling centres in every district, setting up of houses for the elderly in every district, quality INDUSTRIAL TRAINING INSTITUTEs with government assistance in each panchayat union, conservation of ground water and implementation of the environment with government assistance, conservation of ground water and environment.",
-    "44" : "While our institution continues to strive to provide political empowerment and political awareness to the marginalised and the abandoned in a society, our institution will take care of the welfare of women, youth and the elderly and set up old age homes, vocational training institutes, night school coaching centres, etc., throughout the district.",
-    "45":"I see it as a platform for collaboration with like-minded individuals who share a common vision for their nation's future. This collaboration extends to electoral campaigns, grassroots activities, and policy advocacy."
+    "44" : "In addition to our institution's ongoing efforts to give the disenfranchised and marginalised in society political empowerment and awareness, we will also establish old age homes, career centres, night school coaching centres, and other facilities in the district to address the needs of women, youth, and the elderly.",
+    "45":"I see it as a platform for collaboration with like-minded individuals who share a common vision for their nation's future. This collaboration extends to electoral campaigns, grassroots activities, and policy advocacy.",
+    "46":"WHERE THE PEOPLE'S RIGHTS ARE BEING DEPRIVED AND INJUSTICES ARE RAGEOUS, IT IS MY BEST DUTY TO UPHOLD JUSTICE WITH MY VOICE AND KNOWLEDGE!  supplying special training for night schools in every village and exams like UPSC SCTC NPSC NEET, establishing counselling centres in every district, establishing houses for the elderly in every district, supplying quality education to the impoverished students in the impoverished and downtrodden communities, With government support, industrial training institutes are operating in every panchayat union. Additionally, ground water conservation and environmental implementation are being carried out. "
 
    },
    "Navbar" :{
@@ -125,7 +126,7 @@
     "2":"Discover the latest events, rallies, and initiatives under IHAF’S transformative leadership",
     "3":"Facebook",
     "4":"Youtube",
-    "5":"Twitter"
+    "5":"X"
 },
 "JionMemberShip":{
   "1":"JOIN MEMBERSHIP",

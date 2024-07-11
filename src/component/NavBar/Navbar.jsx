@@ -125,7 +125,7 @@ useEffect (() =>{
       </div>
       <div className='navbarsocial-M'>
       <div className="navbar-social">
-      <Link to="https://x.com/ihafindia?s=21" target='_blank'><TwitterIcon sx={{fontSize:'24px',color:'white'}}/></Link>
+      <Link to="https://x.com/ihafindia?s=21" target='_blank'><p style={{fontSize: "24px", color: "white"}}>X</p></Link>
         <Link to="https://instagram.com/ihafindia?igshid=MzRlODBiNWFlZA==" target='_blank' ><InstagramIcon sx={{fontSize:'24px',color:'white'}}/></Link>
         <Link to="https://www.facebook.com/profile.php?id=100093003670459&mibextid=LQQJ4d" target='_blank' ><FacebookIcon sx={{fontSize:'24px',color:'white'}}/></Link>
         <Link to="https://www.youtube.com/watch?v=I5gZZfvoTDU" target='_blank'><YouTubeIcon sx={{fontSize:'24px',color:'white'}}/></Link>

@@ -6,7 +6,7 @@
 .about-main-cont {
     display: flex;
     align-items: center;
-    height: 45vh;
+    height: 60vh;
     justify-content: space-around;
     background: #E9E9E9;
 }
@@ -62,6 +62,7 @@
 .content-why{
     width: 55vw;
     color: #000;
+    text-align: justify;
     font-family: Poppins;
     font-size: 1rem;
     font-style: normal;
@@ -90,6 +91,7 @@
 .founting-price {
     color: #000;
     font-family: Poppins;
+    text-align: justify;
     font-size: 16px;
     font-style: normal;
     width: 55vw;

@@ -88,8 +88,8 @@ useEffect(() => {
           style={{padding:'5px'}}
         >
           <div className='twitter-box '>
-    <p>{currentLanguage === 'ta' ? t('pageThree.5') : t('Twitter')}</p>
-     <img src={twitter} alt='twitter' />
+    <p>{currentLanguage === 'ta' ? t('pageThree.5') : t('X')}</p>
+     <img src= "https://res.cloudinary.com/dbjlbongr/image/upload/v1720692439/x_nawxaw.png" alt='twitter' />
           </div>
          </div>
       </div>

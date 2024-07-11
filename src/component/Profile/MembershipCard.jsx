@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import back from '../../images/MicrosoftTeams-image (26).png'
 import signature from '../../images/MicrosoftTeams-image (27).png'
 
-
-
 function MembershipCard({ name,MemberID,DateOfJoining,Profile,Bloodgroup,district,constituency}) {
 
   const { t } = useTranslation();
