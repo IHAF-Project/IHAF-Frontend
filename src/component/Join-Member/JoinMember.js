@@ -57,7 +57,6 @@ function JionMember() {
     aadharCardURL: null,
     profileURL: null,
   });
-  let selectedAdhar;
 
   const rows = [
     { id: 1, firstName: "Name", data: formData.name },
@@ -460,19 +459,16 @@ function JionMember() {
 
   const [religions, setreligions] = useState(religionsE);
   const [education, seteducation] = useState(educationE);
-  const [applied, setapplied] = useState("");
+  const [ setapplied] = useState("");
   const [appliedpop, setappliedpop] = useState(false);
   const [appliedpop1, setappliedpop1] = useState(false);
   const [dataPreview, setDataPreview] = useState(false);
 
-  let selectedprofile;
 
   const [isInputValid, setIsInputValid] = useState(true);
   let member;
 
-
   const [selectedState, setSelectedState] = useState("");
-  
 
   const handleStateChange = (e) => {
     const { value } = e.target;
@@ -591,9 +587,6 @@ function JionMember() {
     console.log("formdata", formData);
   };
 
-
-
-
   const updateFormData = async () => {
     let isValidAdharNumber;
     const isValid = Object.entries(formData).every(([key, value]) => {
@@ -702,7 +695,7 @@ function JionMember() {
     console.log(formData, "updated data");
   };
 
-  const handleYesClick = async (e) => {
+  const handleYesClick = async () => {
     if (appliedpop || appliedpop1) {
       setappliedpop(false);
       setappliedpop1(false);
@@ -753,7 +746,6 @@ function JionMember() {
         formData
       );
       const secureUrl = response.data.secure_url;
-      selectedprofile = secureUrl;
 
       setProfileFile(secureUrl);
       setformData((prevData) => ({
@@ -1077,89 +1069,109 @@ function JionMember() {
                       ></textarea>
                     </div>
                     <div className="state&district&consitituency">
-      <div className="ad-sub">
-        {/* State */}
-        <div className="ad-data">
-          <div className="jion-cont">
-            <label>
-              {t("Address.2")}{" "}
-              <span style={{ color: "red", paddingLeft: "0" }}>*</span>
-            </label>
-            <p>
-              <Fragment>:</Fragment>
-            </p>
-          </div>
-          <div className="data5 dist">
-            <select
-              name="state"
-              onChange={handleStateChange}
-              className="text-area-address"
-              value={formData.state || ""}
-            >
-              <option value="">Select Your State</option>
-              <option value="TamilNadu">Tamil Nadu</option>
-              <option value="Puducherry">Puducherry</option>
-            </select>
-          </div>
-        </div>
-        {/* District */}
-        <div className="Address">
-          <div className="ad-data">
-            <div className="jion-cont">
-              <label>
-                {currentLanguage === "ta" ? t("Address.3") : t("District")}{" "}
-                <span style={{ color: "red", paddingLeft: "0" }}>*</span>
-              </label>
-              <p>
-                <Fragment>:</Fragment>
-              </p>
-            </div>
-            <div className="data5 dist">
-              <select
-                value={formData.district || ""}
-                name="district"
-                onChange={handleFormChange}
-                className="text-area-address"
-              >
-                <option value="">{t("JionMemberShip.16")}</option>
-                {(selectedState === "TamilNadu" ? Districts : puducherrydistricts).map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Constituency */}
-      <div className="JionFrom-content-inputs">
-        <div className="jion-cont">
-          <label>
-            {currentLanguage === "ta" ? t("தொகுதி") : t("Constituency")}
-            <span style={{ color: "red", paddingLeft: "0" }}>*</span>
-          </label>
-          <p>
-            <Fragment>:</Fragment>
-          </p>
-        </div>
-        <div className="data5 dist">
-          <select
-            value={formData.constituency || ""}
-            onChange={handleFormChange}
-            name="constituency"
-            className="text-area-address"
-          >
-            <option value="">Select a city</option>
-            {(selectedState === "TamilNadu" ? TamilNadulist : puducheryList).map((constituency, index) => (
-              <option key={index} value={constituency}>
-                {constituency}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-    </div>
+                      <div className="ad-sub">
+                        {/* State */}
+                        <div className="ad-data">
+                          <div className="jion-cont">
+                            <label>
+                              {t("Address.2")}{" "}
+                              <span style={{ color: "red", paddingLeft: "0" }}>
+                                *
+                              </span>
+                            </label>
+                            <p>
+                              <Fragment>:</Fragment>
+                            </p>
+                          </div>
+                          <div className="data5 dist">
+                            <select
+                              name="state"
+                              onChange={handleStateChange}
+                              className="text-area-address"
+                              value={formData.state || ""}
+                            >
+                              <option value="">Select Your State</option>
+                              <option value="TamilNadu">Tamil Nadu</option>
+                              <option value="Puducherry">Puducherry</option>
+                            </select>
+                          </div>
+                        </div>
+                        {/* District */}
+                        <div className="Address">
+                          <div className="ad-data">
+                            <div className="jion-cont">
+                              <label>
+                                {currentLanguage === "ta"
+                                  ? t("Address.3")
+                                  : t("District")}{" "}
+                                <span
+                                  style={{ color: "red", paddingLeft: "0" }}
+                                >
+                                  *
+                                </span>
+                              </label>
+                              <p>
+                                <Fragment>:</Fragment>
+                              </p>
+                            </div>
+                            <div className="data5 dist">
+                              <select
+                                value={formData.district || ""}
+                                name="district"
+                                onChange={handleFormChange}
+                                className="text-area-address"
+                              >
+                                <option value="">
+                                  {t("JionMemberShip.16")}
+                                </option>
+                                {(selectedState === "TamilNadu"
+                                  ? Districts
+                                  : puducherrydistricts
+                                ).map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Constituency */}
+                      <div className="JionFrom-content-inputs">
+                        <div className="jion-cont">
+                          <label>
+                            {currentLanguage === "ta"
+                              ? t("தொகுதி")
+                              : t("Constituency")}
+                            <span style={{ color: "red", paddingLeft: "0" }}>
+                              *
+                            </span>
+                          </label>
+                          <p>
+                            <Fragment>:</Fragment>
+                          </p>
+                        </div>
+                        <div className="data5 dist">
+                          <select
+                            value={formData.constituency || ""}
+                            onChange={handleFormChange}
+                            name="constituency"
+                            className="text-area-address"
+                          >
+                            <option value="">Select a city</option>
+                            {(selectedState === "TamilNadu"
+                              ? TamilNadulist
+                              : puducheryList
+                            ).map((constituency, index) => (
+                              <option key={index} value={constituency}>
+                                {constituency}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
