@@ -3,7 +3,7 @@ import { useRef } from "react";
 import logo from "../../images/logo.png";
 import { PropTypes } from "prop-types";
 import { useTranslation } from "react-i18next";
-import back from "../../images/MicrosoftTeams-image (26).png";
+import back from "../../images/Media.jpg";
 import signature from "../../images/MicrosoftTeams-image (27).png";
 
 function MembershipCard({
