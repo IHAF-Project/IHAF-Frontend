@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Ambeth from "../../Assets/MicrosoftTeams-image (19).png";
 import Navbar from "../NavBar/Navbar";
-import axios from "axios";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 
@@ -23,6 +22,8 @@ import useScrollToTop from "../Hooks/useScrollToTop";
 import profile from "../../Assets/profile.jpg";
 import aadhar from "../../Assets/aadhar card.JPG";
 import { useEffect } from "react";
+import { uploadToCloudinary } from "../../config/cloudinary";
+import DeleteIcon from "../Icons/DeleteIcon";
 
 function JionMember() {
   const { _id } = useParams();
@@ -711,50 +712,66 @@ function JionMember() {
   const handleAadharFileSelect = async (e) => {
     setshowload1(true);
     const selectedFile = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-    formData.append("upload_preset", "ivs6otkx");
-
+    
     try {
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload",
-        formData
-      );
-      const secureUrl = response.data.secure_url;
-
+      const secureUrl = await uploadToCloudinary(selectedFile);
+      
       setAadharFile(secureUrl);
       setformData((prevData) => ({
         ...prevData,
         aadharCardURL: secureUrl,
       }));
       setshowload1(false);
+      toast.success("Aadhar card uploaded successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } catch (error) {
       console.log("Error uploading Aadhar file:", error);
+      
+      let errorMessage = "Failed to upload Aadhar card. Please try again.";
+      if (error.message.includes('Upload preset')) {
+        errorMessage = "Upload configuration error. Please contact support.";
+      } else if (error.message.includes('cloud_name')) {
+        errorMessage = "Service configuration error. Please contact support.";
+      }
+      
+      toast.error(errorMessage, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setshowload1(false);
     }
   };
 
   const handleProfileFileSelect = async (e) => {
     setshowload(true);
     const selectedFile = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-    formData.append("upload_preset", "ivs6otkx");
-
+    
     try {
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload",
-        formData
-      );
-      const secureUrl = response.data.secure_url;
-
+      const secureUrl = await uploadToCloudinary(selectedFile);
+      
       setProfileFile(secureUrl);
       setformData((prevData) => ({
         ...prevData,
         profileURL: secureUrl,
       }));
       setshowload(false);
+      toast.success("Profile photo uploaded successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } catch (error) {
       console.log("Error uploading profile file:", error);
+      
+      let errorMessage = "Failed to upload profile photo. Please try again.";
+      if (error.message.includes('Upload preset')) {
+        errorMessage = "Upload configuration error. Please contact support.";
+      } else if (error.message.includes('cloud_name')) {
+        errorMessage = "Service configuration error. Please contact support.";
+      }
+      
+      toast.error(errorMessage, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setshowload(false);
     }
   };
 
@@ -1234,12 +1251,12 @@ function JionMember() {
                           </span>
                         )}
                         {aadharFile && (
-                          <img
-                            src="https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png"
+                          <DeleteIcon 
                             width="25px"
                             height="25px"
-                            alt="Delete"
+                            color="#666"
                             onClick={() => handleDelete("aadhar")}
+                            style={{ marginLeft: '10px' }}
                           />
                         )}
                       </div>
@@ -1308,12 +1325,12 @@ function JionMember() {
                           </span>
                         )}
                         {profileFile && (
-                          <img
-                            src="https://freeiconshop.com/wp-content/uploads/edd/trash-var-outline.png"
+                          <DeleteIcon 
                             width="25px"
                             height="25px"
-                            alt="Delete"
+                            color="#666"
                             onClick={() => handleDelete("profile")}
+                            style={{ marginLeft: '10px' }}
                           />
                         )}
                       </div>

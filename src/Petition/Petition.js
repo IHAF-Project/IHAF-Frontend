@@ -3,6 +3,7 @@ import './Petition.css';
 import image1 from '../images/Arrow 1 (1).png';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import { uploadToCloudinary } from '../config/cloudinary';
 
 function Petition() {
   const { t, i18n } = useTranslation();
@@ -83,14 +84,10 @@ const handleSuccess = () => {
   let file 
   const handleFileChange = async (e) => {
     setshowload1(true)
-     file = e.target.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'ivs6otkx');
+    file = e.target.files[0];
 
     try {
-      const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
-      const secureUrl = response.data.secure_url;
+      const secureUrl = await uploadToCloudinary(file);
       console.log(secureUrl, "upload");
       
       setdata({

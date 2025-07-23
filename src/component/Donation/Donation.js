@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Navbar from "../../component/NavBar/Navbar.jsx"
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { uploadToCloudinary } from '../../config/cloudinary';
 const Donation = () => {
 
   const storedData = JSON.parse(localStorage.getItem('userData'));
@@ -27,13 +28,9 @@ const Donation = () => {
   const handleImageUpload = async (e) => {
     setshowload1(true);
     file = e.target.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'ivs6otkx');
   
     try {
-      const response = await axios.post('https://api.cloudinary.com/v1_1/ddanljbwx/auto/upload', formData);
-      const secureUrl = response.data.secure_url;
+      const secureUrl = await uploadToCloudinary(file);
   
       setFormData((prevData) => ({
         ...prevData,
