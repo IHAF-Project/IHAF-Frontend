@@ -1,8 +1,8 @@
 // Cloudinary configuration
 export const CLOUDINARY_CONFIG = {
-  cloudName: process.env.REACT_APP_CLOUD_NAME || 'di8yozs46',
+  cloudName: process.env.REACT_APP_CLOUD_NAME || 'dwmutgktv',
   uploadPreset: process.env.REACT_APP_UPLOAD_PRESET || 'ihaf_uploads',
-  apiUrl: `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME || 'di8yozs46'}/auto/upload`
+  apiUrl: `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME || 'dwmutgktv'}/auto/upload`
 };
 
 // Upload function with better error handling
@@ -18,6 +18,7 @@ export const uploadToCloudinary = async (file) => {
   try {
     console.log('Uploading to:', CLOUDINARY_CONFIG.apiUrl);
     console.log('Using upload preset:', CLOUDINARY_CONFIG.uploadPreset);
+    console.log('Cloud name:', CLOUDINARY_CONFIG.cloudName);
     
     const response = await fetch(CLOUDINARY_CONFIG.apiUrl, {
       method: 'POST',
@@ -28,11 +29,24 @@ export const uploadToCloudinary = async (file) => {
       const errorData = await response.json().catch(() => ({}));
       console.error('Cloudinary upload failed:', errorData);
       
+      // Detailed error handling
+      if (errorData.error?.message === 'cloud_name is disabled') {
+        const errorMsg = `Cloudinary Error: Your cloud name "${CLOUDINARY_CONFIG.cloudName}" is disabled. 
+        
+        Please try:
+        1. Log into https://cloudinary.com
+        2. Check Account Status in Dashboard → Settings → Account
+        3. Verify the cloud name is correct and account is active
+        4. Contact Cloudinary support if account is restricted
+        5. For new accounts, ensure email verification is complete`;
+        throw new Error(errorMsg);
+      }
+      
       if (errorData.error && errorData.error.message === 'Upload preset not found') {
         throw new Error(`Upload preset "${CLOUDINARY_CONFIG.uploadPreset}" not found. Please create an unsigned upload preset in your Cloudinary dashboard.`);
       }
       
-      throw new Error(`Upload failed: ${response.status} ${response.statusText}`);
+      throw new Error(`Upload failed: ${response.status} ${response.statusText} - ${errorData.error?.message || 'Unknown error'}`);
     }
 
     const data = await response.json();
@@ -45,16 +59,6 @@ export const uploadToCloudinary = async (file) => {
     return data.secure_url;
   } catch (error) {
     console.error('Error uploading to Cloudinary:', error);
-    
-    // Re-throw with more context
-    if (error.message.includes('cloud_name is disabled')) {
-      throw new Error('Cloudinary configuration error: Please check your cloud name settings');
-    }
-    
-    if (error.message.includes('Upload preset not found')) {
-      throw new Error(`Upload preset "${CLOUDINARY_CONFIG.uploadPreset}" not found. Please create an unsigned upload preset in your Cloudinary dashboard with this name.`);
-    }
-    
     throw error;
   }
 };
