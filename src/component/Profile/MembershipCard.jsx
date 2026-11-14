@@ -1,10 +1,18 @@
-/* eslint-disable jsx-a11y/alt-text */
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import logo from "../../images/logo.png";
 import { PropTypes } from "prop-types";
 import { useTranslation } from "react-i18next";
 import back from "../../images/Media.jpg";
 import signature from "../../images/MicrosoftTeams-image (27).png";
+
+const DEFAULT_AVATAR =
+  "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png";
+
+// CSS dot instead of the hot-linked clker.com image: that host doesn't respond, and
+// html2canvas waits for every image to load, so the card download hung.
+const BlueDot = () => (
+  <span className="inline-block w-[7px] h-[7px] rounded-full bg-[#1e7be0]" />
+);
 
 function MembershipCard({
   name,
@@ -18,112 +26,93 @@ function MembershipCard({
   const { t } = useTranslation();
   const cardRef = useRef(null);
 
+  // Label / value pairs rendered in a grid so every row grows with its content
+  // (long names or Tamil labels wrap instead of overlapping the next row).
+  const details = [
+    { label: t("JionMemberShip.3"), value: name },
+    { label: t("hello.5"), value: MemberID },
+    { label: t("JionMemberShip.19"), value: DateOfJoining },
+    { label: t("JionMemberShip.9"), value: Bloodgroup },
+    { label: t("JionMemberShip.30"), value: constituency },
+    { label: t("JionMemberShip.25"), value: district },
+  ];
+
   return (
     <div className="card-section-main">
       {/* card frontside */}
       <div
-        className="h-auto w-[450px] ph:w-[400px] text-white flex flex-col justify-evenly items-center "
+        className="min-h-[270px] w-[450px] ph:w-[400px] text-white flex flex-col items-stretch"
         style={{
           background:
             "radial-gradient(circle, rgb(110 150 179) 0%, rgb(63 76 136) 82%) ",
         }}
         ref={cardRef}
       >
-        <div className="mb-1 flex items-center w-full text-[12px] justify-evenly ">
-          <div className="h-full w-[24%] flex justify-center items-center p-2">
-            <img className=" object-cover h-[12vh]" src={logo} alt="logo" />
-          </div>
-
-          <div className=" w-[80%] text-[12px] text-white flex flex-col items-center justify-evenly">
-            <p className=" text-xs break-words pt-2 tracking-widest flex justify-center items-center gap-2">
-              {t("JionMemberShip.26")}{" "}
-              <img
-                src="https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png"
-                width="8px"
-                height="8px"
-              />{" "}
-              {t("JionMemberShip.28")}{" "}
-              <img
-                src="https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png"
-                width="8px"
-                height="8px"
-              />{" "}
-              {t("JionMemberShip.27")}{" "}
-              <img
-                src="https://www.clker.com/cliparts/j/L/l/O/b/A/blue-dot-hi.png"
-                width="8px"
-                height="8px"
-              />{" "}
+        {/* header: logo + motto + federation name */}
+        <div className="flex items-center w-full px-3 pt-2 gap-2">
+          <img className="h-[72px] w-[72px] shrink-0" src={logo} alt="logo" />
+          <div className="flex-1 min-w-0 flex flex-col items-center text-center">
+            <p className="text-xs tracking-widest flex flex-wrap justify-center items-center gap-2">
+              {t("JionMemberShip.26")} <BlueDot />
+              {t("JionMemberShip.28")} <BlueDot />
+              {t("JionMemberShip.27")} <BlueDot />
               {t("JionMemberShip.29")}
             </p>
-            <p className="text-white text-[14px] font-bold items-center text-center my-2">
+            <p className="text-[13px] font-bold leading-tight mt-1">
               {t("pageOne.1")}
             </p>
-            <span className=" text-[10px]">{t("JionMemberShip.20")}</span>
+            <span className="text-[10px] leading-tight mt-1">
+              {t("JionMemberShip.20")}
+            </span>
           </div>
         </div>
-        <div className="signature">
-          <img src={signature} alt="sign" />
-          <p>(President Sign)</p>
-        </div>
-        <div className="flex items-center justify-around p-3 gap-3 border-2 rounded-lg m-2 text-[12px] font-Poppins ">
-          <div className="w-[20%] h-[90%] flex items-center justify-center">
+
+        {/* details box */}
+        <div className="flex-1 flex items-stretch gap-3 border-2 rounded-lg mx-3 mb-3 mt-2 p-2 font-Poppins">
+          {/* no object-fit here: html2canvas (download) ignores it, so keep the natural aspect ratio */}
+          <div className="w-[80px] shrink-0 flex items-center justify-center">
             <img
-              className=" object-cover"
-              src={
-                Profile ||
-                "https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png"
-              }
-              alt="logo"
+              className="w-auto h-auto max-w-[80px] max-h-[100px] rounded"
+              src={Profile || DEFAULT_AVATAR}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = DEFAULT_AVATAR;
+              }}
+              alt="profile"
             />
           </div>
-          <div className="w-[80%] h-[100%]">
-            <div className=" w-[97%] h-6 flex flex-row gap-2 font-Poppins">
-              <p>{t("JionMemberShip.3")} </p>
-              <>:</>
-              <span>{name}</span>
+
+          <div className="flex-1 min-w-0 flex flex-col justify-between gap-1">
+            <div className="grid grid-cols-[auto_auto_minmax(0,1fr)] gap-x-2 gap-y-[2px] text-[11px] leading-snug">
+              {details.map(({ label, value }) => (
+                <Fragment key={label}>
+                  <span>{label}</span>
+                  <span>:</span>
+                  <span className="break-words">{value}</span>
+                </Fragment>
+              ))}
             </div>
-            <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins">
-              {" "}
-              <p>{t("hello.5")} </p>
-              <>:</>
-              <span>{MemberID}</span>
-            </div>
-            <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins">
-              {" "}
-              <p>{t("JionMemberShip.19")} </p>
-              <>:</>
-              <span>{DateOfJoining}</span>
-            </div>
-            <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins">
-              {" "}
-              <p>{t("JionMemberShip.9")} </p>
-              <>:</>
-              <span>{Bloodgroup}</span>
-            </div>
-            <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins">
-              {" "}
-              <p>{t("JionMemberShip.30")} </p>
-              <>:</>
-              <span>{constituency}</span>
-            </div>
-            <div className="w-[97%] h-5 flex flex-row gap-2 font-Poppins">
-              {" "}
-              <p>{t("JionMemberShip.25")} </p>
-              <>:</>
-              <span>{district}</span>
+
+            {/* signature image is square with whitespace around it: crop it with overflow instead of object-fit */}
+            <div className="self-end flex flex-col items-center leading-none">
+              <div className="w-[90px] h-[34px] overflow-hidden flex items-center justify-center">
+                <img
+                  className="w-[90px] h-[90px] max-w-none shrink-0"
+                  src={signature}
+                  alt="sign"
+                />
+              </div>
+              <p className="text-black text-[11px]">(President Sign)</p>
             </div>
           </div>
         </div>
       </div>
-      {/* card backside */}
 
-      <div className=" w-[450px] h-[270px] ph:w-[400px]" ref={cardRef}>
-        <img
-          className=" object-fill h-[270px] ph:w-[400px] ph:object-contain"
-          src={back}
-          alt="card"
-        ></img>
+      {/* card backside */}
+      {/* explicit box sizes (no object-fit, which html2canvas ignores) so the download matches the screen;
+          mobile keeps the image's 1800x1100 ratio */}
+      <div className=" w-[450px] h-[270px] ph:w-[400px] ph:h-[244px]">
+        <img className="w-full h-full" src={back} alt="card"></img>
       </div>
     </div>
   );

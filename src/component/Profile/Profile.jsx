@@ -97,25 +97,54 @@ function Profile() {
  
 
  
-  const exportToPNG = (elementSelector, fileName) => {
+  const [downloadingCard, setDownloadingCard] = useState('');
+
+  const exportToPNG = async (elementSelector, fileName) => {
+    if (downloadingCard) return;
     const elementToCapture = document.querySelector(elementSelector);
- 
+
     if (!elementToCapture) {
       console.error('Element not found for capture');
       return;
     }
- 
-    html2canvas(elementToCapture, { useCORS: true }).then((canvas) => {
-      const url = canvas.toDataURL();
+
+    setDownloadingCard(fileName);
+    try {
+      const canvas = await html2canvas(elementToCapture, {
+        useCORS: true,
+        backgroundColor: null,
+        scale: 3, // high resolution, so the PNG looks like the printed card
+        imageTimeout: 10000,
+        // html2canvas clones the whole page and waits for every <img> in it to load (no timeout).
+        // Skip media outside the card so a slow/broken image elsewhere can't block the download.
+        ignoreElements: (node) =>
+          ['IMG', 'IFRAME', 'VIDEO'].includes(node.tagName) && !elementToCapture.contains(node),
+        onclone: (clonedDoc) => {
+          // Tailwind preflight sets img { display:block }, which breaks html2canvas' text-baseline
+          // measurement and shifts all text down in the PNG. Undo it in the clone only.
+          const style = clonedDoc.createElement('style');
+          style.textContent = 'img { display: inline-block; }';
+          clonedDoc.head.appendChild(style);
+        },
+      });
+
+      const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+      const url = blob ? URL.createObjectURL(blob) : canvas.toDataURL('image/png');
       const a = document.createElement('a');
       a.href = url;
       a.download = `${fileName}.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-    });
+      if (blob) setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+      console.error('Card download failed:', error);
+      alert('Unable to download the card. Please try again.');
+    } finally {
+      setDownloadingCard('');
+    }
   };
- 
+
   const LeaderhandleDownload = () => {
     exportToPNG('.leader-card', 'LeadershipCard');
   };
@@ -248,7 +277,9 @@ function Profile() {
                   <p>Membership card</p>
                   <East sx={{ color: '#04419D' }} />
                   {membershipCardOpen && (
-                    <div className="membership-card">
+                    // stop clicks inside the popup (Download, the card itself) from bubbling to the
+                    // tile's onClick, which toggled the popup closed in the middle of the download
+                    <div className="membership-card" onClick={(e) => e.stopPropagation()}>
                       <div className="membership-card-container">
                         <div className="membership-card-tp">
                           <div className="membership-card-title">
@@ -266,7 +297,9 @@ function Profile() {
                           constituency={memberDetails?.memberProfile?.constituency || ''}
                         />
                         <div className="member-card-button">
-                          <p onClick={() => exportToPNG('.card-section-main', 'MembershipCard')}>Download</p>
+                          <p onClick={() => exportToPNG('.card-section-main', 'MembershipCard')}>
+                            {downloadingCard === 'MembershipCard' ? 'Downloading...' : 'Download'}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -296,7 +329,9 @@ function Profile() {
                           constituency={memberDetails?.memberProfile?.constituency || ''}
                         />
                         <div className="member-card-button">
-                          <p onClick={LeaderhandleDownload}>Download</p>
+                          <p onClick={LeaderhandleDownload}>
+                            {downloadingCard === 'LeadershipCard' ? 'Downloading...' : 'Download'}
+                          </p>
                         </div>
                       </div>
                     </div>
